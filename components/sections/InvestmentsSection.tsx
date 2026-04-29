@@ -69,9 +69,9 @@ export default function InvestmentsSection() {
       className="relative w-full overflow-hidden"
       style={{ height: "1284px" }}
     >
-      {/* Background image */}
+      {/* Background image — correct Figma node 242:4849 "image 38" */}
       <Image
-        src="/images/investments-bg.jpg"
+        src="/images/investments-section-bg.jpg"
         alt=""
         fill
         className="object-cover object-center"
@@ -193,7 +193,7 @@ export default function InvestmentsSection() {
       ))}
 
       {/* ── BUTTON — left=80px, top=1140px, w=179, h=40 ─────────── */}
-      {/* fill=#FFFFFF (white), text=#1C1C1F (dark) — fill button per Figma */}
+      {/* Dark fill (#1C1C1F) with white text per user instruction */}
       <Link
         href="/investments"
         className="absolute font-body flex items-center"
@@ -202,14 +202,14 @@ export default function InvestmentsSection() {
           top: `${3086 - SECTION_Y}px`,   /* 1140px */
           width: "179px",
           height: "40px",
-          backgroundColor: "#FFFFFF",
-          color: "#1C1C1F",
+          backgroundColor: "#1C1C1F",
+          color: "#FFFFFF",
           fontSize: "16px",
           lineHeight: "24px",
           letterSpacing: "-0.32px",
           paddingLeft: "20px",
           paddingRight: "20px",
-          gap: "8px",
+          whiteSpace: "nowrap",
         }}
       >
         Our Investments →
