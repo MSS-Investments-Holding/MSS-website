@@ -81,6 +81,7 @@ All heading styles use **Merriweather Light (300)**. All body styles use **Inter
 | `text-h6` | H6 | Merriweather | 300 | 16px / 1rem | 22px | 0 | Fine-grain headings, list titles |
 | `text-body-lg` | p (large) | Inter | 400 | 18px / 1.125rem | 28px | -1% (≈ -0.18px) | Lead paragraphs, intro text |
 | `text-body-sm` | p (small) | Inter | 400 | 15px / 0.9375rem | 22px | 0 | Standard body copy |
+| `text-links` | nav links, lang button | Inter | 400 | 13px / 0.8125rem | 1rem (16px) | -1% (≈ -0.13px) | Navbar navigation links and language switcher only |
 | `text-label` | label / span | Inter | 400 | 12px / 0.75rem | 16px | +6% (≈ +0.72px) | Tags, categories, overlines, button labels — **always `text-transform: uppercase`** (confirmed via Figma `textCase: UPPER` on node 242:4822) |
 
 ---

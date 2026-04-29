@@ -46,6 +46,7 @@
   --text-body-lg: 1.125rem; /* 18px */
   --text-body-sm: 0.9375rem; /* 15px */
   --text-label: 0.75rem;   /* 12px */
+  --text-links: 0.8125rem; /* 13px */
   --text-nav: 0.875rem;    /* 14px */
   --text-btn: 1rem;        /* 16px */
 
@@ -63,6 +64,7 @@
   /* Letter spacing */
   --tracking-body-lg: -0.18px;
   --tracking-label: 0.72px;
+  --tracking-links: -0.13px; /* -1% of 13px */
 
   /* Spacing / layout */
   --max-w-site: 1440px;
@@ -104,6 +106,7 @@ body {
 .text-body-lg  { font-size: var(--text-body-lg);  line-height: var(--leading-body-lg); letter-spacing: var(--tracking-body-lg); }
 .text-body-sm  { font-size: var(--text-body-sm);  line-height: var(--leading-body-sm); }
 .text-label    { font-size: var(--text-label);    line-height: var(--leading-label); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.text-links    { font-size: var(--text-links); line-height: 1rem; letter-spacing: var(--tracking-links); }
 .text-nav      { font-size: var(--text-nav);      line-height: 20px; }
 .text-btn      { font-size: var(--text-btn);      line-height: 24px; }
 

@@ -34,7 +34,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="flex items-center gap-1 text-nav font-body text-white hover:text-white/70 transition-colors duration-200"
+              className="flex items-center gap-1 text-links font-body text-white hover:text-white/70 transition-colors duration-200"
             >
               {link.label}
               {link.hasDropdown && (
@@ -51,7 +51,7 @@ export default function Navbar() {
           {/* EN button — 53×36px, white/10 fill */}
           <button
             aria-label="Select language"
-            className="flex items-center justify-center gap-1 font-body text-white hover:bg-white/20 transition-colors duration-200"
+            className="flex items-center justify-center gap-1 text-links font-body text-white hover:bg-white/20 transition-colors duration-200"
             style={{
               width: "53px",
               height: "36px",
