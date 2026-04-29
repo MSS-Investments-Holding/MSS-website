@@ -37,7 +37,6 @@ export default function Navbar() {
             >
               {link.label}
               {link.hasDropdown && (
-                /* Chevron SVG matching Figma 16×16 white vector */
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -46,13 +45,19 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right controls — EN + Search, both white-bordered rectangles per Figma */}
+        {/* Right controls — EN + Search with bg-white/10 fill per Figma */}
         <div className="hidden md:flex items-center gap-3">
-          {/* EN button — 53×36px, white border, no fill */}
+          {/* EN button — 53×36px, white/10 fill */}
           <button
             aria-label="Select language"
-            className="flex items-center gap-1 border border-white/20 text-nav font-body text-white h-9 px-3 hover:bg-white/5 transition-colors duration-200"
-            style={{ width: "53px" }}
+            className="flex items-center justify-center gap-1 font-body text-white hover:bg-white/20 transition-colors duration-200"
+            style={{
+              width: "53px",
+              height: "36px",
+              fontSize: "14px",
+              lineHeight: "20px",
+              backgroundColor: "rgba(255,255,255,0.10)",
+            }}
           >
             EN
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -60,13 +65,16 @@ export default function Navbar() {
             </svg>
           </button>
 
-          {/* Search button — 36×36px square, white border, no fill */}
+          {/* Search button — 36×36px square, white/10 fill */}
           <button
             aria-label="Search"
-            className="flex items-center justify-center border border-white/20 text-white hover:bg-white/5 transition-colors duration-200"
-            style={{ width: "36px", height: "36px" }}
+            className="flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
+            style={{
+              width: "36px",
+              height: "36px",
+              backgroundColor: "rgba(255,255,255,0.10)",
+            }}
           >
-            {/* Search icon — 20×20 white vector per Figma */}
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <circle cx="9" cy="9" r="5.5" stroke="white" strokeWidth="1.5" />
               <path d="M13.5 13.5L17 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
