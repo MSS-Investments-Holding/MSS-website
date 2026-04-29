@@ -62,9 +62,10 @@ export default function CompanySection() {
           About the Company
         </span>
 
-        {/* H2 — Merriweather 300 48px/52px, color=#1C1C1F, w=526px */}
-        {/* margin:0 resets browser default ~32px top/bottom margins that caused separator collision */}
-        {/* marginTop:24px matches Figma gap: label bottom y=1042 → H2 top y=1066 = 24px */}
+        {/* H2 — Merriweather 300 48px/52px, color=#1C1C1F
+            Figma: w=526px, h=104px (2 lines × 52px).
+            Browser renders "Capital and Opportunity" ~546px wide — wider than 526px —
+            so explicit <br /> caused 3 lines. Width bumped to 600px so line 2 fits. */}
         <h2
           className="font-heading"
           style={{
@@ -72,14 +73,12 @@ export default function CompanySection() {
             lineHeight: "52px",
             fontWeight: 300,
             color: "#1C1C1F",
-            width: "526px",
+            width: "600px",
             margin: 0,
             marginTop: "24px",
           }}
         >
-          At the Intersection of{" "}
-          <br />
-          Capital and Opportunity
+          At the Intersection of Capital and Opportunity
         </h2>
       </div>
 

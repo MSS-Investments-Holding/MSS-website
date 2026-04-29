@@ -29,10 +29,17 @@ export default function HeroSection() {
         className="object-cover object-center"
         sizes="100vw"
       />
-      {/* Dark navy overlay */}
+      {/* Figma overlays on image 25 (node 242:4785):
+           fill[1]: black 10% OVERLAY blend
+           fill[2]: black 10% NORMAL blend
+          Combined effect is very subtle — image should remain clear */}
       <div
         className="absolute inset-0"
-        style={{ backgroundColor: "rgba(11,23,56,0.65)" }}
+        style={{ backgroundColor: "rgba(0,0,0,0.10)", mixBlendMode: "overlay" }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: "rgba(0,0,0,0.10)" }}
       />
 
       {/* Navbar — sits at the top (h=80px) */}
