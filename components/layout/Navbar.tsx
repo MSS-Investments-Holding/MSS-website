@@ -28,6 +28,7 @@ export default function Navbar() {
         <nav
           aria-label="Primary navigation"
           className="hidden md:flex items-center gap-5 border border-white/20 px-5 h-9"
+          style={{ backgroundColor: "rgba(255,255,255,0.10)" }}
         >
           {navLinks.map((link) => (
             <Link
