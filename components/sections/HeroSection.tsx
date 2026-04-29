@@ -111,7 +111,7 @@ export default function HeroSection() {
        */}
       <div
         className="absolute z-10"
-        style={{ left: "944px", top: "590px", width: "416px" }}
+        style={{ right: "80px", top: "590px", width: "416px" }}
       >
         {/* "In the News:" — Inter 400 14px, full white */}
         <p
