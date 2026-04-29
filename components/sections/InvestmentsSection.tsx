@@ -202,8 +202,8 @@ export default function InvestmentsSection() {
           top: `${3086 - SECTION_Y}px`,   /* 1140px */
           width: "179px",
           height: "40px",
-          backgroundColor: "#1C1C1F",
-          color: "#FFFFFF",
+          backgroundColor: "#FFFFFF",
+          color: "#1C1C1F",
           fontSize: "16px",
           lineHeight: "24px",
           letterSpacing: "-0.32px",
