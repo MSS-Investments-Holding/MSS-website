@@ -63,7 +63,8 @@ export default function CompanySection() {
         </span>
 
         {/* H2 — Merriweather 300 48px/52px, color=#1C1C1F, w=526px */}
-        {/* Gap from label bottom (y=1042) to H2 top (y=1066) = 24px */}
+        {/* margin:0 resets browser default ~32px top/bottom margins that caused separator collision */}
+        {/* marginTop:24px matches Figma gap: label bottom y=1042 → H2 top y=1066 = 24px */}
         <h2
           className="font-heading"
           style={{
@@ -72,6 +73,7 @@ export default function CompanySection() {
             fontWeight: 300,
             color: "#1C1C1F",
             width: "526px",
+            margin: 0,
             marginTop: "24px",
           }}
         >
@@ -138,12 +140,14 @@ export default function CompanySection() {
         {stats.map((stat) => (
           <div
             key={stat.value}
-            className="flex flex-col justify-between"
+            className="flex flex-col"
             style={{
               width: "216px",
               height: "156px",
               backgroundColor: stat.bg,
-              padding: "24px",
+              /* Figma: top=16 right=20 bottom=16 left=20, itemSpacing=16 */
+              padding: "16px 20px",
+              gap: "16px",
             }}
           >
             {/* Metric — Merriweather 300 36px/42px */}
@@ -154,6 +158,8 @@ export default function CompanySection() {
                 lineHeight: "42px",
                 fontWeight: 300,
                 color: stat.valueColor,
+                display: "block",
+                margin: 0,
               }}
             >
               {stat.value}
@@ -165,6 +171,7 @@ export default function CompanySection() {
                 fontSize: "15px",
                 lineHeight: "22px",
                 color: stat.labelColor,
+                margin: 0,
               }}
             >
               {stat.label}
