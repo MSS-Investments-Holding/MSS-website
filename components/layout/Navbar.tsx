@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* Nav links — center, white-bordered container per Figma */}
         <nav
           aria-label="Primary navigation"
-          className="hidden md:flex items-center gap-5 border border-white/20 px-5 h-9"
+          className="hidden md:flex items-center gap-5 px-5 h-9"
           style={{ backgroundColor: "rgba(255,255,255,0.10)" }}
         >
           {navLinks.map((link) => (
