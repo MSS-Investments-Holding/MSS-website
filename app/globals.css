@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+@theme {
+  /* Brand palette */
+  --color-brand-navy: #0B1738;
+  --color-brand-silver: #BDCADB;
+  --color-brand-warm: #F5E9DC;
+
+  /* Greys */
+  --color-grey-200: #E8E9EB;
+  --color-grey-400: #AEB0B3;
+  --color-grey-500: #67686B;
+  --color-grey-black: #1C1C1F;
+
+  /* Neutrals */
+  --color-neutral-100: #F0F2F5;
+  --color-neutral-300: #D2D5D9;
+  --color-neutral-600: #373738;
+  --color-white: #FFFFFF;
+
+  /* Semantic */
+  --color-primary: #0B1738;
+  --color-background: #FFFFFF;
+  --color-surface: #F0F2F5;
+  --color-surface-warm: #F5E9DC;
+  --color-border: #E8E9EB;
+  --color-border-medium: #D2D5D9;
+  --color-text-primary: #1C1C1F;
+  --color-text-secondary: #67686B;
+  --color-text-muted: #AEB0B3;
+  --color-text-inverse: #FFFFFF;
+  --color-accent: #BDCADB;
+
+  /* Font families — variables injected by next/font into <html> */
+  --font-heading: var(--font-merriweather), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* Desktop type scale */
+  --text-h1: 4.5rem;       /* 72px */
+  --text-h2: 3rem;         /* 48px */
+  --text-h3: 2.25rem;      /* 36px */
+  --text-h4: 1.625rem;     /* 26px */
+  --text-h5: 1.25rem;      /* 20px */
+  --text-h6: 1rem;         /* 16px */
+  --text-body-lg: 1.125rem; /* 18px */
+  --text-body-sm: 0.9375rem; /* 15px */
+  --text-label: 0.75rem;   /* 12px */
+  --text-nav: 0.875rem;    /* 14px */
+  --text-btn: 1rem;        /* 16px */
+
+  /* Line heights */
+  --leading-h1: 76px;
+  --leading-h2: 52px;
+  --leading-h3: 42px;
+  --leading-h4: 32px;
+  --leading-h5: 26px;
+  --leading-h6: 22px;
+  --leading-body-lg: 28px;
+  --leading-body-sm: 22px;
+  --leading-label: 16px;
+
+  /* Letter spacing */
+  --tracking-body-lg: -0.18px;
+  --tracking-label: 0.72px;
+
+  /* Spacing / layout */
+  --max-w-site: 1440px;
+  --max-w-content: 1280px;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body-sm);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography helpers ─────────────────────────────────────── */
+.font-heading { font-family: var(--font-heading); font-weight: 300; }
+.font-body    { font-family: var(--font-body);    font-weight: 400; }
+
+.text-h1 { font-size: var(--text-h1); line-height: var(--leading-h1); }
+.text-h2 { font-size: var(--text-h2); line-height: var(--leading-h2); }
+.text-h3 { font-size: var(--text-h3); line-height: var(--leading-h3); }
+.text-h4 { font-size: var(--text-h4); line-height: var(--leading-h4); }
+.text-h5 { font-size: var(--text-h5); line-height: var(--leading-h5); }
+.text-h6 { font-size: var(--text-h6); line-height: var(--leading-h6); }
+.text-body-lg  { font-size: var(--text-body-lg);  line-height: var(--leading-body-lg); letter-spacing: var(--tracking-body-lg); }
+.text-body-sm  { font-size: var(--text-body-sm);  line-height: var(--leading-body-sm); }
+.text-label    { font-size: var(--text-label);    line-height: var(--leading-label); letter-spacing: var(--tracking-label); }
+.text-nav      { font-size: var(--text-nav);      line-height: 20px; }
+.text-btn      { font-size: var(--text-btn);      line-height: 24px; }
+
+/* Mobile type scale — applied via responsive prefix md: and up */
+@media (max-width: 767px) {
+  .text-h1 { font-size: 3.25rem;    line-height: 56px; }   /* 52px */
+  .text-h2 { font-size: 2.25rem;    line-height: 40px; }   /* 36px */
+  .text-h3 { font-size: 1.75rem;    line-height: 34px; }   /* 28px */
+  .text-h4 { font-size: 1.375rem;   line-height: 28px; }   /* 22px */
+  .text-h5 { font-size: 1.125rem;   line-height: 24px; }   /* 18px */
+  .text-h6 { font-size: 0.875rem;   line-height: 20px; }   /* 14px */
+  .text-body-lg { font-size: 1.0625rem; line-height: 26px; } /* 17px */
+  .text-body-sm { font-size: 0.875rem;  line-height: 20px; } /* 14px */
+}
+
+/* ─── Focus visible ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-brand-navy);
+  outline-offset: 2px;
+}

@@ -88,21 +88,19 @@ All heading styles use **Merriweather Light (300)**. All body styles use **Inter
 
 ### Mobile Type Scale
 
-**Status: [PENDING FIGMA UPDATE]** — Figma desktop scale is confirmed above. Mobile/tablet scale is not yet finalised by the designer. Use the interim values below and mark every usage with `/* TODO: replace with finalised mobile token */`.
+**Status: CONFIRMED** — Extracted from Figma node `244-5346` on 2026-04-29. All values are final and in production.
 
-Interim step-down rationale: ~65–75% of desktop for display sizes; body sizes reduced by 1 step.
-
-| Token | Desktop | Interim Mobile | Interim Tablet (md:) |
-|---|---|---|---|
-| `text-h1` | 72px / 76px | 36px / 42px | 52px / 58px |
-| `text-h2` | 48px / 52px | 28px / 36px | 36px / 42px |
-| `text-h3` | 36px / 42px | 24px / 32px | 28px / 36px |
-| `text-h4` | 26px / 32px | 20px / 26px | 22px / 28px |
-| `text-h5` | 20px / 26px | 18px / 24px | 18px / 24px |
-| `text-h6` | 16px / 22px | 14px / 20px | 16px / 22px |
-| `text-body-lg` | 18px / 28px | 16px / 26px | 18px / 28px |
-| `text-body-sm` | 15px / 22px | 14px / 20px | 15px / 22px |
-| `text-label` | 12px / 16px | 11px / 16px | 12px / 16px |
+| Token | Desktop Size | Desktop LH | Mobile Size | Mobile LH | LS |
+|---|---|---|---|---|---|
+| `text-h1` | 72px / 4.5rem | 76px | 52px / 3.25rem | 56px | 0 |
+| `text-h2` | 48px / 3rem | 52px | 36px / 2.25rem | 40px | 0 |
+| `text-h3` | 36px / 2.25rem | 42px | 28px / 1.75rem | 34px | 0 |
+| `text-h4` | 26px / 1.625rem | 32px | 22px / 1.375rem | 28px | 0 |
+| `text-h5` | 20px / 1.25rem | 26px | 18px / 1.125rem | 24px | 0 |
+| `text-h6` | 16px / 1rem | 22px | 14px / 0.875rem | 20px | 0 |
+| `text-body-lg` | 18px / 1.125rem | 28px | 17px / 1.0625rem | 26px | −1% |
+| `text-body-sm` | 15px / 0.9375rem | 22px | 14px / 0.875rem | 20px | 0 |
+| `text-label` | 12px / 0.75rem | 16px | 12px / 0.75rem | 16px | +6% |
 
 ---
 

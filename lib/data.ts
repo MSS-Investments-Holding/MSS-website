@@ -1,0 +1,187 @@
+export const navLinks = [
+  { label: "About Us", href: "/about", hasDropdown: false },
+  { label: "What We Do", href: "/investments", hasDropdown: true },
+  { label: "Our Investments", href: "/portfolio", hasDropdown: true },
+  { label: "News & Media", href: "/news", hasDropdown: true },
+  { label: "Pitch to Us", href: "/pitch", hasDropdown: false },
+];
+
+export const stats = [
+  {
+    value: "$1.5B+",
+    label: "Strategic capital across the broader financial ecosystem.",
+    bg: "warm",
+  },
+  {
+    value: "7+",
+    label: "Ventures operating across emerging, priority sectors.",
+    bg: "navy",
+  },
+  {
+    value: "200+",
+    label: "Collective workforce driving execution across the MSS ecosystem.",
+    bg: "silver",
+  },
+];
+
+export const sectors = [
+  {
+    title: "Fintech",
+    description:
+      "We back ventures building the next layer of global financial infrastructure across payments, lending, and regulated financial services.",
+    icon: "fintech",
+  },
+  {
+    title: "Agentic AI",
+    description:
+      "We invest in AI-led ventures developing intelligent systems that improve decision-making, workflow automation, and operational intelligence.",
+    icon: "ai",
+  },
+  {
+    title: "Venture Capitalization",
+    description:
+      "We partner with emerging businesses at high-potential stages, providing capital, network, and strategic direction to accelerate scale.",
+    icon: "venture",
+  },
+  {
+    title: "Digital Asset Tokenization",
+    description:
+      "We support platforms exploring the digitisation of value, enabling new models, asset classes, and infrastructure for the digital economy.",
+    icon: "digital-asset",
+  },
+  {
+    title: "Digital Media",
+    description:
+      "We back digital platforms and media-led businesses shaping how audiences engage, consume, and interact with content globally.",
+    icon: "media",
+  },
+];
+
+export const processSteps = [
+  {
+    step: "Discovery",
+    description: "Assess the idea, context, and fundamentals behind the idea.",
+    image: "/images/process-1.jpg",
+  },
+  {
+    step: "Strategy",
+    description: "Aligning the concept with a long-term execution potential.",
+    image: "/images/process-2.jpg",
+  },
+  {
+    step: "Validation",
+    description: "Evaluate viability and refine the opportunity before scale.",
+    image: "/images/process-3.jpg",
+  },
+  {
+    step: "Launch",
+    description:
+      "Turning concept into reality with a focus on clarity, and growth.",
+    image: "/images/process-1.jpg",
+  },
+];
+
+export const articles = [
+  {
+    number: "01",
+    date: "12 April 2026",
+    title: "What Makes a Venture Opportunity Strategically Relevant Today",
+    excerpt:
+      "A view on the qualities that define strong early-stage opportunities across technology and financial infrastructure.",
+    image: "/images/article-1.jpg",
+  },
+  {
+    number: "02",
+    date: "12 April 2026",
+    title: "Building for Long-Term Value in High-Growth Markets",
+    excerpt:
+      "How sector focus, market positioning, and disciplined execution come together to generate durable returns.",
+    image: "/images/article-2.jpg",
+  },
+  {
+    number: "03",
+    date: "12 April 2026",
+    title: "AI's Expanding Role in Operational and Financial Systems",
+    excerpt:
+      "Beyond experimentation, AI is beginning to influence the systems, workflows, and infrastructure of modern finance.",
+    image: "/images/article-3.jpg",
+  },
+  {
+    number: "04",
+    date: "12 April 2026",
+    title: "The Next Phase of Cross-Border Payments Infrastructure",
+    excerpt:
+      "A closer look at how faster settlement systems, compliance layers, and multi-market rails are being rebuilt.",
+    image: "/images/article-4.jpg",
+  },
+  {
+    number: "05",
+    date: "12 April 2026",
+    title: "Why Multi-Currency Platforms Are Becoming Strategic Infrastructure",
+    excerpt:
+      "As global business grows more connected, financial platforms that simplify currency complexity are gaining strategic importance.",
+    image: "/images/article-5.jpg",
+  },
+  {
+    number: "06",
+    date: "12 April 2026",
+    title: "Where Finance, Technology, and Infrastructure Are Converging",
+    excerpt:
+      "The strongest opportunities increasingly sit at the intersection of regulated finance and technology-native execution.",
+    image: "/images/article-6.jpg",
+  },
+];
+
+export const leadership = [
+  {
+    name: "Vincent de Cannière",
+    role: "Chairman",
+    bio: "Vincent brings over 40 years of experience across executive leadership, governance, and international financial markets. His career has spanned senior roles across Europe, the Middle East, and Asia.",
+    image: "/images/leadership-1.jpg",
+  },
+  {
+    name: "Husnain Nasir",
+    role: "Director",
+    bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, and emerging market development. He has led transformative initiatives across payments, digital infrastructure, and regulated technology.",
+    image: "/images/leadership-2.jpg",
+  },
+];
+
+export const heroNewsItems = [
+  {
+    image: "/images/news-card-1.jpg",
+    excerpt:
+      "Platforms designed with \"regulatory-ready\" compliance at the core.",
+  },
+  {
+    image: "/images/news-card-2.jpg",
+    excerpt:
+      "A Partner-Centric Holding Company shaping the digital economy.",
+  },
+];
+
+export const footerLinks = {
+  explore: [
+    { label: "About Us", href: "/about" },
+    { label: "Who Are We", href: "/about#who-we-are" },
+    { label: "Our Investments", href: "/investments" },
+    { label: "News & Media", href: "/news" },
+    { label: "Pitch to Us", href: "/pitch" },
+  ],
+  more: [
+    { label: "Chairman Message", href: "/chairman" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Careers", href: "/careers" },
+  ],
+  social: [
+    { label: "LinkedIn", href: "#" },
+    { label: "Instagram", href: "#" },
+    { label: "Facebook", href: "#" },
+    { label: "X — Formerly Twitter", href: "#" },
+  ],
+  legal: [
+    { label: "Terms and Conditions", href: "/legal/terms" },
+    { label: "Privacy Policy", href: "/legal/privacy" },
+    { label: "Cookies Policy", href: "/legal/cookies" },
+  ],
+};
