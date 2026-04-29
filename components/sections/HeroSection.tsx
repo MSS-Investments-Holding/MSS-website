@@ -1,14 +1,25 @@
 import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
-import { heroNewsItems } from "@/lib/data";
+
+const newsItems = [
+  {
+    image: "/images/news-card-2.jpg",
+    caption: "Platforms designed with “regulatory-ready” compliance.",
+  },
+  {
+    image: "/images/news-card-2.jpg",
+    caption: "Platforms designed with “regulatory-ready” compliance.",
+  },
+];
 
 export default function HeroSection() {
   return (
     <section
-      className="relative w-full h-[930px] flex flex-col overflow-hidden"
+      className="relative w-full overflow-hidden"
+      style={{ height: "930px" }}
       aria-label="Hero"
     >
-      {/* Background image */}
+      {/* Background image — fills the full hero */}
       <Image
         src="/images/hero-bg.jpg"
         alt=""
@@ -18,71 +29,134 @@ export default function HeroSection() {
         className="object-cover object-center"
         sizes="100vw"
       />
-      {/* Dark overlay for text legibility */}
-      <div className="absolute inset-0 bg-[var(--color-primary)]/60" />
+      {/* Dark navy overlay */}
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: "rgba(11,23,56,0.65)" }}
+      />
 
-      {/* Nav overlaid on hero */}
-      <div className="relative z-10">
-        <Navbar dark={false} />
+      {/* Navbar — sits at the top (h=80px) */}
+      <div className="absolute inset-x-0 top-0 z-20">
+        <Navbar />
       </div>
 
-      {/* Hero content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between px-6 md:px-10 lg:px-20 pb-0">
-        {/* Main copy */}
-        <div className="mt-10 md:mt-16 max-w-[780px]">
-          {/* Eyebrow badge */}
-          <div className="flex items-center gap-2 mb-8">
-            <div className="w-3 h-3 rounded-full bg-white/60" />
-            <span className="text-label font-body text-white/80 uppercase tracking-widest">
-              A Partner-Centric Holding Company
-            </span>
-          </div>
+      {/*
+       * CONTENT AREA — two-column absolute layout matching Figma exactly
+       * All y values are from hero top (0). Nav occupies y=0–80.
+       * Left column:  x=80,  y=250 (badge), y=298 (h1), y=462 (body)
+       * Right column: x=944, y=590 ("In the News:"), y=642 (cards)
+       */}
 
-          <h1 className="text-h1 font-heading text-white mb-6">
-            Building the Platforms of Future Economies
-          </h1>
-          <p className="text-body-lg font-body text-white/80 max-w-[600px]">
-            A global holding company investing in payments, regulated finance,
-            AI, digital asset infrastructure, and venture-backed businesses
-            shaping modern economies.
-          </p>
+      {/* LEFT COLUMN — badge + headline + body */}
+      <div
+        className="absolute z-10"
+        style={{ left: "80px", top: "250px", width: "780px" }}
+      >
+        {/* Badge / eyebrow — Inter 400 12px white */}
+        <div className="flex items-center gap-2 mb-6">
+          <Image
+            src="/images/logo-white.png"
+            alt=""
+            width={12}
+            height={12}
+            className="opacity-80"
+          />
+          <span
+            className="text-label font-body text-white"
+          >
+            A Partner-Centric Holding Company
+          </span>
         </div>
 
-        {/* In the news strip */}
-        <div className="mt-auto pb-10 md:pb-14">
-          <div className="flex items-center gap-4 mb-5">
-            <span className="text-nav font-body text-white/60 uppercase tracking-widest">
-              In the News:
-            </span>
-            <div className="flex-1 h-px bg-white/20 max-w-[120px]" />
-          </div>
+        {/* H1 — Merriweather 300 72px, lh=76px, white */}
+        {/* y=298: badge bottom y=274, gap=24px (mb-6) */}
+        <h1
+          className="font-heading text-white"
+          style={{
+            fontSize: "72px",
+            lineHeight: "76px",
+            fontWeight: 300,
+          }}
+        >
+          Building the Platforms of Future Economies
+        </h1>
 
-          <div className="flex gap-4 flex-wrap">
-            {heroNewsItems.map((item, i) => (
+        {/* Body — Inter 400 18px, lh=28px, white */}
+        {/* y=462: h1 bottom y=450, gap=12px (mt-3) */}
+        <p
+          className="font-body text-white mt-3"
+          style={{
+            fontSize: "18px",
+            lineHeight: "28px",
+            maxWidth: "524px",
+          }}
+        >
+          A global holding company investing in payments, regulated finance, AI,
+          digital assets, and venture-backed growth platforms.
+        </p>
+      </div>
+
+      {/* RIGHT COLUMN — "In the News:" + separator + 2 news cards */}
+      {/*
+       * In the News: y=590 — right column top
+       * Separator line: y=625 (35px gap from label top, 15px from label bottom)
+       * Cards: y=642 (17px gap below separator)
+       * Captions: y=784 (12px below cards)
+       * Read More: y=840 (56px below caption top)
+       */}
+      <div
+        className="absolute z-10"
+        style={{ left: "944px", top: "590px", width: "416px" }}
+      >
+        {/* "In the News:" — Inter 400 14px, full white */}
+        <p
+          className="font-body text-white"
+          style={{ fontSize: "14px", lineHeight: "20px" }}
+        >
+          In the News:
+        </p>
+
+        {/* Horizontal separator line — y=625, 35px below label top */}
+        <div
+          className="w-full border-t border-white/30"
+          style={{ marginTop: "15px" }}
+        />
+
+        {/* News cards row — y=642, 17px below separator */}
+        <div className="flex gap-4" style={{ marginTop: "17px" }}>
+          {newsItems.map((item, i) => (
+            <div key={i} className="flex flex-col gap-3" style={{ width: "200px" }}>
+              {/* Card image — 200×130px */}
               <div
-                key={i}
-                className="flex gap-3 items-start max-w-[280px] group cursor-pointer"
+                className="relative overflow-hidden bg-[var(--color-grey-black)] flex-shrink-0"
+                style={{ width: "200px", height: "130px" }}
               >
-                <div className="relative w-[120px] h-[78px] flex-shrink-0 rounded overflow-hidden bg-[var(--color-grey-black)]">
-                  <Image
-                    src={item.image}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    sizes="120px"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <p className="text-body-sm font-body text-white/80 leading-snug line-clamp-3">
-                    {item.excerpt}
-                  </p>
-                  <span className="text-nav font-body text-white/50 group-hover:text-white/80 transition-colors">
-                    Read More →
-                  </span>
-                </div>
+                <Image
+                  src={item.image}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="200px"
+                />
               </div>
-            ))}
-          </div>
+
+              {/* Caption — Inter 400 15px, white, y=784 (12px below card bottom at y=772) */}
+              <p
+                className="font-body text-white"
+                style={{ fontSize: "15px", lineHeight: "22px", marginTop: "0px" }}
+              >
+                {item.caption}
+              </p>
+
+              {/* Read More — Inter 400 14px, white, y=840 */}
+              <span
+                className="font-body text-white cursor-pointer hover:text-white/70 transition-colors"
+                style={{ fontSize: "14px", lineHeight: "20px" }}
+              >
+                Read More →
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

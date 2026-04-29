@@ -1,62 +1,76 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronDown, Search, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
 
-export default function Navbar({ dark = false }: { dark?: boolean }) {
+export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const textColor = dark ? "text-[var(--color-grey-black)]" : "text-white";
-  const borderColor = dark ? "border-[var(--color-border)]" : "border-white/20";
-  const hoverColor = dark ? "hover:text-[var(--color-grey-500)]" : "hover:text-white/70";
-
   return (
-    <header
-      role="banner"
-      className={`w-full h-20 flex items-center px-10 ${dark ? "bg-white border-b border-[var(--color-border)]" : "bg-transparent"}`}
-    >
-      <div className="w-full max-w-[var(--max-w-site)] mx-auto flex items-center justify-between gap-8">
-        {/* Logo */}
-        <Link href="/" aria-label="MSS Investments Holding — Home">
-          {dark ? (
-            <img src="/images/logo-dark.png" alt="MSS Investments Holding" className="h-10 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          ) : (
-            <span className="font-heading text-white font-light tracking-widest text-xl uppercase">MSS</span>
-          )}
+    <header role="banner" className="relative z-20 w-full h-20 flex items-center">
+      <div className="w-full flex items-center justify-between px-20">
+        {/* Logo — 48×56px as in Figma */}
+        <Link href="/" aria-label="MSS Investments Holding — Home" className="flex-shrink-0">
+          <Image
+            src="/images/logo-white.png"
+            alt="MSS Investments Holding"
+            width={48}
+            height={56}
+            priority
+            className="w-12 h-auto"
+          />
         </Link>
 
-        {/* Desktop nav */}
-        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-7">
+        {/* Nav links — center, white-bordered container per Figma */}
+        <nav
+          aria-label="Primary navigation"
+          className="hidden md:flex items-center gap-5 border border-white/20 px-5 h-9"
+        >
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`flex items-center gap-1 text-nav font-body ${textColor} ${hoverColor} transition-colors duration-200`}
+              className="flex items-center gap-1 text-nav font-body text-white hover:text-white/70 transition-colors duration-200"
             >
               {link.label}
               {link.hasDropdown && (
-                <ChevronDown size={16} strokeWidth={1.5} className="mt-px opacity-70" />
+                /* Chevron SVG matching Figma 16×16 white vector */
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               )}
             </Link>
           ))}
         </nav>
 
-        {/* Right controls */}
-        <div className="hidden md:flex items-center gap-4">
-          <button
-            aria-label="Search"
-            className={`w-9 h-9 flex items-center justify-center rounded-full border ${borderColor} ${textColor} ${hoverColor} transition-colors duration-200`}
-          >
-            <Search size={16} strokeWidth={1.5} />
-          </button>
+        {/* Right controls — EN + Search, both white-bordered rectangles per Figma */}
+        <div className="hidden md:flex items-center gap-3">
+          {/* EN button — 53×36px, white border, no fill */}
           <button
             aria-label="Select language"
-            className={`flex items-center gap-1 text-nav font-body ${textColor} ${hoverColor} transition-colors duration-200`}
+            className="flex items-center gap-1 border border-white/20 text-nav font-body text-white h-9 px-3 hover:bg-white/5 transition-colors duration-200"
+            style={{ width: "53px" }}
           >
             EN
-            <ChevronDown size={14} strokeWidth={1.5} className="opacity-70" />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          {/* Search button — 36×36px square, white border, no fill */}
+          <button
+            aria-label="Search"
+            className="flex items-center justify-center border border-white/20 text-white hover:bg-white/5 transition-colors duration-200"
+            style={{ width: "36px", height: "36px" }}
+          >
+            {/* Search icon — 20×20 white vector per Figma */}
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="9" cy="9" r="5.5" stroke="white" strokeWidth="1.5" />
+              <path d="M13.5 13.5L17 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
 
@@ -65,7 +79,7 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`md:hidden flex items-center justify-center w-9 h-9 ${textColor}`}
+          className="md:hidden text-white"
         >
           {mobileOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
         </button>
@@ -87,7 +101,7 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-white text-h5 font-heading font-light border-b border-white/10 pb-4"
+                className="text-white font-heading font-light text-h5 border-b border-white/10 pb-4"
               >
                 {link.label}
               </Link>
