@@ -1,97 +1,196 @@
 import Link from "next/link";
-import { stats } from "@/lib/data";
-import { cn } from "@/lib/utils";
 
-const statBg: Record<string, string> = {
-  warm: "bg-[var(--color-brand-warm)]",
-  navy: "bg-[var(--color-primary)] text-white",
-  silver: "bg-[var(--color-brand-silver)]",
-};
+/*
+ * About section — exact layout from Figma (y=930 to y=1946, height=1016px)
+ *
+ * LEFT COLUMN (x=80):
+ *   y=1026 (96px from section): label "ABOUT THE COMPANY"
+ *   y=1066 (136px from section): H2 "At the Intersection of Capital and Opportunity"
+ *
+ * FULL WIDTH:
+ *   y=1211 (281px from section): horizontal separator line
+ *
+ * RIGHT COLUMN (x=680):
+ *   y=1274 (344px from section): body text
+ *   y=1554 (624px from section): three stat cards side by side
+ *   y=1766 (836px from section): "About Us →" button
+ */
+
+const SECTION_TOP = 930; // hero bottom
+
+const stats = [
+  {
+    value: "$1.5B+",
+    label: "Strategic capital across the broader financial ecosystem.",
+    bg: "#F5E9DC",
+    valueColor: "#1C1C1F",
+    labelColor: "#373738",
+  },
+  {
+    value: "7+",
+    label: "Ventures operating across emerging, priority sectors.",
+    bg: "#0B1738",
+    valueColor: "#FFFFFF",
+    labelColor: "#E8E9EB",
+  },
+  {
+    value: "200+",
+    label: "Collective workforce driving execution across the MSS ecosystem.",
+    bg: "#BDCADB",
+    valueColor: "#1C1C1F",
+    labelColor: "#373738",
+  },
+];
 
 export default function CompanySection() {
   return (
     <section
-      aria-label="About the Company"
-      className="w-full bg-white px-6 md:px-10 lg:px-20 pt-20 pb-24"
+      aria-label="About MSS Investments Holding"
+      className="relative w-full bg-white"
+      style={{ height: `${1946 - SECTION_TOP}px` }} /* 1016px */
     >
-      <div className="max-w-[var(--max-w-content)] mx-auto">
-        {/* Intro paragraph */}
-        <p className="text-body-lg font-body text-[var(--color-text-secondary)] max-w-[700px] mb-16">
-          We are focused on the technologies transforming the foundations of
-          modern economies — creating enduring value through disciplined,
-          strategic holding.
-        </p>
+      {/* ── LEFT COLUMN ── Label + H2 ───────────────────────────── */}
+      <div
+        className="absolute"
+        style={{ left: "80px", top: `${1026 - SECTION_TOP}px` }} /* top: 96px */
+      >
+        {/* Label — text-label token: 12px, uppercase, ls=0.72px, color=#373738 */}
+        <span
+          className="text-label font-body block"
+          style={{ color: "#373738" }}
+        >
+          About the Company
+        </span>
 
-        {/* Two-column headings */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          <div>
-            <h2 className="text-h2 font-heading text-[var(--color-text-primary)]">
-              At the Intersection of Capital and Opportunity
-            </h2>
-          </div>
-          <div className="md:pt-1">
-            <h2 className="text-h2 font-heading text-[var(--color-text-primary)]">
-              Experienced Leadership, with Depth and Perspective
-            </h2>
-          </div>
-        </div>
-
-        {/* Stats row */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)] mb-12">
-          {stats.map((stat) => (
-            <div
-              key={stat.value}
-              className={cn(
-                "flex flex-col gap-3 p-8",
-                statBg[stat.bg]
-              )}
-            >
-              <span
-                className={cn(
-                  "text-h3 font-heading",
-                  stat.bg === "navy" ? "text-white" : "text-[var(--color-text-primary)]"
-                )}
-              >
-                {stat.value}
-              </span>
-              <p
-                className={cn(
-                  "text-body-sm font-body",
-                  stat.bg === "navy" ? "text-white/70" : "text-[var(--color-text-secondary)]"
-                )}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* CTAs row */}
-        <div className="flex flex-wrap items-center gap-6">
-          <Link
-            href="/about"
-            className="text-label font-body text-[var(--color-text-secondary)] uppercase tracking-wider hover:text-[var(--color-text-primary)] transition-colors flex items-center gap-1"
-          >
-            About the Company
-            <span aria-hidden="true" className="ml-1">→</span>
-          </Link>
-          <div className="w-px h-4 bg-[var(--color-border)]" />
-          <Link
-            href="/about#leadership"
-            className="text-label font-body text-[var(--color-text-secondary)] uppercase tracking-wider hover:text-[var(--color-text-primary)] transition-colors flex items-center gap-1"
-          >
-            Leadership
-            <span aria-hidden="true" className="ml-1">→</span>
-          </Link>
-          <div className="flex-1" />
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 px-6 h-10 bg-[var(--color-grey-black)] text-white text-btn font-body hover:bg-[var(--color-neutral-600)] transition-colors"
-          >
-            About Us →
-          </Link>
-        </div>
+        {/* H2 — Merriweather 300 48px/52px, color=#1C1C1F, w=526px */}
+        {/* Gap from label bottom (y=1042) to H2 top (y=1066) = 24px */}
+        <h2
+          className="font-heading"
+          style={{
+            fontSize: "48px",
+            lineHeight: "52px",
+            fontWeight: 300,
+            color: "#1C1C1F",
+            width: "526px",
+            marginTop: "24px",
+          }}
+        >
+          At the Intersection of{" "}
+          <br />
+          Capital and Opportunity
+        </h2>
       </div>
+
+      {/* ── SEPARATOR LINE ── y=1211 → 281px from section top ───── */}
+      <div
+        className="absolute"
+        style={{
+          left: "80px",
+          top: `${1211 - SECTION_TOP}px`, /* 281px */
+          width: "1280px",
+          height: "1px",
+          backgroundColor: "var(--color-border)", /* #E8E9EB */
+        }}
+      />
+
+      {/* ── RIGHT COLUMN ── Body text (y=1274 → 344px from top) ─── */}
+      <div
+        className="absolute"
+        style={{
+          left: "680px",
+          top: `${1274 - SECTION_TOP}px`, /* 344px */
+          width: "680px",
+        }}
+      >
+        <p
+          className="font-body"
+          style={{
+            fontSize: "18px",
+            lineHeight: "28px",
+            letterSpacing: "-0.18px",
+            color: "#67686B",
+          }}
+        >
+          We are focused on the technologies transforming the foundations of
+          modern economies. We deploy capital with conviction. We build for
+          permanence and execute with precision. Our portfolio reflects a
+          deliberate investment approach shaped by sector relevance, operational
+          depth, and strategic market positioning.
+          <br />
+          <br />
+          With a footprint spanning the UAE, Pakistan, the United Kingdom, and
+          surrounding growth markets, MSS brings together businesses aligned
+          with the structural shifts redefining how modern economies move,
+          transact, and scale.
+        </p>
+      </div>
+
+      {/* ── STAT CARDS ── y=1554 → 624px from section top ────────── */}
+      {/* Cards: 216×156px each, 16px gaps, starting at x=680 */}
+      <div
+        className="absolute flex"
+        style={{
+          left: "680px",
+          top: `${1554 - SECTION_TOP}px`, /* 624px */
+          gap: "16px",
+        }}
+      >
+        {stats.map((stat) => (
+          <div
+            key={stat.value}
+            className="flex flex-col justify-between"
+            style={{
+              width: "216px",
+              height: "156px",
+              backgroundColor: stat.bg,
+              padding: "24px",
+            }}
+          >
+            {/* Metric — Merriweather 300 36px/42px */}
+            <span
+              className="font-heading"
+              style={{
+                fontSize: "36px",
+                lineHeight: "42px",
+                fontWeight: 300,
+                color: stat.valueColor,
+              }}
+            >
+              {stat.value}
+            </span>
+            {/* Description — Inter 400 15px/22px */}
+            <p
+              className="font-body"
+              style={{
+                fontSize: "15px",
+                lineHeight: "22px",
+                color: stat.labelColor,
+              }}
+            >
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* ── "ABOUT US →" BUTTON ── y=1766 → 836px from section top ─ */}
+      {/* w=128, h=40, bg=#1C1C1F, Inter 400 16px ls=-0.32px */}
+      <Link
+        href="/about"
+        className="absolute flex items-center justify-center font-body text-white"
+        style={{
+          left: "680px",
+          top: `${1766 - SECTION_TOP}px`, /* 836px */
+          width: "128px",
+          height: "40px",
+          backgroundColor: "#1C1C1F",
+          fontSize: "16px",
+          lineHeight: "24px",
+          letterSpacing: "-0.32px",
+        }}
+      >
+        About Us →
+      </Link>
     </section>
   );
 }
