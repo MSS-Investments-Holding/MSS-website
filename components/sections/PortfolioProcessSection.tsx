@@ -114,13 +114,18 @@ export default function PortfolioProcessSection() {
           </div>
         </div>
 
-        {/* RIGHT — Swiss Payments card (800px at desktop, full-width mobile) */}
+        {/*
+         * RIGHT — Swiss Payments card
+         * Padding: left=48px (Figma), right=80px (website standard), top=56px, bottom=66px
+         * Height: auto (content-driven, not fixed)
+         */}
         <div
-          className="flex-1 flex flex-col px-8 md:px-12 lg:px-12 py-12 lg:py-14"
-          style={{ backgroundColor: "#F5E9DC", minHeight: "894px" }}
+          className="flex-1 flex flex-col"
+          style={{ backgroundColor: "#F5E9DC", paddingLeft: "48px", paddingRight: "80px", paddingTop: "56px", paddingBottom: "66px" }}
         >
-          {/* Logo + Visit Website button */}
-          <div className="flex items-start justify-between gap-4 mb-8">
+          {/* ── Logo + Visit Website ─────────────────────────────── */}
+          {/* Tags top=144px from card top. Logo h=56px starts at top=56px. Gap logo→tags = 144-56-56=32px */}
+          <div className="flex items-start justify-between gap-4" style={{ marginBottom: "32px" }}>
             <img
               src="/images/icons/logo-swiss-payments.svg"
               alt="Swiss Payments"
@@ -140,52 +145,87 @@ export default function PortfolioProcessSection() {
             </a>
           </div>
 
-          {/* Tags */}
-          <div className="flex items-center gap-3 mb-6">
+          {/* ── Tags — gap tags→body = 160→208 = 48px ───────────── */}
+          {/* Tags h=16px. Gap to body = 208-144-16=48px */}
+          <div className="flex items-center gap-2" style={{ marginBottom: "48px" }}>
             {["Fintech", "B2C", "Agentic AI"].map((tag, i) => (
-              <div key={tag} className="flex items-center gap-3">
+              <div key={tag} className="flex items-center gap-2">
                 <span className="text-label font-body" style={{ color: "#67686B" }}>{tag}</span>
                 {i < 2 && <div style={{ width: "1px", height: "10px", backgroundColor: "#AEB0B3" }} />}
               </div>
             ))}
           </div>
 
-          {/* Body text */}
-          <p className="font-body mb-10" style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.18px", color: "#373738" }}>
+          {/* ── Body text — correct from Figma node 242:5034 ──────── */}
+          {/* Body h=112px. Gap body→Core Services = 488-208-112=168px */}
+          <p className="font-body" style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.18px", color: "#373738", marginBottom: "168px" }}>
             Swiss Payments is a global financial platform built to help individuals
-            and businesses send, receive, and manage money across borders — with
-            full regulatory compliance, multi-currency support, and real-time
-            transaction infrastructure.
+            and businesses send, receive, and manage money across borders with
+            speed, security, and simplicity. It reflects MSS&apos;s focus on
+            practical financial infrastructure with international relevance.
           </p>
 
-          {/* Two-column data area with vertical divider */}
-          <div className="flex gap-0 flex-1">
+          {/* ── Two-column data section ───────────────────────────── */}
+          {/*
+           * Vertical divider: x=400 from card left (width of left col = 400-48=352px)
+           * Gap between divider and right col content: 440-400=40px
+           * Right col width: (48+672) right edge = 720, minus 400 divider = 320px content minus 40px gap = 280px
+           *
+           * Horizontal divider: w=312px (matches text width), stroke=#AEB0B3
+           *   Between services list bottom (530+88=618→657 gap=39px) and separator (657)
+           *   Between separator (657) and Subscription Tiers top (698→gap=41px)
+           */}
+          <div className="flex">
 
-            {/* LEFT col — labels */}
-            <div className="flex-1 flex flex-col gap-0 pr-8 border-r border-[var(--color-border)]">
-              <h4 className="font-heading mb-4" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginBottom: "16px" }}>
+            {/* LEFT col — Core Services + Subscription Tiers */}
+            <div
+              className="flex flex-col"
+              style={{ width: "352px", flexShrink: 0, paddingRight: "40px", borderRight: "1px solid #AEB0B3" }}
+            >
+              {/* Core Services heading */}
+              <h4 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginBottom: "16px" }}>
                 Core Services:
               </h4>
-              {["Realtime Currency Converter", "Virtual and Physical Cards", "Secure Global Payments"].map(s => (
-                <p key={s} className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginBottom: "8px" }}>{s}</p>
+
+              {/* Services list — 4 items from Figma node 242:5035 */}
+              {["Realtime Currency Converter", "Virtual and Physical Cards", "Secure Global Payments", "Fiat and Crypto Payments"].map((s, i, arr) => (
+                <p key={s} className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginBottom: i < arr.length - 1 ? "4px" : "0" }}>{s}</p>
               ))}
 
-              <div className="w-full h-px bg-[var(--color-border)] my-6" />
+              {/* Horizontal divider — w=312px, stroke=#AEB0B3 */}
+              {/* Gap: list bottom to divider = 39px, divider to tiers = 41px */}
+              <div style={{ width: "312px", height: "1px", backgroundColor: "#AEB0B3", marginTop: "39px", marginBottom: "41px" }} />
 
-              <h4 className="font-heading mb-4" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginBottom: "16px" }}>
+              {/* Subscription Tiers heading */}
+              <h4 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginBottom: "16px" }}>
                 Subscription Tiers
               </h4>
-              {["Silver — Essential transaction management tools.", "Gold — Enhanced limits for consumers.", "Platinum — Executive-grade FX infrastructure."].map(s => (
-                <p key={s} className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginBottom: "8px" }}>{s}</p>
+
+              {/* Tiers list — 3 items from Figma node 242:5036 */}
+              {[
+                "Silver - Essential transaction management tools.",
+                "Gold - Enhanced limits for consumers.",
+                "Platinum - Exclusive priority processing.",
+              ].map((s, i, arr) => (
+                <p key={s} className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginBottom: i < arr.length - 1 ? "4px" : "0" }}>{s}</p>
               ))}
             </div>
 
-            {/* RIGHT col — stats */}
-            <div className="flex flex-col gap-8 pl-8">
-              {[{ val: "$1.5B", label: "Transaction volume" }, { val: "500+", label: "Enterprise clients" }, { val: "500+", label: "Team members" }].map(s => (
-                <div key={s.val} className="flex flex-col gap-1">
-                  <span className="font-heading" style={{ fontSize: "36px", lineHeight: "42px", fontWeight: 300, color: "#1C1C1F" }}>{s.val}</span>
-                  <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0 }}>{s.label}</p>
+            {/* RIGHT col — Stats */}
+            {/* Gap from divider: 40px (1080-1040=40px) */}
+            <div className="flex flex-col" style={{ paddingLeft: "40px", gap: "40px" }}>
+              {[
+                { val: "$1.5B", label: "Transaction volume" },
+                { val: "500+",  label: "Enterprise clients" },
+                { val: "500+",  label: "Team members" },
+              ].map(s => (
+                <div key={s.label} className="flex flex-col" style={{ gap: "4px" }}>
+                  <span className="font-heading" style={{ fontSize: "36px", lineHeight: "42px", fontWeight: 300, color: "#1C1C1F" }}>
+                    {s.val}
+                  </span>
+                  <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0 }}>
+                    {s.label}
+                  </p>
                 </div>
               ))}
             </div>
