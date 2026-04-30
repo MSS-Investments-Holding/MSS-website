@@ -20,7 +20,7 @@ export default function PortfolioProcessSection() {
     <section aria-label="Portfolio" className="w-full bg-white">
 
       {/* ── HEADER — centered ─────────────────────────────────── */}
-      <div className="w-full flex flex-col items-center text-center px-5 md:px-10 lg:px-20 pt-16 md:pt-20 lg:pt-24 pb-12 lg:pb-16">
+      <div className="w-full flex flex-col items-center text-center px-5 md:px-10 lg:px-20 pt-16 md:pt-20 lg:pt-24 pb-16 md:pb-20 lg:pb-28">
         <span className="text-label font-body" style={{ color: "#373738" }}>Portfolio</span>
         <h2
           className="font-heading mt-6 max-w-[724px]"
@@ -32,7 +32,7 @@ export default function PortfolioProcessSection() {
 
       {/* ── 4 PROCESS STEPS — responsive 4-col grid ───────────── */}
       {/* Extra px beyond section padding to match Figma step inset */}
-      <div className="w-full px-10 md:px-20 lg:px-32 pb-16 lg:pb-20">
+      <div className="w-full px-10 md:px-20 lg:px-32 pb-20 md:pb-24 lg:pb-32">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {steps.map((step) => (
             <div key={step.title} className="flex flex-col items-center text-center">
