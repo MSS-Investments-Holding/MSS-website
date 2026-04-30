@@ -106,14 +106,31 @@
 
 ## Responsiveness Rules
 
-| Breakpoint | Viewport | Tailwind prefix |
-|---|---|---|
-| Mobile | 375px | (default — no prefix) |
-| Tablet | 768px | `md:` |
-| Desktop | 1440px | `lg:` |
-| Wide | 1920px | `xl:` (use sparingly — cap max content width at 1280–1440px) |
+| Breakpoint | Viewport | Tailwind prefix | Role |
+|---|---|---|---|
+| Mobile | 375px | (default — no prefix) | Primary design target for mobile |
+| Tablet | 768px | `md:` | Tablet layout transitions |
+| Intermediate | 1024px | `lg:` | Switch to desktop column structure; **proportional units only** |
+| Desktop | 1280px | `xl:` | Apply Figma-exact pixel values |
+| Wide | 1440px+ | within `xl:` | Figma design target; content capped at 1280px, centred |
 
-- **Max content width:** `max-w-screen-xl` (1280px) or `max-w-[1440px]` — centred with `mx-auto px-6` (mobile) `px-12` (md) `px-20` (lg)
+> **Critical — the Figma/Tailwind gap:** The Figma is designed at 1440px. Tailwind's `lg:` fires at 1024px. There is a 416px gap where fixed Figma pixel values will break. Every time you use a pixel value from Figma, decide which breakpoint it belongs to:
+> - **`lg:`** — switch layout structure (columns vs stacked), use `%`, `clamp()`, or flex ratios. Never use raw Figma px here.
+> - **`xl:`** — apply Figma-exact pixel values (fixed column widths, exact paddings, hardcoded offsets).
+> - `clamp()` and `max-width` caps are safe at any breakpoint.
+> - If a Figma value is a layout dimension (column width, inner padding), convert to a proportional `%` at `lg:` and defer the exact px to `xl:`.
+
+### Layout implementation rules (learned from homepage)
+
+- **Proportional column widths at lg:** Column widths must be percentages at `lg:`, not fixed px. E.g. a 526px column in a 1280px content area is `lg:w-[41%]`, not `lg:w-[526px]`.
+- **Exact Figma px at xl only:** Inner paddings like 154px, fixed data-column widths like 352px go on `xl:`, e.g. `lg:pl-8 xl:pl-[154px]`.
+- **Shrinkable fixed-width flex children:** If a flex child must be a specific max width, use `flex: 0 1 Xpx` + `minWidth: 0` (shrinkable) — never `width: Xpx` + `flex-shrink-0` with a Figma px value.
+- **No standalone spacer divs for height:** Use `min-height` on the container to accommodate absolutely-positioned children. A sibling spacer div stacks in flow and doubles the height.
+- **Clear `w-full` before using flex-basis:** Flex children that use `flex-basis` should also have `sm:w-auto` to prevent `width: 100%` from conflicting with the flex algorithm.
+- **Hardcoded widths inside proportional columns:** Any fixed-width element (e.g. a `312px` divider) inside a proportional flex column must use `max-width: Xpx` + `width: 100%`, not `width: Xpx` alone.
+- **`overflow-x: hidden` on body:** Required baseline — prevents horizontal scroll from creating a wider scroll-width that makes `w-full` background images appear clipped.
+
+- **Max content width:** Section padding: `px-5` (mobile) `md:px-10` (tablet) `lg:px-20` (desktop). No additional max-width wrapper needed.
 - **Mobile type scale:** Until Figma finalises mobile tokens, use sensible step-down ratios (desktop H1 → mobile H1 at ~70%) and mark with `/* TODO */`
 - **Touch targets:** All interactive elements ≥ 44×44px on mobile
 - **Navigation:** Mobile nav must be a hamburger/drawer pattern — never a horizontal bar at 375px

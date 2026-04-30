@@ -46,7 +46,7 @@ Read the relevant docs files before executing any task. The `docs/` folder is th
 ## Standing Rules
 
 1. **Figma is law** — pull design context from the relevant Figma node before implementing any UI component or page. Never guess spacing, colour, or type.
-2. **Mobile first** — 375px is the primary viewport. Build up with `md:` (768px) and `lg:` (1440px) breakpoints. Mobile token scale is pending; flag any mobile type decisions with a comment.
+2. **Mobile first** — 375px is the primary viewport. Build up with `md:` (768px), `lg:` (1024px — layout structure only, proportional units), and `xl:` (1280px — Figma-exact px values). The Figma design targets 1440px but Tailwind's `lg:` fires at 1024px — never apply raw Figma pixel values at `lg:`, only at `xl:`. See `docs/03-rules-and-standards.md` Responsiveness Rules for the full breakdown.
 3. **Tokens only** — no hardcoded hex values, arbitrary `px` sizes, or magic numbers anywhere in the codebase. All values must reference a CSS custom property or Tailwind token.
 4. **TypeScript strict** — no `any`, no `@ts-ignore` without a written justification comment explaining why.
 5. **Validation loop** — every task must pass the checklist in `docs/03-rules-and-standards.md` before being marked done. No exceptions.
