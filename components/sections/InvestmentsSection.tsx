@@ -101,7 +101,7 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
      *   min-w-[260px]: floor — below this, card wraps to next row
      *   w-full sm:w-auto: full width on mobile, flex-driven above sm
      */
-    <article className="bg-white flex flex-col w-full sm:flex-[0_1_360px] sm:min-w-[260px]" style={{ minHeight: "400px", padding: "24px" }}>
+    <article className="bg-white flex flex-col w-full sm:w-auto sm:flex-1 sm:max-w-[360px] sm:min-w-[260px]" style={{ minHeight: "400px", padding: "24px" }}>
       <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
         <img src={card.icon} alt="" width={60} height={60} style={{ width: "60px", height: "60px", objectFit: "contain" }} />
       </div>

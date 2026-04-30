@@ -2,25 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 /*
- * Footer — exact Figma layout (y=8056 to y=8740, bg=#0B1738 navy)
+ * Footer — Figma y=8056 to y=8740 (684px total)
  *
- * Top divider: Vector 9 — stroke=#D2D5D9 1px at y=8056
- *
- * LEFT AREA (x=80 to x=584, ~50.6% of 1280px content):
- *   Logo: x=80, y=8096, w=70, h=100 (MSS white logo image)
- *
- *   2-column × 2-row link grid:
- *   Row 1 (y=8260 labels, y=8296 lists):
- *     Col A (x=80):  "EXPLORE" → About Us, Who Are We, Our Investments, News & Media, Pitch to Us
- *     Col B (x=364): "EXPLORE" → Chairman Message, Portfolio, Careers
- *   Row 2 (y=8478 labels, y=8514 lists):
- *     Col A (x=80):  "LEGAL"        → Terms and Conditions, Privacy Policy, Cookies Policy
- *     Col B (x=364): "SOCIAL MEDIA" → LinkedIn, Instagram, Facebook, X — Formerly Twitter
- *
- * RIGHT AREA (x=733 to x=1360, w=627, h=570):
- *   Frame 56 with image (footer-image.png)
- *
- * COPYRIGHT: x=904 y=8650 (bottom of right area, UPPER text, #67686B)
+ * Right image: x=733, w=627, h=570 (absolute, top-0, right-0)
+ * Copyright:   y=8650 → 594px from footer top → 24px below image bottom
+ *              x=904  → right-aligned in desktop layout
+ * Footer bottom: y=8740 → 90px below copyright (74px below text)
  */
 
 const exploreCol1 = [
@@ -38,10 +25,10 @@ const exploreCol2 = [
 ];
 
 const socialLinks = [
-  { label: "LinkedIn",            href: "#" },
-  { label: "Instagram",           href: "#" },
-  { label: "Facebook",            href: "#" },
-  { label: "X — Formerly Twitter",href: "#" },
+  { label: "LinkedIn",             href: "#" },
+  { label: "Instagram",            href: "#" },
+  { label: "Facebook",             href: "#" },
+  { label: "X — Formerly Twitter", href: "#" },
 ];
 
 const legalLinks = [
@@ -74,16 +61,16 @@ export default function Footer() {
   return (
     <footer role="contentinfo" className="w-full bg-white">
 
-      {/* Top divider — Vector 9: stroke=#D2D5D9 1px */}
+      {/* Top divider */}
       <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
-      <div className="relative w-full">
-        {/* ── RIGHT AREA — image frame (x=733, w=627, h=570) ─── */}
-        {/*
-         * Right of footer: 627px wide, 570px tall
-         * As % of 1440px: x=733 → left=50.9%, w=627 → 43.5%
-         * Positioned absolute so it overlaps the footer height correctly
-         */}
+      {/*
+       * Main area — lg:min-h-[570px] ensures the container is tall enough
+       * for the absolute-positioned right image without a stacking spacer div.
+       */}
+      <div className="relative w-full lg:min-h-[570px]">
+
+        {/* Right image — 627px wide, 570px tall, absolute top-right */}
         <div
           className="absolute top-0 right-0 hidden lg:block overflow-hidden"
           style={{ width: "43.5%", height: "570px" }}
@@ -97,10 +84,10 @@ export default function Footer() {
           />
         </div>
 
-        {/* ── LEFT AREA — logo + link columns ─────────────────── */}
-        <div className="relative z-10 px-5 md:px-10 lg:px-20 pt-10 pb-10 lg:pb-0">
+        {/* Left area — logo + link grid */}
+        <div className="relative z-10 px-5 md:px-10 lg:px-20 pt-10 pb-10">
 
-          {/* Logo — MSS white logo, 70×100px */}
+          {/* Logo — 70×100px */}
           <div className="mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative" }}>
             <Image
               src="/images/footer-logo.png"
@@ -112,8 +99,7 @@ export default function Footer() {
           </div>
 
           {/* Link grid: 2 columns × 2 rows */}
-          {/* Col gap: 364-80=284px → at 1280px content: ~22% col width */}
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-x-16 lg:gap-x-0 mb-0" style={{ maxWidth: "504px" }}>
+          <div className="grid grid-cols-2 gap-x-16 lg:gap-x-0" style={{ maxWidth: "504px" }}>
 
             {/* Row 1 — Explore × 2 */}
             <div className="mb-12 lg:pr-16">
@@ -157,21 +143,28 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Copyright — x=904 y=8650, UPPER text, #67686B */}
-          {/* Positioned at bottom of footer, right-aligned to match x=904 */}
-          <div className="mt-16 lg:mt-0 lg:absolute lg:bottom-6 lg:right-20">
-            <p
-              className="text-label font-body"
-              style={{ color: "#67686B" }}
-            >
+          {/* Copyright — mobile only (lg gets its own row below the image) */}
+          <div className="mt-16 lg:hidden">
+            <p className="text-label font-body" style={{ color: "#67686B" }}>
               ©2026 MSS Investment Holding Company. All rights reserved.
             </p>
           </div>
 
         </div>
+      </div>
 
-        {/* Spacer to ensure footer height covers the right image */}
-        <div className="hidden lg:block" style={{ height: "570px" }} />
+      {/*
+       * Copyright row — desktop only, sits BELOW the 570px image zone.
+       * Figma: image ends at y=8626, copyright at y=8650 (24px gap),
+       * footer bottom at y=8740 (74px below copyright text).
+       */}
+      <div
+        className="hidden lg:flex justify-end px-20"
+        style={{ paddingTop: "24px", paddingBottom: "74px" }}
+      >
+        <p className="text-label font-body" style={{ color: "#67686B" }}>
+          ©2026 MSS Investment Holding Company. All rights reserved.
+        </p>
       </div>
 
     </footer>
