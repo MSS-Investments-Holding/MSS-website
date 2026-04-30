@@ -70,8 +70,14 @@ export default function InvestmentsSection() {
           ))}
         </div>
 
-        {/* Row 2 — 2 cards, right-aligned */}
+        {/* Row 2 — ghost spacer + 2 cards, right-aligned */}
+        {/*
+         * Ghost div has identical flex properties to a real card so the flex
+         * algorithm sizes all 3 slots equally — row 2 cards match row 1 width
+         * at every viewport. Hidden below lg (mobile/tablet handles separately).
+         */}
         <div className="flex flex-wrap justify-end gap-6 mt-6">
+          <div className="hidden lg:block lg:flex-1 lg:max-w-[360px] lg:min-w-[260px]" aria-hidden="true" />
           {cards.filter(c => c.row === 2).map((card) => (
             <SectorCard key={card.title} card={card} />
           ))}
