@@ -10,17 +10,17 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header role="banner" className="relative z-20 w-full h-20 flex items-center">
+    <header role="banner" className="relative z-20 w-full h-[94px] flex items-center">
       <div className="w-full flex items-center justify-between px-20">
-        {/* Logo — 48×56px as in Figma */}
+        {/* Logo — 60×70px (12px padding top/bottom preserved from original) */}
         <Link href="/" aria-label="MSS Investments Holding — Home" className="flex-shrink-0">
           <Image
             src="/images/logo-white.png"
             alt="MSS Investments Holding"
-            width={48}
-            height={56}
+            width={60}
+            height={70}
             priority
-            className="w-12 h-auto"
+            className="w-[60px] h-auto"
           />
         </Link>
 
