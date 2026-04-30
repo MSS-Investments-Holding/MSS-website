@@ -120,8 +120,8 @@ export default function PortfolioProcessSection() {
          * Height: auto (content-driven, not fixed)
          */}
         <div
-          className="flex-1 flex flex-col"
-          style={{ backgroundColor: "#F5E9DC", paddingLeft: "48px", paddingRight: "80px", paddingTop: "56px", paddingBottom: "66px" }}
+          className="flex-1 flex flex-col px-8 lg:px-12 xl:pr-20"
+          style={{ backgroundColor: "#F5E9DC", paddingTop: "56px", paddingBottom: "66px" }}
         >
           {/* ── Logo + Visit Website ─────────────────────────────── */}
           {/* Tags top=144px from card top. Logo h=56px starts at top=56px. Gap logo→tags = 144-56-56=32px */}
@@ -180,7 +180,7 @@ export default function PortfolioProcessSection() {
             {/* LEFT col — Core Services + Subscription Tiers */}
             <div
               className="flex flex-col"
-              style={{ width: "352px", flexShrink: 0, paddingRight: "40px", borderRight: "1px solid #AEB0B3" }}
+              style={{ flex: "0 1 352px", minWidth: 0, paddingRight: "40px", borderRight: "1px solid #AEB0B3" }}
             >
               {/* Core Services heading */}
               <h4 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginBottom: "16px" }}>
@@ -194,7 +194,7 @@ export default function PortfolioProcessSection() {
 
               {/* Horizontal divider — w=312px, stroke=#AEB0B3 */}
               {/* Gap: list bottom to divider = 39px, divider to tiers = 41px */}
-              <div style={{ width: "312px", height: "1px", backgroundColor: "#AEB0B3", marginTop: "39px", marginBottom: "41px" }} />
+              <div style={{ width: "100%", maxWidth: "312px", height: "1px", backgroundColor: "#AEB0B3", marginTop: "39px", marginBottom: "41px" }} />
 
               {/* Subscription Tiers heading */}
               <h4 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginBottom: "16px" }}>
