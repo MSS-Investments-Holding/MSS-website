@@ -1,88 +1,172 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useEffect, useState } from "react";
+
+/*
+ * Global Footprint — exact Figma layout (Frame 49: y=5880, w=1440, h=860)
+ *
+ * Background: image 37 (node 242:4963) — full-width city photo
+ *
+ * White card (Frame 56: x=480, y=5880, w=880, h=452):
+ *   Starts at top of section (y=0 within section)
+ *   Left: 480px from page (matches leadership right column at ~33%)
+ *   Scroll behaviour: smoothly slides down 408px (860–452) as section scrolls
+ *
+ * Card content (relative to card, left edge at x=480, padding-left=40px):
+ *   "GLOBAL FOOTPRINT" label: left=40, top=40
+ *   H3:                        left=40, top=80
+ *   Body:                      left=40, top=176 w=420
+ *   Button:                    left=40, top=372 w=120 h=40
+ *
+ * World map (Frame 242:4970): x=1060 (580px from card left), y=-74 from section top, 600×600px
+ */
+
+const SECTION_H  = 860;
+const CARD_H     = 452;
+const MAX_TRAVEL = SECTION_H - CARD_H; // 408px
 
 export default function FootprintSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [translateY, setTranslateY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      // progress: 0 when section top hits viewport top, 1 when section bottom exits viewport
+      const progress = Math.max(0, Math.min(1,
+        -rect.top / (rect.height - window.innerHeight)
+      ));
+      setTranslateY(progress * MAX_TRAVEL);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       aria-label="Global Footprint"
       className="relative w-full overflow-hidden"
-      style={{ minHeight: "860px", backgroundColor: "var(--color-primary)" }}
+      style={{ height: `${SECTION_H}px` }}
     >
-      {/* Background image */}
-      <div className="absolute inset-0 z-0">
+      {/* ── Background image — full section ─────────────────── */}
+      <Image
+        src="/images/footprint-bg-correct.jpg"
+        alt=""
+        fill
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      {/* Dark overlay so text is readable */}
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(11,23,56,0.55)" }} />
+
+      {/* ── World map — x=1060 from section left, top=-74px ─── */}
+      {/* Positioned absolutely; partial bleed above section is hidden by overflow-hidden */}
+      <div
+        className="absolute"
+        style={{ left: "1060px", top: "-74px", width: "600px", height: "600px" }}
+      >
         <Image
-          src="/images/footprint-bg.jpg"
-          alt=""
-          fill
-          className="object-cover object-center opacity-30"
-          sizes="100vw"
+          src="/images/footprint-map.png"
+          alt="Global footprint map"
+          width={600}
+          height={600}
+          className="w-full h-full object-contain opacity-80"
         />
-        <div className="absolute inset-0 bg-[var(--color-primary)]/70" />
       </div>
 
-      <div className="relative z-10 max-w-[var(--max-w-content)] mx-auto px-6 md:px-10 lg:px-20 py-20 md:py-28 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-        {/* Text content */}
-        <div className="max-w-[520px]">
-          <p className="text-label font-body text-white/50 uppercase tracking-widest mb-6">
+      {/* ── White card — slides down as section scrolls ──────── */}
+      {/*
+       * Card starts at top=0, left=480px (33% matching leadership column).
+       * translateY driven by scroll progress within the section.
+       * On mobile: full-width, no parallax, static positioning.
+       */}
+      <div
+        className="absolute w-full lg:w-auto"
+        style={{
+          left: 0,
+          top: 0,
+          transform: `translateY(${translateY}px)`,
+          willChange: "transform",
+          // Responsive: on desktop, offset to match leadership column
+        }}
+      >
+        <div
+          className="w-full lg:ml-[33.3%] bg-white"
+          style={{
+            // Desktop: 880px wide matching Frame 56
+            // maxWidth keeps it proportional on smaller screens
+            maxWidth: "880px",
+            height: `${CARD_H}px`,
+            paddingLeft: "40px",
+            paddingRight: "40px",
+            paddingTop: "40px",
+            paddingBottom: "40px",
+            position: "relative",
+          }}
+        >
+          {/* "GLOBAL FOOTPRINT" label — top=40, which equals paddingTop */}
+          <span className="text-label font-body block" style={{ color: "#373738" }}>
             Global Footprint
-          </p>
-          <h2 className="text-h3 font-heading text-white mb-6">
+          </span>
+
+          {/* H3 — top=80, gap from label = 80-40-16=24px */}
+          <h2
+            className="font-heading"
+            style={{
+              fontSize: "36px",
+              lineHeight: "42px",
+              fontWeight: 300,
+              color: "#1C1C1F",
+              margin: 0,
+              marginTop: "24px",
+              maxWidth: "352px",
+            }}
+          >
             Positioned Across Markets That Matter
           </h2>
-          <p className="text-body-sm font-body text-white/70 mb-10 leading-relaxed">
+
+          {/* Body — top=176, gap from H3 bottom (80+84=164) = 12px */}
+          <p
+            className="font-body"
+            style={{
+              fontSize: "15px",
+              lineHeight: "22px",
+              color: "#67686B",
+              margin: 0,
+              marginTop: "12px",
+              maxWidth: "420px",
+            }}
+          >
             With exposure across the UAE, Pakistan, UK, and wider regional
-            growth markets, we operate at the intersection of capital flows and
-            high-growth digital economies — bringing strategic presence where it
-            counts most.
+            growth markets, we are positioned where capital, infrastructure, and
+            long-term opportunity increasingly converge. Our geographic presence
+            reflects a deliberate alignment with markets driving the next phase
+            of financial, technological, and commercial growth.
           </p>
+
+          {/* Button — top=372, gap from body bottom (176+132=308) = 64px */}
           <Link
             href="/pitch"
-            className="inline-flex items-center gap-2 px-6 h-10 bg-white text-btn font-body text-[var(--color-primary)] hover:bg-white/90 transition-colors duration-200"
+            className="inline-flex items-center justify-center font-body text-white"
+            style={{
+              marginTop: "64px",
+              display: "inline-flex",
+              width: "120px",
+              height: "40px",
+              backgroundColor: "#1C1C1F",
+              fontSize: "16px",
+              lineHeight: "24px",
+              letterSpacing: "-0.32px",
+              whiteSpace: "nowrap",
+            }}
           >
             Pitch to Us
           </Link>
-        </div>
-
-        {/* World map illustration — SVG globe rings */}
-        <div className="flex-1 flex items-center justify-center">
-          <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
-            {[1, 0.7, 0.45].map((scale, i) => (
-              <div
-                key={i}
-                className="absolute inset-0 rounded-full border border-white/10"
-                style={{
-                  transform: `scale(${scale})`,
-                  top: "50%",
-                  left: "50%",
-                  marginTop: `-${200 * scale}px`,
-                  marginLeft: `-${200 * scale}px`,
-                  width: `${400 * scale}px`,
-                  height: `${400 * scale}px`,
-                }}
-              />
-            ))}
-            {/* Horizontal equator line */}
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-white/10 -translate-y-1/2" />
-            {/* Vertical meridian line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2" />
-            {/* Location dots */}
-            {[
-              { label: "UAE", top: "44%", left: "58%" },
-              { label: "UK", top: "32%", left: "45%" },
-              { label: "Pakistan", top: "46%", left: "65%" },
-            ].map((dot) => (
-              <div
-                key={dot.label}
-                className="absolute flex flex-col items-center gap-1"
-                style={{ top: dot.top, left: dot.left }}
-              >
-                <div className="w-2 h-2 rounded-full bg-white ring-4 ring-white/20" />
-                <span className="text-label font-body text-white/60 whitespace-nowrap">
-                  {dot.label}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
