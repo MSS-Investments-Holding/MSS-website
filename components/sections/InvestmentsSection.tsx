@@ -25,7 +25,7 @@ export default function InvestmentsSection() {
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-20 mb-16 lg:mb-20">
           <h2
             className="font-heading text-white lg:w-[540px] lg:flex-shrink-0"
-            style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", lineHeight: "1.083", fontWeight: 300, margin: 0 }}
+            style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, margin: 0 }}
           >
             Investing Across High-Impact Digital Sectors and Eco-systems
           </h2>

@@ -24,7 +24,7 @@ export default function PortfolioProcessSection() {
         <span className="text-label font-body" style={{ color: "#373738" }}>Portfolio</span>
         <h2
           className="font-heading mt-6 max-w-[724px]"
-          style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)", lineHeight: "1.083", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
+          style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
         >
           Proud to partner ideas shaping the economy of tomorrow
         </h2>

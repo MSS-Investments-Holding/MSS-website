@@ -25,13 +25,15 @@ const leaders = [
   {
     name: "Vincent de Cannière",
     role: "Chairman",
-    image: "/images/leader-vincent.jpg",
+    // Full frame exported from Figma node 242:5007 — includes navy background
+    image: "/images/leader-vincent-frame.png",
     bio: "Vincent brings over 40 years of experience across executive leadership, governance, private banking, acquisitions, and restructuring. Having served as CEO and board member for major financial and real estate institutions across Europe and the Middle East, he provides MSS with seasoned strategic direction and institutional oversight.",
   },
   {
     name: "Husnain Nasir",
     role: "Director",
-    image: "/images/leader-husnain.jpg",
+    // Full frame exported from Figma node 242:5027 — includes navy background
+    image: "/images/leader-husnain-frame.png",
     bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With leadership roles tied to major digital finance and transformation initiatives in Pakistan, he contributes deep expertise in strategy, investments, and business development to MSS.",
   },
 ];
@@ -59,14 +61,14 @@ export default function LeadershipSection() {
           <h2
             className="font-heading flex-1"
             style={{
-              fontSize: "clamp(1.75rem, 3.5vw, 3rem)",
-              lineHeight: "1.083",
+              fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)",
+              lineHeight: "1.087",
               fontWeight: 300,
               color: "#1C1C1F",
               margin: 0,
             }}
           >
-            Experienced Leadership, with Depth and Perspective
+            Experienced Leadership,<br />with Depth and Perspective
           </h2>
         </div>
 
@@ -81,16 +83,16 @@ export default function LeadershipSection() {
             {leaders.map((leader) => (
               <div key={leader.name} className="flex flex-col">
 
-                {/* Photo — 428×400px, navy background */}
+                {/* Photo — full frame exported from Figma (navy bg included) */}
                 <div
-                  className="relative w-full overflow-hidden flex-shrink-0"
-                  style={{ aspectRatio: "428/400", backgroundColor: "#0B1738" }}
+                  className="relative w-full flex-shrink-0 overflow-hidden"
+                  style={{ aspectRatio: "428/400" }}
                 >
                   <Image
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 428px"
                   />
                 </div>
