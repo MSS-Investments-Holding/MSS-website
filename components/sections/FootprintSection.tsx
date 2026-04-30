@@ -5,22 +5,17 @@ import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 
 /*
- * Global Footprint — exact Figma layout (Frame 49: y=5880, w=1440, h=860)
+ * Global Footprint — Figma Frame 49: y=5880, w=1440, h=860
  *
- * Background: image 37 (node 242:4963) — full-width city photo
+ * Scroll behaviour (fixed):
+ *   Card starts at y=0 (top of section) when section enters viewport.
+ *   Slides DOWN 408px (860–452) as you scroll through the section.
+ *   Formula: scrolledPast = max(0, -rect.top) → progress = scrolledPast / MAX_TRAVEL
  *
- * White card (Frame 56: x=480, y=5880, w=880, h=452):
- *   Starts at top of section (y=0 within section)
- *   Left: 480px from page (matches leadership right column at ~33%)
- *   Scroll behaviour: smoothly slides down 408px (860–452) as section scrolls
- *
- * Card content (relative to card, left edge at x=480, padding-left=40px):
- *   "GLOBAL FOOTPRINT" label: left=40, top=40
- *   H3:                        left=40, top=80
- *   Body:                      left=40, top=176 w=420
- *   Button:                    left=40, top=372 w=120 h=40
- *
- * World map (Frame 242:4970): x=1060 (580px from card left), y=-74 from section top, 600×600px
+ * Globe (Frame 242:4970):
+ *   In Figma: x=1060 from page left = 1060-480 = 580px from card left.
+ *   Placed INSIDE the card container (position absolute, overflow visible).
+ *   Extends beyond card right edge — clipped by section overflow:hidden.
  */
 
 const SECTION_H  = 860;
@@ -35,14 +30,14 @@ export default function FootprintSection() {
     const onScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      // progress: 0 when section top hits viewport top, 1 when section bottom exits viewport
-      const progress = Math.max(0, Math.min(1,
-        -rect.top / (rect.height - window.innerHeight)
-      ));
+      // Card is at y=0 when section top hits viewport top (rect.top=0).
+      // As we scroll further, rect.top goes negative → card slides DOWN.
+      const scrolledPast = Math.max(0, -rect.top);
+      const progress     = Math.min(1, scrolledPast / MAX_TRAVEL);
       setTranslateY(progress * MAX_TRAVEL);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    onScroll(); // Run once on mount
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -53,7 +48,7 @@ export default function FootprintSection() {
       className="relative w-full overflow-hidden"
       style={{ height: `${SECTION_H}px` }}
     >
-      {/* ── Background image — full section ─────────────────── */}
+      {/* Background image */}
       <Image
         src="/images/footprint-bg-correct.jpg"
         alt=""
@@ -61,60 +56,41 @@ export default function FootprintSection() {
         className="object-cover object-center"
         sizes="100vw"
       />
-      {/* Dark overlay so text is readable */}
+      {/* Dark overlay */}
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(11,23,56,0.55)" }} />
 
-      {/* ── World map — x=1060 from section left, top=-74px ─── */}
-      {/* Positioned absolutely; partial bleed above section is hidden by overflow-hidden */}
+      {/* Scroll-driven card wrapper */}
       <div
-        className="absolute"
-        style={{ left: "1060px", top: "-74px", width: "600px", height: "600px" }}
-      >
-        <Image
-          src="/images/footprint-map.png"
-          alt="Global footprint map"
-          width={600}
-          height={600}
-          className="w-full h-full object-contain opacity-80"
-        />
-      </div>
-
-      {/* ── White card — slides down as section scrolls ──────── */}
-      {/*
-       * Card starts at top=0, left=480px (33% matching leadership column).
-       * translateY driven by scroll progress within the section.
-       * On mobile: full-width, no parallax, static positioning.
-       */}
-      <div
-        className="absolute w-full lg:w-auto"
+        className="absolute inset-x-0 top-0"
         style={{
-          left: 0,
-          top: 0,
           transform: `translateY(${translateY}px)`,
           willChange: "transform",
-          // Responsive: on desktop, offset to match leadership column
         }}
       >
+        {/*
+         * Card: starts at left=480px (33.3% of 1440px = leadership column offset)
+         * Width: 880px, min-height: 452px (grows with content so button never clips)
+         * overflow: visible so the globe can extend beyond the right edge
+         * The section's overflow:hidden clips the globe at the section boundary
+         */}
         <div
-          className="w-full lg:ml-[33.3%] bg-white"
+          className="relative bg-white lg:ml-[33.3%]"
           style={{
-            // Desktop: 880px wide matching Frame 56
-            // maxWidth keeps it proportional on smaller screens
             maxWidth: "880px",
-            height: `${CARD_H}px`,
+            minHeight: `${CARD_H}px`,
             paddingLeft: "40px",
-            paddingRight: "40px",
             paddingTop: "40px",
-            paddingBottom: "40px",
-            position: "relative",
+            paddingBottom: "48px",
+            paddingRight: "40px",
+            overflow: "visible",
           }}
         >
-          {/* "GLOBAL FOOTPRINT" label — top=40, which equals paddingTop */}
+          {/* "GLOBAL FOOTPRINT" label — top=40 → paddingTop covers it */}
           <span className="text-label font-body block" style={{ color: "#373738" }}>
             Global Footprint
           </span>
 
-          {/* H3 — top=80, gap from label = 80-40-16=24px */}
+          {/* H3 — gap from label = 24px (top=80, label ends at 40+16=56, gap=24) */}
           <h2
             className="font-heading"
             style={{
@@ -130,7 +106,7 @@ export default function FootprintSection() {
             Positioned Across Markets That Matter
           </h2>
 
-          {/* Body — top=176, gap from H3 bottom (80+84=164) = 12px */}
+          {/* Body — gap from H3 bottom = 12px */}
           <p
             className="font-body"
             style={{
@@ -149,7 +125,7 @@ export default function FootprintSection() {
             of financial, technological, and commercial growth.
           </p>
 
-          {/* Button — top=372, gap from body bottom (176+132=308) = 64px */}
+          {/* Button — gap from body bottom = 64px */}
           <Link
             href="/pitch"
             className="inline-flex items-center justify-center font-body text-white"
@@ -167,6 +143,33 @@ export default function FootprintSection() {
           >
             Pitch to Us
           </Link>
+
+          {/*
+           * World map globe — inside the card, RIGHT of text content
+           * Figma: map x=1060 from page left → 1060-480=580px from card left
+           * Figma: map y=5806 from page top → 5806-5880=-74px from card top (extends above)
+           * Size: 600×600px
+           * overflow:visible on card lets it extend beyond; section clips it
+           */}
+          <div
+            className="absolute hidden lg:block"
+            style={{
+              left: "580px",
+              top: "-74px",
+              width: "600px",
+              height: "600px",
+              pointerEvents: "none",
+            }}
+          >
+            <Image
+              src="/images/footprint-map.png"
+              alt=""
+              width={600}
+              height={600}
+              className="w-full h-full object-contain"
+              style={{ opacity: 0.85 }}
+            />
+          </div>
         </div>
       </div>
     </section>
