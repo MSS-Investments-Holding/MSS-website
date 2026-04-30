@@ -20,7 +20,9 @@ export const metadata: Metadata = {
   title: "MSS Investments Holding | Building the Platforms of Future Economies",
   description:
     "A global holding company investing in payments, regulated finance, AI, digital asset infrastructure, and venture-backed businesses shaping modern economies.",
-  metadataBase: new URL("https://mssinvestments.com"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://mss-website-sigma.vercel.app"
+  ),
   openGraph: {
     title: "MSS Investments Holding",
     description:

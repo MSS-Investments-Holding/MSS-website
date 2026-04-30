@@ -4,41 +4,37 @@
 
 | Layer | Choice | Notes |
 |---|---|---|
-| **Framework** | Next.js 14+ (App Router) | SSG/ISR for marketing pages; SSR where needed |
+| **Framework** | Next.js 16.2.4 (App Router) | SSG/ISR for marketing pages; SSR where needed |
 | **Language** | TypeScript (strict mode) | `strict: true` in tsconfig, no `any` |
-| **Styling** | Tailwind CSS v3 | Custom token config; no inline style props |
+| **Styling** | Tailwind CSS v4 | CSS-first config via `@theme` in `globals.css`; no `tailwind.config.ts` |
 | **CMS** | *[ASSUMED: Sanity v3 — not yet confirmed]* | For news, portfolio entries, careers, and page metadata |
 | **Deployment** | Vercel | Preview deployments per branch; production on main |
-| **Version Control** | Git (GitHub) | Branch strategy: `main` = production, `dev` = staging, feature branches for tasks |
-| **Package Manager** | *[ASSUMED: pnpm]* | Faster installs, strict hoisting |
-| **Linting** | ESLint + Prettier | Enforced on commit via husky + lint-staged |
+| **Version Control** | Git (GitHub) | Branch strategy: `main` = production; feature branches for tasks |
+| **Package Manager** | npm | `package-lock.json` is the lockfile — do not use pnpm or yarn |
+| **Linting** | ESLint (Next.js built-in) | Prettier formatting; husky not yet configured |
 
 ## Folder Structure
 
 ```
 mss-website/
 ├── app/                          # Next.js App Router
-│   ├── (marketing)/              # Route group — all public-facing pages
-│   │   ├── page.tsx              # Home
-│   │   ├── about/page.tsx        # About Us
-│   │   ├── investments/page.tsx  # What We Do / Investments
-│   │   ├── portfolio/
-│   │   │   ├── page.tsx          # Portfolio index
-│   │   │   └── [slug]/page.tsx   # Individual portfolio entry
-│   │   ├── news/
-│   │   │   ├── page.tsx          # News & Media index
-│   │   │   └── [slug]/page.tsx   # Individual article
-│   │   ├── pitch/page.tsx        # Pitch to Us
-│   │   ├── chairman/page.tsx     # Chairman's Message
-│   │   ├── legal/page.tsx        # Legal
-│   │   └── careers/
-│   │       ├── page.tsx          # Careers index
-│   │       └── [slug]/page.tsx   # Individual role (if needed)
+│   ├── page.tsx                  # Home (fully built)
+│   ├── about/page.tsx            # About Us (stub — to be built)
+│   ├── investments/page.tsx      # What We Do / Investments (stub)
+│   ├── portfolio/page.tsx        # Portfolio index (stub)
+│   ├── news/page.tsx             # News & Media index (stub)
+│   ├── pitch/page.tsx            # Pitch to Us (stub)
+│   ├── chairman/page.tsx         # Chairman's Message (stub)
+│   ├── careers/page.tsx          # Careers index (stub)
+│   ├── legal/
+│   │   ├── terms/page.tsx        # Terms and Conditions (stub)
+│   │   ├── privacy/page.tsx      # Privacy Policy (stub)
+│   │   └── cookies/page.tsx      # Cookies Policy (stub)
 │   ├── api/                      # API routes (contact form, pitch submission)
 │   │   └── contact/route.ts
-│   ├── layout.tsx                # Root layout — fonts, metadata, nav, footer
-│   ├── globals.css               # CSS custom properties + Tailwind base
-│   └── not-found.tsx
+│   ├── layout.tsx                # Root layout — fonts, metadata
+│   ├── globals.css               # CSS custom properties + Tailwind v4 @theme block
+│   └── not-found.tsx             # 404 page
 ├── components/
 │   ├── ui/                       # Primitive components (Button, Badge, Tag)
 │   ├── layout/                   # Header, Footer, Navigation
@@ -150,7 +146,7 @@ git push → GitHub
 
 - **Environment:** `dev` branch maps to a staging Vercel environment; `main` maps to production
 - **Domain:** Not yet assigned. *[ASSUMED: client will provide domain; configure custom domain in Vercel once available]*
-- **Build command:** `pnpm build`
+- **Build command:** `npm run build`
 - **Output directory:** `.next` (Vercel handles automatically)
 
 ## Caching & Revalidation Strategy

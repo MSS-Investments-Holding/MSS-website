@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# Claude Code and IDE settings (may contain API tokens)
+.claude/
+.vscode/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
