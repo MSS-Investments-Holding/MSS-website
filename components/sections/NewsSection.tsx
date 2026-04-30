@@ -61,10 +61,14 @@ export default function NewsSection() {
           return (
             <article
               key={article.title}
-              className={`flex flex-col lg:px-10 first:lg:pl-0 ${
+              /* Figma: total col gap=43px, divider centred → ~21px each side */
+              className={`flex flex-col lg:px-[21px] ${
+                index % 3 === 0 ? "lg:pl-0" : ""
+              } ${
+                index % 3 === 2 || index === articles.length - 1 ? "lg:pr-0" : ""
+              } ${
                 !isLastInRow ? "lg:border-r lg:border-[#D2D5D9]" : ""
               }`}
-              style={{ paddingLeft: index % 3 === 0 ? 0 : undefined, paddingRight: index % 3 === 2 ? 0 : undefined }}
             >
               {/* Image — 398×280px */}
               <div className="relative w-full overflow-hidden flex-shrink-0" style={{ aspectRatio: "398/280", backgroundColor: "#0B1738" }}>

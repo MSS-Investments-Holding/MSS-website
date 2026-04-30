@@ -72,7 +72,7 @@ function ColLabel({ text }: { text: string }) {
 
 export default function Footer() {
   return (
-    <footer role="contentinfo" className="w-full" style={{ backgroundColor: "#0B1738" }}>
+    <footer role="contentinfo" className="w-full bg-white">
 
       {/* Top divider — Vector 9: stroke=#D2D5D9 1px */}
       <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
