@@ -18,26 +18,25 @@ import { useRef, useEffect, useState } from "react";
  *   Extends beyond card right edge — clipped by section overflow:hidden.
  */
 
-const SECTION_H  = 860;
-const CARD_H     = 452;
-const MAX_TRAVEL = SECTION_H - CARD_H; // 408px
+const SECTION_H = 860;
 
 export default function FootprintSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const cardRef    = useRef<HTMLDivElement>(null);
   const [translateY, setTranslateY] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      // Card is at y=0 when section top hits viewport top (rect.top=0).
-      // As we scroll further, rect.top goes negative → card slides DOWN.
+      if (!sectionRef.current || !cardRef.current) return;
+      const rect     = sectionRef.current.getBoundingClientRect();
+      const cardH    = cardRef.current.offsetHeight; // actual rendered height
+      const maxTravel = Math.max(0, SECTION_H - cardH); // stops when card bottom = section bottom
       const scrolledPast = Math.max(0, -rect.top);
-      const progress     = Math.min(1, scrolledPast / MAX_TRAVEL);
-      setTranslateY(progress * MAX_TRAVEL);
+      const travel = Math.min(maxTravel, scrolledPast);
+      setTranslateY(travel);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // Run once on mount
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -74,15 +73,16 @@ export default function FootprintSection() {
          * The section's overflow:hidden clips the globe at the section boundary
          */}
         <div
+          ref={cardRef}
           className="relative bg-white lg:ml-[33.3%]"
           style={{
             maxWidth: "880px",
-            minHeight: `${CARD_H}px`,
+            minHeight: "452px",
             paddingLeft: "40px",
             paddingTop: "40px",
             paddingBottom: "48px",
             paddingRight: "40px",
-            overflow: "visible",
+            overflow: "hidden",
           }}
         >
           {/* "GLOBAL FOOTPRINT" label — top=40 → paddingTop covers it */}
