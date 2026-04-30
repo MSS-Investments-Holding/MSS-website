@@ -48,16 +48,23 @@ export default function InvestmentsSection() {
           Mobile:  1-col, all cards stack
         */}
 
-        {/* Row 1 — 3 cards, left-aligned */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/*
+         * Cards: fixed 360×400px in Figma — must NOT stretch to fill columns.
+         * Desktop: flex row with lg:w-[360px] per card.
+         *   Row 1 (3 cards left):  natural right space = content(1280) − 3×360 − 2×24 = 152px
+         *   Row 2 (2 cards right): justify-end → natural left space = 1280 − 2×360 − 24 = 536px
+         * Mobile/tablet: full-width grid (cards fill their column naturally).
+         */}
+
+        {/* Row 1 — 3 cards, left-aligned, fixed width at desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:flex lg:flex-row lg:gap-6">
           {cards.filter(c => c.row === 1).map((card) => (
             <SectorCard key={card.title} card={card} />
           ))}
         </div>
 
-        {/* Row 2 — 2 cards, right-aligned via empty spacer */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-          <div className="hidden lg:block" aria-hidden="true" /> {/* left spacer */}
+        {/* Row 2 — 2 cards, right-aligned, fixed width at desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 lg:flex lg:flex-row lg:justify-end lg:gap-6">
           {cards.filter(c => c.row === 2).map((card) => (
             <SectorCard key={card.title} card={card} />
           ))}
@@ -80,7 +87,8 @@ export default function InvestmentsSection() {
 
 function SectorCard({ card }: { card: typeof cards[number] }) {
   return (
-    <article className="bg-white flex flex-col" style={{ minHeight: "400px", padding: "24px" }}>
+    /* lg: fixed 360px (Figma exact) — mobile/tablet: full column width */
+    <article className="bg-white flex flex-col w-full lg:w-[360px] lg:flex-shrink-0" style={{ minHeight: "400px", padding: "24px" }}>
       <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
         <img src={card.icon} alt="" width={60} height={60} style={{ width: "60px", height: "60px", objectFit: "contain" }} />
       </div>
