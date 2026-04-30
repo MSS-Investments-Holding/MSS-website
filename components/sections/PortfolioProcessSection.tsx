@@ -31,24 +31,25 @@ export default function PortfolioProcessSection() {
       </div>
 
       {/* ── 4 PROCESS STEPS — responsive 4-col grid ───────────── */}
-      <div className="w-full px-5 md:px-10 lg:px-20 pb-16 lg:pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-0">
+      {/* Extra px beyond section padding to match Figma step inset */}
+      <div className="w-full px-10 md:px-20 lg:px-32 pb-16 lg:pb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {steps.map((step) => (
-            <div key={step.title} className="flex flex-col lg:pr-8">
-              {/* Icon — 40×40 white bg with grey SVG */}
+            <div key={step.title} className="flex flex-col items-center text-center">
+              {/* Icon — 40×40 white bg with grey SVG, centered */}
               <div className="w-10 h-10 bg-white flex items-center justify-center flex-shrink-0">
                 <img src={step.icon} alt="" width={32} height={32} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
               </div>
               {/* Title */}
               <h3
-                className="font-heading mt-4"
+                className="font-heading"
                 style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "16px" }}
               >
                 {step.title}
               </h3>
               {/* Description */}
               <p
-                className="font-body mt-2"
+                className="font-body"
                 style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "8px" }}
               >
                 {step.desc}
