@@ -64,8 +64,9 @@ const fieldBase = {
   width: "100%",
   height: "60px",
   backgroundColor: "#FFFFFF",
-  border: "1px solid #E8E9EB",
-  paddingLeft: "16px",
+  border: "none",
+  borderBottom: "1px solid #E8E9EB",
+  paddingLeft: "0px",
   paddingRight: "16px",
   fontFamily: "var(--font-inter, system-ui, sans-serif)",
   fontSize: "18px",
@@ -248,8 +249,7 @@ export default function PitchPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="What We Look For"
-        className="w-full px-5 md:px-10 lg:px-20"
-        style={{ backgroundColor: "#F5E9DC" }}
+        className="w-full bg-white px-5 md:px-10 lg:px-20"
       >
         {/*
          * Frame 55 is content-width (inside px-20 padding), h=702px fixed.
@@ -442,6 +442,7 @@ export default function PitchPage() {
         id="pitch-form"
         aria-label="Submit Your Pitch"
         className="w-full bg-white px-5 md:px-10 lg:px-20 pt-24"
+        style={{ scrollMarginTop: "94px" }}
       >
         <span className="text-label font-body block" style={{ color: "#373738" }}>
           Submit your pitch
@@ -521,9 +522,51 @@ export default function PitchPage() {
                   defaultValue=""
                 >
                   <option value="" disabled>Your Location</option>
-                  <option value="ae">United Arab Emirates</option>
-                  <option value="pk">Pakistan</option>
-                  <option value="gb">United Kingdom</option>
+                  {/* MSS presence */}
+                  <optgroup label="MSS Presence">
+                    <option value="ae">United Arab Emirates</option>
+                    <option value="gb">United Kingdom</option>
+                    <option value="pk">Pakistan</option>
+                    <option value="ch">Switzerland</option>
+                    <option value="ca">Canada</option>
+                    <option value="sa">Kingdom of Saudi Arabia</option>
+                    <option value="ug">Uganda</option>
+                    <option value="np">Nepal</option>
+                  </optgroup>
+                  {/* Americas */}
+                  <optgroup label="Americas">
+                    <option value="us">United States</option>
+                    <option value="br">Brazil</option>
+                    <option value="mx">Mexico</option>
+                  </optgroup>
+                  {/* Europe */}
+                  <optgroup label="Europe">
+                    <option value="de">Germany</option>
+                    <option value="fr">France</option>
+                    <option value="nl">Netherlands</option>
+                    <option value="lu">Luxembourg</option>
+                    <option value="ie">Ireland</option>
+                  </optgroup>
+                  {/* Middle East & Africa */}
+                  <optgroup label="Middle East & Africa">
+                    <option value="qa">Qatar</option>
+                    <option value="bh">Bahrain</option>
+                    <option value="kw">Kuwait</option>
+                    <option value="eg">Egypt</option>
+                    <option value="za">South Africa</option>
+                    <option value="ng">Nigeria</option>
+                    <option value="ke">Kenya</option>
+                  </optgroup>
+                  {/* Asia Pacific */}
+                  <optgroup label="Asia Pacific">
+                    <option value="sg">Singapore</option>
+                    <option value="hk">Hong Kong</option>
+                    <option value="in">India</option>
+                    <option value="cn">China</option>
+                    <option value="jp">Japan</option>
+                    <option value="au">Australia</option>
+                    <option value="my">Malaysia</option>
+                  </optgroup>
                   <option value="other">Other</option>
                 </select>
                 <svg className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" width="13" height="8" viewBox="0 0 13 8" fill="none" aria-hidden="true">
@@ -585,8 +628,9 @@ export default function PitchPage() {
                 width: "100%",
                 height: "200px",
                 backgroundColor: "#FFFFFF",
-                border: "1px solid #E8E9EB",
-                paddingLeft: "16px",
+                border: "none",
+                borderBottom: "1px solid #E8E9EB",
+                paddingLeft: "0px",
                 paddingRight: "16px",
                 paddingTop: "16px",
                 fontFamily: "var(--font-inter, system-ui, sans-serif)",
@@ -691,8 +735,8 @@ export default function PitchPage() {
             </p>
             <a
               href="mailto:info@mssinvestmentsholding.com"
-              className="font-body"
-              style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", fontWeight: 500, display: "block", marginTop: "32px" }}
+              className="font-body text-body-sm-emphasized"
+              style={{ color: "#373738", display: "block", marginTop: "32px" }}
             >
               info@mssinvestmentsholding.com
             </a>
@@ -714,8 +758,8 @@ export default function PitchPage() {
             </p>
             <a
               href="mailto:media@mssinvestmentsholding.com"
-              className="font-body"
-              style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", fontWeight: 500, display: "block", marginTop: "32px" }}
+              className="font-body text-body-sm-emphasized"
+              style={{ color: "#373738", display: "block", marginTop: "32px" }}
             >
               media@mssinvestmentsholding.com
             </a>
