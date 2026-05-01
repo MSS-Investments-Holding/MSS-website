@@ -1,16 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
-
-const newsItems = [
-  {
-    image: "/images/news-card-2.jpg",
-    caption: "Platforms designed with “regulatory-ready” compliance.",
-  },
-  {
-    image: "/images/news-card-2.jpg",
-    caption: "Platforms designed with “regulatory-ready” compliance.",
-  },
-];
+import { heroNewsItems as newsItems } from "@/lib/data";
 
 export default function HeroSection() {
   return (
@@ -80,13 +71,13 @@ export default function HeroSection() {
           <div className="w-full h-px bg-white/30 mb-4" />
           <div className="flex gap-4 flex-wrap sm:flex-nowrap">
             {newsItems.map((item, i) => (
-              <div key={i} className="flex flex-col gap-3" style={{ width: "200px", flexShrink: 0 }}>
+              <Link key={i} href={`/news/${item.slug}`} className="flex flex-col gap-3" style={{ width: "200px", flexShrink: 0, textDecoration: "none" }}>
                 <div className="relative overflow-hidden bg-[var(--color-grey-black)]" style={{ width: "200px", height: "130px" }}>
                   <Image src={item.image} alt="" fill className="object-cover" sizes="200px" />
                 </div>
                 <p className="font-body text-white text-[15px] leading-[22px]">{item.caption}</p>
-                <span className="font-body text-white text-[14px] leading-5 cursor-pointer hover:text-white/70 transition-colors">Read More →</span>
-              </div>
+                <span className="font-body text-white text-[14px] leading-5 hover:text-white/70 transition-colors">Read More →</span>
+              </Link>
             ))}
           </div>
         </div>
