@@ -143,27 +143,15 @@ export default function ChairmanPage() {
            */}
           <div className="flex-shrink-0 lg:w-[28%] xl:w-[342px] mb-16 lg:mb-0">
 
-            {/* Navy frame with portrait image */}
-            <div
-              className="relative w-full overflow-hidden"
-              style={{ backgroundColor: "#0B1738", aspectRatio: "342/320", maxWidth: "342px" }}
-            >
-              {/*
-               * Portrait inset: left=42/342=12.3%, top=32/320=10%
-               * Size: 272/342=79.5% wide, 288/320=90% tall
-               */}
-              <div
-                className="absolute"
-                style={{ left: "12.3%", top: "10%", width: "79.5%", height: "90%" }}
-              >
-                <Image
-                  src="/images/chairman-portrait.jpg"
-                  alt="Vincent de Cannière, Chairman"
-                  fill
-                  className="object-cover object-top"
-                  sizes="342px"
-                />
-              </div>
+            {/* Portrait — reuse the homepage leader frame (navy bg baked in, node 242:5007) */}
+            <div className="relative w-full overflow-hidden" style={{ aspectRatio: "428/400", maxWidth: "342px" }}>
+              <Image
+                src="/images/leader-vincent-frame.png"
+                alt="Vincent de Cannière, Chairman"
+                fill
+                className="object-cover object-center"
+                sizes="342px"
+              />
             </div>
 
             {/* Name — Merriweather 26px/32px, 20px below frame */}
@@ -242,7 +230,7 @@ export default function ChairmanPage() {
              * Three lines: name · role · company
              * Figma: y=2589, h=78px (3 × 26px line-height)
              */}
-            <div style={{ marginTop: "40px" }}>
+            <div style={{ marginTop: "40px", textAlign: "right" }}>
               <p
                 className="font-heading"
                 style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
