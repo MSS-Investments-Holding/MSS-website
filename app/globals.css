@@ -4,7 +4,7 @@
 @theme {
   /* Brand palette */
   --color-brand-navy: #0B1738;
-  --color-brand-silver: #BDCADB;
+  --color-brand-silver: #C5D3E5;
   --color-brand-warm: #F5E9DC;
 
   /* Greys */
@@ -30,7 +30,7 @@
   --color-text-secondary: #67686B;
   --color-text-muted: #AEB0B3;
   --color-text-inverse: #FFFFFF;
-  --color-accent: #BDCADB;
+  --color-accent: #C5D3E5;
 
   /* Font families — variables injected by next/font into <html> */
   --font-heading: var(--font-merriweather), Georgia, "Times New Roman", serif;

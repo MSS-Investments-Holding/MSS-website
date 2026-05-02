@@ -13,7 +13,7 @@
 | Token Name | CSS Variable | Hex | RGB | Usage |
 |---|---|---|---|---|
 | `color-brand-navy` | `--color-brand-navy` | `#0B1738` | 11, 23, 56 | Primary brand — hero backgrounds, nav, dark sections |
-| `color-brand-silver` | `--color-brand-silver` | `#BDCADB` | 189, 202, 219 | Secondary brand — subtle accents, borders on dark |
+| `color-brand-silver` | `--color-brand-silver` | `#C5D3E5` | 197, 211, 229 | Secondary brand — subtle accents, borders on dark |
 | `color-brand-warm` | `--color-brand-warm` | `#F5E9DC` | 245, 233, 220 | Warm accent — section backgrounds, card tints |
 
 ### Greys
@@ -50,7 +50,7 @@ Map these to the raw values above. Use semantic tokens in all component code —
 | `color-text-secondary` | `--color-text-secondary` | `--color-grey-500` (`#67686B`) | Captions, metadata, secondary labels |
 | `color-text-muted` | `--color-text-muted` | `--color-grey-400` (`#AEB0B3`) | Placeholder text, disabled labels |
 | `color-text-inverse` | `--color-text-inverse` | `--color-white` (`#FFFFFF`) | Text on dark/navy backgrounds |
-| `color-accent` | `--color-accent` | `--color-brand-silver` (`#BDCADB`) | Accent elements on dark sections |
+| `color-accent` | `--color-accent` | `--color-brand-silver` (`#C5D3E5`) | Accent elements on dark sections |
 
 ---
 
@@ -140,7 +140,7 @@ Add to `app/globals.css` inside `:root {}`:
 :root {
   /* Brand palette */
   --color-brand-navy: #0B1738;
-  --color-brand-silver: #BDCADB;
+  --color-brand-silver: #C5D3E5;
   --color-brand-warm: #F5E9DC;
 
   /* Greys */
@@ -188,7 +188,7 @@ const config: Config = {
       colors: {
         // Brand
         'brand-navy': '#0B1738',
-        'brand-silver': '#BDCADB',
+        'brand-silver': '#C5D3E5',
         'brand-warm': '#F5E9DC',
         // Greys
         'grey-200': '#E8E9EB',

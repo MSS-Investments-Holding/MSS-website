@@ -211,7 +211,7 @@ export default function PitchPage() {
                 <div className="lg:w-[52%] lg:flex-shrink-0">
                   <span
                     className="font-heading"
-                    style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#BDCADB" }}
+                    style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#C5D3E5" }}
                   >
                     {item.number}
                   </span>
