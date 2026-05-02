@@ -62,7 +62,7 @@ export default function CompanySection() {
             </p>
 
             {/* Stats — 3 cards, responsive: stack on mobile, row on desktop */}
-            <div className="flex flex-col sm:flex-row gap-0 mt-14 sm:mt-16">
+            <div className="flex flex-col sm:flex-row gap-2 mt-14 sm:mt-16">
               {stats.map((stat) => (
                 <div
                   key={stat.value}
