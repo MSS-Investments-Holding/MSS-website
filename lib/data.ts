@@ -1,7 +1,7 @@
 export const navLinks = [
   { label: "About Us", href: "/about", hasDropdown: false },
   { label: "What We Do", href: "/investments", hasDropdown: true },
-  { label: "Our Investments", href: "/portfolio", hasDropdown: true },
+  { label: "How We Invest", href: "/investments", hasDropdown: true },
   { label: "News & Media", href: "/news", hasDropdown: true },
   { label: "Pitch to Us", href: "/pitch", hasDropdown: false },
 ];
@@ -188,7 +188,7 @@ export const footerLinks = {
   explore: [
     { label: "About Us", href: "/about" },
     { label: "Who Are We", href: "/about#who-we-are" },
-    { label: "Our Investments", href: "/investments" },
+    { label: "How We Invest", href: "/investments" },
     { label: "News & Media", href: "/news" },
     { label: "Pitch to Us", href: "/pitch" },
   ],
