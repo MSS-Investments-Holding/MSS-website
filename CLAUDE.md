@@ -22,7 +22,7 @@ Read the relevant docs files before executing any task. The `docs/` folder is th
 
 **Fonts:** **Merriweather Light (300)** for all headings · **Inter Regular (400)** for all body/UI · Both via `next/font/google`. Desktop scale confirmed. Mobile/tablet scale pending Figma update.
 
-**Colours:** 3 groups confirmed. Brand: Navy `#0B1738` · Silver `#BDCADB` · Warm Beige `#F5E9DC`. Greys: `#1C1C1F` (Black) · `#67686B` (500) · `#E8E9EB` (200). Neutrals: `#F0F2F5`–`#373738` scale + `#FFFFFF`. Full semantic mapping in `docs/05-design-tokens.md`.
+**Colours:** 3 groups confirmed. Brand: Navy `#0B1738` · Silver `#C5D3E5` · Warm Beige `#F5E9DC`. Greys: `#1C1C1F` (Black) · `#67686B` (500) · `#E8E9EB` (200). Neutrals: `#F0F2F5`–`#373738` scale + `#FFFFFF`. Full semantic mapping in `docs/05-design-tokens.md`.
 
 **Pages (current working sitemap):**
 - Home
