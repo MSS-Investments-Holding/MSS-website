@@ -1,9 +1,26 @@
 export const navLinks = [
-  { label: "About Us", href: "/about", hasDropdown: true },
-  { label: "What We Do", href: "/investments", hasDropdown: true },
+  {
+    label: "About Us",
+    href: "/about",
+    hasDropdown: true,
+    dropdownItems: [
+      { label: "Overview",    href: "/about" },
+      { label: "Leadership",  href: "/about/leadership" },
+      { label: "Careers",     href: "/about/careers" },
+    ],
+  },
+  {
+    label: "What We Do",
+    href: "/investments",
+    hasDropdown: true,
+    dropdownItems: [
+      { label: "Overview",  href: "/investments" },
+      { label: "Portfolio", href: "/portfolio" },
+    ],
+  },
   { label: "How We Invest", href: "/investments", hasDropdown: false },
-  { label: "News & Media", href: "/news", hasDropdown: false },
-  { label: "Pitch to Us", href: "/pitch", hasDropdown: false },
+  { label: "News & Media",  href: "/news",        hasDropdown: false },
+  { label: "Pitch to Us",   href: "/pitch",       hasDropdown: false },
 ];
 
 export const stats = [

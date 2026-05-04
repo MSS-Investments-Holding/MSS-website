@@ -2,17 +2,69 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
 
+/*
+ * Dropdown geometry — Figma node 515-51
+ *
+ * Nav container: h=34, px=16, gap=20 between items, backdrop-filter blur(24px)
+ * Dropdown gap below nav: 8px
+ * Dropdown fill + blur: identical to nav container
+ * Dropdown padding: 8px top/bottom, 16px left/right
+ * Dropdown item height: 18px, gap between items: 8px
+ * Dropdown item font: 13px Inter 400 white
+ *
+ * "About Us" dropdown:   left=0   (aligned to nav container left), w=99px  (3 items)
+ * "What We Do" dropdown: left=111px (aligned to "What We Do" item, 16+75+20=111), w=93px (2 items)
+ */
+const DROPDOWN_LEFT: Record<string, string> = {
+  "About Us":   "0px",
+  "What We Do": "111px",
+};
+
+const dropdownStyle: React.CSSProperties = {
+  position:             "absolute",
+  top:                  "calc(100% + 8px)",
+  backgroundColor:      "rgba(255,255,255,0.10)",
+  backdropFilter:       "blur(24px)",
+  WebkitBackdropFilter: "blur(24px)",
+  padding:              "8px 0",
+  zIndex:               50,
+};
+
+const dropdownItemStyle: React.CSSProperties = {
+  display:     "block",
+  height:      "18px",
+  lineHeight:  "18px",
+  fontSize:    "13px",
+  fontWeight:  400,
+  color:       "#FFFFFF",
+  padding:     "0 16px",
+  whiteSpace:  "nowrap",
+  textDecoration: "none",
+};
+
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen,     setMobileOpen]     = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openDropdown = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveDropdown(label);
+  };
+
+  const scheduleClose = () => {
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 120);
+  };
 
   return (
     <header role="banner" className="relative z-20 w-full h-[94px] flex items-center">
       <div className="w-full flex items-center justify-between px-20">
-        {/* Logo — 60×70px (12px padding top/bottom preserved from original) */}
+
+        {/* Logo */}
         <Link href="/" aria-label="MSS Investments Holding — Home" className="flex-shrink-0">
           <Image
             src="/images/logo-white.png"
@@ -24,44 +76,126 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Nav links — frosted glass container, Figma node 501-2568: w≈523 h=34 px=16 gap=20 */}
+        {/* ── Desktop nav ── */}
+        {/*
+          Nav container: h=34, px=16 (px-4), gap=20 (gap-5)
+          position:relative so dropdowns anchor to it
+        */}
         <nav
           aria-label="Primary navigation"
-          className="hidden md:flex items-center gap-5 px-4 h-[34px]"
+          className="hidden md:flex items-center gap-5 px-4 h-[34px] relative"
           style={{
-            backgroundColor: "rgba(255,255,255,0.10)",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
+            backgroundColor:      "rgba(255,255,255,0.10)",
+            backdropFilter:       "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
           }}
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="flex items-center gap-[2px] text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap"
+          {navLinks.map((link) =>
+            link.hasDropdown ? (
+              /* ── Item with dropdown ── */
+              <div
+                key={link.label}
+                onMouseEnter={() => openDropdown(link.label)}
+                onMouseLeave={scheduleClose}
+                className="flex items-center"
+              >
+                <Link
+                  href={link.href}
+                  className="flex items-center gap-[2px] text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap"
+                >
+                  {link.label}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path
+                      d="M4 6l4 4 4-4"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            ) : (
+              /* ── Plain item ── */
+              <Link
+                key={link.label}
+                href={link.href}
+                className="flex items-center text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
+
+          {/* ── "About Us" dropdown ── */}
+          {activeDropdown === "About Us" && (
+            <div
+              style={{ ...dropdownStyle, left: DROPDOWN_LEFT["About Us"] }}
+              onMouseEnter={() => openDropdown("About Us")}
+              onMouseLeave={scheduleClose}
+              role="menu"
+              aria-label="About Us submenu"
             >
-              {link.label}
-              {link.hasDropdown && (
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              )}
-            </Link>
-          ))}
+              <div className="flex flex-col" style={{ gap: "8px" }}>
+                {navLinks
+                  .find((l) => l.label === "About Us")
+                  ?.dropdownItems?.map((item) => (
+                    <Link
+                      key={item.href + item.label}
+                      href={item.href}
+                      role="menuitem"
+                      style={dropdownItemStyle}
+                      className="hover:opacity-70 transition-opacity duration-150 font-body"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+              </div>
+            </div>
+          )}
+
+          {/* ── "What We Do" dropdown ── */}
+          {activeDropdown === "What We Do" && (
+            <div
+              style={{ ...dropdownStyle, left: DROPDOWN_LEFT["What We Do"] }}
+              onMouseEnter={() => openDropdown("What We Do")}
+              onMouseLeave={scheduleClose}
+              role="menu"
+              aria-label="What We Do submenu"
+            >
+              <div className="flex flex-col" style={{ gap: "8px" }}>
+                {navLinks
+                  .find((l) => l.label === "What We Do")
+                  ?.dropdownItems?.map((item) => (
+                    <Link
+                      key={item.href + item.label}
+                      href={item.href}
+                      role="menuitem"
+                      style={dropdownItemStyle}
+                      className="hover:opacity-70 transition-opacity duration-150 font-body"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+              </div>
+            </div>
+          )}
         </nav>
 
-        {/* Right controls — EN + Search with bg-white/10 fill per Figma */}
+        {/* ── Right controls: EN + Search ── */}
         <div className="hidden md:flex items-center gap-3">
-          {/* EN button — 53×36px, white/10 fill */}
+          {/* EN button */}
           <button
             aria-label="Select language"
-            className="flex items-center justify-center gap-1 text-links font-body text-white hover:bg-white/20 transition-colors duration-200"
+            className="flex items-center justify-center gap-[2px] text-links font-body text-white hover:bg-white/20 transition-colors duration-200"
             style={{
-              width: "53px",
-              height: "36px",
-              fontSize: "14px",
-              lineHeight: "20px",
+              width:           "53px",
+              height:          "36px",
+              fontSize:        "13px",
+              lineHeight:      "18px",
               backgroundColor: "rgba(255,255,255,0.10)",
+              backdropFilter:       "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
             }}
           >
             EN
@@ -70,14 +204,16 @@ export default function Navbar() {
             </svg>
           </button>
 
-          {/* Search button — 36×36px square, white/10 fill */}
+          {/* Search button */}
           <button
             aria-label="Search"
             className="flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
             style={{
-              width: "36px",
-              height: "36px",
+              width:           "36px",
+              height:          "36px",
               backgroundColor: "rgba(255,255,255,0.10)",
+              backdropFilter:       "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
             }}
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -87,7 +223,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* ── Mobile hamburger ── */}
         <button
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
@@ -98,7 +234,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile drawer */}
+      {/* ── Mobile drawer ── */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-[var(--color-primary)] flex flex-col pt-20 px-6 md:hidden">
           <button
@@ -110,14 +246,30 @@ export default function Navbar() {
           </button>
           <nav className="flex flex-col gap-6 mt-4">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-white font-heading font-light text-h5 border-b border-white/10 pb-4"
-              >
-                {link.label}
-              </Link>
+              <div key={link.label}>
+                <Link
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white font-heading font-light text-h5 border-b border-white/10 pb-4 block"
+                >
+                  {link.label}
+                </Link>
+                {/* Mobile sub-items */}
+                {link.dropdownItems && (
+                  <div className="flex flex-col gap-3 pt-3 pl-4">
+                    {link.dropdownItems.map((item) => (
+                      <Link
+                        key={item.href + item.label}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="text-white/70 font-body text-[13px]"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
         </div>
