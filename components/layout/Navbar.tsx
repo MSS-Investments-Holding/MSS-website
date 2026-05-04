@@ -24,17 +24,21 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Nav links — center, white-bordered container per Figma */}
+        {/* Nav links — frosted glass container, Figma node 501-2568: w≈523 h=34 px=16 gap=20 */}
         <nav
           aria-label="Primary navigation"
-          className="hidden md:flex items-center gap-5 px-5 h-9"
-          style={{ backgroundColor: "rgba(255,255,255,0.10)" }}
+          className="hidden md:flex items-center gap-5 px-4 h-[34px]"
+          style={{
+            backgroundColor: "rgba(255,255,255,0.10)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+          }}
         >
           {navLinks.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
-              className="flex items-center gap-1 text-links font-body text-white hover:text-white/70 transition-colors duration-200"
+              className="flex items-center gap-[2px] text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap"
             >
               {link.label}
               {link.hasDropdown && (
