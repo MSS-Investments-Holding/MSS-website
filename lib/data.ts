@@ -1,5 +1,5 @@
 export const navLinks = [
-  { label: "About Us", href: "/about", hasDropdown: false },
+  { label: "About Us", href: "/about", hasDropdown: true },
   { label: "What We Do", href: "/investments", hasDropdown: true },
   { label: "How We Invest", href: "/investments", hasDropdown: false },
   { label: "News & Media", href: "/news", hasDropdown: false },
@@ -195,7 +195,7 @@ export const footerLinks = {
   more: [
     { label: "Chairman Message", href: "/chairman" },
     { label: "Portfolio", href: "/portfolio" },
-    { label: "Careers", href: "/careers" },
+    { label: "Careers", href: "/about/careers" },
   ],
   social: [
     { label: "LinkedIn", href: "#" },

@@ -21,7 +21,7 @@ const exploreCol1 = [
 const exploreCol2 = [
   { label: "Chairman Message", href: "/chairman" },
   { label: "Portfolio",        href: "/portfolio" },
-  { label: "Careers",         href: "/careers" },
+  { label: "Careers",         href: "/about/careers" },
 ];
 
 const socialLinks = [
