@@ -108,8 +108,9 @@ export default function LeadershipPage() {
 
       {/* ══════════════════════════════════════════════════════════
           HERO  h=930px, bg=#1C1C1F + image rgba(0,0,0,0.10)
-          H1 CENTERED in content width (x=18113, w=630, center=640=content center)
-          H1 at y=389 from section top → 295px below nav → pt-[295px]
+          Figma: 72px/76px Merriweather, CENTER, w=618 h=228 (3 lines)
+          Explicit line breaks match Figma: "Meet the / Leadership Guiding / MSS Forward"
+          Centered H+V in the space below the navbar
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Leadership Hero"
@@ -131,18 +132,20 @@ export default function LeadershipPage() {
           <Navbar />
         </div>
 
-        {/* H1 centered — use flex items-end to push to bottom portion */}
-        <div className="relative z-10 flex-1 flex flex-col items-center px-5 md:px-10 lg:px-20 pt-16 lg:pt-[295px] pb-10">
+        {/* H1 — centered both horizontally and vertically in the remaining hero space */}
+        <div className="relative z-10 flex-1 flex items-center justify-center px-5 md:px-10 lg:px-20">
           <h1
             className="font-heading text-white text-center"
             style={{
-              fontSize: "clamp(2.25rem, 5vw, 4.5rem)",
-              lineHeight: "1.056",
+              fontSize: "clamp(2rem, 5vw, 4.5rem)",
+              lineHeight: "76px",
               fontWeight: 300,
-              maxWidth: "630px",
+              maxWidth: "618px",
             }}
           >
-            Meet the Leadership Guiding MSS Forward
+            Meet the<br />
+            Leadership Guiding<br />
+            MSS Forward
           </h1>
         </div>
       </section>
