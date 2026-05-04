@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 /*
  * 404 — Figma node 482-784 (MSS — Website Design), 1440 frame
  * Hero: h=520px (482:785).
- * Bottom row: H1 + CTA bottom-aligned, row bottom 140px above hero bottom, horizontal inset 80px.
+ * Bottom row: H1 + CTA bottom-aligned, 40px above hero bottom (Figma), horizontal inset 80px at lg.
  * Below hero: 80px white (y 520→600) then footer divider + content (483:1294).
  */
 
@@ -45,7 +45,7 @@ export default function NotFound(): ReactElement {
           <Navbar />
         </div>
 
-        <div className="absolute inset-x-0 bottom-[140px] z-10 px-5 md:px-10 lg:px-20">
+        <div className="absolute inset-x-0 bottom-10 z-10 px-5 md:px-10 lg:px-20">
           <div className="mx-auto flex w-full max-w-[var(--max-w-content)] flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between">
             <h1 className="max-w-[630px] font-heading text-[var(--color-text-inverse)] text-h2">
               Sorry, the page you are looking for does not exist.
