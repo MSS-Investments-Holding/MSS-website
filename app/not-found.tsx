@@ -15,9 +15,8 @@ export const metadata: Metadata = {
 /*
  * 404 — Figma node 482-784 (MSS — Website Design), 1440 frame
  * Hero: h=520px (482:785).
- * H1 (482:816): bottom 140px from hero bottom, left 80px, max-width 630px.
- * CTA (483:1298): top 440px from hero top, right margin 80px (1440 − 1224 − btn).
- * Positioning is relative to the hero section (y=0 at top of hero), not below nav.
+ * Bottom row: H1 + CTA bottom-aligned, row bottom 140px above hero bottom, horizontal inset 80px.
+ * Below hero: 80px white (y 520→600) then footer divider + content (483:1294).
  */
 
 export default function NotFound(): ReactElement {
@@ -46,16 +45,25 @@ export default function NotFound(): ReactElement {
           <Navbar />
         </div>
 
-        <h1 className="absolute bottom-24 left-5 right-5 z-10 max-w-[630px] font-heading text-[var(--color-text-inverse)] text-h2 md:left-10 md:right-10 lg:bottom-[140px] lg:left-20 lg:right-auto lg:max-w-[630px]">
-          Sorry, the page you are looking for does not exist.
-        </h1>
-        <Link
-          href="/"
-          className="absolute bottom-8 left-5 z-10 inline-flex h-10 shrink-0 items-center justify-center bg-[var(--color-background)] px-5 font-body text-btn text-[var(--color-text-primary)] transition-opacity hover:opacity-90 focus-visible:opacity-90 md:left-10 lg:bottom-auto lg:left-auto lg:right-20 lg:top-[440px]"
-        >
-          Return Home
-        </Link>
+        <div className="absolute inset-x-0 bottom-[140px] z-10 px-5 md:px-10 lg:px-20">
+          <div className="mx-auto flex w-full max-w-[var(--max-w-content)] flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <h1 className="max-w-[630px] font-heading text-[var(--color-text-inverse)] text-h2">
+              Sorry, the page you are looking for does not exist.
+            </h1>
+            <Link
+              href="/"
+              className="inline-flex h-10 shrink-0 items-center justify-center bg-[var(--color-background)] px-5 font-body text-btn text-[var(--color-text-primary)] transition-opacity hover:opacity-90 focus-visible:opacity-90"
+            >
+              Return Home
+            </Link>
+          </div>
+        </div>
       </section>
+
+      <div
+        className="h-20 w-full shrink-0 bg-[var(--color-background)]"
+        aria-hidden
+      />
 
       <Footer />
     </main>
