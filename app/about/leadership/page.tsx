@@ -158,24 +158,24 @@ export default function LeadershipPage() {
         aria-label="Leadership Team"
         className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 pb-20"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 lg:gap-y-0">
+        {/*
+          gap-x-[43px]: Figma 43px column gap (3×398 + 2×43 = 1280) — gives each column
+          identical 1fr width so every photo renders at the same size.
+          Dividers use border-r on the column itself (at the column's right edge).
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 lg:gap-y-0 lg:gap-x-[43px]">
           {leaders.map((person, index) => {
             const col = index % 3;
             const isLastInRow = col === 2 || index === leaders.length - 1;
-            /* Add top gap for rows after the first */
             const rowIndex = Math.floor(index / 3);
-            const isFirstRow = rowIndex === 0;
 
             return (
               <div
                 key={person.name}
                 className={[
                   "flex flex-col",
-                  "lg:px-[21px]",
-                  col === 0 ? "lg:pl-0" : "",
-                  (col === 2 || index === leaders.length - 1) ? "lg:pr-0" : "",
                   !isLastInRow ? "lg:border-r lg:border-[#D2D5D9]" : "",
-                  !isFirstRow ? "lg:mt-10" : "",
+                  rowIndex > 0 ? "lg:mt-10" : "",
                 ]
                   .filter(Boolean)
                   .join(" ")}
