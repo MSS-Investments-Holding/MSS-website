@@ -1,8 +1,8 @@
 export const navLinks = [
   { label: "About Us", href: "/about", hasDropdown: false },
   { label: "What We Do", href: "/investments", hasDropdown: true },
-  { label: "How We Invest", href: "/investments", hasDropdown: true },
-  { label: "News & Media", href: "/news", hasDropdown: true },
+  { label: "How We Invest", href: "/investments", hasDropdown: false },
+  { label: "News & Media", href: "/news", hasDropdown: false },
   { label: "Pitch to Us", href: "/pitch", hasDropdown: false },
 ];
 
