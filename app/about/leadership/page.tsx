@@ -99,26 +99,7 @@ const leaders: Leader[] = [
   },
 ];
 
-/* ── Placeholder photo (navy bg + person silhouette) ───────────── */
-function PersonPlaceholder() {
-  return (
-    <div
-      className="relative w-full flex-shrink-0"
-      style={{ aspectRatio: "398/360", backgroundColor: "#0B1738" }}
-    >
-      {/* White inset square — Figma: left=39px top=20px size=320×320 */}
-      <div
-        className="absolute flex items-center justify-center"
-        style={{ left: "10%", top: "6%", right: "10%", bottom: "0%", backgroundColor: "#FFFFFF" }}
-      >
-        <svg width="64" height="76" viewBox="0 0 64 76" fill="none" aria-hidden="true">
-          <circle cx="32" cy="22" r="20" fill="#E8E9EB" />
-          <path d="M0 76C0 54 14.3 36 32 36S64 54 64 76H0z" fill="#E8E9EB" />
-        </svg>
-      </div>
-    </div>
-  );
-}
+/* placeholder: Figma frame 458:78 exported at 2× (796×720 PNG) */
 
 /* ── Page ───────────────────────────────────────────────────────── */
 export default function LeadershipPage() {
@@ -200,22 +181,18 @@ export default function LeadershipPage() {
                   .join(" ")}
               >
                 {/* Photo or placeholder — 398×360 aspect */}
-                {person.photo ? (
-                  <div
-                    className="relative w-full flex-shrink-0 overflow-hidden"
-                    style={{ aspectRatio: "398/360", backgroundColor: "#0B1738" }}
-                  >
-                    <Image
-                      src={person.photo}
-                      alt={person.name}
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 398px"
-                    />
-                  </div>
-                ) : (
-                  <PersonPlaceholder />
-                )}
+                <div
+                  className="relative w-full flex-shrink-0 overflow-hidden"
+                  style={{ aspectRatio: "398/360", backgroundColor: "#0B1738" }}
+                >
+                  <Image
+                    src={person.photo ?? "/images/about/leader-placeholder.png"}
+                    alt={person.photo ? person.name : ""}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 398px"
+                  />
+                </div>
 
                 {/* Name — Merriweather 26px/32px, #1C1C1F, mt-6 (24px) */}
                 <h2
