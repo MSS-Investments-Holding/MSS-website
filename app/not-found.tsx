@@ -13,16 +13,19 @@ export const metadata: Metadata = {
 };
 
 /*
- * 404 — Figma node 482-784 (MSS — Website Design)
- * Hero h=520px, navy + full-bleed image, H2 message + “Return Home” CTA; footer matches site.
+ * 404 — Figma node 482-784 (MSS — Website Design), 1440 frame
+ * Hero: h=520px (482:785).
+ * H1 (482:816): bottom 140px from hero bottom, left 80px, max-width 630px.
+ * CTA (483:1298): top 440px from hero top, right margin 80px (1440 − 1224 − btn).
+ * Positioning is relative to the hero section (y=0 at top of hero), not below nav.
  */
 
 export default function NotFound(): ReactElement {
   return (
-    <main id="main-content">
+    <main id="main-content" className="flex min-h-0 flex-col">
       <section
         aria-label="Page not found"
-        className="relative flex min-h-[520px] w-full flex-col overflow-hidden"
+        className="relative h-[520px] w-full shrink-0 overflow-hidden"
       >
         <Image
           src="/images/404-hero-bg.jpg"
@@ -34,27 +37,24 @@ export default function NotFound(): ReactElement {
           sizes="100vw"
         />
         <div
-          className="absolute inset-0"
+          className="pointer-events-none absolute inset-0"
           style={{ backgroundColor: "var(--color-primary)", opacity: 0.55 }}
           aria-hidden
         />
+
         <div className="relative z-20 shrink-0">
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col justify-end px-5 pb-16 pt-8 md:px-10 lg:px-20 lg:pb-[140px]">
-          <div className="flex max-w-[var(--max-w-content)] flex-col gap-8 lg:mx-auto lg:w-full lg:flex-row lg:items-end lg:justify-between">
-            <h1 className="font-heading max-w-[630px] text-[var(--color-text-inverse)] text-h2">
-              Sorry, the page you are looking for does not exist.
-            </h1>
-            <Link
-              href="/"
-              className="inline-flex h-10 shrink-0 items-center justify-center bg-[var(--color-background)] px-5 font-body text-btn text-[var(--color-text-primary)] transition-opacity hover:opacity-90 focus-visible:opacity-90"
-            >
-              Return Home
-            </Link>
-          </div>
-        </div>
+        <h1 className="absolute bottom-24 left-5 right-5 z-10 max-w-[630px] font-heading text-[var(--color-text-inverse)] text-h2 md:left-10 md:right-10 lg:bottom-[140px] lg:left-20 lg:right-auto lg:max-w-[630px]">
+          Sorry, the page you are looking for does not exist.
+        </h1>
+        <Link
+          href="/"
+          className="absolute bottom-8 left-5 z-10 inline-flex h-10 shrink-0 items-center justify-center bg-[var(--color-background)] px-5 font-body text-btn text-[var(--color-text-primary)] transition-opacity hover:opacity-90 focus-visible:opacity-90 md:left-10 lg:bottom-auto lg:left-auto lg:right-20 lg:top-[440px]"
+        >
+          Return Home
+        </Link>
       </section>
 
       <Footer />
