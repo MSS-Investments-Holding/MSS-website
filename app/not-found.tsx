@@ -17,6 +17,7 @@ export const metadata: Metadata = {
  * Hero: h=520px (482:785).
  * Bottom row: H1 + CTA bottom-aligned, 40px above hero bottom (Figma), horizontal inset 80px at lg.
  * Below hero: 80px white (y 520→600) then footer divider + content (483:1294).
+ * Hero photo: no colour overlay — full-bleed export only (Figma asset).
  */
 
 export default function NotFound(): ReactElement {
@@ -32,13 +33,8 @@ export default function NotFound(): ReactElement {
           fill
           priority
           quality={90}
-          className="object-cover object-center"
+          className="z-0 object-cover object-center"
           sizes="100vw"
-        />
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{ backgroundColor: "var(--color-primary)", opacity: 0.55 }}
-          aria-hidden
         />
 
         <div className="relative z-20 shrink-0">
