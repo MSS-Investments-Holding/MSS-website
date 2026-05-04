@@ -67,13 +67,13 @@ const leaders: Leader[] = [
     name: "Sandra Schaad",
     role: "Compliance Consultant",
     bio: "Sandra brings deep regulatory and compliance expertise across international financial services. Her advisory role within MSS ensures the group's portfolio companies operate with strong governance frameworks and regulatory alignment.",
-    photo: "/images/about/leader-sandra-schaad.jpg",
+    photo: "/images/about/leader-sandra-frame.png",
   },
   {
     name: "Kassem Lahn",
     role: "Business Consultant",
     bio: "Kassem provides strategic business advisory to MSS and its ecosystem companies, drawing on broad experience across capital markets, operational strategy, and institutional business development across the Middle East and beyond.",
-    photo: "/images/about/leader-kassem-lahn.jpg",
+    photo: "/images/about/leader-kassem-frame.png",
   },
   /* ── Row 3 ── */
   {
@@ -159,9 +159,12 @@ export default function LeadershipPage() {
         className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 pb-20"
       >
         {/*
-          gap-x-[43px]: Figma 43px column gap (3×398 + 2×43 = 1280) — gives each column
-          identical 1fr width so every photo renders at the same size.
-          Dividers use border-r on the column itself (at the column's right edge).
+          gap-x-[43px]: Figma 43px column gap (3×398 + 2×43 = 1280).
+          Each 1fr column = 398px exactly. Photos and text fill the full column.
+          Dividers: absolutely-positioned 1px div at right:-22px from column edge,
+          centred in the 43px gap (21px breathing room either side of the 1px line).
+          border-r is NOT used — it sits inside the column and removes 1px from
+          content width, causing text to run flush against the divider.
         */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 lg:gap-y-0 lg:gap-x-[43px]">
           {leaders.map((person, index) => {
@@ -173,14 +176,22 @@ export default function LeadershipPage() {
               <div
                 key={person.name}
                 className={[
-                  "flex flex-col",
-                  !isLastInRow ? "lg:border-r lg:border-[#D2D5D9]" : "",
+                  "flex flex-col relative",
                   rowIndex > 0 ? "lg:mt-10" : "",
                 ]
                   .filter(Boolean)
                   .join(" ")}
               >
-                {/* Photo or placeholder — 398×360 aspect */}
+                {/* Vertical divider — 1px centred in the 43px gap between columns */}
+                {!isLastInRow && (
+                  <div
+                    className="absolute top-0 bottom-0 hidden lg:block pointer-events-none"
+                    style={{ right: "-22px", width: "1px", backgroundColor: "#D2D5D9" }}
+                    aria-hidden="true"
+                  />
+                )}
+
+                {/* Photo — full column width, 398/360 aspect, Figma frame exported as-is */}
                 <div
                   className="relative w-full flex-shrink-0 overflow-hidden"
                   style={{ aspectRatio: "398/360", backgroundColor: "#0B1738" }}
