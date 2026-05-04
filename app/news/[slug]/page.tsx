@@ -258,11 +258,18 @@ export default async function ArticlePage({
            * Width = 680px at xl (Figma: x=20228, content left=19628, right col=600 from left)
            * Content: paragraphs (Inter 15px/22px #373738), H3 (Merriweather 20px #1C1C1F),
            * inline image (w=680 h=401), bullet list.
-           * Gap between H3 and following paragraph: mt-4 (16px)
-           * Gap between paragraph end and next H3: mt-10 (40px)
+           * Gap below H3 (Figma H5-style subhead) to following body: 16px only.
+           * Gap between paragraph end and next H3: 40px (h3 marginTop unchanged).
+           * Gap between other consecutive blocks: 40px top on the lower block.
            */}
           <div className="flex-1 min-w-0">
             {body.map((block, i) => {
+              const prev = i > 0 ? body[i - 1] : undefined;
+
+              /** Space above this block; 16px only when directly under an h3 (Figma). */
+              const marginTopAfterHeading =
+                i > 0 && prev?.type === "h3" ? "16px" : undefined;
+
               switch (block.type) {
                 case "paragraph":
                   return (
@@ -274,7 +281,10 @@ export default async function ArticlePage({
                         lineHeight: "22px",
                         color: "#373738",
                         margin: 0,
-                        marginTop: i === 0 ? 0 : "40px",
+                        marginTop:
+                          i === 0
+                            ? 0
+                            : marginTopAfterHeading ?? "40px",
                       }}
                     >
                       {block.text}
@@ -292,7 +302,7 @@ export default async function ArticlePage({
                         fontWeight: 300,
                         color: "#1C1C1F",
                         margin: 0,
-                        marginTop: "40px",
+                        marginTop: i === 0 ? 0 : "40px",
                       }}
                     >
                       {block.text}
@@ -326,7 +336,10 @@ export default async function ArticlePage({
                         lineHeight: "22px",
                         color: "#373738",
                         margin: 0,
-                        marginTop: "16px",
+                        marginTop:
+                          i === 0
+                            ? 0
+                            : marginTopAfterHeading ?? "40px",
                       }}
                     >
                       {block.text}
