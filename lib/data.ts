@@ -204,7 +204,7 @@ export const heroNewsItems = [
 export const footerLinks = {
   explore: [
     { label: "About Us", href: "/about" },
-    { label: "Who Are We", href: "/about#who-we-are" },
+    { label: "What We Do", href: "/investments" },
     { label: "How We Invest", href: "/investments" },
     { label: "News & Media", href: "/news" },
     { label: "Pitch to Us", href: "/pitch" },
