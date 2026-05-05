@@ -57,7 +57,8 @@ export default function Navbar() {
   };
 
   const scheduleClose = () => {
-    closeTimer.current = setTimeout(() => setActiveDropdown(null), 120);
+    // 300ms: long enough to cross the 8px gap between nav and dropdown
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 300);
   };
 
   return (
@@ -127,59 +128,44 @@ export default function Navbar() {
             )
           )}
 
-          {/* ── "About Us" dropdown ── */}
-          {activeDropdown === "About Us" && (
-            <div
-              style={{ ...dropdownStyle, left: DROPDOWN_LEFT["About Us"] }}
-              onMouseEnter={() => openDropdown("About Us")}
-              onMouseLeave={scheduleClose}
-              role="menu"
-              aria-label="About Us submenu"
-            >
-              <div className="flex flex-col" style={{ gap: "8px" }}>
-                {navLinks
-                  .find((l) => l.label === "About Us")
-                  ?.dropdownItems?.map((item) => (
-                    <Link
-                      key={item.href + item.label}
-                      href={item.href}
-                      role="menuitem"
-                      style={dropdownItemStyle}
-                      className="hover:opacity-70 transition-opacity duration-150 font-body"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-              </div>
-            </div>
-          )}
-
-          {/* ── "What We Do" dropdown ── */}
-          {activeDropdown === "What We Do" && (
-            <div
-              style={{ ...dropdownStyle, left: DROPDOWN_LEFT["What We Do"] }}
-              onMouseEnter={() => openDropdown("What We Do")}
-              onMouseLeave={scheduleClose}
-              role="menu"
-              aria-label="What We Do submenu"
-            >
-              <div className="flex flex-col" style={{ gap: "8px" }}>
-                {navLinks
-                  .find((l) => l.label === "What We Do")
-                  ?.dropdownItems?.map((item) => (
-                    <Link
-                      key={item.href + item.label}
-                      href={item.href}
-                      role="menuitem"
-                      style={dropdownItemStyle}
-                      className="hover:opacity-70 transition-opacity duration-150 font-body"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-              </div>
-            </div>
-          )}
+          {/* ── Dropdowns — always in DOM so CSS transitions work both ways ── */}
+          {navLinks
+            .filter((l) => l.hasDropdown && l.dropdownItems?.length)
+            .map((link) => {
+              const isOpen = activeDropdown === link.label;
+              return (
+                <div
+                  key={link.label + "-dropdown"}
+                  style={{ ...dropdownStyle, left: DROPDOWN_LEFT[link.label] }}
+                  className={[
+                    "transition-[opacity,transform] duration-200 ease-out",
+                    isOpen
+                      ? "opacity-100 translate-y-0 pointer-events-auto"
+                      : "opacity-0 -translate-y-1 pointer-events-none",
+                  ].join(" ")}
+                  onMouseEnter={() => openDropdown(link.label)}
+                  onMouseLeave={scheduleClose}
+                  role="menu"
+                  aria-label={link.label + " submenu"}
+                  aria-hidden={!isOpen}
+                >
+                  <div className="flex flex-col" style={{ gap: "8px" }}>
+                    {link.dropdownItems?.map((item) => (
+                      <Link
+                        key={item.href + item.label}
+                        href={item.href}
+                        role="menuitem"
+                        style={dropdownItemStyle}
+                        className="hover:opacity-70 transition-opacity duration-150 font-body"
+                        tabIndex={isOpen ? 0 : -1}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
         </nav>
 
         {/* ── Right controls: EN + Search ── */}
