@@ -86,7 +86,7 @@ export default function InvestmentsSection() {
         {/* ── BUTTON ───────────────────────────────────────── */}
         <div className="mt-12">
           <Link
-            href="/investments"
+            href="/how-we-invest"
             className="inline-flex items-center font-body"
             style={{ height: "40px", backgroundColor: "#FFFFFF", color: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", paddingLeft: "20px", paddingRight: "20px", whiteSpace: "nowrap" }}
           >
@@ -117,7 +117,7 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
       <p className="font-body flex-1" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "16px" }}>
         {card.body}
       </p>
-      <Link href="/investments" className="font-body" style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#AEB0B3", marginTop: "16px", display: "block" }}>
+      <Link href="/how-we-invest" className="font-body" style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#AEB0B3", marginTop: "16px", display: "block" }}>
         Read More →
       </Link>
     </article>

@@ -11,14 +11,14 @@ export const navLinks = [
   },
   {
     label: "What We Do",
-    href: "/investments",
+    href: "/what-we-do",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Overview",  href: "/investments" },
+      { label: "Overview",  href: "/what-we-do" },
       { label: "Portfolio", href: "/portfolio" },
     ],
   },
-  { label: "How We Invest", href: "/investments", hasDropdown: false },
+  { label: "How We Invest", href: "/how-we-invest", hasDropdown: false },
   { label: "News & Media",  href: "/news",        hasDropdown: false },
   { label: "Pitch to Us",   href: "/pitch",       hasDropdown: false },
 ];
@@ -204,8 +204,8 @@ export const heroNewsItems = [
 export const footerLinks = {
   explore: [
     { label: "About Us", href: "/about" },
-    { label: "What We Do", href: "/investments" },
-    { label: "How We Invest", href: "/investments" },
+    { label: "What We Do", href: "/what-we-do" },
+    { label: "How We Invest", href: "/how-we-invest" },
     { label: "News & Media", href: "/news" },
     { label: "Pitch to Us", href: "/pitch" },
   ],

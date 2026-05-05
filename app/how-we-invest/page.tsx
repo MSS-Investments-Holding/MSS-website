@@ -210,7 +210,7 @@ export default function HowWeInvestPage() {
         style={{ minHeight: "930px", backgroundColor: "#1B1C1E" }}
       >
         <Image
-          src="/images/investments/hero-bg.jpg"
+          src="/images/investments/how-we-invest-hero-bg.jpg"
           alt=""
           fill
           priority

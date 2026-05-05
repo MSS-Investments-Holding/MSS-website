@@ -12,8 +12,8 @@ import Link from "next/link";
 
 const exploreCol1 = [
   { label: "About Us",        href: "/about" },
-  { label: "What We Do",      href: "/investments" },
-  { label: "How We Invest", href: "/investments" },
+  { label: "What We Do",      href: "/what-we-do" },
+  { label: "How We Invest",   href: "/how-we-invest" },
   { label: "News & Media",    href: "/news" },
   { label: "Pitch to Us",     href: "/pitch" },
 ];
