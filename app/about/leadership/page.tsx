@@ -44,13 +44,13 @@ const leaders: Leader[] = [
     name: "Vincent de Cannière",
     role: "Chairman",
     bio: "Vincent brings over 40 years of experience across executive leadership, governance, private banking, acquisitions, and restructuring. Having served as CEO and board member for major financial and real estate institutions across Europe and the Middle East, he provides MSS with seasoned strategic direction and institutional oversight.",
-    photo: "/images/leader-vincent-frame.png",
+    photo: "/images/about/leader-vincent-frame.png",
   },
   {
     name: "Husnain Nasir",
     role: "Group CEO",
     bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With leadership roles tied to major digital finance and transformation initiatives in Pakistan, he contributes deep expertise in strategy, investments, and business development to MSS.",
-    photo: "/images/leader-husnain-frame.png",
+    photo: "/images/about/leader-husnain-frame.png",
   },
   {
     name: "Zain Javaid",
@@ -203,7 +203,7 @@ export default function LeadershipPage() {
                     src={person.photo ?? "/images/about/leader-placeholder.png"}
                     alt={person.photo ? person.name : ""}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 398px"
                   />
                 </div>
