@@ -71,7 +71,7 @@ export default function HeroSection({ articles }: Props) {
 
         {/* RIGHT — 2 latest articles from Sanity, bottom-aligned */}
         <div className="w-full lg:w-[416px] flex flex-col lg:justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
-          <p className="font-body text-white text-[14px] leading-5 mb-4">In the News:</p>
+          <p className="text-label font-body mb-4" style={{ color: "var(--color-neutral-300)" }}>In the News:</p>
           <div className="w-full h-px bg-white/30 mb-4" />
           <div className="flex gap-4 flex-wrap sm:flex-nowrap">
             {articles.map((article) => (
