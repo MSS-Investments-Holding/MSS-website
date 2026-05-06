@@ -88,7 +88,7 @@ export default function HeroSection({ articles }: Props) {
                 </div>
                 <p className="font-body text-white text-[15px] leading-[22px] line-clamp-3">{article.title}</p>
                 <span
-                  className="inline-flex items-center gap-[2px] font-body text-white text-[14px] leading-5 py-[2px] border-b border-white hover:opacity-70 transition-opacity"
+                  className="self-start inline-flex items-center gap-[4px] font-body text-white text-[14px] leading-5 py-[2px] border-b border-white hover:opacity-70 transition-opacity"
                   style={{ letterSpacing: "-0.14px" }}
                 >
                   Read More
