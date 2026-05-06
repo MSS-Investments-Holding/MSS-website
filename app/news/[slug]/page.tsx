@@ -232,13 +232,23 @@ export default async function ArticlePage({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 lg:gap-y-0 lg:gap-x-[43px]">
-            {related.map((rel) => (
+            {related.map((rel, index) => {
+              const col = index % 3;
+              const isLastInRow = col === 2 || index === related.length - 1;
+              return (
               <Link
                 key={rel.slug.current}
                 href={`/news/${rel.slug.current}`}
-                className="flex flex-col group"
+                className="flex flex-col group relative"
                 style={{ textDecoration: "none" }}
               >
+                {!isLastInRow && (
+                  <div
+                    className="absolute top-0 bottom-0 hidden lg:block pointer-events-none"
+                    style={{ right: "-22px", width: "1px", backgroundColor: "#D2D5D9" }}
+                    aria-hidden="true"
+                  />
+                )}
                 <div
                   className="relative w-full overflow-hidden flex-shrink-0"
                   style={{ aspectRatio: "398/280", backgroundColor: "#0B1738" }}
@@ -266,7 +276,8 @@ export default async function ArticlePage({
                   {rel.excerpt}
                 </p>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </section>
       )}
