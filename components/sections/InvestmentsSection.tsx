@@ -88,7 +88,7 @@ export default function InvestmentsSection() {
         <div className="mt-12">
           <Link
             href="/how-we-invest"
-            className="inline-flex items-center gap-[4px] font-body"
+            className="inline-flex items-center gap-[8px] font-body"
             style={{ height: "40px", backgroundColor: "#FFFFFF", color: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", whiteSpace: "nowrap" }}
           >
             How We Invest
@@ -120,7 +120,7 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
         {card.body}
       </p>
       <span
-        className="self-start inline-flex items-center gap-[2px] font-body py-[2px] border-b"
+        className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b"
         style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#AEB0B3", borderColor: "#AEB0B3", marginTop: "16px" }}
       >
         Read More
