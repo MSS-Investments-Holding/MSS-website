@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { SanityArticle } from "@/lib/sanity/types";
+import { formatDate } from "@/lib/formatDate";
 
 interface Props {
   articles: SanityArticle[];
@@ -56,7 +57,7 @@ export default function NewsSection({ articles }: Props) {
               {article.title}
             </h3>
             <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
-              {article.date}
+              {formatDate(article.date)}
             </p>
             <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "12px" }}>
               {article.excerpt}

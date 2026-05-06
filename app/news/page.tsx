@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { getAllArticles } from "@/lib/sanity/queries";
+import { formatDate } from "@/lib/formatDate";
 
 export const revalidate = 60;
 
@@ -178,7 +179,7 @@ export default async function NewsPage({
                     className="font-body"
                     style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
                   >
-                    {article.date}
+                    {formatDate(article.date)}
                   </p>
 
                   {/* Excerpt — Inter 15px/22px, #373738, 12px below date */}
