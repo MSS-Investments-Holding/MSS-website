@@ -20,7 +20,7 @@ export default function PortfolioProcessSection() {
     <section aria-label="Portfolio" className="w-full bg-white">
 
       {/* ── HEADER — centered ─────────────────────────────────── */}
-      <div className="w-full flex flex-col items-center text-center px-5 md:px-10 lg:px-20 pt-20 md:pt-28 lg:pt-36 pb-10 md:pb-12 lg:pb-14">
+      <div className="w-full flex flex-col items-center text-center px-5 md:px-10 lg:px-20 pt-20 md:pt-24 lg:pt-[120px] pb-10 md:pb-14 lg:pb-[84px]">
         <span className="text-label font-body" style={{ color: "#373738" }}>Portfolio</span>
         <h2
           className="font-heading mt-6 max-w-[724px]"
