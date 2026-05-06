@@ -3,7 +3,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { articles } from "@/lib/data";
+import { getAllArticles } from "@/lib/sanity/queries";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "News & Media | MSS Investments Holding",
@@ -20,6 +22,8 @@ export default async function NewsPage({
 }) {
   const params = await searchParams;
   const active = params.category || "all";
+
+  const articles = await getAllArticles();
 
   const filtered =
     active === "all"
@@ -126,8 +130,8 @@ export default async function NewsPage({
               const col = index % 3;
               return (
                 <Link
-                  key={article.slug}
-                  href={`/news/${article.slug}`}
+                  key={article.slug.current}
+                  href={`/news/${article.slug.current}`}
                   className={[
                     "flex flex-col group",
                     "lg:px-[22px]",
