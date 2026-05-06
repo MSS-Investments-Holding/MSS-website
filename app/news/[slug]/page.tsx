@@ -7,6 +7,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { getArticleBySlug, getAllArticleSlugs, getAllArticles } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
+import { formatDate } from "@/lib/formatDate";
 
 // Revalidate every 60 s so new Sanity content appears within a minute
 export const revalidate = 60;
@@ -70,12 +71,16 @@ const portableComponents: PortableTextComponents = {
   },
 };
 
-const shareLinks = [
-  { label: "LinkedIn",             href: "#" },
-  { label: "X — Formerly Twitter", href: "#" },
-  { label: "Substack",             href: "#" },
-  { label: "Facebook",             href: "#" },
-];
+function buildShareLinks(url: string, title: string) {
+  const u = encodeURIComponent(url);
+  const t = encodeURIComponent(title);
+  return [
+    { label: "LinkedIn",             href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}` },
+    { label: "X — Formerly Twitter", href: `https://twitter.com/intent/tweet?url=${u}&text=${t}` },
+    { label: "Substack",             href: `https://substack.com/notes/new?url=${u}` },
+    { label: "Facebook",             href: `https://www.facebook.com/sharer/sharer.php?u=${u}` },
+  ];
+}
 
 /* ── Page ────────────────────────────────────────────────────── */
 export default async function ArticlePage({
@@ -94,6 +99,10 @@ export default async function ArticlePage({
   const related = allArticles
     .filter((a) => a.slug.current !== slug)
     .slice(0, 3);
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mss-website-sigma.vercel.app";
+  const articleUrl = `${siteUrl}/news/${slug}`;
+  const shareLinks = buildShareLinks(articleUrl, article.title);
 
   return (
     <main id="main-content">
@@ -130,7 +139,7 @@ export default async function ArticlePage({
             className="inline-flex items-center self-start mb-6"
             style={{ height: "24px", paddingLeft: "8px", paddingRight: "8px", backgroundColor: "rgba(255,255,255,0.10)" }}
           >
-            <span className="text-label font-body text-white">{article.date}</span>
+            <span className="text-label font-body text-white">{formatDate(article.date)}</span>
           </div>
 
           <h1
@@ -251,7 +260,7 @@ export default async function ArticlePage({
                   {rel.title}
                 </h3>
                 <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
-                  {rel.date}
+                  {formatDate(rel.date)}
                 </p>
                 <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "12px" }}>
                   {rel.excerpt}
