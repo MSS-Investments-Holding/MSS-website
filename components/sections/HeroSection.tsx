@@ -87,7 +87,15 @@ export default function HeroSection({ articles }: Props) {
                   )}
                 </div>
                 <p className="font-body text-white text-[15px] leading-[22px] line-clamp-3">{article.title}</p>
-                <span className="font-body text-white text-[14px] leading-5 hover:text-white/70 transition-colors">Read More →</span>
+                <span
+                  className="inline-flex items-center gap-[2px] font-body text-white text-[14px] leading-5 py-[2px] border-b border-white hover:opacity-70 transition-opacity"
+                  style={{ letterSpacing: "-0.14px" }}
+                >
+                  Read More
+                  <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true">
+                    <path d="M8.62791 3.92149L5.45186 0.81818L6.28921 0L10.8947 4.50003L6.28921 8.99999L5.45186 8.18181L8.62791 5.07857H0V3.92149H8.62791Z" fill="white" />
+                  </svg>
+                </span>
               </Link>
             ))}
           </div>
