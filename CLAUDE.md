@@ -55,6 +55,7 @@ Read the relevant docs files before executing any task. The `docs/` folder is th
 8. **No layout shift** — images must always have explicit dimensions or aspect-ratio containers. Font loading must use `font-display: swap`.
 9. **Performance first** — the site's credibility depends on it loading fast. No unoptimised images, no render-blocking scripts, no unnecessary client components.
 10. **Institutional tone** — all copy must be measured, authoritative, and free of casual language. Refer to `docs/01-brand-overview.md` tone-of-voice section.
+11. **Always export images from Figma — no substitutes.** When a Figma node contains image fills (RECTANGLE or FRAME nodes with image fills), you MUST export them via the Figma REST API (`GET /v1/images/{file_key}?ids={node_id}&format=jpg&scale=2`), download the result to `/public/images/`, and reference it in code. Never substitute an existing project image as a stand-in. If a node's image is not exportable, flag it explicitly — do not silently fall back.
 
 ## Figma File
 
