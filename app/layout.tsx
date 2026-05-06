@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Merriweather, Inter } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const merriweather = Merriweather({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
         </a>
         <ScrollToTop />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
