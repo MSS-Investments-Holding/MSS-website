@@ -71,9 +71,6 @@ export default function NewsSection({ articles }: Props) {
             <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
               {formatDate(article.date)}
             </p>
-            <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "12px" }}>
-              {article.excerpt}
-            </p>
           </Link>
           );
         })}
