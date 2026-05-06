@@ -196,7 +196,7 @@ export default async function ArticlePage({
           <div className="flex-1 min-w-0">
             {article.body ? (
               /* first-child margin reset so opening paragraph has no top margin */
-              <div className="[&>*:first-child]:mt-0">
+              <div className="[&>*:first-child]:mt-0 [&>h2+p]:mt-4">
                 <PortableText value={article.body} components={portableComponents} />
               </div>
             ) : (
