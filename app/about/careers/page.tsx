@@ -301,7 +301,8 @@ export default function CareersPage() {
           OPEN APPLICATION — split: image left · warm beige right
           Vertical line · label · H2 · body · CTA
          ══════════════════════════════════════════════════════════ */}
-      <section aria-label="Open Application" className="w-full flex flex-col lg:flex-row" style={{ minHeight: "506px" }}>
+      <section aria-label="Open Application" className="w-full bg-white px-5 md:px-10 lg:px-20">
+        <div className="flex flex-col lg:flex-row lg:gap-6" style={{ minHeight: "506px" }}>
 
         {/* LEFT — image */}
         <div className="relative w-full lg:w-1/2 flex-shrink-0" style={{ minHeight: "300px" }}>
@@ -365,6 +366,7 @@ export default function CareersPage() {
               <ArrowRight size="lg" fill="white" />
             </a>
           </div>
+        </div>
         </div>
       </section>
 
