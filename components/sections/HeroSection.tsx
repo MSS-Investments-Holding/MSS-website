@@ -61,11 +61,10 @@ export default function HeroSection({ articles }: Props) {
 
           {/* Body */}
           <p
-            className="font-body text-white/80 mt-4 lg:mt-3"
-            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", maxWidth: "524px" }}
+            className="font-body mt-4 lg:mt-3"
+            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", maxWidth: "524px", color: "var(--color-neutral-100)" }}
           >
-            A global holding company investing in payments, regulated finance,
-            AI, digital assets, and venture-backed growth platforms.
+            We brings capital, structure, and strategic direction to businesses shaping how value moves, technology scales, and markets grow.
           </p>
         </div>
 
