@@ -231,7 +231,7 @@ export default function CareersPage() {
       <section
         id="open-roles"
         aria-label="Open Roles"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 md:pt-24 lg:pt-[140px] pb-0"
+        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 md:pt-24 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24"
       >
         <div className="flex flex-col items-center text-center">
           <span className="text-label font-body block" style={{ color: "#373738" }}>
