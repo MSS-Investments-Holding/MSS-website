@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Merriweather, Inter } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
+import SmoothScroll from "@/components/SmoothScroll";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const merriweather = Merriweather({
@@ -48,8 +49,10 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <ScrollToTop />
-        {children}
+        <SmoothScroll>
+          <ScrollToTop />
+          {children}
+        </SmoothScroll>
         <SpeedInsights />
       </body>
     </html>
