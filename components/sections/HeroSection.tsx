@@ -86,7 +86,7 @@ export default function HeroSection({ articles }: Props) {
                     <Image src={article.image} alt="" fill className="object-cover" sizes="200px" />
                   )}
                 </div>
-                <p className="font-body text-white text-[15px] leading-[22px]">{article.title}</p>
+                <p className="font-body text-white text-[15px] leading-[22px] line-clamp-3">{article.title}</p>
                 <span className="font-body text-white text-[14px] leading-5 hover:text-white/70 transition-colors">Read More →</span>
               </Link>
             ))}

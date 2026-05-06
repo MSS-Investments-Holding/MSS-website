@@ -29,14 +29,26 @@ export default function NewsSection({ articles }: Props) {
       </div>
 
       {/* ARTICLE GRID — 3 cols, gap-x-[43px] for equal column widths */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-16 lg:gap-y-0 lg:gap-x-[43px]">
-        {articles.map((article) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-16 lg:gap-y-16 lg:gap-x-[43px]">
+        {articles.map((article, index) => {
+          const col = index % 3;
+          const isLastInRow = col === 2 || index === articles.length - 1;
+          return (
           <Link
             key={article.slug.current}
             href={`/news/${article.slug.current}`}
-            className="flex flex-col group"
+            className="flex flex-col group relative"
             style={{ textDecoration: "none" }}
           >
+            {/* Column divider centred in the 43px gap */}
+            {!isLastInRow && (
+              <div
+                className="absolute top-0 bottom-0 hidden lg:block pointer-events-none"
+                style={{ right: "-22px", width: "1px", backgroundColor: "#D2D5D9" }}
+                aria-hidden="true"
+              />
+            )}
+
             {/* Image */}
             <div
               className="relative w-full overflow-hidden flex-shrink-0"
@@ -63,7 +75,8 @@ export default function NewsSection({ articles }: Props) {
               {article.excerpt}
             </p>
           </Link>
-        ))}
+          );
+        })}
       </div>
 
     </section>
