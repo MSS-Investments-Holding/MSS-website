@@ -55,7 +55,12 @@ Read the relevant docs files before executing any task. The `docs/` folder is th
 8. **No layout shift** — images must always have explicit dimensions or aspect-ratio containers. Font loading must use `font-display: swap`.
 9. **Performance first** — the site's credibility depends on it loading fast. No unoptimised images, no render-blocking scripts, no unnecessary client components.
 10. **Institutional tone** — all copy must be measured, authoritative, and free of casual language. Refer to `docs/01-brand-overview.md` tone-of-voice section.
-11. **Always export images from Figma — no substitutes.** When a Figma node contains image fills (RECTANGLE or FRAME nodes with image fills), you MUST export them via the Figma REST API (`GET /v1/images/{file_key}?ids={node_id}&format=jpg&scale=2`), download the result to `/public/images/`, and reference it in code. Never substitute an existing project image as a stand-in. If a node's image is not exportable, flag it explicitly — do not silently fall back.
+11. **Always export every asset from Figma — zero creative substitution.** This applies to all asset types without exception: images, icons, SVGs, vectors, illustrations, decorative elements, dividers, badges, logos, and any other visual. When a Figma node contains any of these, export it via the Figma REST API and use it directly in code. Specific rules:
+    - **Images / photo fills** → `GET /v1/images/{key}?ids={id}&format=jpg&scale=2` → save to `/public/images/`
+    - **Icons / vectors / SVGs** → `GET /v1/images/{key}?ids={id}&format=svg` → fetch the returned S3 URL → copy the raw SVG path data into code, or save the file to `/public/images/icons/`
+    - **Never self-generate, approximate, or creatively substitute any visual asset.** Do not use Lucide, Heroicons, or any icon library unless the Figma design explicitly uses one. Do not draw your own SVG paths. Do not reuse a different existing project asset as a stand-in.
+    - **If a Figma node cannot be exported or the asset is ambiguous**, stop and ask — do not make a judgment call.
+    - **Pixel-perfect replication is the baseline**, not a stretch goal. Every spacing value, colour, type style, icon, image, and layout decision must trace back to the Figma node. If something is not in the design, do not add it. If something is unclear, ask before building.
 
 ## Figma File
 
