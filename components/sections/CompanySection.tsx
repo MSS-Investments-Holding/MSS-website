@@ -82,10 +82,13 @@ export default function CompanySection() {
             {/* Button */}
             <Link
               href="/about"
-              className="inline-flex items-center justify-center font-body text-white mt-14"
-              style={{ width: "128px", height: "40px", backgroundColor: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", whiteSpace: "nowrap" }}
+              className="inline-flex items-center justify-center gap-[4px] font-body text-white mt-14"
+              style={{ height: "40px", backgroundColor: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", whiteSpace: "nowrap", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px" }}
             >
-              About Us →
+              About Us
+              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+                <path d="M9.50322 4.31932L6.00496 0.901185L6.92726 0L12 4.95656L6.92726 9.91304L6.00496 9.01187L9.50322 5.5938H0V4.31932H9.50322Z" fill="white" />
+              </svg>
             </Link>
           </div>
         </div>
