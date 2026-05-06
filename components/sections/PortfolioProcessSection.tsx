@@ -5,10 +5,10 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const steps = [
-  { icon: "/images/icons/step-discovery.svg",  title: "Discovery",   desc: "Assess the idea, context, and fundamentals behind the idea." },
-  { icon: "/images/icons/step-strategy.svg",   title: "Strategy",    desc: "Aligning the concept with a long-term execution potential." },
-  { icon: "/images/icons/step-validation.svg", title: "Validation",  desc: "Evaluate viability and refine the opportunity before scale." },
-  { icon: "/images/icons/step-launch.svg",     title: "Launch",      desc: "Turning concept into reality with a focus on clarity, and growth." },
+  { icon: "/images/icons/step-discovery.svg",  title: "Origination", desc: "Identify opportunities via our network, market activity, founder talks, and sector research." },
+  { icon: "/images/icons/step-strategy.svg",   title: "Evaluation",  desc: "Assess business model, market timing, team, growth potential, risk, and ecosystem fit." },
+  { icon: "/images/icons/step-validation.svg", title: "Execution",   desc: "Structure the right involvement, via capital, partnership, strategic support within the portfolio." },
+  { icon: "/images/icons/step-launch.svg",     title: "Management",  desc: "Stay involved post-investment, supporting governance, priorities, and value creation." },
 ];
 
 const TOTAL_SLIDES = 5;
