@@ -1,9 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
-import { heroNewsItems as newsItems } from "@/lib/data";
+import type { SanityArticle } from "@/lib/sanity/types";
 
-export default function HeroSection() {
+interface Props {
+  articles: SanityArticle[];
+}
+
+export default function HeroSection({ articles }: Props) {
   return (
     <section
       className="relative w-full overflow-hidden flex flex-col"
@@ -32,7 +36,7 @@ export default function HeroSection() {
       {/* Content — flex row at lg+, stacked below */}
       <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-10 lg:px-20">
 
-        {/* LEFT — badge + H1 + body (pushes down 170px from nav bottom at desktop) */}
+        {/* LEFT — badge + H1 + body */}
         <div className="flex-1 pt-24 lg:pt-[170px] pb-10">
           {/* Badge */}
           <div
@@ -65,17 +69,24 @@ export default function HeroSection() {
           </p>
         </div>
 
-        {/* RIGHT — news (bottom-aligned at desktop, below body on mobile) */}
+        {/* RIGHT — 2 latest articles from Sanity, bottom-aligned */}
         <div className="w-full lg:w-[416px] flex flex-col lg:justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
           <p className="font-body text-white text-[14px] leading-5 mb-4">In the News:</p>
           <div className="w-full h-px bg-white/30 mb-4" />
           <div className="flex gap-4 flex-wrap sm:flex-nowrap">
-            {newsItems.map((item, i) => (
-              <Link key={i} href={`/news/${item.slug}`} className="flex flex-col gap-3" style={{ width: "200px", flexShrink: 0, textDecoration: "none" }}>
+            {articles.map((article) => (
+              <Link
+                key={article.slug.current}
+                href={`/news/${article.slug.current}`}
+                className="flex flex-col gap-3"
+                style={{ width: "200px", flexShrink: 0, textDecoration: "none" }}
+              >
                 <div className="relative overflow-hidden bg-[var(--color-grey-black)]" style={{ width: "200px", height: "130px" }}>
-                  <Image src={item.image} alt="" fill className="object-cover" sizes="200px" />
+                  {article.image && (
+                    <Image src={article.image} alt="" fill className="object-cover" sizes="200px" />
+                  )}
                 </div>
-                <p className="font-body text-white text-[15px] leading-[22px]">{item.caption}</p>
+                <p className="font-body text-white text-[15px] leading-[22px]">{article.excerpt}</p>
                 <span className="font-body text-white text-[14px] leading-5 hover:text-white/70 transition-colors">Read More →</span>
               </Link>
             ))}
