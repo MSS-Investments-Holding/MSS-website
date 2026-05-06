@@ -84,7 +84,7 @@ export default function Navbar() {
         */}
         <nav
           aria-label="Primary navigation"
-          className="hidden md:flex items-center gap-5 px-4 h-[34px] relative"
+          className="hidden md:flex items-center gap-5 px-4 relative"
           style={{
             backgroundColor:      "rgba(255,255,255,0.10)",
             backdropFilter:       "blur(24px)",
@@ -102,7 +102,7 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className="flex items-center gap-[2px] text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap"
+                  className="flex items-center gap-[2px] text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap py-[8px]"
                 >
                   {link.label}
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -121,7 +121,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="flex items-center text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap"
+                className="flex items-center text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap py-[8px]"
               >
                 {link.label}
               </Link>
