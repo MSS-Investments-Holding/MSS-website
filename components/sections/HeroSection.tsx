@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import type { SanityArticle } from "@/lib/sanity/types";
+import ArrowRight from "@/components/icons/ArrowRight";
 
 interface Props {
   articles: SanityArticle[];
@@ -91,9 +92,7 @@ export default function HeroSection({ articles }: Props) {
                   style={{ letterSpacing: "-0.14px" }}
                 >
                   Read More
-                  <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true">
-                    <path d="M8.62791 3.92149L5.45186 0.81818L6.28921 0L10.8947 4.50003L6.28921 8.99999L5.45186 8.18181L8.62791 5.07857H0V3.92149H8.62791Z" fill="white" />
-                  </svg>
+                  <ArrowRight size="sm" fill="white" />
                 </span>
               </Link>
             ))}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ArrowRight from "@/components/icons/ArrowRight";
 
 const cards = [
   // Row 1 (left-aligned): Fintech, Agentic AI, Digital Asset Tokenization
@@ -91,9 +92,7 @@ export default function InvestmentsSection() {
             style={{ height: "40px", backgroundColor: "#FFFFFF", color: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", whiteSpace: "nowrap" }}
           >
             How We Invest
-            <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
-              <path d="M9.50322 4.31932L6.00496 0.901185L6.92726 0L12 4.95656L6.92726 9.91304L6.00496 9.01187L9.50322 5.5938H0V4.31932H9.50322Z" fill="#1C1C1F" />
-            </svg>
+            <ArrowRight size="lg" fill="#1C1C1F" />
           </Link>
         </div>
       </div>
@@ -125,9 +124,7 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
         style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#AEB0B3", borderColor: "#AEB0B3", marginTop: "16px" }}
       >
         Read More
-        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true">
-          <path d="M8.62803 3.92154L5.45194 0.818192L6.2893 0L10.8949 4.50009L6.2893 9.00012L5.45194 8.18193L8.62803 5.07864H0V3.92154H8.62803Z" fill="#AEB0B3" />
-        </svg>
+        <ArrowRight size="sm" fill="#AEB0B3" />
       </span>
     </article>
   );
