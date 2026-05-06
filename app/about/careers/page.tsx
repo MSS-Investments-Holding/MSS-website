@@ -233,16 +233,18 @@ export default function CareersPage() {
         aria-label="Open Roles"
         className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 md:pt-24 lg:pt-[140px] pb-0"
       >
-        <span className="text-label font-body block" style={{ color: "#373738" }}>
-          Open Roles
-        </span>
+        <div className="flex flex-col items-center text-center">
+          <span className="text-label font-body block" style={{ color: "#373738" }}>
+            Open Roles
+          </span>
 
-        <h2
-          className="font-heading"
-          style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "524px" }}
-        >
-          Start Your Journey Today
-        </h2>
+          <h2
+            className="font-heading"
+            style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
+          >
+            Start Your Journey Today
+          </h2>
+        </div>
 
         <div className="mt-16 lg:mt-20">
           <div style={{ height: "1px", backgroundColor: "#E8E9EB" }} />
