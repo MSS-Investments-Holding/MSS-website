@@ -123,26 +123,27 @@ export default async function NewsPage({
           })}
         </nav>
 
-        {/* Article grid — 3 cols with vertical dividers */}
+        {/* Article grid — gap-x-[43px] gives all 3 cols identical 1fr width */}
         {filtered.length > 0 ? (
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 lg:gap-y-10">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 lg:gap-y-10 lg:gap-x-[43px]">
             {filtered.map((article, index) => {
               const col = index % 3;
+              const isLastInRow = col === 2 || index === filtered.length - 1;
               return (
                 <Link
                   key={article.slug.current}
                   href={`/news/${article.slug.current}`}
-                  className={[
-                    "flex flex-col group",
-                    "lg:px-[22px]",
-                    col === 0 ? "lg:pl-0" : "",
-                    col === 2 || index === filtered.length - 1 ? "lg:pr-0" : "",
-                    col < 2 && index < filtered.length - 1 ? "lg:border-r lg:border-[#D2D5D9]" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
+                  className="flex flex-col group relative"
                   style={{ textDecoration: "none" }}
                 >
+                  {/* Divider centred in the 43px gap (right: -22px) */}
+                  {!isLastInRow && (
+                    <div
+                      className="absolute top-0 bottom-0 hidden lg:block pointer-events-none"
+                      style={{ right: "-22px", width: "1px", backgroundColor: "#D2D5D9" }}
+                      aria-hidden="true"
+                    />
+                  )}
                   {/* Image — 398×280 aspect, navy placeholder */}
                   <div
                     className="relative w-full overflow-hidden flex-shrink-0"
