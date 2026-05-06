@@ -251,9 +251,9 @@ export default function CareersPage() {
 
           {roles.map((role) => (
             <div key={role.title}>
-              <div className="flex flex-col lg:flex-row lg:items-start py-8 gap-6 lg:gap-0">
+              <div className="flex flex-col lg:flex-row lg:items-start py-8 gap-6 lg:gap-x-8">
 
-                {/* COL 1 — title + location (40.6% = 520/1280) */}
+                {/* COL 1 — title + location (fixed 40.6% = 520/1280) */}
                 <div className="lg:w-[40.6%] lg:flex-shrink-0 flex flex-col gap-2">
                   <h3
                     className="font-heading"
@@ -269,8 +269,8 @@ export default function CareersPage() {
                   </p>
                 </div>
 
-                {/* COL 2 — description (flex-1) */}
-                <div className="flex-1">
+                {/* COL 2 — description, compresses to give Apply Now room */}
+                <div className="flex-1 min-w-0">
                   <p
                     className="font-body"
                     style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0 }}
@@ -279,11 +279,11 @@ export default function CareersPage() {
                   </p>
                 </div>
 
-                {/* COL 3 — Apply Now pinned to right edge (84px wide) */}
-                <div className="lg:w-[84px] lg:flex-shrink-0 lg:text-right">
+                {/* COL 3 — Apply Now, never wraps */}
+                <div className="lg:flex-shrink-0">
                   <a
                     href="mailto:careers@mssinvestmentsholding.com"
-                    className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b"
+                    className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b whitespace-nowrap"
                     style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#1C1C1F", borderColor: "#1C1C1F", textDecoration: "none" }}
                   >
                     Apply Now
