@@ -87,10 +87,13 @@ export default function InvestmentsSection() {
         <div className="mt-12">
           <Link
             href="/how-we-invest"
-            className="inline-flex items-center font-body"
-            style={{ height: "40px", backgroundColor: "#FFFFFF", color: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", paddingLeft: "20px", paddingRight: "20px", whiteSpace: "nowrap" }}
+            className="inline-flex items-center gap-[4px] font-body"
+            style={{ height: "40px", backgroundColor: "#FFFFFF", color: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", whiteSpace: "nowrap" }}
           >
-            Our Investments →
+            How We Invest
+            <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+              <path d="M9.50322 4.31932L6.00496 0.901185L6.92726 0L12 4.95656L6.92726 9.91304L6.00496 9.01187L9.50322 5.5938H0V4.31932H9.50322Z" fill="#1C1C1F" />
+            </svg>
           </Link>
         </div>
       </div>
@@ -117,9 +120,15 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
       <p className="font-body flex-1" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "16px" }}>
         {card.body}
       </p>
-      <Link href="/how-we-invest" className="font-body" style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#AEB0B3", marginTop: "16px", display: "block" }}>
-        Read More →
-      </Link>
+      <span
+        className="self-start inline-flex items-center gap-[2px] font-body py-[2px] border-b"
+        style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#AEB0B3", borderColor: "#AEB0B3", marginTop: "16px" }}
+      >
+        Read More
+        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true">
+          <path d="M8.62803 3.92154L5.45194 0.818192L6.2893 0L10.8949 4.50009L6.2893 9.00012L5.45194 8.18193L8.62803 5.07864H0V3.92154H8.62803Z" fill="#AEB0B3" />
+        </svg>
+      </span>
     </article>
   );
 }
