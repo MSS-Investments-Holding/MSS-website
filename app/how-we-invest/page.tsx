@@ -231,7 +231,7 @@ export default function HowWeInvestPage() {
           <h1
             className="font-heading text-white"
             style={{
-              fontSize: "clamp(2rem, 5vw, 4.5rem)",
+              fontSize: "clamp(2rem, 5vw, 4.375rem)",
               lineHeight: "1.056",
               fontWeight: 300,
               maxWidth: "800px",

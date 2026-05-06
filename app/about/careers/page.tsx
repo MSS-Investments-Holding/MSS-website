@@ -96,7 +96,7 @@ export default function CareersPage() {
         <div className="relative z-10 flex-1 flex flex-col px-5 md:px-10 lg:px-20 pt-16 lg:pt-[170px] pb-16">
           <h1
             className="font-heading text-white"
-            style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: "1.06", fontWeight: 300, maxWidth: "620px" }}
+            style={{ fontSize: "clamp(2.25rem, 5vw, 4.375rem)", lineHeight: "1.06", fontWeight: 300, maxWidth: "620px" }}
           >
             Let&apos;s Build the Future of the Global Economy Together
           </h1>
@@ -156,27 +156,27 @@ export default function CareersPage() {
             <div key={item.num}>
               <div className="flex flex-col lg:flex-row py-10 gap-4 lg:gap-0">
 
-                {/* LEFT — number + title */}
-                <div className="lg:w-[45%] lg:flex-shrink-0 flex items-baseline gap-6">
+                {/* LEFT — number only, 51.6% of content width */}
+                <div className="lg:w-[51.6%] lg:flex-shrink-0">
                   <span
-                    className="font-heading flex-shrink-0"
-                    style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#C5D3E5", minWidth: "24px" }}
+                    className="font-heading"
+                    style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#C5D3E5" }}
                   >
                     {item.num}
                   </span>
+                </div>
+
+                {/* RIGHT — title then description stacked */}
+                <div className="flex-1">
                   <h3
                     className="font-heading"
                     style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
                   >
                     {item.title}
                   </h3>
-                </div>
-
-                {/* RIGHT — description */}
-                <div className="flex-1 lg:pl-8">
                   <p
                     className="font-body"
-                    style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0 }}
+                    style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
                   >
                     {item.desc}
                   </p>
@@ -249,10 +249,10 @@ export default function CareersPage() {
 
           {roles.map((role) => (
             <div key={role.title}>
-              <div className="flex flex-col lg:flex-row py-8 gap-6 lg:gap-0">
+              <div className="flex flex-col lg:flex-row lg:items-start py-8 gap-6 lg:gap-0">
 
-                {/* LEFT — title + location + Apply Now */}
-                <div className="lg:w-[45%] lg:flex-shrink-0 flex flex-col gap-2">
+                {/* COL 1 — title + location (40.6% = 520/1280) */}
+                <div className="lg:w-[40.6%] lg:flex-shrink-0 flex flex-col gap-2">
                   <h3
                     className="font-heading"
                     style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -265,17 +265,9 @@ export default function CareersPage() {
                   >
                     {role.location} · {role.type}
                   </p>
-                  <a
-                    href="mailto:careers@mssinvestmentsholding.com"
-                    className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b mt-2"
-                    style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#1C1C1F", borderColor: "#1C1C1F", textDecoration: "none" }}
-                  >
-                    Apply Now
-                    <ArrowRight size="sm" fill="#1C1C1F" />
-                  </a>
                 </div>
 
-                {/* RIGHT — description */}
+                {/* COL 2 — description (flex-1) */}
                 <div className="flex-1">
                   <p
                     className="font-body"
@@ -283,6 +275,18 @@ export default function CareersPage() {
                   >
                     {role.desc}
                   </p>
+                </div>
+
+                {/* COL 3 — Apply Now pinned to right edge (84px wide) */}
+                <div className="lg:w-[84px] lg:flex-shrink-0 lg:text-right">
+                  <a
+                    href="mailto:careers@mssinvestmentsholding.com"
+                    className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b"
+                    style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#1C1C1F", borderColor: "#1C1C1F", textDecoration: "none" }}
+                  >
+                    Apply Now
+                    <ArrowRight size="sm" fill="#1C1C1F" />
+                  </a>
                 </div>
               </div>
               <div style={{ height: "1px", backgroundColor: "#E8E9EB" }} />
@@ -310,7 +314,7 @@ export default function CareersPage() {
 
         {/* RIGHT — warm beige content */}
         <div
-          className="flex-1 relative flex flex-col px-8 lg:px-12 xl:px-20 pt-16 pb-16"
+          className="flex-1 relative flex flex-col px-8 lg:px-12 xl:px-20 pt-16"
           style={{ backgroundColor: "#F5E9DC" }}
         >
           {/* Decorative vertical line */}

@@ -137,7 +137,7 @@ export default function AboutPage() {
           <div className="flex-1 pt-16 lg:pt-[166px] pb-10">
             <h1
               className="font-heading text-white"
-              style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: "1.056", fontWeight: 300, maxWidth: "646px" }}
+              style={{ fontSize: "clamp(2.25rem, 5vw, 4.375rem)", lineHeight: "1.056", fontWeight: 300, maxWidth: "646px" }}
             >
               Where Capital, Conviction, and Opportunity Align
             </h1>

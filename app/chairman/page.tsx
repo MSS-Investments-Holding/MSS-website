@@ -94,7 +94,7 @@ export default function ChairmanPage() {
             <h1
               className="font-heading text-white"
               style={{
-                fontSize: "clamp(2.25rem, 5vw, 4.5rem)",
+                fontSize: "clamp(2.25rem, 5vw, 4.375rem)",
                 lineHeight: "1.056",
                 fontWeight: 300,
                 maxWidth: "720px",

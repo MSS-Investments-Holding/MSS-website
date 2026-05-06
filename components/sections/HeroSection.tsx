@@ -55,7 +55,7 @@ export default function HeroSection({ articles }: Props) {
           {/* H1 */}
           <h1
             className="font-heading text-white"
-            style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)", lineHeight: "1.06", fontWeight: 300, maxWidth: "780px" }}
+            style={{ fontSize: "clamp(2.25rem, 5vw, 4.375rem)", lineHeight: "1.06", fontWeight: 300, maxWidth: "780px" }}
           >
             Building the Platforms of Future Economies
           </h1>

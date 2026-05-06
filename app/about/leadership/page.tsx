@@ -137,8 +137,8 @@ export default function LeadershipPage() {
           <h1
             className="font-heading text-white text-center"
             style={{
-              fontSize: "clamp(2rem, 5vw, 4.5rem)",
-              lineHeight: "76px",
+              fontSize: "clamp(2rem, 5vw, 4.375rem)",
+              lineHeight: "74px",
               fontWeight: 300,
               maxWidth: "618px",
             }}

@@ -37,7 +37,7 @@
   --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
 
   /* Desktop type scale */
-  --text-h1: 4.5rem;       /* 72px */
+  --text-h1: 4.375rem;       /* 70px */
   --text-h2: 2.875rem;     /* 46px */
   --text-h3: 2.25rem;      /* 36px */
   --text-h4: 1.625rem;     /* 26px */
@@ -51,7 +51,7 @@
   --text-btn: 1rem;        /* 16px */
 
   /* Line heights */
-  --leading-h1: 76px;
+  --leading-h1: 74px;
   --leading-h2: 50px;
   --leading-h3: 42px;
   --leading-h4: 32px;
