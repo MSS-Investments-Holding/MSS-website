@@ -64,7 +64,7 @@ export default function HeroSection({ articles }: Props) {
             className="font-body mt-4 lg:mt-3"
             style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", maxWidth: "524px", color: "var(--color-neutral-100)" }}
           >
-            We brings capital, structure, and strategic direction to businesses shaping how value moves, technology scales, and markets grow.
+            We brings capital, structure, and strategic direction to businesses shaping how currency moves, technology scales, and markets grow.
           </p>
         </div>
 
