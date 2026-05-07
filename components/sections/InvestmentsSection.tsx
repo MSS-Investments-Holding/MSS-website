@@ -2,16 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import ArrowRight from "@/components/icons/ArrowRight";
 
-const SECTOR_HREF = "/how-we-invest#investing-sectors";
-
 const cards = [
   // Row 1 (left-aligned): Fintech, Agentic AI, Digital Asset Tokenization
-  { row: 1, icon: "/images/icons/icon-fintech.svg",       title: "Fintech",                    body: "We back ventures building the next layer of global financial infrastructure across payments, multi-currency platforms, and institutional-grade B2B financial services." },
-  { row: 1, icon: "/images/icons/icon-ai.svg",            title: "Agentic AI",                 body: "We invest in AI-led ventures developing intelligent systems that improve decision-making, efficiency, and digital experiences at scale." },
-  { row: 1, icon: "/images/icons/icon-digital-asset.svg", title: "Digital Asset Tokenization", body: "We support platforms exploring the digitization of value, enabling new models, and asset participation within modern financial ecosystems." },
+  { row: 1, icon: "/images/icons/icon-fintech.svg",       title: "Fintech",                    filter: "fintech",                    body: "We back ventures building the next layer of global financial infrastructure across payments, multi-currency platforms, and institutional-grade B2B financial services." },
+  { row: 1, icon: "/images/icons/icon-ai.svg",            title: "Agentic AI",                 filter: "agentic-ai",                 body: "We invest in AI-led ventures developing intelligent systems that improve decision-making, efficiency, and digital experiences at scale." },
+  { row: 1, icon: "/images/icons/icon-digital-asset.svg", title: "Digital Asset Tokenization", filter: "digital-asset-tokenization", body: "We support platforms exploring the digitization of value, enabling new models, and asset participation within modern financial ecosystems." },
   // Row 2 (right-aligned): Venture Capitalization, Digital Media
-  { row: 2, icon: "/images/icons/icon-venture.svg",       title: "Venture Capitalization",     body: "We partner with emerging businesses at high-potential stages, providing capital and strategic support to help them scale with clarity and direction." },
-  { row: 2, icon: "/images/icons/icon-media.svg",         title: "Digital Media",              body: "We back digital platforms and media-led businesses shaping how audiences engage, consume, and interact across evolving online ecosystems." },
+  { row: 2, icon: "/images/icons/icon-venture.svg",       title: "Venture Capitalization",     filter: "venture-capitalization",     body: "We partner with emerging businesses at high-potential stages, providing capital and strategic support to help them scale with clarity and direction." },
+  { row: 2, icon: "/images/icons/icon-media.svg",         title: "Digital Media",              filter: "digital-media",              body: "We back digital platforms and media-led businesses shaping how audiences engage, consume, and interact across evolving online ecosystems." },
 ];
 
 export default function InvestmentsSection() {
@@ -121,12 +119,13 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
       <p className="font-body flex-1" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
         {card.body}
       </p>
+      {/* href will become /portfolio?filter={card.filter} once the portfolio page is live */}
       <Link
-        href={SECTOR_HREF}
+        href="#"
         className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#AEB0B3] border-[#AEB0B3] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
         style={{ marginTop: "16px", textDecoration: "none" }}
       >
-        Read More
+        {card.title} Portfolio
         <ArrowRight size="sm" fill="currentColor" />
       </Link>
     </article>
