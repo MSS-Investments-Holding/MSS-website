@@ -87,8 +87,8 @@ export default function Footer() {
         {/* Left area — logo + link grid */}
         <div className="relative z-10 px-5 md:px-10 lg:px-20 pt-10 pb-10">
 
-          {/* Logo — 70×100px */}
-          <div className="mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative" }}>
+          {/* Logo — 70×100px, links to homepage */}
+          <Link href="/" aria-label="MSS Investments Holding — Home" className="inline-block mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative", display: "block" }}>
             <Image
               src="/images/footer-logo.png"
               alt="MSS Investments Holding"
@@ -96,7 +96,7 @@ export default function Footer() {
               className="object-contain object-left"
               sizes="70px"
             />
-          </div>
+          </Link>
 
           {/* Link grid: 2 columns × 2 rows */}
           <div className="grid grid-cols-2 gap-x-16 lg:gap-x-0" style={{ maxWidth: "504px" }}>
