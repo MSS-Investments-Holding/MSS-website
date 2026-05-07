@@ -123,8 +123,8 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
       </p>
       <Link
         href={SECTOR_HREF}
-        className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b text-[#AEB0B3] border-[#AEB0B3] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
-        style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", marginTop: "16px", textDecoration: "none" }}
+        className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#AEB0B3] border-[#AEB0B3] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
+        style={{ marginTop: "16px", textDecoration: "none" }}
       >
         Read More
         <ArrowRight size="sm" fill="currentColor" />
