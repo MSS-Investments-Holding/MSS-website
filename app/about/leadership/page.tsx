@@ -259,7 +259,7 @@ export default function LeadershipPage() {
           style={{ gap: "0 32px" }}
         >
           {/* Col 1 — General Inquiries */}
-          <div className="border-t border-[#D2D5D9] pt-16 pb-20">
+          <div className="border-t border-[#D2D5D9] pt-16">
             <h3
               className="font-heading"
               style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -282,7 +282,7 @@ export default function LeadershipPage() {
           </div>
 
           {/* Col 2 — Media Contact */}
-          <div className="border-t border-[#D2D5D9] pt-16 pb-20">
+          <div className="border-t border-[#D2D5D9] pt-16">
             <h3
               className="font-heading"
               style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -305,7 +305,7 @@ export default function LeadershipPage() {
           </div>
 
           {/* Col 3 — Contact Us */}
-          <div className="border-t border-[#D2D5D9] pt-16 pb-20">
+          <div className="border-t border-[#D2D5D9] pt-16">
             <h3
               className="font-heading"
               style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}

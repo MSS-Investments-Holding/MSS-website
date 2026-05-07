@@ -542,7 +542,6 @@ export default function WhatWeDoPage() {
       <section
         aria-label="Call to Action"
         className="w-full bg-white px-5 md:px-10 lg:px-20"
-        style={{ paddingBottom: "80px" }}
       >
         <div
           className="relative w-full overflow-hidden flex items-center justify-center"

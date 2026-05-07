@@ -717,7 +717,7 @@ export default function PitchPage() {
          * pt-16 = 64px (Figma: divider y=3881, headings y=3945 → 64px gap ✓)
          * pb-20 = 80px (Figma: email bottom y=4065, divider y=4145 → 80px ✓)
          */}
-        <div className="flex flex-col lg:flex-row pt-16 pb-20 gap-12 lg:gap-0">
+        <div className="flex flex-col lg:flex-row pt-16 gap-12 lg:gap-0">
 
           {/* General Inquiries — left col (flex-1) */}
           <div className="flex-1">

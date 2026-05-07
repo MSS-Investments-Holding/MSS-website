@@ -642,7 +642,7 @@ export default function AboutPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Start the Conversation"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pb-24"
+        className="w-full bg-white px-5 md:px-10 lg:px-20"
       >
         <div
           className="relative w-full overflow-hidden"

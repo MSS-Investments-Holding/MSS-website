@@ -312,7 +312,7 @@ export default async function NewsPage({
         </div>
 
         {/* Content — right-aligned in same 48% col */}
-        <div className="flex flex-col lg:flex-row pb-20">
+        <div className="flex flex-col lg:flex-row">
           <div className="hidden lg:block lg:w-[52%] lg:flex-shrink-0" />
           <div className="flex-1 pt-16">
             <h3
