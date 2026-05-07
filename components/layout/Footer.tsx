@@ -59,7 +59,7 @@ function ColLabel({ text }: { text: string }) {
 
 export default function Footer() {
   return (
-    <footer role="contentinfo" className="w-full bg-white">
+    <footer role="contentinfo" className="w-full bg-white mt-20">
 
       {/* Top divider */}
       <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />

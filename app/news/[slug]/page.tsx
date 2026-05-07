@@ -212,7 +212,7 @@ export default async function ArticlePage({
           MORE NEWS — 3 related articles
          ══════════════════════════════════════════════════════════ */}
       {related.length > 0 && (
-        <section aria-label="More News" className="w-full bg-white px-5 md:px-10 lg:px-20 pb-24">
+        <section aria-label="More News" className="w-full bg-white px-5 md:px-10 lg:px-20">
           <div style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
           <div className="flex items-center justify-between pt-16 mb-16">
