@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ArrowRight from "@/components/icons/ArrowRight";
 
+const SECTOR_HREF = "/how-we-invest#investing-sectors";
+
 const cards = [
   // Row 1 (left-aligned): Fintech, Agentic AI, Digital Asset Tokenization
   { row: 1, icon: "/images/icons/icon-fintech.svg",       title: "Fintech",                    body: "We back ventures building the next layer of global financial infrastructure across payments, multi-currency platforms, and institutional-grade B2B financial services." },
@@ -119,13 +121,14 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
       <p className="font-body flex-1" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "16px" }}>
         {card.body}
       </p>
-      <span
-        className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b"
-        style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#AEB0B3", borderColor: "#AEB0B3", marginTop: "16px" }}
+      <Link
+        href={SECTOR_HREF}
+        className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b text-[#AEB0B3] border-[#AEB0B3] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
+        style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", marginTop: "16px", textDecoration: "none" }}
       >
         Read More
-        <ArrowRight size="sm" fill="#AEB0B3" />
-      </span>
+        <ArrowRight size="sm" fill="currentColor" />
+      </Link>
     </article>
   );
 }

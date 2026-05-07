@@ -535,6 +535,7 @@ export default function HowWeInvestPage() {
           pb-180px
          ══════════════════════════════════════════════════════════ */}
       <section
+        id="investing-sectors"
         aria-label="Investing Sectors"
         className="w-full bg-white px-5 md:px-10 lg:px-20"
         style={{ paddingTop: "140px", paddingBottom: "180px" }}
