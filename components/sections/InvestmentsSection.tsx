@@ -115,10 +115,10 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
       <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
         <img src={card.icon} alt="" width={60} height={60} style={{ width: "60px", height: "60px", objectFit: "contain" }} />
       </div>
-      <h3 className="font-heading" style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "32px" }}>
+      <h3 className="font-heading" style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "64px" }}>
         {card.title}
       </h3>
-      <p className="font-body flex-1" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "16px" }}>
+      <p className="font-body flex-1" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
         {card.body}
       </p>
       <Link
