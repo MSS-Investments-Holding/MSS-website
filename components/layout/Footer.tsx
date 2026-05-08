@@ -102,7 +102,7 @@ export default function Footer() {
 
             {/* Row 1 — Explore × 2 */}
             <div className="mb-12 lg:pr-16">
-              <ColLabel text="Explore" />
+              <ColLabel text="Company" />
               <div className="flex flex-col" style={{ gap: "8px" }}>
                 {exploreCol1.map(l => <FooterLink key={l.href} {...l} />)}
               </div>
