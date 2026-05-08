@@ -108,7 +108,7 @@ export default function WhatWeDoPage() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-10 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20">
           <div className="flex-1" />
           {/* H1 bottom-aligned (40px from section bottom) */}
           <h1
@@ -135,7 +135,7 @@ export default function WhatWeDoPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="What We Do"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
         style={{ paddingTop: "96px", paddingBottom: "120px" }}
       >
         {/* Intro text — indented 560px at xl */}
@@ -234,7 +234,7 @@ export default function WhatWeDoPage() {
 
         {/* Content */}
         <div
-          className="relative z-10 px-5 md:px-10 lg:px-20"
+          className="relative z-10 px-5 md:px-12 lg:px-20"
           style={{ paddingTop: "120px", paddingBottom: "100px" }}
         >
           <div style={{ maxWidth: "520px", paddingLeft: "40px" }}>
@@ -296,7 +296,7 @@ export default function WhatWeDoPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Our Focus"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
         style={{ paddingTop: "140px", paddingBottom: "160px" }}
       >
         {/* Label */}
@@ -461,7 +461,7 @@ export default function WhatWeDoPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="MSS By the Numbers"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
         style={{ paddingBottom: "120px" }}
       >
         <p
@@ -541,7 +541,7 @@ export default function WhatWeDoPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Call to Action"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
       >
         <div
           className="relative w-full overflow-hidden flex items-center justify-center"

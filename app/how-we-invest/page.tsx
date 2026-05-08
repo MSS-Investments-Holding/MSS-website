@@ -226,7 +226,7 @@ export default function HowWeInvestPage() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-10 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20">
           {/* H1 — H1 abs y=280 from section top, nav=94px → pt=186px below nav */}
           <h1
             className="font-heading text-white"
@@ -272,7 +272,7 @@ export default function HowWeInvestPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Philosophy"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
         style={{ paddingTop: "96px", paddingBottom: "200px" }}
       >
         <p
@@ -404,7 +404,7 @@ export default function HowWeInvestPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Process"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
         style={{ paddingBottom: "80px" }}
       >
         <p
@@ -490,7 +490,7 @@ export default function HowWeInvestPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="After Investment"
-        className="relative w-full overflow-hidden flex items-center justify-center px-5 md:px-10 lg:px-20"
+        className="relative w-full overflow-hidden flex items-center justify-center px-5 md:px-12 lg:px-20"
         style={{ minHeight: "694px", backgroundColor: "#0B1738" }}
       >
         <Image
@@ -537,7 +537,7 @@ export default function HowWeInvestPage() {
       <section
         id="investing-sectors"
         aria-label="Investing Sectors"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
         style={{ paddingTop: "140px", paddingBottom: "180px" }}
       >
         <p
@@ -675,7 +675,7 @@ export default function HowWeInvestPage() {
       <section aria-label="Portfolio" className="w-full bg-white overflow-hidden">
 
         {/* Header — content padded, centered */}
-        <div className="px-5 md:px-10 lg:px-20 text-center">
+        <div className="px-5 md:px-12 lg:px-20 text-center">
           <p
             className="font-body"
             style={{
@@ -725,7 +725,7 @@ export default function HowWeInvestPage() {
 
             {/* Pagination — 64px below image bottom */}
             <div
-              className="flex items-center px-5 md:px-10 lg:px-20"
+              className="flex items-center px-5 md:px-12 lg:px-20"
               style={{ paddingTop: "64px", paddingBottom: "64px", gap: "16px" }}
             >
               <span
@@ -939,7 +939,7 @@ export default function HowWeInvestPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Responsibility Pledge"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
         style={{ paddingBottom: "54px" }}
       >
         <p
@@ -1028,7 +1028,7 @@ export default function HowWeInvestPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Call to Action"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
       >
         <div
           className="relative w-full overflow-hidden flex items-center justify-center"

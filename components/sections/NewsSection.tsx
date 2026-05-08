@@ -9,7 +9,7 @@ interface Props {
 
 export default function NewsSection({ articles }: Props) {
   return (
-    <section aria-label="News and Media" className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 md:pt-20 lg:pt-24">
+    <section aria-label="News and Media" className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 md:pt-20 lg:pt-24">
 
       {/* HEADER */}
       <div className="flex flex-col lg:flex-row lg:items-start mb-16 lg:mb-20">

@@ -61,7 +61,7 @@ export default function Footer() {
     <footer role="contentinfo" className="w-full bg-white mt-20">
 
       {/* Top divider */}
-      <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
+      <div className="mx-5 md:mx-12 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
       {/*
        * Main area — lg:min-h-[570px] ensures the container is tall enough
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         {/* Left area — logo + link grid */}
-        <div className="relative z-10 px-5 md:px-10 lg:px-20 pt-10">
+        <div className="relative z-10 px-5 md:px-12 lg:px-20 pt-10">
 
           {/* Logo — 70×100px, links to homepage */}
           <Link href="/" aria-label="MSS Investments Holding — Home" className="inline-block mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative", display: "block" }}>

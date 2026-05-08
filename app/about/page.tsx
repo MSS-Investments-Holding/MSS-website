@@ -132,7 +132,7 @@ export default function AboutPage() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-10 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
           {/* LEFT — H1 */}
           <div className="flex-1 pt-16 lg:pt-[166px] pb-10">
             <h1
@@ -166,7 +166,7 @@ export default function AboutPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Who We Are"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-24 pb-[120px]"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-24 pb-[120px]"
       >
         {/* Label + H2 (always full-width above the two-col area) */}
         <span className="text-label font-body block" style={{ color: "#373738" }}>
@@ -275,7 +275,7 @@ export default function AboutPage() {
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
 
         {/* py-[140px] creates the 140px navy padding above/below the beige frame */}
-        <div className="relative z-10 px-5 md:px-10 lg:px-20 py-[140px]">
+        <div className="relative z-10 px-5 md:px-12 lg:px-20 py-[140px]">
           {/*
            * Beige content frame: h=538px, bg=#F5E9DC.
            * Decorative vertical line at x=64 from content left (5%).
@@ -346,7 +346,7 @@ export default function AboutPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="What Drives Us"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-[126px] pb-40"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-[126px] pb-40"
       >
         <h2
           className="font-heading"
@@ -547,7 +547,7 @@ export default function AboutPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Global Footprint"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-[180px] pb-[140px]"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-[180px] pb-[140px]"
       >
         {/* Label + H2 */}
         {/*
@@ -642,7 +642,7 @@ export default function AboutPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Start the Conversation"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
       >
         <div
           className="relative w-full overflow-hidden"

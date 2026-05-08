@@ -35,7 +35,7 @@ export default function HeroSection({ articles }: Props) {
       </div>
 
       {/* Content — flex row at lg+, stacked below */}
-      <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-10 lg:px-20">
+      <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
 
         {/* LEFT — badge + H1 + body */}
         <div className="flex-1 pt-24 lg:pt-[170px] pb-10">
@@ -70,7 +70,7 @@ export default function HeroSection({ articles }: Props) {
         </div>
 
         {/* RIGHT — 2 latest articles from Sanity, bottom-aligned */}
-        <div className="w-full lg:w-[416px] flex flex-col lg:justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
+        <div className="w-full md:w-auto md:self-end lg:w-[416px] flex flex-col lg:justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
           <p className="text-label font-body mb-4" style={{ color: "var(--color-neutral-300)" }}>In the News:</p>
           <div className="w-full h-px bg-white/30 mb-4" />
           <div className="flex gap-4 flex-wrap sm:flex-nowrap">

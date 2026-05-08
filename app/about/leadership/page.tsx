@@ -133,7 +133,7 @@ export default function LeadershipPage() {
         </div>
 
         {/* H1 — centered both horizontally and vertically in the remaining hero space */}
-        <div className="relative z-10 flex-1 flex items-center justify-center px-5 md:px-10 lg:px-20">
+        <div className="relative z-10 flex-1 flex items-center justify-center px-5 md:px-12 lg:px-20">
           <h1
             className="font-heading text-white text-center"
             style={{
@@ -159,7 +159,7 @@ export default function LeadershipPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Leadership Team"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 pb-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 pb-20"
       >
         {/*
           gap-x-[43px]: Figma 43px column gap (3×398 + 2×43 = 1280).
@@ -252,7 +252,7 @@ export default function LeadershipPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Contact Information"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-20 pb-0"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20 pb-0"
       >
         <div
           className="grid grid-cols-1 md:grid-cols-3"

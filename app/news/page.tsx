@@ -60,7 +60,7 @@ export default async function NewsPage({
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-10 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
           {/* LEFT — H1 */}
           <div className="flex-1 pt-16 lg:pt-[310px] pb-10">
             <h1
@@ -94,7 +94,7 @@ export default async function NewsPage({
           Filter: pt-14 (56px below hero), Merriweather 20px, gap-5 (20px)
           Grid: mt-10 (40px below filter), 3 cols, gap-y-10, dividers
          ══════════════════════════════════════════════════════════ */}
-      <section aria-label="Articles" className="w-full bg-white px-5 md:px-10 lg:px-20 pt-14">
+      <section aria-label="Articles" className="w-full bg-white px-5 md:px-12 lg:px-20 pt-14">
 
         {/* Filter tabs — server-side URL routing */}
         <nav aria-label="Filter articles by category" className="flex flex-wrap gap-5">
@@ -305,7 +305,7 @@ export default async function NewsPage({
           Divider: right 48% of content (from x=660/1280=51.6%)
           Content in right 48%, pt-16 (64px below divider), pb-20
          ══════════════════════════════════════════════════════════ */}
-      <section aria-label="Press Inquiries" className="w-full bg-white px-5 md:px-10 lg:px-20 pt-20">
+      <section aria-label="Press Inquiries" className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20">
         {/* Divider — right-aligned, spans right 48% of content */}
         <div className="flex justify-end">
           <div className="w-full lg:w-[48%]" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />

@@ -116,7 +116,7 @@ export default function PitchPage() {
          *   RIGHT lg:w-[44%] xl:w-[560px] : body+button, justify-end pb-[40px]
          *     (button bottom y=890px, hero h=930px → pb=40px)
          */}
-        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-10 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
           <div className="flex-1 pt-24 lg:pt-[186px] pb-10">
             <h1
               className="font-heading text-white"
@@ -169,7 +169,7 @@ export default function PitchPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Relevant Conversations"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-24 pb-[120px]"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-24 pb-[120px]"
       >
         <span className="text-label font-body block" style={{ color: "#373738" }}>
           Relevant Conversations
@@ -249,7 +249,7 @@ export default function PitchPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="What We Look For"
-        className="w-full bg-white px-5 md:px-10 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
       >
         {/*
          * Frame 55 is content-width (inside px-20 padding), h=702px fixed.
@@ -377,7 +377,7 @@ export default function PitchPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Pitch Process"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-20 pb-28"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20 pb-28"
       >
         {/*
          * xl:px-8 adds 32px extra indent matching Figma:
@@ -441,7 +441,7 @@ export default function PitchPage() {
       <section
         id="pitch-form"
         aria-label="Submit Your Pitch"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-24"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-24"
         style={{ scrollMarginTop: "94px" }}
       >
         <span className="text-label font-body block" style={{ color: "#373738" }}>
@@ -710,7 +710,7 @@ export default function PitchPage() {
           Right col: Media contact (x=52% — same split as numbered rows)
           Heading → subtext gap: 12px · subtext → email gap: 32px
          ══════════════════════════════════════════════════════════ */}
-      <section aria-label="Contact Information" className="w-full bg-white px-5 md:px-10 lg:px-20">
+      <section aria-label="Contact Information" className="w-full bg-white px-5 md:px-12 lg:px-20">
         <div style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
         {/*

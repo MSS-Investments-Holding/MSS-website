@@ -41,7 +41,7 @@ export default function NotFound(): ReactElement {
           <Navbar />
         </div>
 
-        <div className="absolute inset-x-0 bottom-10 z-10 px-5 md:px-10 lg:px-20">
+        <div className="absolute inset-x-0 bottom-10 z-10 px-5 md:px-12 lg:px-20">
           <div className="mx-auto flex w-full max-w-[var(--max-w-content)] flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between">
             <h1 className="max-w-[630px] font-heading text-[var(--color-text-inverse)] text-h2">
               Sorry, the page you are looking for does not exist.

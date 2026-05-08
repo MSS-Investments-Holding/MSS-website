@@ -12,7 +12,7 @@ export default function CompanySection() {
     <section aria-label="About MSS Investments Holding" className="w-full bg-white">
 
       {/* ── TOP AREA: two columns — label+H2 left, empty right ─── */}
-      <div className="w-full px-5 md:px-10 lg:px-20 pt-16 lg:pt-24">
+      <div className="w-full px-5 md:px-12 lg:px-20 pt-16 lg:pt-24">
         <div className="flex flex-col lg:flex-row lg:items-start gap-0">
 
           {/* Left column — label + H2 */}
@@ -34,10 +34,10 @@ export default function CompanySection() {
       </div>
 
       {/* ── SEPARATOR — full content width ───────────────────────── */}
-      <div className="mx-5 md:mx-10 lg:mx-20 mt-10 lg:mt-16 h-px bg-[var(--color-border)]" />
+      <div className="mx-5 md:mx-12 lg:mx-20 mt-10 lg:mt-16 h-px bg-[var(--color-border)]" />
 
       {/* ── BOTTOM AREA: body + stats + button (right-aligned at desktop) */}
-      <div className="w-full px-5 md:px-10 lg:px-20 pb-16 lg:pb-24">
+      <div className="w-full px-5 md:px-12 lg:px-20 pb-16 lg:pb-24">
         <div className="flex flex-col lg:flex-row">
 
           {/* Left spacer at desktop — mirrors the heading column width */}

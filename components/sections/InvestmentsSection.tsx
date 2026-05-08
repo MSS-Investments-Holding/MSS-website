@@ -50,7 +50,7 @@ export default function InvestmentsSection() {
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)" }} />
 
-      <div className="relative z-10 px-5 md:px-10 lg:px-20 py-16 md:py-20 lg:py-24">
+      <div className="relative z-10 px-5 md:px-12 lg:px-20 py-16 md:py-20 lg:py-24">
 
         {/* ── HEADER ──────────────────────────────────────────── */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-20 mb-16 lg:mb-20">

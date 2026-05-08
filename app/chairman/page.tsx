@@ -76,7 +76,7 @@ export default function ChairmanPage() {
          *   LEFT  flex-1:            badge + H1 starting 156px below nav
          *   RIGHT lg:w-[44%] xl:w-[560px]: bio bottom-aligned pb-[40px]
          */}
-        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-10 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
 
           {/* LEFT — badge + H1 */}
           <div className="flex-1 pt-20 lg:pt-[156px] pb-10">
@@ -130,7 +130,7 @@ export default function ChairmanPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Chairman's Letter"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-20 pb-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20 pb-20"
       >
         <div className="flex flex-col lg:flex-row lg:gap-[10%] xl:gap-[178px]">
 

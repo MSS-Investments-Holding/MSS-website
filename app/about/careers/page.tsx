@@ -93,7 +93,7 @@ export default function CareersPage() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-10 lg:px-20 pt-16 lg:pt-[170px] pb-16">
+        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-16 lg:pt-[170px] pb-16">
           <h1
             className="font-heading text-white"
             style={{ fontSize: "clamp(2.25rem, 5vw, 4.375rem)", lineHeight: "1.06", fontWeight: 300, maxWidth: "620px" }}
@@ -136,7 +136,7 @@ export default function CareersPage() {
       {/* ══════════════════════════════════════════════════════════
           WHY JOIN US — label + H2 + 4 numbered rows with dividers
          ══════════════════════════════════════════════════════════ */}
-      <section aria-label="Why Join Us" className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 md:pt-20 lg:pt-24 pb-16 md:pb-20 lg:pb-24">
+      <section aria-label="Why Join Us" className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 md:pt-20 lg:pt-24 pb-16 md:pb-20 lg:pb-24">
 
         <span className="text-label font-body block" style={{ color: "#373738" }}>
           Why Join Us
@@ -212,7 +212,7 @@ export default function CareersPage() {
           style={{ left: "4.4%", top: "80px", width: "1px", height: "346px", backgroundColor: "rgba(255,255,255,0.40)" }}
         />
 
-        <div className="relative z-10 w-full px-5 md:px-10 lg:px-20 py-20">
+        <div className="relative z-10 w-full px-5 md:px-12 lg:px-20 py-20">
           <span className="text-label font-body block" style={{ color: "rgba(255,255,255,0.80)" }}>
             Our Mission
           </span>
@@ -231,7 +231,7 @@ export default function CareersPage() {
       <section
         id="open-roles"
         aria-label="Open Roles"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 md:pt-24 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 md:pt-24 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24"
       >
         <div className="flex flex-col items-center text-center">
           <span className="text-label font-body block" style={{ color: "#373738" }}>
@@ -301,7 +301,7 @@ export default function CareersPage() {
           OPEN APPLICATION — split: image left · warm beige right
           Vertical line · label · H2 · body · CTA
          ══════════════════════════════════════════════════════════ */}
-      <section aria-label="Open Application" className="w-full bg-white px-5 md:px-10 lg:px-20">
+      <section aria-label="Open Application" className="w-full bg-white px-5 md:px-12 lg:px-20">
         <div className="flex flex-col lg:flex-row lg:gap-6" style={{ minHeight: "506px" }}>
 
         {/* LEFT — image */}

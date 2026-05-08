@@ -134,7 +134,7 @@ export default async function ArticlePage({
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-10 lg:px-20 pt-16 lg:pt-[188px] pb-10">
+        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-16 lg:pt-[188px] pb-10">
           <div
             className="inline-flex items-center self-start mb-6"
             style={{ height: "24px", paddingLeft: "8px", paddingRight: "8px", backgroundColor: "rgba(255,255,255,0.10)" }}
@@ -158,7 +158,7 @@ export default async function ArticlePage({
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Article Body"
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-16 pb-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 pb-20"
       >
         <div className="flex flex-col lg:flex-row">
 
@@ -212,7 +212,7 @@ export default async function ArticlePage({
           MORE NEWS — 3 related articles
          ══════════════════════════════════════════════════════════ */}
       {related.length > 0 && (
-        <section aria-label="More News" className="w-full bg-white px-5 md:px-10 lg:px-20">
+        <section aria-label="More News" className="w-full bg-white px-5 md:px-12 lg:px-20">
           <div style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
           <div className="flex items-center justify-between pt-16 mb-16">

@@ -41,7 +41,7 @@ const leaders = [
 export default function LeadershipSection() {
   return (
     <section aria-label="Leadership" className="w-full bg-white">
-      <div className="w-full px-5 md:px-10 lg:px-20 pt-16 md:pt-20 lg:pt-28 pb-16 md:pb-20 lg:pb-32">
+      <div className="w-full px-5 md:px-12 lg:px-20 pt-16 md:pt-20 lg:pt-28 pb-16 md:pb-20 lg:pb-32">
 
         {/* ── HEADER — two-column: label left, H2 right ─────────── */}
         {/*

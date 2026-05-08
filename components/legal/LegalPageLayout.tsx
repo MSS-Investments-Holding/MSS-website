@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
  *   H1 left:  pt-[310px] (y=404 from section top, 310px below nav)
  *   Meta right: justify-end pb-[40px], Inter 18px, #E8E9EB
  *
- * Content (bg-white, px-5 md:px-10 lg:px-20, pt-20, pb-24):
+ * Content (bg-white, px-5 md:px-12 lg:px-20, pt-20, pb-24):
  *   max-w-[740px] column (740/1280=57.8% of Figma content width)
  *   Per section: heading (Merriweather 26px) → divider 24px gap → body 24px gap
  *   Between sections: mt-10 (40px)
@@ -45,7 +45,7 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
          *   RIGHT lg:w-[28%] xl:w-[360px]:  meta text, justify-end pb-[40px]
          * Both end at the same y (386px from content div top = 40px from bottom).
          */}
-        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-10 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
           <div className="flex-1 pt-16 lg:pt-[310px] pb-10 lg:pb-[40px]">
             <h1
               className="font-heading text-white"
@@ -78,7 +78,7 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
        */}
       <section
         aria-label={title}
-        className="w-full bg-white px-5 md:px-10 lg:px-20 pt-20 pb-24"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20 pb-24"
       >
         <div style={{ maxWidth: "740px" }}>
           {sections.map((section, i) => {

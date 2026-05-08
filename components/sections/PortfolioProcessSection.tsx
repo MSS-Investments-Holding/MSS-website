@@ -74,7 +74,7 @@ export default function PortfolioProcessSection() {
     <section aria-label="Portfolio" className="w-full bg-white">
 
       {/* ── HEADER — centered ─────────────────────────────────── */}
-      <div className="w-full flex flex-col items-center text-center px-5 md:px-10 lg:px-20 pt-20 md:pt-24 lg:pt-[120px] pb-10 md:pb-14 lg:pb-[84px]">
+      <div className="w-full flex flex-col items-center text-center px-5 md:px-12 lg:px-20 pt-20 md:pt-24 lg:pt-[120px] pb-10 md:pb-14 lg:pb-[84px]">
         <span className="text-label font-body" style={{ color: "#373738" }}>Investment Portfolio</span>
         <h2
           className="font-heading"
@@ -110,12 +110,12 @@ export default function PortfolioProcessSection() {
       </div>
 
       {/* ── TOP DIVIDER ───────────────────────────────────────── */}
-      <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
+      <div className="mx-5 md:mx-12 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
       {/* ── DRAGGABLE COMPANY CARDS ───────────────────────────── */}
       <div
         ref={scrollRef}
-        className="w-full overflow-x-auto scrollbar-hide select-none px-5 md:px-10 lg:px-20"
+        className="w-full overflow-x-auto scrollbar-hide select-none px-5 md:px-12 lg:px-20"
         style={{ cursor: isDragging ? "grabbing" : "grab", paddingTop: "24px", paddingBottom: "24px" }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
@@ -198,10 +198,10 @@ export default function PortfolioProcessSection() {
       </div>
 
       {/* ── BOTTOM DIVIDER ────────────────────────────────────── */}
-      <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
+      <div className="mx-5 md:mx-12 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
       {/* ── VISIT PORTFOLIO BUTTON — right-aligned ────────────── */}
-      <div className="flex justify-end px-5 md:px-10 lg:px-20" style={{ paddingTop: "64px", paddingBottom: "88px" }}>
+      <div className="flex justify-end px-5 md:px-12 lg:px-20" style={{ paddingTop: "64px", paddingBottom: "88px" }}>
         <Link
           href="/portfolio"
           className="inline-flex items-center justify-center gap-[4px] font-body text-white"

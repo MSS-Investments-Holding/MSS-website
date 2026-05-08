@@ -63,7 +63,7 @@ export default function Navbar() {
 
   return (
     <header role="banner" className="relative z-20 w-full h-[94px] flex items-center">
-      <div className="w-full flex items-center justify-between px-20">
+      <div className="w-full flex items-center justify-between px-12 lg:px-20">
 
         {/* Logo */}
         <Link href="/" aria-label="MSS Investments Holding — Home" className="flex-shrink-0">
