@@ -116,7 +116,7 @@ export default function PortfolioProcessSection() {
       <div
         ref={scrollRef}
         className="w-full overflow-x-auto scrollbar-hide select-none px-5 md:px-10 lg:px-20"
-        style={{ cursor: isDragging ? "grabbing" : "grab" }}
+        style={{ cursor: isDragging ? "grabbing" : "grab", paddingTop: "24px" }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={stopDrag}
@@ -129,6 +129,7 @@ export default function PortfolioProcessSection() {
               className="flex flex-col flex-shrink-0"
               style={{
                 width: "384px",
+                height: "460px",
                 paddingTop: "16px",
                 paddingBottom: "40px",
                 paddingLeft: i === 0 ? 0 : "24px",
@@ -151,11 +152,10 @@ export default function PortfolioProcessSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${company.name} website`}
-                    className="flex items-center justify-center flex-shrink-0 hover:opacity-70 transition-opacity"
-                    style={{ width: "32px", height: "32px", backgroundColor: "#F5E9DC" }}
+                    className="flex-shrink-0 hover:opacity-70 transition-opacity"
                     onMouseDown={e => e.stopPropagation()}
                   >
-                    <img src="/images/icons/icon-external-link.svg" alt="" width={16} height={16} draggable={false} />
+                    <img src="/images/icons/icon-external-link.svg" alt="" width={32} height={32} draggable={false} />
                   </a>
                 )}
               </div>
@@ -172,7 +172,7 @@ export default function PortfolioProcessSection() {
                 ))}
               </div>
 
-              {/* Description */}
+              {/* Description — flex-1 fills remaining height, pushes Read More down */}
               <p
                 className="font-body flex-1"
                 style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "80px" }}
@@ -184,12 +184,12 @@ export default function PortfolioProcessSection() {
               {/* Read More — links to company detail page (not yet built) */}
               <Link
                 href="#"
-                className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#AEB0B3] border-[#AEB0B3] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
-                style={{ marginTop: "16px", textDecoration: "none" }}
+                className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b hover:opacity-70 transition-opacity"
+                style={{ marginTop: "16px", textDecoration: "none", color: "#67686B", borderColor: "#67686B" }}
                 onMouseDown={e => e.stopPropagation()}
               >
                 Read More
-                <ArrowRight size="sm" fill="currentColor" />
+                <ArrowRight size="sm" fill="#67686B" />
               </Link>
             </div>
           ))}
@@ -200,7 +200,7 @@ export default function PortfolioProcessSection() {
       <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
       {/* ── VISIT PORTFOLIO BUTTON — right-aligned ────────────── */}
-      <div className="flex justify-end px-5 md:px-10 lg:px-20 pt-6 pb-6">
+      <div className="flex justify-end px-5 md:px-10 lg:px-20 pb-6" style={{ paddingTop: "64px" }}>
         <Link
           href="/portfolio"
           className="inline-flex items-center justify-center gap-[4px] font-body text-white"
