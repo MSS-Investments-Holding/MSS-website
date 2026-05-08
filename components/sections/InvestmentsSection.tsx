@@ -86,8 +86,8 @@ export default function InvestmentsSection() {
             ))}
           </div>
 
-          {/* Row 2 — ghost + 2 cards; ghost absorbs space so cards align to cols 2–3 */}
-          <div className="flex gap-6 mt-6" style={{ maxWidth: "1280px" }}>
+          {/* Row 2 — ghost + 2 cards; no maxWidth so ghost fills full content area flush to right edge */}
+          <div className="flex gap-6 mt-6">
             <div aria-hidden="true" style={GHOST_STYLE} />
             {cards.filter(c => c.row === 2).map(card => (
               <SectorCard key={card.title} card={card} desktopStyle={ROW2_CARD_STYLE} />
@@ -96,7 +96,7 @@ export default function InvestmentsSection() {
         </div>
 
         {/* ── BUTTON ───────────────────────────────────────── */}
-        <div className="mt-12 flex justify-end">
+        <div className="mt-12 flex justify-end lg:justify-start">
           <Link
             href="/how-we-invest"
             className="inline-flex items-center gap-[8px] text-body-sm font-body"
