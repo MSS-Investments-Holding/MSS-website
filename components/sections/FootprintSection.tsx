@@ -73,9 +73,8 @@ export default function FootprintSection() {
          */}
         <div
           ref={cardRef}
-          className="relative bg-white lg:ml-[33.3%]"
+          className="relative bg-white lg:ml-[33.3%] lg:mr-20"
           style={{
-            maxWidth: "880px",
             minHeight: "406px",
             paddingLeft: "40px",
             paddingTop: "40px",
