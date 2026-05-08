@@ -79,7 +79,7 @@ export default function FootprintSection() {
             paddingLeft: "40px",
             paddingTop: "40px",
             paddingBottom: "40px",
-            paddingRight: "40px",
+            paddingRight: "260px",
             overflow: "hidden",
           }}
         >
@@ -98,7 +98,6 @@ export default function FootprintSection() {
               color: "#1C1C1F",
               margin: 0,
               marginTop: "24px",
-              maxWidth: "540px",
             }}
           >
             Positioned Across<br className="hidden lg:block" /> Markets That Matter
@@ -113,7 +112,6 @@ export default function FootprintSection() {
               color: "#67686B",
               margin: 0,
               marginTop: "12px",
-              maxWidth: "540px",
             }}
           >
             With exposure across the UAE, Pakistan, UK, and wider regional
