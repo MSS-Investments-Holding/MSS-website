@@ -24,7 +24,7 @@ export default function CompanySection() {
               className="font-heading mt-6"
               style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "16em" }}
             >
-              At the Intersection of Capital and Opportunity
+              At the Intersection of<br className="hidden lg:block" /> Capital and Opportunity
             </h2>
           </div>
 

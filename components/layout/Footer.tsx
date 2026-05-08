@@ -28,7 +28,6 @@ const socialLinks = [
   { label: "LinkedIn",             href: "#" },
   { label: "Instagram",            href: "#" },
   { label: "Facebook",             href: "#" },
-  { label: "X — Formerly Twitter", href: "#" },
 ];
 
 const legalLinks = [
@@ -72,7 +71,7 @@ export default function Footer() {
 
         {/* Right image — 627px wide, 570px tall, absolute top-right */}
         <div
-          className="absolute top-0 right-0 hidden lg:block overflow-hidden"
+          className="absolute top-0 right-20 hidden lg:block overflow-hidden"
           style={{ width: "43.5%", height: "570px" }}
         >
           <Image
@@ -85,7 +84,7 @@ export default function Footer() {
         </div>
 
         {/* Left area — logo + link grid */}
-        <div className="relative z-10 px-5 md:px-10 lg:px-20 pt-10 pb-10">
+        <div className="relative z-10 px-5 md:px-10 lg:px-20 pt-10">
 
           {/* Logo — 70×100px, links to homepage */}
           <Link href="/" aria-label="MSS Investments Holding — Home" className="inline-block mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative", display: "block" }}>
