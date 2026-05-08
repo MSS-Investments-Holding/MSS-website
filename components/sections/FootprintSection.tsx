@@ -102,7 +102,7 @@ export default function FootprintSection() {
               maxWidth: "540px",
             }}
           >
-            Positioned Across Markets That Matter
+            Positioned Across<br className="hidden lg:block" /> Markets That Matter
           </h2>
 
           {/* Body — gap from H3 bottom = 12px */}
