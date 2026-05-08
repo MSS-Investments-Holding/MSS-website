@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
+import ArrowRight from "@/components/icons/ArrowRight";
 
 /*
  * Global Footprint — Figma Frame 49: y=5880, w=1440, h=860
@@ -126,20 +127,21 @@ export default function FootprintSection() {
           {/* Button — gap from body bottom = 64px */}
           <Link
             href="/pitch"
-            className="inline-flex items-center justify-center font-body text-white"
+            className="inline-flex items-center gap-[4px] text-body-sm font-body text-white"
             style={{
               marginTop: "64px",
-              display: "inline-flex",
-              width: "120px",
               height: "40px",
               backgroundColor: "#1C1C1F",
-              fontSize: "16px",
-              lineHeight: "24px",
-              letterSpacing: "-0.32px",
+              paddingLeft: "20px",
+              paddingRight: "16px",
+              paddingTop: "8px",
+              paddingBottom: "8px",
               whiteSpace: "nowrap",
+              textDecoration: "none",
             }}
           >
             Pitch to Us
+            <ArrowRight size="lg" fill="white" />
           </Link>
 
           {/*
