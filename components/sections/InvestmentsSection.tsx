@@ -53,15 +53,15 @@ export default function InvestmentsSection() {
       <div className="relative z-10 px-5 md:px-12 lg:px-20 py-16 md:py-20 lg:py-24">
 
         {/* ── HEADER ──────────────────────────────────────────── */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-20 mb-16 lg:mb-20">
+        <div className="flex flex-col md:flex-row md:items-start md:gap-10 lg:gap-20 mb-16 lg:mb-20">
           <h2
-            className="font-heading text-white lg:w-[540px] lg:flex-shrink-0"
+            className="font-heading text-white md:w-1/2 lg:w-[540px] lg:flex-shrink-0"
             style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, margin: 0 }}
           >
             Investing Across High-Impact Digital Sectors and Eco-systems
           </h2>
           <p
-            className="font-body mt-6 lg:mt-0 flex-1"
+            className="font-body mt-6 md:mt-0 md:w-1/2 lg:flex-1"
             style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", letterSpacing: "-0.18px", color: "#F0F2F5" }}
           >
             Every investment opportunity is different. Our investment approach
