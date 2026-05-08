@@ -41,7 +41,7 @@ export default function CompanySection() {
         <div className="flex flex-col lg:flex-row">
 
           {/* Left spacer at desktop — mirrors the heading column width */}
-          <div className="hidden lg:block lg:w-[60%] lg:flex-shrink-0" />
+          <div className="hidden lg:block lg:w-[41%] lg:flex-shrink-0" />
 
           {/* Right column — body, stats, button */}
           <div className="flex-1 pt-10 lg:pl-8 xl:pl-[154px]">
