@@ -83,8 +83,8 @@ export default function CompanySection() {
             {/* Button */}
             <Link
               href="/about"
-              className="inline-flex items-center justify-center gap-[8px] font-body text-white mt-14"
-              style={{ height: "40px", backgroundColor: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", whiteSpace: "nowrap", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px" }}
+              className="inline-flex items-center justify-center gap-[8px] text-body-sm font-body text-white mt-14"
+              style={{ height: "40px", backgroundColor: "#1C1C1F", whiteSpace: "nowrap", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px" }}
             >
               About Us
               <ArrowRight size="lg" fill="white" />

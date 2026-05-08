@@ -88,8 +88,8 @@ export default function InvestmentsSection() {
         <div className="mt-12">
           <Link
             href="/how-we-invest"
-            className="inline-flex items-center gap-[8px] font-body"
-            style={{ height: "40px", backgroundColor: "#FFFFFF", color: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", whiteSpace: "nowrap" }}
+            className="inline-flex items-center gap-[8px] text-body-sm font-body"
+            style={{ height: "40px", backgroundColor: "#FFFFFF", color: "#1C1C1F", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", whiteSpace: "nowrap" }}
           >
             How We Invest
             <ArrowRight size="lg" fill="#1C1C1F" />
