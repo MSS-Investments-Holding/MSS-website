@@ -16,7 +16,7 @@ export default function CompanySection() {
         <div className="flex flex-col lg:flex-row lg:items-start gap-0">
 
           {/* Left column — label + H2 */}
-          <div className="w-full lg:w-[60%] lg:flex-shrink-0">
+          <div className="w-full md:w-[60%] lg:w-[60%] lg:flex-shrink-0">
             <span className="text-label font-body block" style={{ color: "#373738" }}>
               About the Company
             </span>
