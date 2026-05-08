@@ -67,11 +67,11 @@ export default function Footer() {
        * Main area — lg:min-h-[570px] ensures the container is tall enough
        * for the absolute-positioned right image without a stacking spacer div.
        */}
-      <div className="relative w-full lg:min-h-[570px]">
+      <div className="relative w-full md:min-h-[570px] lg:min-h-[570px]">
 
         {/* Right image — 627px wide, 570px tall, absolute top-right */}
         <div
-          className="absolute top-0 right-20 hidden lg:block overflow-hidden"
+          className="absolute top-0 right-12 lg:right-20 hidden md:block overflow-hidden"
           style={{ width: "43.5%", height: "570px" }}
         >
           <Image
@@ -142,8 +142,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Copyright — mobile only (lg gets its own row below the image) */}
-          <div className="mt-16 lg:hidden">
+          {/* Copyright — mobile only (md+ uses the bottom row below the image) */}
+          <div className="mt-16 md:hidden">
             <p className="text-label font-body" style={{ color: "#67686B" }}>
               ©2026 MSS Investment Holding Company. All rights reserved.
             </p>
@@ -158,7 +158,7 @@ export default function Footer() {
        * footer bottom at y=8740 (74px below copyright text).
        */}
       <div
-        className="hidden lg:flex justify-end px-20"
+        className="hidden md:flex justify-end px-12 lg:px-20"
         style={{ paddingTop: "24px", paddingBottom: "64px" }}
       >
         <p className="text-label font-body" style={{ color: "#67686B" }}>
