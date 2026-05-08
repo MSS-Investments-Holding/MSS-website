@@ -26,14 +26,14 @@ const leaders = [
     name: "Vincent de Cannière",
     role: "Chairman",
     // Full frame exported from Figma node 242:5007 — includes navy background
-    image: "/images/leader-vincent-frame.png",
+    image: "/images/about/leadership/leader-vincent-frame.png",
     bio: "Vincent brings over 40 years of experience across executive leadership, governance, private banking, acquisitions, and restructuring. Having served as CEO and board member for major financial and real estate institutions across Europe and the Middle East, he provides MSS with seasoned strategic direction and institutional oversight.",
   },
   {
     name: "Husnain Nasir",
     role: "Director",
     // Full frame exported from Figma node 242:5027 — includes navy background
-    image: "/images/leader-husnain-frame.png",
+    image: "/images/about/leadership/leader-husnain-frame.png",
     bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With leadership roles tied to major digital finance and transformation initiatives in Pakistan, he contributes deep expertise in strategy, investments, and business development to MSS.",
   },
 ];

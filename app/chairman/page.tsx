@@ -58,7 +58,7 @@ export default function ChairmanPage() {
         style={{ minHeight: "930px", backgroundColor: "#1C1C1F" }}
       >
         <Image
-          src="/images/chairman-hero-bg.jpg"
+          src="/images/chairman/chairman-hero-bg.jpg"
           alt=""
           fill
           priority
@@ -146,7 +146,7 @@ export default function ChairmanPage() {
             {/* Portrait — reuse the homepage leader frame (navy bg baked in, node 242:5007) */}
             <div className="relative w-full overflow-hidden" style={{ aspectRatio: "428/400", maxWidth: "342px" }}>
               <Image
-                src="/images/leader-vincent-frame.png"
+                src="/images/about/leadership/leader-vincent-frame.png"
                 alt="Vincent de Cannière, Chairman"
                 fill
                 className="object-cover object-center"

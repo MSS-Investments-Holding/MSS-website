@@ -17,7 +17,7 @@ export default function HeroSection({ articles }: Props) {
     >
       {/* Background image */}
       <Image
-        src="/images/hero-bg.jpg"
+        src="/images/home/hero-bg.jpg"
         alt=""
         fill
         priority

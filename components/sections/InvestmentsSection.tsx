@@ -16,7 +16,7 @@ export default function InvestmentsSection() {
   return (
     <section aria-label="Investment Sectors" className="relative w-full overflow-hidden">
       {/* Background */}
-      <Image src="/images/investments-section-bg.jpg" alt="" fill className="object-cover object-center" sizes="100vw" />
+      <Image src="/images/home/investments-section-bg.jpg" alt="" fill className="object-cover object-center" sizes="100vw" />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)" }} />
 

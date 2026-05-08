@@ -94,7 +94,7 @@ export default function PitchPage() {
         style={{ minHeight: "930px" }}
       >
         <Image
-          src="/images/pitch-hero-bg.jpg"
+          src="/images/pitch/pitch-hero-bg.jpg"
           alt=""
           fill
           priority
@@ -259,7 +259,7 @@ export default function PitchPage() {
 
           {/* Background image */}
           <Image
-            src="/images/pitch-what-we-look-for-bg.jpg"
+            src="/images/pitch/pitch-what-we-look-for-bg.jpg"
             alt=""
             fill
             className="object-cover object-center"
@@ -359,7 +359,7 @@ export default function PitchPage() {
             style={{ left: "62.5%", top: "-249px", width: "1200px", height: "1200px" }}
           >
             <img
-              src="/images/pitch-globe.svg"
+              src="/images/pitch/pitch-globe.svg"
               alt=""
               width={1200}
               height={1200}

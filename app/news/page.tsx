@@ -46,7 +46,7 @@ export default async function NewsPage({
         style={{ minHeight: "520px", backgroundColor: "#0B1738" }}
       >
         <Image
-          src="/images/news-hero-bg.jpg"
+          src="/images/news/news-hero-bg.jpg"
           alt=""
           fill
           priority
@@ -237,7 +237,7 @@ export default async function NewsPage({
         style={{ height: "686px", backgroundColor: "#F5E9DC" }}
       >
         <Image
-          src="/images/news-presskit-bg.jpg"
+          src="/images/news/news-presskit-bg.jpg"
           alt=""
           fill
           className="object-cover object-center"

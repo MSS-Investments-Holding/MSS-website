@@ -50,7 +50,7 @@ export default function FootprintSection() {
     >
       {/* Background image */}
       <Image
-        src="/images/footprint-bg-new.jpg"
+        src="/images/home/footprint-bg.jpg"
         alt=""
         fill
         className="object-cover object-center"
@@ -81,7 +81,7 @@ export default function FootprintSection() {
             paddingTop: "40px",
             paddingBottom: "40px",
             paddingRight: "40px",
-            overflow: "visible",
+            overflow: "hidden",
           }}
         >
           {/* "GLOBAL FOOTPRINT" label — top=40 → paddingTop covers it */}
@@ -162,7 +162,7 @@ export default function FootprintSection() {
             }}
           >
             <Image
-              src="/images/footprint-globe.png"
+              src="/images/home/footprint-globe.png"
               alt=""
               width={440}
               height={440}

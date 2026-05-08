@@ -79,7 +79,7 @@ export default function CareersPage() {
         style={{ minHeight: "930px", backgroundColor: "#1C1C1F" }}
       >
         <Image
-          src="/images/careers-hero-bg.jpg"
+          src="/images/careers/careers-hero-bg.jpg"
           alt=""
           fill
           priority
@@ -198,7 +198,7 @@ export default function CareersPage() {
         style={{ minHeight: "586px", backgroundColor: "#C5D3E5" }}
       >
         <Image
-          src="/images/careers-mission-bg.jpg"
+          src="/images/careers/careers-mission-bg.jpg"
           alt=""
           fill
           className="object-cover object-center"
@@ -307,7 +307,7 @@ export default function CareersPage() {
         {/* LEFT — image */}
         <div className="relative w-full lg:w-1/2 flex-shrink-0" style={{ minHeight: "300px" }}>
           <Image
-            src="/images/careers-open-application.jpg"
+            src="/images/careers/careers-open-application.jpg"
             alt=""
             fill
             className="object-cover object-center"
