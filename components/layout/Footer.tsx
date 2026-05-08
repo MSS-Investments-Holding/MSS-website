@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         {/* Left area — logo + link grid */}
-        <div className="relative z-10 px-5 md:px-12 lg:px-20 pt-10">
+        <div className="relative z-10 px-5 md:pl-12 md:pr-[calc(43.5%_+_72px)] lg:px-20 pt-10">
 
           {/* Logo — 70×100px, links to homepage */}
           <Link href="/" aria-label="MSS Investments Holding — Home" className="inline-block mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative", display: "block" }}>
