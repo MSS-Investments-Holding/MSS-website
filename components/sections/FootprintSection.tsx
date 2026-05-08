@@ -153,7 +153,7 @@ export default function FootprintSection() {
           <div
             className="absolute hidden lg:block"
             style={{
-              left: "660px",
+              right: "-220px",
               top: "-17px",
               width: "440px",
               height: "440px",
