@@ -73,7 +73,7 @@ export default function FootprintSection() {
          */}
         <div
           ref={cardRef}
-          className="relative bg-white lg:ml-[33.3%] lg:mr-20"
+          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20"
           style={{
             minHeight: "406px",
             paddingLeft: "40px",
@@ -149,7 +149,7 @@ export default function FootprintSection() {
            * overflow:visible on card lets it extend beyond; section clips it
            */}
           <div
-            className="absolute hidden lg:block"
+            className="absolute hidden md:block"
             style={{
               right: "-220px",
               top: "-17px",
