@@ -201,7 +201,7 @@ export default function PortfolioProcessSection() {
       <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
       {/* ── VISIT PORTFOLIO BUTTON — right-aligned ────────────── */}
-      <div className="flex justify-end px-5 md:px-10 lg:px-20 pb-6" style={{ paddingTop: "64px" }}>
+      <div className="flex justify-end px-5 md:px-10 lg:px-20" style={{ paddingTop: "64px", paddingBottom: "88px" }}>
         <Link
           href="/portfolio"
           className="inline-flex items-center justify-center gap-[4px] font-body text-white"
