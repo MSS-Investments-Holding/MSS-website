@@ -96,7 +96,7 @@ export default function InvestmentsSection() {
         </div>
 
         {/* ── BUTTON ───────────────────────────────────────── */}
-        <div className="mt-12">
+        <div className="mt-12 flex justify-end">
           <Link
             href="/how-we-invest"
             className="inline-flex items-center gap-[8px] text-body-sm font-body"
