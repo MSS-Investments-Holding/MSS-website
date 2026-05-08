@@ -94,7 +94,7 @@ body {
 }
 
 /* ─── Typography helpers ─────────────────────────────────────── */
-.font-heading { font-family: var(--font-heading); font-weight: 300; }
+.font-heading { font-family: var(--font-heading); font-weight: 300; text-wrap: balance; }
 .font-body    { font-family: var(--font-body);    font-weight: 400; }
 
 .text-h1 { font-size: var(--text-h1); line-height: var(--leading-h1); }
