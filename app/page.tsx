@@ -25,6 +25,7 @@ export default async function HomePage() {
       <InvestmentsSection />
       <PortfolioProcessSection />
       <LeadershipSection />
+      <div className="mt-20 lg:mt-28" />
       <FootprintSection />
       <NewsSection  articles={newsArticles} />
       <Footer />

@@ -49,14 +49,12 @@ export default function FootprintSection() {
     >
       {/* Background image */}
       <Image
-        src="/images/footprint-bg-correct.jpg"
+        src="/images/footprint-bg-new.jpg"
         alt=""
         fill
         className="object-cover object-center"
         sizes="100vw"
       />
-      {/* Dark overlay */}
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(11,23,56,0.55)" }} />
 
       {/* Scroll-driven card wrapper */}
       <div
@@ -80,7 +78,7 @@ export default function FootprintSection() {
             minHeight: "452px",
             paddingLeft: "40px",
             paddingTop: "40px",
-            paddingBottom: "48px",
+            paddingBottom: "40px",
             paddingRight: "40px",
             overflow: "hidden",
           }}
@@ -162,7 +160,7 @@ export default function FootprintSection() {
             }}
           >
             <Image
-              src="/images/footprint-map.png"
+              src="/images/footprint-globe.png"
               alt=""
               width={600}
               height={600}
