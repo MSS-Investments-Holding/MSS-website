@@ -70,7 +70,7 @@ export default function CompanySection() {
                   className="flex flex-col"
                   style={{ backgroundColor: stat.bg, padding: "16px 20px", gap: "16px", flex: "1" }}
                 >
-                  <span className="font-heading" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", lineHeight: "42px", fontWeight: 300, color: stat.valueColor, margin: 0, display: "block" }}>
+                  <span className="font-heading" style={{ fontSize: "clamp(1.5rem, 3.32vw, 2.25rem)", lineHeight: "42px", fontWeight: 300, color: stat.valueColor, margin: 0, display: "block" }}>
                     {stat.value}
                   </span>
                   <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: stat.labelColor, margin: 0 }}>
