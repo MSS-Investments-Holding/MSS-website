@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import ArrowRight from "@/components/icons/ArrowRight";
 
 const steps = [
   { icon: "/images/icons/step-discovery.svg",  title: "Origination", desc: "Identify opportunities via our network, market activity, founder talks, and sector research." },
@@ -11,43 +11,93 @@ const steps = [
   { icon: "/images/icons/step-launch.svg",     title: "Management",  desc: "Stay involved post-investment, supporting governance, priorities, and value creation." },
 ];
 
-const TOTAL_SLIDES = 5;
+const companies = [
+  {
+    name:   "Swiss Payments",
+    logo:   "/images/icons/logo-swiss-payments.svg",
+    logoW:  148,
+    logoH:  40,
+    tags:   ["Fintech", "B2C", "Agentic AI"],
+    desc:   "Swiss Payments is a global financial platform built to help individuals and businesses send, receive, and manage money across borders with speed, security, and simplicity. It reflects MSS's focus on practical financial infrastructure with international relevance.",
+    site:   "https://www.swisspayments.ch/",
+  },
+  {
+    name:   "MetaX",
+    logo:   "/images/icons/logo-metax.svg",
+    logoW:  89,
+    logoH:  40,
+    tags:   ["Fintech", "B2C"],
+    desc:   "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
+    site:   "https://www.metaxpayments.com/",
+  },
+  {
+    name:   "Pay Karo",
+    logo:   "/images/icons/logo-paykaro.png",
+    logoW:  53,
+    logoH:  40,
+    tags:   ["Fintech", "B2B", "B2C"],
+    desc:   "Pay Karo is an Electronic Money Institution (EMI) dedicated to becoming one of Pakistan's leading fintech providers. Targeting both B2B and B2C customers, Pay Karo offers a transparent and secure ecosystem for payments, remittances, merchant offers, P2P (Peer to Peer) transactions, etc.",
+    site:   null,
+  },
+  {
+    name:   "Relm",
+    logo:   "/images/icons/logo-relm.svg",
+    logoW:  85,
+    logoH:  40,
+    tags:   ["Fintech", "B2C", "Agentic AI"],
+    desc:   "Relm is an enterprise payments platform built to unify fiat and crypto within one compliance-first ecosystem. It enables businesses to accept payments, manage multi-currency accounts, and execute large-volume trades through infrastructure designed for faster, more flexible global value movement.",
+    site:   "https://www.relm.co/",
+  },
+];
 
 export default function PortfolioProcessSection() {
-  const [slide, setSlide] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStart = useRef({ x: 0, scrollLeft: 0 });
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    dragStart.current = { x: e.pageX, scrollLeft: scrollRef.current.scrollLeft };
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const dx = e.pageX - dragStart.current.x;
+    scrollRef.current.scrollLeft = dragStart.current.scrollLeft - dx;
+  };
+
+  const stopDrag = () => setIsDragging(false);
 
   return (
     <section aria-label="Portfolio" className="w-full bg-white">
 
       {/* ── HEADER — centered ─────────────────────────────────── */}
       <div className="w-full flex flex-col items-center text-center px-5 md:px-10 lg:px-20 pt-20 md:pt-24 lg:pt-[120px] pb-10 md:pb-14 lg:pb-[84px]">
-        <span className="text-label font-body" style={{ color: "#373738" }}>Portfolio</span>
+        <span className="text-label font-body" style={{ color: "#373738" }}>Investment Portfolio</span>
         <h2
-          className="font-heading mt-6 max-w-[724px]"
+          className="font-heading max-w-[724px]"
           style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
         >
-          Proud to partner ideas shaping the economy of tomorrow
+          A Portfolio Built with Strategic Intent
         </h2>
       </div>
 
-      {/* ── 4 PROCESS STEPS — responsive 4-col grid ───────────── */}
-      {/* Extra px beyond section padding to match Figma step inset */}
-      <div className="w-full px-10 md:px-20 lg:px-32 pb-20 md:pb-24 lg:pb-32">
+      {/* ── 4 PROCESS STEPS ───────────────────────────────────── */}
+      <div className="w-full px-10 md:px-20 lg:px-32 pb-16 md:pb-20 lg:pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {steps.map((step) => (
             <div key={step.title} className="flex flex-col items-center text-center">
-              {/* Icon — 40×40 white bg with grey SVG, centered */}
               <div className="w-10 h-10 bg-white flex items-center justify-center flex-shrink-0">
                 <img src={step.icon} alt="" width={32} height={32} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
               </div>
-              {/* Title */}
               <h3
                 className="font-heading"
                 style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "16px" }}
               >
                 {step.title}
               </h3>
-              {/* Description */}
               <p
                 className="font-body"
                 style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "8px" }}
@@ -59,180 +109,120 @@ export default function PortfolioProcessSection() {
         </div>
       </div>
 
-      {/* ── SPLIT LAYOUT — image left + Swiss Payments right ─── */}
-      <div className="w-full flex flex-col lg:flex-row">
+      {/* ── TOP DIVIDER ───────────────────────────────────────── */}
+      <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
-        {/* LEFT — portfolio image + slider (640px at desktop) */}
-        <div className="w-full lg:w-[calc(640/1440*100%)] flex-shrink-0 flex flex-col">
-          {/* Image — 75% of right panel height (894px × 0.75 ≈ 670px) */}
-          <div
-            className="relative w-full overflow-hidden bg-[var(--color-primary)]"
-            style={{ aspectRatio: "640/670", maxHeight: "670px" }}
-          >
-            <Image
-              src="/images/portfolio-left.jpg"
-              alt="Portfolio"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 640px"
-            />
-          </div>
-
-          {/* Slider controls */}
-          <div className="flex items-center px-5 md:px-10 lg:px-20 py-6 gap-6 bg-white">
-            {/* Counters + separator */}
-            <div className="flex items-center gap-3">
-              <span className="font-heading" style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F" }}>
-                0{slide + 1}
-              </span>
-              <div className="w-10 h-px bg-[var(--color-border)]" />
-              <span className="font-heading" style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#D2D5D9" }}>
-                0{TOTAL_SLIDES}
-              </span>
-            </div>
-
-            {/* Arrows */}
-            <div className="flex items-center gap-2 ml-auto">
-              <button
-                onClick={() => setSlide(s => Math.max(0, s - 1))}
-                aria-label="Previous"
-                className="w-8 h-8 flex items-center justify-center border border-[var(--color-border)] hover:bg-[var(--color-neutral-100)] transition-colors"
-                disabled={slide === 0}
-              >
-                <ChevronLeft size={12} strokeWidth={2} style={{ color: slide === 0 ? "#D2D5D9" : "#1C1C1F" }} />
-              </button>
-              <button
-                onClick={() => setSlide(s => Math.min(TOTAL_SLIDES - 1, s + 1))}
-                aria-label="Next"
-                className="w-8 h-8 flex items-center justify-center transition-colors"
-                style={{ backgroundColor: slide === TOTAL_SLIDES - 1 ? "transparent" : "#F5E9DC", border: slide === TOTAL_SLIDES - 1 ? "1px solid var(--color-border)" : "none" }}
-                disabled={slide === TOTAL_SLIDES - 1}
-              >
-                <ChevronRight size={12} strokeWidth={2} style={{ color: slide === TOTAL_SLIDES - 1 ? "#D2D5D9" : "#1C1C1F" }} />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/*
-         * RIGHT — Swiss Payments card
-         * Padding: left=48px (Figma), right=80px (website standard), top=56px, bottom=66px
-         * Height: auto (content-driven, not fixed)
-         */}
-        <div
-          className="flex-1 flex flex-col px-8 lg:px-12 xl:pr-20"
-          style={{ backgroundColor: "#F5E9DC", paddingTop: "56px", paddingBottom: "66px" }}
-        >
-          {/* ── Logo + Visit Website ─────────────────────────────── */}
-          {/* Tags top=144px from card top. Logo h=56px starts at top=56px. Gap logo→tags = 144-56-56=32px */}
-          <div className="flex items-start justify-between gap-4" style={{ marginBottom: "32px" }}>
-            <img
-              src="/images/icons/logo-swiss-payments.svg"
-              alt="Swiss Payments"
-              width={207}
-              height={56}
-              style={{ width: "auto", maxWidth: "207px", height: "56px", objectFit: "contain", objectPosition: "left" }}
-            />
-            <a
-              href="https://swisspayments.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-body text-white flex-shrink-0"
-              style={{ height: "40px", backgroundColor: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", paddingLeft: "20px", paddingRight: "16px", whiteSpace: "nowrap" }}
-            >
-              Visit Website
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H3M9 1V7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </a>
-          </div>
-
-          {/* ── Tags — gap tags→body = 160→208 = 48px ───────────── */}
-          {/* Tags h=16px. Gap to body = 208-144-16=48px */}
-          <div className="flex items-center gap-2" style={{ marginBottom: "48px" }}>
-            {["Fintech", "B2C", "Agentic AI"].map((tag, i) => (
-              <div key={tag} className="flex items-center gap-2">
-                <span className="text-label font-body" style={{ color: "#67686B" }}>{tag}</span>
-                {i < 2 && <div style={{ width: "1px", height: "10px", backgroundColor: "#AEB0B3" }} />}
-              </div>
-            ))}
-          </div>
-
-          {/* ── Body text — correct from Figma node 242:5034 ──────── */}
-          {/* Body h=112px. Gap body→Core Services = 488-208-112=168px */}
-          <p className="font-body" style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.18px", color: "#373738", marginBottom: "168px" }}>
-            Swiss Payments is a global financial platform built to help individuals
-            and businesses send, receive, and manage money across borders with
-            speed, security, and simplicity. It reflects MSS&apos;s focus on
-            practical financial infrastructure with international relevance.
-          </p>
-
-          {/* ── Two-column data section ───────────────────────────── */}
-          {/*
-           * Vertical divider: x=400 from card left (width of left col = 400-48=352px)
-           * Gap between divider and right col content: 440-400=40px
-           * Right col width: (48+672) right edge = 720, minus 400 divider = 320px content minus 40px gap = 280px
-           *
-           * Horizontal divider: w=312px (matches text width), stroke=#AEB0B3
-           *   Between services list bottom (530+88=618→657 gap=39px) and separator (657)
-           *   Between separator (657) and Subscription Tiers top (698→gap=41px)
-           */}
-          <div className="flex">
-
-            {/* LEFT col — Core Services + Subscription Tiers */}
+      {/* ── DRAGGABLE COMPANY CARDS ───────────────────────────── */}
+      <div
+        ref={scrollRef}
+        className="w-full overflow-x-auto scrollbar-hide select-none px-5 md:px-10 lg:px-20"
+        style={{ cursor: isDragging ? "grabbing" : "grab" }}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={stopDrag}
+        onMouseLeave={stopDrag}
+      >
+        <div className="flex" style={{ minWidth: "max-content" }}>
+          {companies.map((company, i) => (
             <div
-              className="flex flex-col"
-              style={{ flex: "0 1 352px", minWidth: 0, paddingRight: "40px", borderRight: "1px solid #AEB0B3" }}
+              key={company.name}
+              className="flex flex-col flex-shrink-0"
+              style={{
+                width: "384px",
+                paddingTop: "16px",
+                paddingBottom: "40px",
+                paddingLeft: i === 0 ? 0 : "24px",
+                borderLeft: i === 0 ? "none" : "1px solid #D2D5D9",
+              }}
             >
-              {/* Core Services heading */}
-              <h4 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginBottom: "16px" }}>
-                Core Services:
-              </h4>
+              {/* Logo + external link */}
+              <div className="flex items-start justify-between">
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  width={company.logoW}
+                  height={company.logoH}
+                  style={{ width: `${company.logoW}px`, height: `${company.logoH}px`, objectFit: "contain", objectPosition: "left" }}
+                  draggable={false}
+                />
+                {company.site && (
+                  <a
+                    href={company.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${company.name} website`}
+                    className="flex items-center justify-center flex-shrink-0 hover:opacity-70 transition-opacity"
+                    style={{ width: "32px", height: "32px", backgroundColor: "#F5E9DC" }}
+                    onMouseDown={e => e.stopPropagation()}
+                  >
+                    <img src="/images/icons/icon-external-link.svg" alt="" width={16} height={16} draggable={false} />
+                  </a>
+                )}
+              </div>
 
-              {/* Services list — 4 items from Figma node 242:5035 */}
-              {["Realtime Currency Converter", "Virtual and Physical Cards", "Secure Global Payments", "Fiat and Crypto Payments"].map((s, i, arr) => (
-                <p key={s} className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginBottom: i < arr.length - 1 ? "4px" : "0" }}>{s}</p>
-              ))}
-
-              {/* Horizontal divider — w=312px, stroke=#AEB0B3 */}
-              {/* Gap: list bottom to divider = 39px, divider to tiers = 41px */}
-              <div style={{ width: "100%", maxWidth: "312px", height: "1px", backgroundColor: "#AEB0B3", marginTop: "39px", marginBottom: "41px" }} />
-
-              {/* Subscription Tiers heading */}
-              <h4 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginBottom: "16px" }}>
-                Subscription Tiers
-              </h4>
-
-              {/* Tiers list — 3 items from Figma node 242:5036 */}
-              {[
-                "Silver - Essential transaction management tools.",
-                "Gold - Enhanced limits for consumers.",
-                "Platinum - Exclusive priority processing.",
-              ].map((s, i, arr) => (
-                <p key={s} className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginBottom: i < arr.length - 1 ? "4px" : "0" }}>{s}</p>
-              ))}
-            </div>
-
-            {/* RIGHT col — Stats */}
-            {/* Gap from divider: 40px (1080-1040=40px) */}
-            <div className="flex flex-col" style={{ paddingLeft: "40px", gap: "40px" }}>
-              {[
-                { val: "$1.5B", label: "Transaction volume" },
-                { val: "500+",  label: "Enterprise clients" },
-                { val: "500+",  label: "Team members" },
-              ].map(s => (
-                <div key={s.label} className="flex flex-col" style={{ gap: "4px" }}>
-                  <span className="font-heading" style={{ fontSize: "36px", lineHeight: "42px", fontWeight: 300, color: "#1C1C1F" }}>
-                    {s.val}
+              {/* Tags */}
+              <div className="flex items-center flex-wrap" style={{ marginTop: "24px", gap: "8px" }}>
+                {company.tags.map((tag, ti) => (
+                  <span key={tag} className="flex items-center gap-2">
+                    <span className="text-label font-body" style={{ color: "#AEB0B3" }}>{tag}</span>
+                    {ti < company.tags.length - 1 && (
+                      <span style={{ width: "1px", height: "10px", backgroundColor: "#AEB0B3", display: "inline-block" }} />
+                    )}
                   </span>
-                  <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0 }}>
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-          </div>
+              {/* Description */}
+              <p
+                className="font-body flex-1"
+                style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "80px" }}
+                draggable={false}
+              >
+                {company.desc}
+              </p>
+
+              {/* Read More — links to company detail page (not yet built) */}
+              <Link
+                href="#"
+                className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#AEB0B3] border-[#AEB0B3] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
+                style={{ marginTop: "16px", textDecoration: "none" }}
+                onMouseDown={e => e.stopPropagation()}
+              >
+                Read More
+                <ArrowRight size="sm" fill="currentColor" />
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* ── BOTTOM DIVIDER ────────────────────────────────────── */}
+      <div className="mx-5 md:mx-10 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
+
+      {/* ── VISIT PORTFOLIO BUTTON — right-aligned ────────────── */}
+      <div className="flex justify-end px-5 md:px-10 lg:px-20 pt-6 pb-6">
+        <Link
+          href="/portfolio"
+          className="inline-flex items-center justify-center gap-[4px] font-body text-white"
+          style={{
+            height: "40px",
+            backgroundColor: "#1C1C1F",
+            fontSize: "16px",
+            lineHeight: "24px",
+            letterSpacing: "-0.32px",
+            paddingLeft: "20px",
+            paddingRight: "16px",
+            paddingTop: "8px",
+            paddingBottom: "8px",
+            whiteSpace: "nowrap",
+            textDecoration: "none",
+          }}
+        >
+          Visit Portfolio
+          <ArrowRight size="lg" fill="white" />
+        </Link>
+      </div>
+
     </section>
   );
 }

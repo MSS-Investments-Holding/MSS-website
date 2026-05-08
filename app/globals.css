@@ -123,6 +123,10 @@ body {
   .text-body-sm { font-size: 0.875rem;  line-height: 20px; } /* 14px */
 }
 
+/* ─── Scrollbar hide (drag-scroll rows) ─────────────────────── */
+.scrollbar-hide { scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
 /* ─── Focus visible ──────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--color-brand-navy);
