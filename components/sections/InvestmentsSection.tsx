@@ -27,19 +27,20 @@ const ROW1_CARD_STYLE = {
   minWidth: "320px",
 };
 
-// Row 2: cards grow to fill right edge (no right margin)
+// Row 2: same max/min as row 1 cards — ghost absorbs the extra space instead
 const ROW2_CARD_STYLE = {
-  flexGrow: 1,
-  flexShrink: 1,
   flexBasis: "clamp(320px, calc((100% - 48px) / 3), 364px)",
+  flexGrow: 0,
+  flexShrink: 1,
   minWidth: "320px",
 };
 
-// Ghost in row 2: mirrors col-1 width so cards 4–5 align to cols 2–3
+// Ghost in row 2: fills container minus the two 364px cards and their gaps,
+// so cards sit flush with the right edge. Formula: 100% - 2×364px - 2×24px = 100% - 776px
 const GHOST_STYLE = {
-  flexBasis: "clamp(0px, calc((100% - 48px) / 3), 364px)",
+  flexBasis: "max(0px, calc(100% - 776px))",
   flexGrow: 0,
-  flexShrink: 1,
+  flexShrink: 0,
   minWidth: 0,
 };
 
