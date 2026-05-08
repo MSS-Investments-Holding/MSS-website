@@ -98,7 +98,7 @@ export default function Footer() {
           </Link>
 
           {/* Link grid: 2 columns × 2 rows */}
-          <div className="grid grid-cols-2 gap-x-16 lg:gap-x-0" style={{ maxWidth: "504px" }}>
+          <div className="grid grid-cols-2 gap-x-8 lg:gap-x-0" style={{ maxWidth: "504px" }}>
 
             {/* Row 1 — Explore × 2 */}
             <div className="mb-12 lg:pr-16">
