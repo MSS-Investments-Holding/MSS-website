@@ -19,13 +19,23 @@ const cards = [
  * maxWidth 1140px on each row container creates the 140px right margin.
  * Row 2 ghost has minWidth 0 so it absorbs any deficit after cards hit 320px.
  */
-const CARD_STYLE = {
+// Row 1: cards don't grow — leaving the 140px right margin
+const ROW1_CARD_STYLE = {
   flexBasis: "clamp(320px, calc((100% - 48px) / 3), 364px)",
   flexGrow: 0,
   flexShrink: 0,
   minWidth: "320px",
 };
 
+// Row 2: cards grow to fill right edge (no right margin)
+const ROW2_CARD_STYLE = {
+  flexGrow: 1,
+  flexShrink: 1,
+  flexBasis: "clamp(320px, calc((100% - 48px) / 3), 364px)",
+  minWidth: "320px",
+};
+
+// Ghost in row 2: mirrors col-1 width so cards 4–5 align to cols 2–3
 const GHOST_STYLE = {
   flexBasis: "clamp(0px, calc((100% - 48px) / 3), 364px)",
   flexGrow: 0,
@@ -72,7 +82,7 @@ export default function InvestmentsSection() {
           {/* Row 1 — 3 cards, left-aligned; maxWidth creates 140px right margin at 1440px */}
           <div className="flex flex-wrap gap-6" style={{ maxWidth: "1280px" }}>
             {cards.filter(c => c.row === 1).map(card => (
-              <SectorCard key={card.title} card={card} desktopStyle={CARD_STYLE} />
+              <SectorCard key={card.title} card={card} desktopStyle={ROW1_CARD_STYLE} />
             ))}
           </div>
 
@@ -80,7 +90,7 @@ export default function InvestmentsSection() {
           <div className="flex gap-6 mt-6" style={{ maxWidth: "1280px" }}>
             <div aria-hidden="true" style={GHOST_STYLE} />
             {cards.filter(c => c.row === 2).map(card => (
-              <SectorCard key={card.title} card={card} desktopStyle={CARD_STYLE} />
+              <SectorCard key={card.title} card={card} desktopStyle={ROW2_CARD_STYLE} />
             ))}
           </div>
         </div>
