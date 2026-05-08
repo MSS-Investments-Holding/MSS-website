@@ -35,12 +35,11 @@ const ROW2_CARD_STYLE = {
   minWidth: "320px",
 };
 
-// Ghost in row 2: fills container minus the two 364px cards and their gaps,
-// so cards sit flush with the right edge. Formula: 100% - 2×364px - 2×24px = 100% - 776px
+// Ghost in row 2: grows to absorb all leftover space, keeping cards flush right at every viewport
 const GHOST_STYLE = {
-  flexBasis: "max(0px, calc(100% - 776px))",
-  flexGrow: 0,
+  flexGrow: 1,
   flexShrink: 0,
+  flexBasis: "0px",
   minWidth: 0,
 };
 
