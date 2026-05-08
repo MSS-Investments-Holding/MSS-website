@@ -160,7 +160,7 @@ export default function Footer() {
        */}
       <div
         className="hidden lg:flex justify-end px-20"
-        style={{ paddingTop: "24px", paddingBottom: "74px" }}
+        style={{ paddingTop: "24px", paddingBottom: "64px" }}
       >
         <p className="text-label font-body" style={{ color: "#67686B" }}>
           ©2026 MSS Investment Holding Company. All rights reserved.
