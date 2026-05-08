@@ -116,7 +116,7 @@ export default function PortfolioProcessSection() {
       <div
         ref={scrollRef}
         className="w-full overflow-x-auto scrollbar-hide select-none px-5 md:px-10 lg:px-20"
-        style={{ cursor: isDragging ? "grabbing" : "grab", paddingTop: "24px" }}
+        style={{ cursor: isDragging ? "grabbing" : "grab", paddingTop: "24px", paddingBottom: "24px" }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={stopDrag}
