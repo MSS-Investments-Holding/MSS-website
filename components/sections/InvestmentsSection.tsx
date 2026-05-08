@@ -49,36 +49,13 @@ export default function InvestmentsSection() {
           Mobile:  1-col, all cards stack
         */}
 
-        {/*
-         * Cards: fixed 360×400px in Figma — must NOT stretch to fill columns.
-         * Desktop: flex row with lg:w-[360px] per card.
-         *   Row 1 (3 cards left):  natural right space = content(1280) − 3×360 − 2×24 = 152px
-         *   Row 2 (2 cards right): justify-end → natural left space = 1280 − 2×360 − 24 = 536px
-         * Mobile/tablet: full-width grid (cards fill their column naturally).
-         */}
-
-        {/*
-         * Cards: target 360px wide but fluid — shrink proportionally on smaller viewports,
-         * wrap to next row when below min-width floor (260px).
-         * Row 1: left-aligned wrap → card 3 falls under card 1 when space runs out.
-         * Row 2: justify-end → stays right-aligned after wrap.
-         */}
-
-        {/* Row 1 — 3 cards, left-aligned */}
-        <div className="flex flex-wrap gap-6">
+        {/* ── CARD GRID — single CSS grid so all 5 cards always share the same column widths */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cards.filter(c => c.row === 1).map((card) => (
             <SectorCard key={card.title} card={card} />
           ))}
-        </div>
-
-        {/* Row 2 — ghost spacer + 2 cards, right-aligned */}
-        {/*
-         * Ghost div has identical flex properties to a real card so the flex
-         * algorithm sizes all 3 slots equally — row 2 cards match row 1 width
-         * at every viewport. Hidden below lg (mobile/tablet handles separately).
-         */}
-        <div className="flex flex-wrap justify-end gap-6 mt-6">
-          <div className="hidden lg:block lg:flex-1 lg:max-w-[360px] lg:min-w-[260px]" aria-hidden="true" />
+          {/* Empty cell at lg — pushes row-2 cards into columns 2–3 */}
+          <div className="hidden lg:block" aria-hidden="true" />
           {cards.filter(c => c.row === 2).map((card) => (
             <SectorCard key={card.title} card={card} />
           ))}
@@ -102,14 +79,7 @@ export default function InvestmentsSection() {
 
 function SectorCard({ card }: { card: typeof cards[number] }) {
   return (
-    /*
-     * Width behaviour:
-     *   flex-[0_1_360px]: grow=0 (won't exceed 360px), shrink=1 (scales down proportionally),
-     *                      basis=360px (target width)
-     *   min-w-[260px]: floor — below this, card wraps to next row
-     *   w-full sm:w-auto: full width on mobile, flex-driven above sm
-     */
-    <article className="bg-white flex flex-col w-full sm:w-auto sm:flex-1 sm:max-w-[360px] sm:min-w-[260px]" style={{ minHeight: "400px", padding: "24px" }}>
+    <article className="bg-white flex flex-col w-full" style={{ minHeight: "400px", padding: "24px" }}>
       <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
         <img src={card.icon} alt="" width={60} height={60} style={{ width: "60px", height: "60px", objectFit: "contain" }} />
       </div>
