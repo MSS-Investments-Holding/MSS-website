@@ -44,7 +44,7 @@ export default function CompanySection() {
           <div className="hidden lg:block lg:w-[41%] lg:flex-shrink-0" />
 
           {/* Right column — body, stats, button */}
-          <div className="flex-1 pt-10 md:w-[60%] md:ml-auto lg:w-auto lg:ml-0 lg:pl-8 xl:pl-[154px]">
+          <div className="flex-1 pt-10 md:w-[70%] md:ml-auto lg:w-auto lg:ml-0 lg:pl-8 xl:pl-[154px]">
             {/* Body text — Inter 400 18px, color #67686B */}
             <p
               className="font-body"
