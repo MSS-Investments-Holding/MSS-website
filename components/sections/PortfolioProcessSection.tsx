@@ -128,11 +128,12 @@ export default function PortfolioProcessSection() {
               key={company.name}
               className="flex flex-col flex-shrink-0"
               style={{
-                width: "384px",
+                width: "408px",
                 height: "460px",
                 paddingTop: "16px",
                 paddingBottom: "40px",
                 paddingLeft: i === 0 ? 0 : "24px",
+                paddingRight: i < companies.length - 1 ? "24px" : 0,
                 borderLeft: i === 0 ? "none" : "1px solid #D2D5D9",
               }}
             >
@@ -164,9 +165,9 @@ export default function PortfolioProcessSection() {
               <div className="flex items-center flex-wrap" style={{ marginTop: "24px", gap: "8px" }}>
                 {company.tags.map((tag, ti) => (
                   <span key={tag} className="flex items-center gap-2">
-                    <span className="text-label font-body" style={{ color: "#AEB0B3" }}>{tag}</span>
+                    <span className="text-label font-body" style={{ color: "#67686B" }}>{tag}</span>
                     {ti < company.tags.length - 1 && (
-                      <span style={{ width: "1px", height: "10px", backgroundColor: "#AEB0B3", display: "inline-block" }} />
+                      <span style={{ width: "1px", height: "10px", backgroundColor: "#67686B", display: "inline-block" }} />
                     )}
                   </span>
                 ))}
