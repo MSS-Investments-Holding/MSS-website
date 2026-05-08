@@ -19,7 +19,7 @@ import ArrowRight from "@/components/icons/ArrowRight";
  *   Extends beyond card right edge — clipped by section overflow:hidden.
  */
 
-const SECTION_H = 860;
+const SECTION_H = 766;
 
 export default function FootprintSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -76,12 +76,12 @@ export default function FootprintSection() {
           className="relative bg-white lg:ml-[33.3%]"
           style={{
             maxWidth: "880px",
-            minHeight: "452px",
+            minHeight: "406px",
             paddingLeft: "40px",
             paddingTop: "40px",
             paddingBottom: "40px",
             paddingRight: "40px",
-            overflow: "hidden",
+            overflow: "visible",
           }}
         >
           {/* "GLOBAL FOOTPRINT" label — top=40 → paddingTop covers it */}
@@ -99,7 +99,7 @@ export default function FootprintSection() {
               color: "#1C1C1F",
               margin: 0,
               marginTop: "24px",
-              maxWidth: "352px",
+              maxWidth: "540px",
             }}
           >
             Positioned Across Markets That Matter
@@ -114,7 +114,7 @@ export default function FootprintSection() {
               color: "#67686B",
               margin: 0,
               marginTop: "12px",
-              maxWidth: "420px",
+              maxWidth: "540px",
             }}
           >
             With exposure across the UAE, Pakistan, UK, and wider regional
@@ -129,7 +129,7 @@ export default function FootprintSection() {
             href="/pitch"
             className="inline-flex items-center gap-[4px] text-body-sm font-body text-white"
             style={{
-              marginTop: "64px",
+              marginTop: "40px",
               height: "40px",
               backgroundColor: "#1C1C1F",
               paddingLeft: "20px",
@@ -154,20 +154,19 @@ export default function FootprintSection() {
           <div
             className="absolute hidden lg:block"
             style={{
-              left: "580px",
-              top: "-74px",
-              width: "600px",
-              height: "600px",
+              left: "660px",
+              top: "-17px",
+              width: "440px",
+              height: "440px",
               pointerEvents: "none",
             }}
           >
             <Image
               src="/images/footprint-globe.png"
               alt=""
-              width={600}
-              height={600}
+              width={440}
+              height={440}
               className="w-full h-full object-contain"
-              style={{ opacity: 0.85 }}
             />
           </div>
         </div>
