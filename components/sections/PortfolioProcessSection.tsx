@@ -185,12 +185,12 @@ export default function PortfolioProcessSection() {
               {/* Read More — links to company detail page (not yet built) */}
               <Link
                 href="#"
-                className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b hover:opacity-70 transition-opacity"
-                style={{ marginTop: "16px", textDecoration: "none", color: "#67686B", borderColor: "#67686B" }}
+                className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
+                style={{ marginTop: "16px", textDecoration: "none" }}
                 onMouseDown={e => e.stopPropagation()}
               >
                 Read More
-                <ArrowRight size="sm" fill="#67686B" />
+                <ArrowRight size="sm" fill="currentColor" />
               </Link>
             </div>
           ))}
