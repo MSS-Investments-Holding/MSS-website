@@ -122,7 +122,7 @@ function SectorCard({ card }: { card: typeof cards[number] }) {
       {/* href will become /portfolio?filter={card.filter} once the portfolio page is live */}
       <Link
         href="#"
-        className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#AEB0B3] border-[#AEB0B3] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
+        className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
         style={{ marginTop: "16px", textDecoration: "none" }}
       >
         {card.title} Portfolio
