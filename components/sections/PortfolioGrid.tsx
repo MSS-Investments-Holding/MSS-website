@@ -158,7 +158,7 @@ export default function PortfolioGrid(): React.ReactElement {
           {companies.map((company, i) => (
             <article
               key={company.name}
-              className={`flex flex-col pt-4 pb-10 lg:pr-10 ${cardBorderClasses(i, companies.length)}`}
+              className={`flex flex-col pt-4 pb-10 ${cardBorderClasses(i, companies.length)}`}
             >
               {/* Logo + external link */}
               <div className="flex items-start justify-between">
@@ -230,9 +230,19 @@ export default function PortfolioGrid(): React.ReactElement {
 
               {/* Read More */}
               <button
+                type="button"
                 onClick={() => setSelected(company)}
-                className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
-                style={{ marginTop: "24px", fontSize: "15px", lineHeight: "22px", background: "none" }}
+                className="self-start inline-flex items-center gap-[4px] font-body py-[2px] text-[#67686B] hover:text-[#373738] transition-colors duration-200"
+                style={{
+                  marginTop: "24px",
+                  fontSize: "15px",
+                  lineHeight: "22px",
+                  background: "none",
+                  border: "none",
+                  borderBottom: "1px solid #67686B",
+                  padding: "2px 0",
+                  cursor: "pointer",
+                }}
                 aria-label={`Read more about ${company.name}`}
               >
                 Read More
@@ -256,12 +266,12 @@ export default function PortfolioGrid(): React.ReactElement {
         aria-modal="true"
         aria-label={selected ? `${selected.name} details` : "Company details"}
         className={[
-          "fixed z-50 bg-white overflow-y-auto transition-transform duration-300 ease-out",
-          // Mobile: slide up from bottom
-          "inset-x-0 bottom-0 max-h-[92dvh] rounded-t-xl shadow-2xl",
-          // Tablet+: slide in from right, full height
-          "md:inset-y-0 md:right-0 md:left-auto md:bottom-auto md:top-0 md:w-[700px] md:max-h-none md:rounded-none md:shadow-2xl",
-          // Open/closed state
+          "fixed z-50 bg-white overflow-y-auto transition-transform duration-300 ease-out shadow-2xl",
+          // Full viewport height on all sizes; mobile slides up, desktop slides right
+          "inset-x-0 inset-y-0",
+          // Desktop: fixed 700px panel from right
+          "md:left-auto md:w-[700px]",
+          // Open/closed state — mobile: slide up, desktop: slide right
           open
             ? "translate-y-0 md:translate-x-0"
             : "translate-y-full md:translate-y-0 md:translate-x-full",
