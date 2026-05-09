@@ -52,7 +52,7 @@ export default function FootprintSection() {
         <div
           ref={cardRef}
           // Mobile: 20px padding all sides; tablet+: 40px left/top/bottom, 260px right for globe clearance
-          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20 px-5 pt-5 md:pl-10 md:pt-10 md:pb-10 md:pr-[260px]"
+          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20 p-5 md:pl-10 md:pt-10 md:pb-10 md:pr-[260px]"
           style={{ minHeight: "406px", overflow: "hidden" }}
         >
           <span className="text-label font-body block" style={{ color: "#373738" }}>
@@ -111,14 +111,14 @@ export default function FootprintSection() {
             <ArrowRight size="lg" fill="white" />
           </Link>
 
-          {/* Globe — mobile: 64px below button, half visible (height 200px clips bottom half) */}
-          <div className="md:hidden w-full" style={{ marginTop: "64px", height: "200px", overflow: "hidden" }}>
+          {/* Globe — mobile: below content in normal flow (per Figma mobile design) */}
+          <div className="md:hidden w-full" style={{ marginTop: "32px" }}>
             <Image
               src="/images/home/footprint-globe.png"
               alt=""
               width={400}
               height={400}
-              className="w-full"
+              className="w-full object-contain"
             />
           </div>
 

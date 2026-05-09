@@ -182,9 +182,9 @@ export default function PortfolioProcessSection() {
                 {company.desc}
               </p>
 
-              {/* Read More — links to company detail page (not yet built) */}
+              {/* Read More — links to portfolio page */}
               <Link
-                href="#"
+                href="/portfolio"
                 className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
                 style={{ marginTop: "16px", textDecoration: "none" }}
                 onMouseDown={e => e.stopPropagation()}
