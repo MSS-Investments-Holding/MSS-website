@@ -90,21 +90,22 @@ export default function Navbar() {
         >
           {navLinks.map((link) =>
             link.hasDropdown ? (
+              /* Dropdown trigger — button only, no page navigation */
               <div
                 key={link.label}
                 onMouseEnter={() => openDropdown(link.label)}
                 onMouseLeave={scheduleClose}
                 className="flex items-center"
               >
-                <Link
-                  href={link.href}
-                  className="flex items-center gap-[2px] text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap py-[8px]"
+                <button
+                  onClick={() => openDropdown(link.label)}
+                  className="flex items-center gap-[2px] text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap py-[8px] cursor-default bg-transparent border-0 p-0"
                 >
                   {link.label}
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </Link>
+                </button>
               </div>
             ) : (
               <Link
@@ -242,31 +243,42 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <div key={link.label}>
                 <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.15)" }} />
-                <div className="flex items-center justify-between" style={{ paddingTop: "16px", paddingBottom: "16px" }}>
+
+                {/* Full-width row: button for dropdown items, Link for plain items */}
+                {link.hasDropdown ? (
+                  <button
+                    onClick={() => setExpandedItem(expandedItem === link.label ? null : link.label)}
+                    className="w-full flex items-center justify-between bg-transparent border-0 text-left"
+                    style={{ paddingTop: "16px", paddingBottom: "16px" }}
+                  >
+                    <span
+                      className="font-heading text-white"
+                      style={{ fontSize: "18px", lineHeight: "24px", fontWeight: 300 }}
+                    >
+                      {link.label}
+                    </span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="flex-shrink-0">
+                      <path
+                        d={expandedItem === link.label ? "M6 13l4-4 4 4" : "M6 8l4 4 4-4"}
+                        stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                ) : (
                   <Link
                     href={link.href}
-                    onClick={() => !link.hasDropdown && closeMobile()}
-                    className="font-heading text-white"
-                    style={{ fontSize: "18px", lineHeight: "24px", fontWeight: 300, textDecoration: "none" }}
+                    onClick={closeMobile}
+                    className="w-full flex items-center"
+                    style={{ paddingTop: "16px", paddingBottom: "16px", textDecoration: "none" }}
                   >
-                    {link.label}
-                  </Link>
-                  {link.hasDropdown && (
-                    <button
-                      aria-label={`${expandedItem === link.label ? "Collapse" : "Expand"} ${link.label}`}
-                      onClick={() => setExpandedItem(expandedItem === link.label ? null : link.label)}
-                      className="flex items-center justify-center flex-shrink-0"
-                      style={{ width: "20px", height: "20px" }}
+                    <span
+                      className="font-heading text-white"
+                      style={{ fontSize: "18px", lineHeight: "24px", fontWeight: 300 }}
                     >
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                        <path
-                          d={expandedItem === link.label ? "M6 13l4-4 4 4" : "M6 8l4 4 4-4"}
-                          stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  )}
-                </div>
+                      {link.label}
+                    </span>
+                  </Link>
+                )}
                 {link.hasDropdown && expandedItem === link.label && link.dropdownItems && (
                   <div className="flex flex-col pb-4" style={{ gap: "12px" }}>
                     {link.dropdownItems.map((item) => (
