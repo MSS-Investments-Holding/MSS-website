@@ -51,7 +51,7 @@ const companies: Company[] = [
     site: "https://www.relm.co/",
   },
   {
-    name: "Marketing Agency",
+    name: "Sportuner",
     logo: "/images/icons/logo-martech.png",
     logoW: 133,
     logoH: 40,
@@ -66,7 +66,7 @@ const companies: Company[] = [
     logoH: 40,
     tags: ["Venture Capitalization", "Agentic AI"],
     desc: "Sidra Capital is a Saudi-regulated alternative asset manager focused on real estate, private finance, and private equity. With offices across key global markets, the firm applies a disciplined approach to long-term investment value.",
-    site: null,
+    site: "https://sidracapital.com/",
   },
   {
     name: "GIGH Technologies",
@@ -75,7 +75,7 @@ const companies: Company[] = [
     logoH: 40,
     tags: ["Fintech", "B2B", "Agentic AI"],
     desc: "GIGH Technologies builds AI-based software solutions for banks, fintechs, and businesses across global industries. Its services span Banking 360, multi-asset ledgers, AI-powered chat systems, crypto and remittance software, B2B solutions, staff augmentation, and industrial AI platforms.",
-    site: null,
+    site: "https://gigh.com/",
   },
   {
     name: "SAI Ventures",
@@ -84,7 +84,7 @@ const companies: Company[] = [
     logoH: 40,
     tags: ["Venture Capitalization"],
     desc: "SAI Ventures serves as the dedicated investment arm of the MSS ecosystem, focused on identifying and nurturing high-growth opportunities within frontier technology. We provide disciplined capital allocation and operational support to ensure sustainable scaling.",
-    site: null,
+    site: "https://saiventurecap.com/",
   },
 ];
 
