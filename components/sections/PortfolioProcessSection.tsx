@@ -85,7 +85,7 @@ export default function PortfolioProcessSection() {
       </div>
 
       {/* ── 4 PROCESS STEPS ───────────────────────────────────── */}
-      <div className="w-full px-10 md:px-20 lg:px-32 pb-16 md:pb-20 lg:pb-24">
+      <div className="w-full px-5 md:px-12 lg:px-32 pb-16 md:pb-20 lg:pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {steps.map((step) => (
             <div key={step.title} className="flex flex-col items-center text-center">

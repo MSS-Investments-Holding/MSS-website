@@ -157,4 +157,9 @@ body {
   .lg\:right-20 {
     right: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
   }
+  /* lg:px-32 — 48px (3rem) wider than lg:px-20 at all widths */
+  .lg\:px-32 {
+    padding-left:  max(8rem, calc(100vw / 3 - 22rem), calc((100vw - 100rem) / 2 + 3rem));
+    padding-right: max(8rem, calc(100vw / 3 - 22rem), calc((100vw - 100rem) / 2 + 3rem));
+  }
 }
