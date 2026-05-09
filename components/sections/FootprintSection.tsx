@@ -141,6 +141,17 @@ export default function FootprintSection() {
             <ArrowRight size="lg" fill="white" />
           </Link>
 
+          {/* Globe — mobile: below content in normal flow */}
+          <div className="md:hidden w-full" style={{ marginTop: "32px" }}>
+            <Image
+              src="/images/home/footprint-globe.png"
+              alt=""
+              width={400}
+              height={400}
+              className="w-full object-contain"
+            />
+          </div>
+
           {/*
            * World map globe — inside the card, RIGHT of text content
            * Figma: map x=1060 from page left → 1060-480=580px from card left

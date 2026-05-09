@@ -142,8 +142,19 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Footer image — mobile only, below links */}
+          <div className="md:hidden w-full overflow-hidden" style={{ marginTop: "40px", height: "280px", position: "relative" }}>
+            <Image
+              src="/images/footer-image.png"
+              alt=""
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+          </div>
+
           {/* Copyright — mobile only (md+ uses the bottom row below the image) */}
-          <div className="mt-16 md:hidden">
+          <div className="mt-6 md:hidden">
             <p className="text-label font-body" style={{ color: "#67686B" }}>
               ©2026 MSS Investment Holding Company. All rights reserved.
             </p>

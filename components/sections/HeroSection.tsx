@@ -69,16 +69,16 @@ export default function HeroSection({ articles }: Props) {
           </p>
         </div>
 
-        {/* RIGHT — 2 latest articles from Sanity, bottom-aligned */}
-        <div className="w-full md:w-auto md:self-end lg:w-[416px] flex flex-col lg:justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
+        {/* RIGHT — news articles, bottom-aligned; 1 article on mobile, 2 on desktop */}
+        <div className="w-[200px] self-end md:w-auto md:self-end lg:w-[416px] flex flex-col lg:justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
           <p className="text-label font-body mb-4" style={{ color: "var(--color-neutral-300)" }}>In the News:</p>
           <div className="w-full h-px bg-white/30 mb-4" />
           <div className="flex gap-4 flex-wrap sm:flex-nowrap">
-            {articles.map((article) => (
+            {articles.map((article, idx) => (
               <Link
                 key={article.slug.current}
                 href={`/news/${article.slug.current}`}
-                className="flex flex-col gap-3"
+                className={`flex flex-col gap-3 ${idx >= 1 ? "hidden md:flex" : ""}`}
                 style={{ width: "200px", flexShrink: 0, textDecoration: "none" }}
               >
                 <div className="relative overflow-hidden bg-[var(--color-grey-black)]" style={{ width: "200px", height: "130px" }}>
@@ -87,9 +87,7 @@ export default function HeroSection({ articles }: Props) {
                   )}
                 </div>
                 <p className="font-body text-white text-[15px] leading-[22px] line-clamp-3">{article.title}</p>
-                <span
-                  className="self-start inline-flex items-center gap-[4px] text-links font-body text-white py-[2px] border-b border-white hover:opacity-70 transition-opacity"
-                >
+                <span className="self-start inline-flex items-center gap-[4px] text-links font-body text-white py-[2px] border-b border-white hover:opacity-70 transition-opacity">
                   Read More
                   <ArrowRight size="sm" fill="white" />
                 </span>

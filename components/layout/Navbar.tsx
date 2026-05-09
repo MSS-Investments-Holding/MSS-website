@@ -3,22 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
 
-/*
- * Dropdown geometry — Figma node 515-51
- *
- * Nav container: h=34, px=16, gap=20 between items, backdrop-filter blur(24px)
- * Dropdown gap below nav: 8px
- * Dropdown fill + blur: identical to nav container
- * Dropdown padding: 8px top/bottom, 16px left/right
- * Dropdown item height: 18px, gap between items: 8px
- * Dropdown item font: 13px Inter 400 white
- *
- * "About Us" dropdown:   left=0   (aligned to nav container left), w=99px  (3 items)
- * "What We Do" dropdown: left=111px (aligned to "What We Do" item, 16+75+20=111), w=93px (2 items)
- */
 const DROPDOWN_LEFT: Record<string, string> = {
   "About Us":   "0px",
   "What We Do": "111px",
@@ -48,6 +34,7 @@ const dropdownItemStyle: React.CSSProperties = {
 
 export default function Navbar() {
   const [mobileOpen,     setMobileOpen]     = useState(false);
+  const [expandedItem,   setExpandedItem]   = useState<string | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -57,13 +44,17 @@ export default function Navbar() {
   };
 
   const scheduleClose = () => {
-    // 300ms: long enough to cross the 8px gap between nav and dropdown
     closeTimer.current = setTimeout(() => setActiveDropdown(null), 300);
   };
 
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setExpandedItem(null);
+  };
+
   return (
-    <header role="banner" className="relative z-20 w-full h-[94px] flex items-center">
-      <div className="w-full flex items-center justify-between px-12 lg:px-20">
+    <header role="banner" className="relative z-20 w-full h-[72px] md:h-[94px] flex items-center">
+      <div className="w-full flex items-center justify-between px-5 md:px-12 lg:px-20">
 
         {/* Logo */}
         <Link href="/" aria-label="MSS Investments Holding — Home" className="flex-shrink-0">
@@ -73,15 +64,11 @@ export default function Navbar() {
             width={60}
             height={70}
             priority
-            className="w-[60px] h-auto"
+            className="w-[42px] md:w-[60px] h-auto"
           />
         </Link>
 
         {/* ── Desktop nav ── */}
-        {/*
-          Nav container: h=34, px=16 (px-4), gap=20 (gap-5)
-          position:relative so dropdowns anchor to it
-        */}
         <nav
           aria-label="Primary navigation"
           className="hidden md:flex items-center gap-5 px-4 relative"
@@ -93,7 +80,6 @@ export default function Navbar() {
         >
           {navLinks.map((link) =>
             link.hasDropdown ? (
-              /* ── Item with dropdown ── */
               <div
                 key={link.label}
                 onMouseEnter={() => openDropdown(link.label)}
@@ -106,18 +92,11 @@ export default function Navbar() {
                 >
                   {link.label}
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path
-                      d="M4 6l4 4 4-4"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </Link>
               </div>
             ) : (
-              /* ── Plain item ── */
               <Link
                 key={link.label}
                 href={link.href}
@@ -128,7 +107,6 @@ export default function Navbar() {
             )
           )}
 
-          {/* ── Dropdowns — always in DOM so CSS transitions work both ways ── */}
           {navLinks
             .filter((l) => l.hasDropdown && l.dropdownItems?.length)
             .map((link) => {
@@ -168,20 +146,15 @@ export default function Navbar() {
             })}
         </nav>
 
-        {/* ── Right controls: EN + Search ── */}
+        {/* ── Desktop right controls: EN + Search ── */}
         <div className="hidden md:flex items-center gap-3">
-          {/* EN button */}
           <button
             aria-label="Select language"
             className="flex items-center justify-center gap-[2px] text-links font-body text-white hover:bg-white/20 transition-colors duration-200"
             style={{
-              width:           "53px",
-              height:          "36px",
-              fontSize:        "13px",
-              lineHeight:      "18px",
+              width: "53px", height: "36px", fontSize: "13px", lineHeight: "18px",
               backgroundColor: "rgba(255,255,255,0.10)",
-              backdropFilter:       "blur(24px)",
-              WebkitBackdropFilter: "blur(24px)",
+              backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
             }}
           >
             EN
@@ -189,17 +162,13 @@ export default function Navbar() {
               <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-
-          {/* Search button */}
           <button
             aria-label="Search"
             className="flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
             style={{
-              width:           "36px",
-              height:          "36px",
+              width: "36px", height: "36px",
               backgroundColor: "rgba(255,255,255,0.10)",
-              backdropFilter:       "blur(24px)",
-              WebkitBackdropFilter: "blur(24px)",
+              backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
             }}
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -209,46 +178,94 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* ── Mobile hamburger ── */}
+        {/* ── Mobile MENU button ── */}
         <button
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-label="Open menu"
           aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-white"
+          onClick={() => setMobileOpen(true)}
+          className="md:hidden flex items-center justify-center font-body text-white"
+          style={{
+            width: "54px", height: "28px",
+            paddingLeft: "8px", paddingRight: "8px",
+            paddingTop: "6px", paddingBottom: "6px",
+            backgroundColor: "rgba(255,255,255,0.10)",
+            fontSize: "12px", letterSpacing: "0.72px",
+          }}
         >
-          {mobileOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+          MENU
         </button>
       </div>
 
-      {/* ── Mobile drawer ── */}
+      {/* ── Mobile full-screen overlay ── */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 bg-[var(--color-primary)] flex flex-col pt-20 px-6 md:hidden">
-          <button
-            aria-label="Close menu"
-            onClick={() => setMobileOpen(false)}
-            className="absolute top-5 right-6 text-white"
-          >
-            <X size={24} strokeWidth={1.5} />
-          </button>
-          <nav className="flex flex-col gap-6 mt-4">
+        <div className="fixed inset-0 z-50 flex flex-col md:hidden" style={{ backgroundColor: "#0B1738" }}>
+
+          {/* Top nav bar — same height as closed nav */}
+          <div className="w-full h-[72px] flex items-center justify-between px-5 flex-shrink-0">
+            <Link href="/" onClick={closeMobile} className="flex-shrink-0">
+              <Image
+                src="/images/logo-white.png"
+                alt="MSS Investments Holding"
+                width={42}
+                height={48}
+                className="w-[42px] h-[48px] object-contain"
+              />
+            </Link>
+            <button
+              aria-label="Close menu"
+              onClick={closeMobile}
+              className="flex items-center justify-center font-body text-white"
+              style={{
+                width: "58px", height: "28px",
+                paddingLeft: "8px", paddingRight: "8px",
+                paddingTop: "6px", paddingBottom: "6px",
+                backgroundColor: "rgba(255,255,255,0.10)",
+                fontSize: "12px", letterSpacing: "0.72px",
+              }}
+            >
+              Close
+            </button>
+          </div>
+
+          {/* Nav links */}
+          <nav className="flex-1 px-5 overflow-y-auto" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <div key={link.label}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-white font-heading font-light text-h5 border-b border-white/10 pb-4 block"
-                >
-                  {link.label}
-                </Link>
-                {/* Mobile sub-items */}
-                {link.dropdownItems && (
-                  <div className="flex flex-col gap-3 pt-3 pl-4">
+                <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.15)" }} />
+                <div className="flex items-center justify-between" style={{ paddingTop: "16px", paddingBottom: "16px" }}>
+                  <Link
+                    href={link.href}
+                    onClick={() => !link.hasDropdown && closeMobile()}
+                    className="font-heading text-white"
+                    style={{ fontSize: "18px", lineHeight: "24px", fontWeight: 300, textDecoration: "none" }}
+                  >
+                    {link.label}
+                  </Link>
+                  {link.hasDropdown && (
+                    <button
+                      aria-label={`${expandedItem === link.label ? "Collapse" : "Expand"} ${link.label}`}
+                      onClick={() => setExpandedItem(expandedItem === link.label ? null : link.label)}
+                      className="flex items-center justify-center flex-shrink-0"
+                      style={{ width: "20px", height: "20px" }}
+                    >
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path
+                          d={expandedItem === link.label ? "M6 13l4-4 4 4" : "M6 8l4 4 4-4"}
+                          stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                {link.hasDropdown && expandedItem === link.label && link.dropdownItems && (
+                  <div className="flex flex-col pb-4" style={{ gap: "12px" }}>
                     {link.dropdownItems.map((item) => (
                       <Link
                         key={item.href + item.label}
                         href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="text-white/70 font-body text-[13px]"
+                        onClick={closeMobile}
+                        className="font-body"
+                        style={{ fontSize: "14px", lineHeight: "20px", color: "rgba(255,255,255,0.70)", textDecoration: "none" }}
                       >
                         {item.label}
                       </Link>
@@ -257,7 +274,27 @@ export default function Navbar() {
                 )}
               </div>
             ))}
+            <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.15)" }} />
           </nav>
+
+          {/* Bottom: EN language selector */}
+          <div className="px-5 flex-shrink-0" style={{ paddingTop: "24px", paddingBottom: "24px" }}>
+            <button
+              aria-label="Select language"
+              className="flex items-center gap-1 font-body text-white"
+              style={{
+                fontSize: "13px",
+                paddingLeft: "12px", paddingRight: "8px",
+                paddingTop: "9px", paddingBottom: "9px",
+                backgroundColor: "rgba(255,255,255,0.10)",
+              }}
+            >
+              EN
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
         </div>
       )}
     </header>
