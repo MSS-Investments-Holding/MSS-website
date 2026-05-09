@@ -47,6 +47,16 @@ export default function Navbar() {
     closeTimer.current = setTimeout(() => setActiveDropdown(null), 300);
   };
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   const closeMobile = () => {
     setMobileOpen(false);
     setExpandedItem(null);
@@ -198,7 +208,7 @@ export default function Navbar() {
 
       {/* ── Mobile full-screen overlay ── */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col md:hidden" style={{ backgroundColor: "#0B1738" }}>
+        <div className="fixed inset-0 z-50 flex flex-col md:hidden h-screen overflow-hidden" style={{ backgroundColor: "#0B1738" }}>
 
           {/* Top nav bar — same height as closed nav */}
           <div className="w-full h-[72px] flex items-center justify-between px-5 flex-shrink-0">
@@ -206,9 +216,9 @@ export default function Navbar() {
               <Image
                 src="/images/logo-white.png"
                 alt="MSS Investments Holding"
-                width={42}
-                height={48}
-                className="w-[42px] h-[48px] object-contain"
+                width={60}
+                height={70}
+                className="w-[42px] h-auto object-contain"
               />
             </Link>
             <button
@@ -227,8 +237,8 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Nav links */}
-          <nav className="flex-1 px-5 overflow-y-auto" aria-label="Mobile navigation">
+          {/* Nav links — 80px gap below the navbar top bar */}
+          <nav className="flex-1 px-5 overflow-y-auto" style={{ paddingTop: "80px" }} aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <div key={link.label}>
                 <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.15)" }} />

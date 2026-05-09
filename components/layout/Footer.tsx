@@ -154,7 +154,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright — mobile only (md+ uses the bottom row below the image) */}
-          <div className="mt-6 md:hidden">
+          <div className="mt-6 pb-10 md:hidden">
             <p className="text-label font-body" style={{ color: "#67686B" }}>
               ©2026 MSS Investment Holding Company. All rights reserved.
             </p>

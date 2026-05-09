@@ -5,20 +5,6 @@ import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import ArrowRight from "@/components/icons/ArrowRight";
 
-/*
- * Global Footprint — Figma Frame 49: y=5880, w=1440, h=860
- *
- * Scroll behaviour (fixed):
- *   Card starts at y=0 (top of section) when section enters viewport.
- *   Slides DOWN 408px (860–452) as you scroll through the section.
- *   Formula: scrolledPast = max(0, -rect.top) → progress = scrolledPast / MAX_TRAVEL
- *
- * Globe (Frame 242:4970):
- *   In Figma: x=1060 from page left = 1060-480 = 580px from card left.
- *   Placed INSIDE the card container (position absolute, overflow visible).
- *   Extends beyond card right edge — clipped by section overflow:hidden.
- */
-
 const SECTION_H = 766;
 
 export default function FootprintSection() {
@@ -29,12 +15,13 @@ export default function FootprintSection() {
   useEffect(() => {
     const onScroll = () => {
       if (!sectionRef.current || !cardRef.current) return;
-      const rect     = sectionRef.current.getBoundingClientRect();
-      const cardH    = cardRef.current.offsetHeight; // actual rendered height
-      const maxTravel = Math.max(0, SECTION_H - cardH); // stops when card bottom = section bottom
+      // Disable scroll animation on mobile — layout is static
+      if (window.innerWidth < 768) { setTranslateY(0); return; }
+      const rect      = sectionRef.current.getBoundingClientRect();
+      const cardH     = cardRef.current.offsetHeight;
+      const maxTravel = Math.max(0, SECTION_H - cardH);
       const scrolledPast = Math.max(0, -rect.top);
-      const travel = Math.min(maxTravel, scrolledPast);
-      setTranslateY(travel);
+      setTranslateY(Math.min(maxTravel, scrolledPast));
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -45,8 +32,8 @@ export default function FootprintSection() {
     <section
       ref={sectionRef}
       aria-label="Global Footprint"
-      className="relative w-full overflow-hidden"
-      style={{ height: `${SECTION_H}px` }}
+      // Mobile: tall enough for content + globe; tablet+: fixed scroll-driven height
+      className="relative w-full overflow-hidden h-[920px] md:h-[766px]"
     >
       {/* Background image */}
       <Image
@@ -57,43 +44,27 @@ export default function FootprintSection() {
         sizes="100vw"
       />
 
-      {/* Scroll-driven card wrapper */}
+      {/* Scroll-driven card wrapper — translateY disabled on mobile */}
       <div
         className="absolute inset-x-0 top-0"
-        style={{
-          transform: `translateY(${translateY}px)`,
-          willChange: "transform",
-        }}
+        style={{ transform: `translateY(${translateY}px)`, willChange: "transform" }}
       >
-        {/*
-         * Card: starts at left=480px (33.3% of 1440px = leadership column offset)
-         * Width: 880px, min-height: 452px (grows with content so button never clips)
-         * overflow: visible so the globe can extend beyond the right edge
-         * The section's overflow:hidden clips the globe at the section boundary
-         */}
         <div
           ref={cardRef}
-          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20"
-          style={{
-            minHeight: "406px",
-            paddingLeft: "40px",
-            paddingTop: "40px",
-            paddingBottom: "40px",
-            paddingRight: "260px",
-            overflow: "hidden",
-          }}
+          // Mobile: 20px padding all sides; tablet+: 40px left/top/bottom, 260px right for globe clearance
+          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20 p-5 md:pl-10 md:pt-10 md:pb-10 md:pr-[260px]"
+          style={{ minHeight: "406px", overflow: "hidden" }}
         >
-          {/* "GLOBAL FOOTPRINT" label — top=40 → paddingTop covers it */}
           <span className="text-label font-body block" style={{ color: "#373738" }}>
             Global Footprint
           </span>
 
-          {/* H3 — gap from label = 24px (top=80, label ends at 40+16=56, gap=24) */}
           <h2
             className="font-heading"
             style={{
-              fontSize: "36px",
-              lineHeight: "42px",
+              // 28px on mobile (Figma), 36px on desktop
+              fontSize: "clamp(1.75rem, 3.5vw, 2.25rem)",
+              lineHeight: "1.2",
               fontWeight: 300,
               color: "#1C1C1F",
               margin: 0,
@@ -103,11 +74,10 @@ export default function FootprintSection() {
             Positioned Across<br className="hidden lg:block" /> Markets That Matter
           </h2>
 
-          {/* Body — gap from H3 bottom = 12px */}
           <p
             className="font-body"
             style={{
-              fontSize: "15px",
+              fontSize: "clamp(0.875rem, 1.5vw, 0.9375rem)",
               lineHeight: "22px",
               color: "#67686B",
               margin: 0,
@@ -121,13 +91,13 @@ export default function FootprintSection() {
             of financial, technological, and commercial growth.
           </p>
 
-          {/* Button — gap from body bottom = 64px */}
           <Link
             href="/pitch"
-            className="inline-flex items-center gap-[4px] text-body-sm font-body text-white"
+            className="inline-flex items-center gap-[4px] font-body text-white"
             style={{
               marginTop: "40px",
               height: "40px",
+              fontSize: "14px",
               backgroundColor: "#1C1C1F",
               paddingLeft: "20px",
               paddingRight: "16px",
@@ -141,7 +111,7 @@ export default function FootprintSection() {
             <ArrowRight size="lg" fill="white" />
           </Link>
 
-          {/* Globe — mobile: below content in normal flow */}
+          {/* Globe — mobile: below content in normal flow (per Figma mobile design) */}
           <div className="md:hidden w-full" style={{ marginTop: "32px" }}>
             <Image
               src="/images/home/footprint-globe.png"
@@ -152,13 +122,7 @@ export default function FootprintSection() {
             />
           </div>
 
-          {/*
-           * World map globe — inside the card, RIGHT of text content
-           * Figma: map x=1060 from page left → 1060-480=580px from card left
-           * Figma: map y=5806 from page top → 5806-5880=-74px from card top (extends above)
-           * Size: 600×600px
-           * overflow:visible on card lets it extend beyond; section clips it
-           */}
+          {/* Globe — tablet+: absolute right side */}
           <div
             className="absolute hidden md:block"
             style={{
