@@ -132,3 +132,29 @@ body {
   outline: 2px solid var(--color-brand-navy);
   outline-offset: 2px;
 }
+
+/* ─── Wide-screen margin scaling (>1440px) ───────────────────── */
+/*
+ * At 1440px: 80px margins (5rem) — unchanged from lg:px-20
+ * At 1920px: 240px margins (15rem)
+ * Formula: clamp(5rem, calc(100vw / 3 - 25rem), 15rem)
+ *   1440px → 480 - 400 = 80px  ✓
+ *   1920px → 640 - 400 = 240px ✓
+ * Overrides Tailwind @layer utilities (unlayered CSS wins cascade).
+ */
+@media (min-width: 1440px) {
+  .lg\:px-20 {
+    padding-left:  clamp(5rem, calc(100vw / 3 - 25rem), 15rem);
+    padding-right: clamp(5rem, calc(100vw / 3 - 25rem), 15rem);
+  }
+  .lg\:mx-20 {
+    margin-left:  clamp(5rem, calc(100vw / 3 - 25rem), 15rem);
+    margin-right: clamp(5rem, calc(100vw / 3 - 25rem), 15rem);
+  }
+  .lg\:mr-20 {
+    margin-right: clamp(5rem, calc(100vw / 3 - 25rem), 15rem);
+  }
+  .lg\:right-20 {
+    right: clamp(5rem, calc(100vw / 3 - 25rem), 15rem);
+  }
+}
