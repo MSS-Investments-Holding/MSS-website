@@ -2,7 +2,7 @@
 
 ## Before You Do Anything
 
-Read the relevant docs files before executing any task. The `docs/` folder is the single source of truth for this project. **Minimum required reading before any task:** `docs/03-rules-and-standards.md`. For UI work, also read `docs/05-design-tokens.md` and pull Figma context for the specific node before writing a single line of markup.
+Read the relevant docs files before executing any task. The `docs/` folder is the single source of truth for this project. **Minimum required reading before any task:** `docs/03-rules-and-standards.md`. For UI work, also read `docs/05-design-tokens.md` and `docs/06-responsive-design.md`, and pull Figma context for the specific node before writing a single line of markup.
 
 ## Docs Index
 
@@ -10,9 +10,10 @@ Read the relevant docs files before executing any task. The `docs/` folder is th
 |---|---|---|
 | `docs/01-brand-overview.md` | Brand identity, personas, tone of voice, competitive positioning | Writing copy, making design decisions, onboarding to the project |
 | `docs/02-architecture.md` | Tech stack, folder structure, data model, env vars, deployment | Starting any development task, setting up the project, adding integrations |
-| `docs/03-rules-and-standards.md` | Validation checklist, code quality rules, responsiveness, accessibility, SEO | Before marking any task done — this is the gate |
+| `docs/03-rules-and-standards.md` | Validation checklist, code quality rules, accessibility, SEO, performance | Before marking any task done — this is the gate |
 | `docs/04-execution-plan.md` | Project phases, task lists, success criteria, definition of done | Planning work, checking what's next, estimating scope |
 | `docs/05-design-tokens.md` | Colour tokens, typography scale, CSS variables, Tailwind config mapping | Any UI implementation task |
+| `docs/06-responsive-design.md` | Breakpoints, global margins, navbar rules, section-by-section responsive patterns, wide-screen scaling formula | **Any responsive or layout task — read this before writing a single breakpoint class** |
 
 ## Project Snapshot
 
