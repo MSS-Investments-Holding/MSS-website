@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { navLinks } from "@/lib/data";
 
 const DROPDOWN_LEFT: Record<string, string> = {
