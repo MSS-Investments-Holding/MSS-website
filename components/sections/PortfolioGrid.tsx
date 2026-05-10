@@ -185,12 +185,12 @@ export default function PortfolioGrid(): React.ReactElement {
   return (
     <>
       {/* ── COMPANY GRID ──────────────────────────────────────────── */}
-      <section aria-label="Portfolio companies" className="w-full px-5 md:px-12 lg:px-20 pt-16 md:pt-20 lg:pt-24 pb-16 md:pb-20 lg:pb-[120px]">
+      <section aria-label="Portfolio companies" className="w-full px-5 md:px-12 lg:px-20 pt-6 md:pt-10 lg:pt-14 pb-16 md:pb-20 lg:pb-[120px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {companies.map((company, i) => (
             <article
               key={company.name}
-              className={`flex flex-col pt-4 pb-10 ${cardBorderClasses(i, companies.length)} ${cardPaddingClasses()}`}
+              className={`flex flex-col pt-10 pb-10 ${cardBorderClasses(i, companies.length)} ${cardPaddingClasses()}`}
             >
               {/* Logo + external link */}
               <div className="flex items-start justify-between">
