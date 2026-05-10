@@ -63,7 +63,8 @@ const steps = [
 const fieldBase = {
   display: "block",
   width: "100%",
-  height: "60px",
+  height: "54px",
+  minWidth: 0,
   backgroundColor: "#FFFFFF",
   border: "none",
   borderBottom: "1px solid #E8E9EB",
@@ -80,7 +81,7 @@ const fieldBase = {
 
 export default function PitchPage() {
   return (
-    <main id="main-content">
+    <main id="main-content" className="overflow-x-hidden">
 
       {/* ══════════════════════════════════════════════════════════
           1 · HERO  (h=930px min)
@@ -118,7 +119,7 @@ export default function PitchPage() {
             <h1
               className="font-heading text-white"
               style={{
-                fontSize: "clamp(2.25rem, 5vw, 4.375rem)",
+                fontSize: "clamp(3rem, 5vw, 4.5rem)",
                 lineHeight: "1.056",
                 fontWeight: 300,
                 maxWidth: "520px",
@@ -131,7 +132,7 @@ export default function PitchPage() {
           <div className="w-full lg:w-[44%] xl:w-[560px] flex flex-col justify-end pb-10 lg:pb-[40px]">
             <p
               className="font-body text-white"
-              style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.18px" }}
+              style={{ fontSize: "clamp(1.0625rem, 1.5vw, 1.125rem)", lineHeight: "clamp(26px, 2vw, 28px)", letterSpacing: "-0.18px" }}
             >
               MSS welcomes relevant opportunities from founders, operators, partners, and institutions aligned with the sectors shaping modern economies.
             </p>
@@ -143,7 +144,7 @@ export default function PitchPage() {
                   height: "40px",
                   backgroundColor: "#FFFFFF",
                   color: "#1C1C1F",
-                  fontSize: "16px",
+                  fontSize: "clamp(0.875rem, 1.2vw, 1rem)",
                   lineHeight: "24px",
                   letterSpacing: "-0.32px",
                   paddingLeft: "20px",
@@ -177,7 +178,7 @@ export default function PitchPage() {
          * clamp: 24px(1.5rem) at narrow → 36px(2.25rem) at 1440px via 2.5vw.
          */}
         <h2
-          className="font-heading"
+          className="font-heading max-w-full"
           style={{
             fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)",
             lineHeight: "1.167",
@@ -214,15 +215,15 @@ export default function PitchPage() {
                   </span>
                 </div>
                 {/* Content — flex-1 takes remaining 48% */}
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <h3
-                    className="font-heading"
+                    className="font-heading break-words"
                     style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
                   >
                     {item.title}
                   </h3>
                   <p
-                    className="font-body"
+                    className="font-body break-words"
                     style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
                   >
                     {item.body}
@@ -237,7 +238,7 @@ export default function PitchPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          3 · WHAT WE LOOK FOR  (Frame 55, h=702px, content-width)
+          3 · WHAT WE LOOK FOR  (Frame 55, h=702px desktop, responsive)
           Figma: bg=#F5E9DC + full-bleed image + rgba(0,0,0,0.20) overlay
           Text at x=104 from frame left (8.1%); decor line at x=64 (5%)
           Globe at x=800 (62.5%), y=-249 from frame top, 1200×1200px
@@ -249,10 +250,10 @@ export default function PitchPage() {
         className="w-full bg-white px-5 md:px-12 lg:px-20"
       >
         {/*
-         * Frame 55 is content-width (inside px-20 padding), h=702px fixed.
+         * Frame 55 is content-width (inside px-20 padding), h=702px on desktop.
          * overflow-hidden clips both the bg image and the globe that extend beyond.
          */}
-        <div className="relative w-full overflow-hidden" style={{ height: "702px" }}>
+        <div className="relative w-full overflow-hidden min-h-[640px] md:min-h-[702px] lg:h-[702px] lg:min-h-0">
 
           {/* Background image */}
           <Image
@@ -261,6 +262,7 @@ export default function PitchPage() {
             fill
             className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 1280px"
+            loading="eager"
           />
           {/* Figma RECTANGLE fill rgba(0,0,0,0.20) */}
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
@@ -279,7 +281,7 @@ export default function PitchPage() {
            * pl: 8% (proportional) → at xl 1280px content: 8%×1280=102px ≈ 104px ✓
            * pt-20 = 80px ✓
            */}
-          <div className="relative z-10 pt-20" style={{ paddingLeft: "8%", maxWidth: "52%" }}>
+          <div className="relative z-10 px-8 pt-16 md:px-16 md:pt-20 lg:px-0 lg:pl-[8%] lg:max-w-[52%]">
             <span
               className="text-label font-body block"
               style={{ color: "rgba(255,255,255,0.80)" }}
@@ -298,7 +300,7 @@ export default function PitchPage() {
                 lineHeight: "1.167",
                 fontWeight: 300,
                 margin: 0,
-                marginTop: "96px",
+                marginTop: "clamp(64px, 6.7vw, 96px)",
                 maxWidth: "520px",
               }}
             >
@@ -326,7 +328,7 @@ export default function PitchPage() {
             </p>
 
             {/* Button: body ends at 486px, button at 582px → gap 96px (mt-24) ✓ */}
-            <div style={{ marginTop: "96px" }}>
+            <div className="mt-12 lg:mt-24">
               <a
                 href="#pitch-form"
                 className="inline-flex items-center font-body"
@@ -355,11 +357,12 @@ export default function PitchPage() {
             className="absolute hidden lg:block pointer-events-none"
             style={{ left: "62.5%", top: "-249px", width: "1200px", height: "1200px" }}
           >
-            <img
+            <Image
               src="/images/pitch/pitch-globe.svg"
               alt=""
               width={1200}
               height={1200}
+              loading="eager"
               style={{ width: "1200px", height: "1200px", opacity: 0.5 }}
             />
           </div>
@@ -381,16 +384,17 @@ export default function PitchPage() {
          * step icons at x=8620 = page left 80px + content indent 32px = 112px from page left.
          */}
         <div className="xl:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
             {steps.map((step) => (
               <div key={step.title} className="flex flex-col items-center text-center">
                 {/* 40×40 icon — SVG exported with white bg included from Figma */}
                 <div className="w-10 h-10 flex-shrink-0">
-                  <img
+                  <Image
                     src={step.icon}
                     alt=""
                     width={40}
                     height={40}
+                    loading="eager"
                     style={{ width: "40px", height: "40px", objectFit: "contain" }}
                   />
                 </div>
@@ -410,7 +414,7 @@ export default function PitchPage() {
                 </h3>
                 {/* Inter 15px/22px — 4px gap from title bottom */}
                 <p
-                  className="font-body"
+                  className="font-body max-w-full break-words"
                   style={{
                     fontSize: "15px",
                     lineHeight: "22px",
@@ -450,7 +454,7 @@ export default function PitchPage() {
          * maxWidth 56%: H2 w=724px / 1280px = 56.6% ≈ 56% ✓
          */}
         <h2
-          className="font-heading"
+          className="font-heading max-w-full lg:max-w-[56%]"
           style={{
             fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)",
             lineHeight: "1.087",
@@ -458,7 +462,6 @@ export default function PitchPage() {
             color: "#1C1C1F",
             margin: 0,
             marginTop: "24px",
-            maxWidth: "56%",
           }}
         >
           Ready when you are.
@@ -476,7 +479,7 @@ export default function PitchPage() {
           <form className="w-full lg:w-[64%]" action="#" method="post" noValidate>
 
             {/* Row 1 — First Name | Last Name */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
                 type="text"
                 name="first_name"
@@ -496,7 +499,7 @@ export default function PitchPage() {
             </div>
 
             {/* Row 2 — Email | Location (select) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
               <input
                 type="email"
                 name="email"
@@ -573,7 +576,7 @@ export default function PitchPage() {
             </div>
 
             {/* Row 3 — Business Name | Business URL */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
               <input
                 type="text"
                 name="business_name"
@@ -623,6 +626,7 @@ export default function PitchPage() {
               style={{
                 display: "block",
                 width: "100%",
+                minWidth: 0,
                 height: "200px",
                 backgroundColor: "#FFFFFF",
                 border: "none",
@@ -654,7 +658,7 @@ export default function PitchPage() {
                   required
                   style={{ width: "16px", height: "16px", flexShrink: 0, marginTop: "3px", accentColor: "#1C1C1F" }}
                 />
-                <label htmlFor="consent" className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738" }}>
+                <label htmlFor="consent" className="font-body min-w-0" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", overflowWrap: "anywhere" }}>
                   I consent to MSS Investments Holding Company processing my information for the purposes of responding to this inquiry.
                 </label>
               </div>
@@ -668,7 +672,7 @@ export default function PitchPage() {
                   required
                   style={{ width: "16px", height: "16px", flexShrink: 0, marginTop: "3px", accentColor: "#1C1C1F" }}
                 />
-                <label htmlFor="terms" className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738" }}>
+                <label htmlFor="terms" className="font-body min-w-0" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", overflowWrap: "anywhere" }}>
                   By submitting this form, I agree to the MSS{" "}
                   <Link href="/legal/terms" className="underline">Terms and Conditions</Link>{" "}
                   and{" "}
@@ -714,7 +718,7 @@ export default function PitchPage() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8 pb-20">
 
           {/* General Inquiries */}
-          <div className="border-t border-[#D2D5D9] pt-16 text-center">
+          <div className="border-t border-[#D2D5D9] pt-16 text-center min-w-0">
             <h3
               className="font-heading"
               style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -722,22 +726,22 @@ export default function PitchPage() {
               General Inquiries
             </h3>
             <p
-              className="font-body"
+              className="font-body break-words"
               style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
             >
               All general enquiries for MSS should be directed to:
             </p>
             <a
               href="mailto:info@mssinvestmentsholding.com"
-              className="font-body text-body-sm-emphasized"
-              style={{ color: "#373738", display: "block", marginTop: "32px" }}
+              className="font-body text-body-sm-emphasized break-all"
+              style={{ color: "#373738", display: "block", marginTop: "32px", overflowWrap: "anywhere" }}
             >
               info@mssinvestmentsholding.com
             </a>
           </div>
 
           {/* Media Contact */}
-          <div className="border-t border-[#D2D5D9] pt-16 text-center lg:border-l lg:border-[#D2D5D9] lg:pl-8">
+          <div className="border-t border-[#D2D5D9] pt-16 text-center min-w-0 lg:border-l lg:border-[#D2D5D9] lg:pl-8">
             <h3
               className="font-heading"
               style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -745,22 +749,22 @@ export default function PitchPage() {
               Media contact
             </h3>
             <p
-              className="font-body"
+              className="font-body break-words"
               style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
             >
               All group media enquiries for MSS should be directed to:
             </p>
             <a
               href="mailto:media@mssinvestmentsholding.com"
-              className="font-body text-body-sm-emphasized"
-              style={{ color: "#373738", display: "block", marginTop: "32px" }}
+              className="font-body text-body-sm-emphasized break-all"
+              style={{ color: "#373738", display: "block", marginTop: "32px", overflowWrap: "anywhere" }}
             >
               media@mssinvestmentsholding.com
             </a>
           </div>
 
           {/* Contact Us */}
-          <div className="border-t border-[#D2D5D9] pt-16 text-center lg:border-l lg:border-[#D2D5D9] lg:pl-8">
+          <div className="border-t border-[#D2D5D9] pt-16 text-center min-w-0 lg:border-l lg:border-[#D2D5D9] lg:pl-8">
             <h3
               className="font-heading"
               style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -768,7 +772,7 @@ export default function PitchPage() {
               Contact Us
             </h3>
             <p
-              className="font-body"
+              className="font-body break-words"
               style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
             >
               For all support related matters, contact us at:
