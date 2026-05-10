@@ -1,6 +1,15 @@
 "use client";
 
-import { Fragment, useState, useEffect, type CSSProperties, type ReactElement } from "react";
+import {
+  Fragment,
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useCallback,
+  type CSSProperties,
+  type ReactElement,
+} from "react";
 import { useLenis } from "lenis/react";
 
 interface Company {
@@ -117,9 +126,9 @@ function PlusIcon() {
   );
 }
 
-/** 24px inner padding on cards at tablet/desktop (Figma frame inset). */
-function cardPaddingClasses(): string {
-  return "md:px-6";
+/** 24px inner padding when multi-column layout (ResizeObserver cols > 1). */
+function cardPaddingClasses(cols: 1 | 2 | 3): string {
+  return cols > 1 ? "px-6" : "";
 }
 
 function chunkCompanies<T>(items: T[], size: number): T[][] {
@@ -131,19 +140,149 @@ function chunkCompanies<T>(items: T[], size: number): T[][] {
   return chunks;
 }
 
-/** Full-width horizontal rule centered in a 48px-tall row (24px + 1px + 24px). */
-function HorizontalGutterRow(props: {
-  gridColumnSpanClass: string;
-  gridRow?: number;
-}): ReactElement {
+/** Minimum card column width and gutter — 3×320 + 2×48 = 1056; 2×320 + 48 = 688 */
+const CARD_MIN_PX = 320;
+const GUTTER_PX = 48;
+
+function columnCountForWidth(containerWidth: number): 1 | 2 | 3 {
+  const w = containerWidth;
+  const fit3 = 3 * CARD_MIN_PX + 2 * GUTTER_PX;
+  const fit2 = 2 * CARD_MIN_PX + GUTTER_PX;
+  if (w >= fit3) return 3;
+  if (w >= fit2) return 2;
+  return 1;
+}
+
+function gridTemplateForColumns(cols: 1 | 2 | 3): string {
+  const c = `minmax(${CARD_MIN_PX}px, 1fr)`;
+  const g = `${GUTTER_PX}px`;
+  if (cols === 1) return c;
+  if (cols === 2) return `${c} ${g} ${c}`;
+  return `${c} ${g} ${c} ${g} ${c}`;
+}
+
+/** One horizontal segment in a card column (rule sits in the middle of the 48px-tall gutter row). */
+function HorizontalSegment(props: { gridColumn: number; gridRow: number }): ReactElement {
   return (
     <div
-      className={`flex h-12 items-center ${props.gridColumnSpanClass}`}
-      style={props.gridRow != null ? { gridRow: props.gridRow } : undefined}
+      className="flex h-12 min-h-0 items-center"
+      style={{ gridColumn: props.gridColumn, gridRow: props.gridRow }}
       aria-hidden="true"
     >
       <div className="h-px w-full bg-[var(--color-border-medium)]" />
     </div>
+  );
+}
+
+/** Empty 48px gutter cell on horizontal spacer rows — keeps vertical gutters visually open. */
+function HorizontalGutterSpacer(props: { gridColumn: number; gridRow: number }): ReactElement {
+  return (
+    <div
+      className="h-12 min-h-0"
+      style={{ gridColumn: props.gridColumn, gridRow: props.gridRow }}
+      aria-hidden="true"
+    />
+  );
+}
+
+/**
+ * Horizontal rules between rows: one segment per card column (no line in vertical gutter
+ * columns), matching Figma corner gaps.
+ */
+function HorizontalBetweenRows(props: { cols: 1 | 2 | 3; gridRow: number }): ReactElement {
+  const { cols, gridRow } = props;
+  if (cols === 1) {
+    return <HorizontalSegment gridColumn={1} gridRow={gridRow} />;
+  }
+  if (cols === 2) {
+    return (
+      <>
+        <HorizontalSegment gridColumn={1} gridRow={gridRow} />
+        <HorizontalGutterSpacer gridColumn={2} gridRow={gridRow} />
+        <HorizontalSegment gridColumn={3} gridRow={gridRow} />
+      </>
+    );
+  }
+  return (
+    <>
+      <HorizontalSegment gridColumn={1} gridRow={gridRow} />
+      <HorizontalGutterSpacer gridColumn={2} gridRow={gridRow} />
+      <HorizontalSegment gridColumn={3} gridRow={gridRow} />
+      <HorizontalGutterSpacer gridColumn={4} gridRow={gridRow} />
+      <HorizontalSegment gridColumn={5} gridRow={gridRow} />
+    </>
+  );
+}
+
+/** Empty card-area cell on horizontal spacer rows (no rule — keeps grid alignment). */
+function HorizontalEmptyCell(props: { gridColumn: number; gridRow: number }): ReactElement {
+  return (
+    <div
+      className="h-12 min-h-0"
+      style={{ gridColumn: props.gridColumn, gridRow: props.gridRow }}
+      aria-hidden="true"
+    />
+  );
+}
+
+/**
+ * Segmented horizontal rules below the last row of cards (one segment per card).
+ * Partial rows leave trailing columns empty so rules never read as one full-width line.
+ */
+function HorizontalFinalRow(props: {
+  cols: 1 | 2 | 3;
+  cardsInLastRow: number;
+  gridRow: number;
+}): ReactElement | null {
+  const { cols, cardsInLastRow, gridRow } = props;
+  if (cardsInLastRow <= 0) return null;
+
+  if (cols === 1) {
+    return <HorizontalSegment gridColumn={1} gridRow={gridRow} />;
+  }
+
+  if (cols === 2) {
+    if (cardsInLastRow >= 2) {
+      return (
+        <>
+          <HorizontalSegment gridColumn={1} gridRow={gridRow} />
+          <HorizontalGutterSpacer gridColumn={2} gridRow={gridRow} />
+          <HorizontalSegment gridColumn={3} gridRow={gridRow} />
+        </>
+      );
+    }
+    return (
+      <>
+        <HorizontalSegment gridColumn={1} gridRow={gridRow} />
+        <HorizontalGutterSpacer gridColumn={2} gridRow={gridRow} />
+        <HorizontalEmptyCell gridColumn={3} gridRow={gridRow} />
+      </>
+    );
+  }
+
+  /* cols === 3 */
+  if (cardsInLastRow >= 3) {
+    return <HorizontalBetweenRows cols={3} gridRow={gridRow} />;
+  }
+  if (cardsInLastRow === 2) {
+    return (
+      <>
+        <HorizontalSegment gridColumn={1} gridRow={gridRow} />
+        <HorizontalGutterSpacer gridColumn={2} gridRow={gridRow} />
+        <HorizontalSegment gridColumn={3} gridRow={gridRow} />
+        <HorizontalGutterSpacer gridColumn={4} gridRow={gridRow} />
+        <HorizontalEmptyCell gridColumn={5} gridRow={gridRow} />
+      </>
+    );
+  }
+  return (
+    <>
+      <HorizontalSegment gridColumn={1} gridRow={gridRow} />
+      <HorizontalGutterSpacer gridColumn={2} gridRow={gridRow} />
+      <HorizontalEmptyCell gridColumn={3} gridRow={gridRow} />
+      <HorizontalGutterSpacer gridColumn={4} gridRow={gridRow} />
+      <HorizontalEmptyCell gridColumn={5} gridRow={gridRow} />
+    </>
   );
 }
 
@@ -165,14 +304,15 @@ function VerticalGutterTrack(props: {
 
 function CompanyCard(props: {
   company: Company;
+  cols: 1 | 2 | 3;
   className?: string;
   style?: CSSProperties;
   onReadMore: () => void;
 }): ReactElement {
-  const { company, className = "", style, onReadMore } = props;
+  const { company, cols, className = "", style, onReadMore } = props;
   return (
     <article
-      className={`flex h-full flex-col pt-10 pb-10 ${cardPaddingClasses()} ${className}`}
+      className={`flex h-full flex-col pt-10 pb-10 ${cardPaddingClasses(cols)} ${className}`}
       style={style}
     >
       <div className="flex items-start justify-between">
@@ -267,8 +407,26 @@ export default function PortfolioGrid(): ReactElement {
   const [selected, setSelected] = useState<Company | null>(null);
   const lenis = useLenis();
 
-  const portfolioRowsMd = chunkCompanies(companies, 2);
-  const portfolioRowsLg = chunkCompanies(companies, 3);
+  const gridRef = useRef<HTMLDivElement>(null);
+  /** Fluid columns from container width: shrink until 320px min, then drop to fewer columns (688 / 1056). */
+  const [cols, setCols] = useState<1 | 2 | 3>(1);
+
+  const updateCols = useCallback(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    setCols(columnCountForWidth(el.getBoundingClientRect().width));
+  }, []);
+
+  useLayoutEffect(() => {
+    updateCols();
+    const el = gridRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(() => updateCols());
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [updateCols]);
+
+  const portfolioRows = chunkCompanies(companies, cols);
 
   useEffect(() => {
     // Lenis intercepts scroll events at JS level — overflow:hidden alone doesn't stop it.
@@ -301,80 +459,51 @@ export default function PortfolioGrid(): ReactElement {
       {/* ── COMPANY GRID ──────────────────────────────────────────── */}
       <section aria-label="Portfolio companies" className="w-full px-5 md:px-12 lg:px-20 pt-6 md:pt-10 lg:pt-14 pb-16 md:pb-20 lg:pb-[120px]">
         {/*
-         * 48px gutters between company frames; 1px dividers centered in each
-         * gutter (24px margin on each side). Vertical tracks are fixed 48px wide.
+         * 48px gutters; rules centered in gutters. Horizontal rules are segmented
+         * per card column (not full bleed). Columns: min 320px per card, then wrap
+         * at 688px / 1056px container widths (ResizeObserver on this grid).
          */}
-        {/* Mobile: single column + 48px horizontal gutter rows */}
-        <div className="flex flex-col md:hidden">
-          {companies.map((company, i) => (
-            <Fragment key={company.name}>
-              <CompanyCard company={company} onReadMore={() => setSelected(company)} />
-              {i < companies.length - 1 && <HorizontalGutterRow gridColumnSpanClass="" />}
-            </Fragment>
-          ))}
-        </div>
-
-        {/* Tablet: 2 columns, 48px vertical gutter column with centered rule */}
-        <div className="hidden md:grid lg:hidden md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)]">
-          {portfolioRowsMd.map((row, ri) => {
+        <div
+          ref={gridRef}
+          className="grid w-full min-w-0"
+          style={{ gridTemplateColumns: gridTemplateForColumns(cols) }}
+        >
+          {portfolioRows.map((row, ri) => {
             const cardRow = ri * 2 + 1;
             return (
-              <Fragment key={`md-row-${ri}`}>
+              <Fragment key={`row-${ri}`}>
                 {row.map((company, ci) => (
                   <CompanyCard
                     key={company.name}
                     company={company}
+                    cols={cols}
                     onReadMore={() => setSelected(company)}
-                    className="min-h-0"
+                    className="min-h-0 min-w-0"
                     style={{
                       gridColumn: 1 + ci * 2,
                       gridRow: cardRow,
                     }}
                   />
                 ))}
-                {row.length >= 2 && (
+                {cols >= 2 && row.length >= 2 && (
                   <VerticalGutterTrack gridColumn={2} gridRow={cardRow} />
                 )}
-                {ri < portfolioRowsMd.length - 1 && (
-                  <HorizontalGutterRow
-                    gridColumnSpanClass="col-span-3"
-                    gridRow={ri * 2 + 2}
-                  />
+                {cols >= 3 && row.length >= 3 && (
+                  <VerticalGutterTrack gridColumn={4} gridRow={cardRow} />
+                )}
+                {ri < portfolioRows.length - 1 && (
+                  <HorizontalBetweenRows cols={cols} gridRow={ri * 2 + 2} />
                 )}
               </Fragment>
             );
           })}
-        </div>
-
-        {/* Desktop: 3 columns + 48px vertical gutters */}
-        <div className="hidden lg:grid lg:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)_48px_minmax(0,1fr)]">
-          {portfolioRowsLg.map((row, ri) => {
-            const cardRow = ri * 2 + 1;
-            return (
-              <Fragment key={`lg-row-${ri}`}>
-                {row.map((company, ci) => (
-                  <CompanyCard
-                    key={company.name}
-                    company={company}
-                    onReadMore={() => setSelected(company)}
-                    className="min-h-0"
-                    style={{
-                      gridColumn: 1 + ci * 2,
-                      gridRow: cardRow,
-                    }}
-                  />
-                ))}
-                {row.length >= 2 && <VerticalGutterTrack gridColumn={2} gridRow={cardRow} />}
-                {row.length >= 3 && <VerticalGutterTrack gridColumn={4} gridRow={cardRow} />}
-                {ri < portfolioRowsLg.length - 1 && (
-                  <HorizontalGutterRow
-                    gridColumnSpanClass="col-span-5"
-                    gridRow={ri * 2 + 2}
-                  />
-                )}
-              </Fragment>
-            );
-          })}
+          {portfolioRows.length > 0 && (
+            <HorizontalFinalRow
+              cols={cols}
+              cardsInLastRow={portfolioRows[portfolioRows.length - 1]?.length ?? 0}
+              gridRow={portfolioRows.length * 2}
+            />
+          )}
         </div>
       </section>
 
