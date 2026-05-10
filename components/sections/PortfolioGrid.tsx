@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLenis } from "lenis/react";
 
 interface Company {
   name: string;
@@ -168,21 +169,23 @@ function cardBorderClasses(i: number, total: number): string {
 
 export default function PortfolioGrid(): React.ReactElement {
   const [selected, setSelected] = useState<Company | null>(null);
+  const lenis = useLenis();
 
   useEffect(() => {
-    // Lock scroll on both <html> and <body> — needed for iOS Safari
+    // Lenis intercepts scroll events at JS level — overflow:hidden alone doesn't stop it.
+    // Use lenis.stop()/start() as the primary lock; CSS overflow as fallback.
     if (selected) {
+      lenis?.stop();
       document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
     } else {
+      lenis?.start();
       document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
     }
     return () => {
+      lenis?.start();
       document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
     };
-  }, [selected]);
+  }, [selected, lenis]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
