@@ -127,29 +127,33 @@ function cardPaddingClasses(): string {
   return "md:px-6";
 }
 
+/*
+ * Only vertical (column) borders. Horizontal row dividers are rendered
+ * as inner <div> elements inside each card so they sit within the 24px
+ * horizontal padding and never touch the column borders — matching the
+ * Figma design where dividers don't intersect to form a grid.
+ */
 function cardBorderClasses(i: number, total: number): string {
-  // Right border: next card exists in the same row
   const mdRight = i < total - 1 && Math.floor(i / 2) === Math.floor((i + 1) / 2);
   const lgRight = i < total - 1 && Math.floor(i / 3) === Math.floor((i + 1) / 3);
-
-  // Bottom border: a next row exists
-  const smBottom = i < total - 1;
-  const mdBottom = Math.floor(i / 2) < Math.floor((total - 1) / 2);
-  const lgBottom = Math.floor(i / 3) < Math.floor((total - 1) / 3);
-
   const cls: string[] = [];
-
-  if (smBottom) cls.push("border-b border-[#D2D5D9]");
-
   cls.push(mdRight ? "md:border-r md:border-[#D2D5D9]" : "md:border-r-0");
-  if (mdBottom) cls.push("md:border-b md:border-[#D2D5D9]");
-  else if (smBottom) cls.push("md:border-b-0");
-
   cls.push(lgRight ? "lg:border-r lg:border-[#D2D5D9]" : "lg:border-r-0");
-  if (lgBottom) cls.push("lg:border-b lg:border-[#D2D5D9]");
-  else if (mdBottom || smBottom) cls.push("lg:border-b-0");
-
   return cls.join(" ");
+}
+
+/*
+ * Returns the responsive className for an inner horizontal divider div.
+ * Returns null if no divider should be shown at any breakpoint.
+ * - Cards not in the last row at any breakpoint: show always (no extra class).
+ * - Card 6 (last row at md/lg but not sm): show only on mobile → "md:hidden".
+ * - Card 7 (last at all breakpoints): return null (don't render).
+ */
+function rowDividerClass(i: number, total: number): string | null {
+  const showSm = i < total - 1;
+  if (!showSm) return null;
+  const showMd = Math.floor(i / 2) < Math.floor((total - 1) / 2);
+  return showMd ? "" : "md:hidden";
 }
 
 export default function PortfolioGrid(): React.ReactElement {
@@ -280,6 +284,24 @@ export default function PortfolioGrid(): React.ReactElement {
                 Read More
                 <PlusIcon />
               </button>
+
+              {/* Horizontal row divider — inner div so it sits inside the 24px
+                  horizontal padding and never touches the column (border-r) dividers */}
+              {(() => {
+                const cls = rowDividerClass(i, companies.length);
+                if (cls === null) return null;
+                return (
+                  <div
+                    className={cls}
+                    style={{
+                      height: "1px",
+                      backgroundColor: "#D2D5D9",
+                      marginTop: "40px",
+                      flexShrink: 0,
+                    }}
+                  />
+                );
+              })()}
             </article>
           ))}
         </div>
