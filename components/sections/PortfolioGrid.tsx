@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Fragment, useState, useEffect, type CSSProperties, type ReactElement } from "react";
 import { useLenis } from "lenis/react";
 
 interface Company {
@@ -117,48 +117,158 @@ function PlusIcon() {
   );
 }
 
-/*
- * 24px horizontal padding on every side of every card at tablet/desktop.
- * Outer edges (first col left, last col right) get the same 24px as the
- * inner divider sides — all four edges of the grid are symmetric.
- * No extra padding on mobile (1-col): section px-5 is sufficient there.
- */
+/** 24px inner padding on cards at tablet/desktop (Figma frame inset). */
 function cardPaddingClasses(): string {
   return "md:px-6";
 }
 
-/*
- * Only vertical (column) borders. Horizontal row dividers are rendered
- * as inner <div> elements inside each card so they sit within the 24px
- * horizontal padding and never touch the column borders — matching the
- * Figma design where dividers don't intersect to form a grid.
- */
-function cardBorderClasses(i: number, total: number): string {
-  const mdRight = i < total - 1 && Math.floor(i / 2) === Math.floor((i + 1) / 2);
-  const lgRight = i < total - 1 && Math.floor(i / 3) === Math.floor((i + 1) / 3);
-  const cls: string[] = [];
-  cls.push(mdRight ? "md:border-r md:border-[#D2D5D9]" : "md:border-r-0");
-  cls.push(lgRight ? "lg:border-r lg:border-[#D2D5D9]" : "lg:border-r-0");
-  return cls.join(" ");
+function chunkCompanies<T>(items: T[], size: number): T[][] {
+  if (size <= 0) return [];
+  const chunks: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    chunks.push(items.slice(i, i + size));
+  }
+  return chunks;
 }
 
-/*
- * Returns the responsive className for an inner horizontal divider div.
- * Returns null if no divider should be shown at any breakpoint.
- * - Cards not in the last row at any breakpoint: show always (no extra class).
- * - Card 6 (last row at md/lg but not sm): show only on mobile → "md:hidden".
- * - Card 7 (last at all breakpoints): return null (don't render).
- */
-function rowDividerClass(i: number, total: number): string | null {
-  const showSm = i < total - 1;
-  if (!showSm) return null;
-  const showMd = Math.floor(i / 2) < Math.floor((total - 1) / 2);
-  return showMd ? "" : "md:hidden";
+/** Full-width horizontal rule centered in a 48px-tall row (24px + 1px + 24px). */
+function HorizontalGutterRow(props: {
+  gridColumnSpanClass: string;
+  gridRow?: number;
+}): ReactElement {
+  return (
+    <div
+      className={`flex h-12 items-center ${props.gridColumnSpanClass}`}
+      style={props.gridRow != null ? { gridRow: props.gridRow } : undefined}
+      aria-hidden="true"
+    >
+      <div className="h-px w-full bg-[var(--color-border-medium)]" />
+    </div>
+  );
 }
 
-export default function PortfolioGrid(): React.ReactElement {
+/** Vertical rule centered in a 48px-wide gutter column; stretches to row height. */
+function VerticalGutterTrack(props: {
+  gridColumn: number;
+  gridRow: number;
+}): ReactElement {
+  return (
+    <div
+      className="flex h-full min-h-0 w-full justify-center justify-self-stretch"
+      style={{ gridColumn: props.gridColumn, gridRow: props.gridRow }}
+      aria-hidden="true"
+    >
+      <div className="w-px shrink-0 self-stretch bg-[var(--color-border-medium)]" />
+    </div>
+  );
+}
+
+function CompanyCard(props: {
+  company: Company;
+  className?: string;
+  style?: CSSProperties;
+  onReadMore: () => void;
+}): ReactElement {
+  const { company, className = "", style, onReadMore } = props;
+  return (
+    <article
+      className={`flex h-full flex-col pt-10 pb-10 ${cardPaddingClasses()} ${className}`}
+      style={style}
+    >
+      <div className="flex items-start justify-between">
+        <img
+          src={company.logo}
+          alt={company.name}
+          width={company.logoW}
+          height={company.logoH}
+          style={{
+            width: `${company.logoW}px`,
+            height: `${company.logoH}px`,
+            objectFit: "contain",
+            objectPosition: "left",
+          }}
+          draggable={false}
+        />
+        {company.site && (
+          <a
+            href={company.site}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${company.name} website`}
+            className="flex-shrink-0 transition-opacity hover:opacity-70"
+          >
+            <img
+              src="/images/icons/icon-external-link.svg"
+              alt=""
+              width={32}
+              height={32}
+              draggable={false}
+            />
+          </a>
+        )}
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-center" style={{ gap: "8px" }}>
+        {company.tags.map((tag, ti) => (
+          <span key={tag} className="flex items-center gap-2">
+            <span className="text-label font-body" style={{ color: "#67686B" }}>
+              {tag}
+            </span>
+            {ti < company.tags.length - 1 && (
+              <span
+                style={{
+                  width: "1px",
+                  height: "10px",
+                  backgroundColor: "#67686B",
+                  display: "inline-block",
+                }}
+              />
+            )}
+          </span>
+        ))}
+      </div>
+
+      <p
+        className="font-body flex-1"
+        style={{
+          fontSize: "15px",
+          lineHeight: "22px",
+          color: "#373738",
+          marginTop: "80px",
+        }}
+      >
+        {company.desc}
+      </p>
+
+      <button
+        type="button"
+        onClick={onReadMore}
+        className="inline-flex items-center gap-[4px] self-start py-[2px] font-body text-[#67686B] transition-colors duration-200 hover:text-[#373738]"
+        style={{
+          marginTop: "24px",
+          fontSize: "15px",
+          lineHeight: "22px",
+          background: "none",
+          border: "none",
+          borderBottom: "1px solid #67686B",
+          padding: "2px 0",
+          cursor: "pointer",
+        }}
+        aria-label={`Read more about ${company.name}`}
+      >
+        Read More
+        <PlusIcon />
+      </button>
+    </article>
+  );
+}
+
+export default function PortfolioGrid(): ReactElement {
   const [selected, setSelected] = useState<Company | null>(null);
   const lenis = useLenis();
+
+  const portfolioRowsMd = chunkCompanies(companies, 2);
+  const portfolioRowsLg = chunkCompanies(companies, 3);
 
   useEffect(() => {
     // Lenis intercepts scroll events at JS level — overflow:hidden alone doesn't stop it.
@@ -190,120 +300,81 @@ export default function PortfolioGrid(): React.ReactElement {
     <>
       {/* ── COMPANY GRID ──────────────────────────────────────────── */}
       <section aria-label="Portfolio companies" className="w-full px-5 md:px-12 lg:px-20 pt-6 md:pt-10 lg:pt-14 pb-16 md:pb-20 lg:pb-[120px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {/*
+         * 48px gutters between company frames; 1px dividers centered in each
+         * gutter (24px margin on each side). Vertical tracks are fixed 48px wide.
+         */}
+        {/* Mobile: single column + 48px horizontal gutter rows */}
+        <div className="flex flex-col md:hidden">
           {companies.map((company, i) => (
-            <article
-              key={company.name}
-              className={`flex flex-col pt-10 pb-10 ${cardBorderClasses(i, companies.length)} ${cardPaddingClasses()}`}
-            >
-              {/* Logo + external link */}
-              <div className="flex items-start justify-between">
-                <img
-                  src={company.logo}
-                  alt={company.name}
-                  width={company.logoW}
-                  height={company.logoH}
-                  style={{
-                    width: `${company.logoW}px`,
-                    height: `${company.logoH}px`,
-                    objectFit: "contain",
-                    objectPosition: "left",
-                  }}
-                  draggable={false}
-                />
-                {company.site && (
-                  <a
-                    href={company.site}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit ${company.name} website`}
-                    className="flex-shrink-0 hover:opacity-70 transition-opacity"
-                  >
-                    <img
-                      src="/images/icons/icon-external-link.svg"
-                      alt=""
-                      width={32}
-                      height={32}
-                      draggable={false}
-                    />
-                  </a>
-                )}
-              </div>
+            <Fragment key={company.name}>
+              <CompanyCard company={company} onReadMore={() => setSelected(company)} />
+              {i < companies.length - 1 && <HorizontalGutterRow gridColumnSpanClass="" />}
+            </Fragment>
+          ))}
+        </div>
 
-              {/* Tags */}
-              <div className="flex items-center flex-wrap mt-6" style={{ gap: "8px" }}>
-                {company.tags.map((tag, ti) => (
-                  <span key={tag} className="flex items-center gap-2">
-                    <span className="text-label font-body" style={{ color: "#67686B" }}>
-                      {tag}
-                    </span>
-                    {ti < company.tags.length - 1 && (
-                      <span
-                        style={{
-                          width: "1px",
-                          height: "10px",
-                          backgroundColor: "#67686B",
-                          display: "inline-block",
-                        }}
-                      />
-                    )}
-                  </span>
-                ))}
-              </div>
-
-              {/* Description — flex-1 pushes Read More to bottom */}
-              <p
-                className="font-body flex-1"
-                style={{
-                  fontSize: "15px",
-                  lineHeight: "22px",
-                  color: "#373738",
-                  marginTop: "80px",
-                }}
-              >
-                {company.desc}
-              </p>
-
-              {/* Read More */}
-              <button
-                type="button"
-                onClick={() => setSelected(company)}
-                className="self-start inline-flex items-center gap-[4px] font-body py-[2px] text-[#67686B] hover:text-[#373738] transition-colors duration-200"
-                style={{
-                  marginTop: "24px",
-                  fontSize: "15px",
-                  lineHeight: "22px",
-                  background: "none",
-                  border: "none",
-                  borderBottom: "1px solid #67686B",
-                  padding: "2px 0",
-                  cursor: "pointer",
-                }}
-                aria-label={`Read more about ${company.name}`}
-              >
-                Read More
-                <PlusIcon />
-              </button>
-
-              {/* Horizontal row divider — inner div so it sits inside the 24px
-                  horizontal padding and never touches the column (border-r) dividers */}
-              {(() => {
-                const cls = rowDividerClass(i, companies.length);
-                if (cls === null) return null;
-                return (
-                  <div
-                    className={cls}
+        {/* Tablet: 2 columns, 48px vertical gutter column with centered rule */}
+        <div className="hidden md:grid lg:hidden md:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)]">
+          {portfolioRowsMd.map((row, ri) => {
+            const cardRow = ri * 2 + 1;
+            return (
+              <Fragment key={`md-row-${ri}`}>
+                {row.map((company, ci) => (
+                  <CompanyCard
+                    key={company.name}
+                    company={company}
+                    onReadMore={() => setSelected(company)}
+                    className="min-h-0"
                     style={{
-                      height: "1px",
-                      backgroundColor: "#D2D5D9",
-                      marginTop: "40px",
-                      flexShrink: 0,
+                      gridColumn: 1 + ci * 2,
+                      gridRow: cardRow,
                     }}
                   />
-                );
-              })()}
-            </article>
-          ))}
+                ))}
+                {row.length >= 2 && (
+                  <VerticalGutterTrack gridColumn={2} gridRow={cardRow} />
+                )}
+                {ri < portfolioRowsMd.length - 1 && (
+                  <HorizontalGutterRow
+                    gridColumnSpanClass="col-span-3"
+                    gridRow={ri * 2 + 2}
+                  />
+                )}
+              </Fragment>
+            );
+          })}
+        </div>
+
+        {/* Desktop: 3 columns + 48px vertical gutters */}
+        <div className="hidden lg:grid lg:grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)_48px_minmax(0,1fr)]">
+          {portfolioRowsLg.map((row, ri) => {
+            const cardRow = ri * 2 + 1;
+            return (
+              <Fragment key={`lg-row-${ri}`}>
+                {row.map((company, ci) => (
+                  <CompanyCard
+                    key={company.name}
+                    company={company}
+                    onReadMore={() => setSelected(company)}
+                    className="min-h-0"
+                    style={{
+                      gridColumn: 1 + ci * 2,
+                      gridRow: cardRow,
+                    }}
+                  />
+                ))}
+                {row.length >= 2 && <VerticalGutterTrack gridColumn={2} gridRow={cardRow} />}
+                {row.length >= 3 && <VerticalGutterTrack gridColumn={4} gridRow={cardRow} />}
+                {ri < portfolioRowsLg.length - 1 && (
+                  <HorizontalGutterRow
+                    gridColumnSpanClass="col-span-5"
+                    gridRow={ri * 2 + 2}
+                  />
+                )}
+              </Fragment>
+            );
+          })}
         </div>
       </section>
 
