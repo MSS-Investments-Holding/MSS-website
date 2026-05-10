@@ -118,28 +118,13 @@ function PlusIcon() {
 }
 
 /*
- * Padding: 24px on each side of every column divider.
- * First card in each row = no left pad; last = no right pad.
- * lg:pl-0 / lg:pr-0 explicitly override lower-breakpoint classes.
+ * 24px horizontal padding on every side of every card at tablet/desktop.
+ * Outer edges (first col left, last col right) get the same 24px as the
+ * inner divider sides — all four edges of the grid are symmetric.
+ * No extra padding on mobile (1-col): section px-5 is sufficient there.
  */
-function cardPaddingClasses(i: number, total: number): string {
-  const lgRight = i < total - 1 && Math.floor(i / 3) === Math.floor((i + 1) / 3);
-  const mdRight = i < total - 1 && Math.floor(i / 2) === Math.floor((i + 1) / 2);
-  const lgCol = i % 3;
-  const mdCol = i % 2;
-  const cls: string[] = [];
-
-  // Left padding (non-first columns only)
-  if (mdCol !== 0) cls.push("md:pl-6");
-  if (lgCol !== 0) cls.push("lg:pl-6");
-  if (lgCol === 0) cls.push("lg:pl-0"); // override md:pl-6 when lg resets to col-0
-
-  // Right padding (only when a right border exists)
-  if (mdRight) cls.push("md:pr-6");
-  if (lgRight) cls.push("lg:pr-6");
-  if (!lgRight) cls.push("lg:pr-0"); // override md:pr-6 when no lg right border
-
-  return cls.join(" ");
+function cardPaddingClasses(): string {
+  return "md:px-6";
 }
 
 function cardBorderClasses(i: number, total: number): string {
@@ -205,7 +190,7 @@ export default function PortfolioGrid(): React.ReactElement {
           {companies.map((company, i) => (
             <article
               key={company.name}
-              className={`flex flex-col pt-4 pb-10 ${cardBorderClasses(i, companies.length)} ${cardPaddingClasses(i, companies.length)}`}
+              className={`flex flex-col pt-4 pb-10 ${cardBorderClasses(i, companies.length)} ${cardPaddingClasses()}`}
             >
               {/* Logo + external link */}
               <div className="flex items-start justify-between">
