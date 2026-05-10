@@ -70,8 +70,8 @@ const fieldBase = {
   paddingLeft: "0px",
   paddingRight: "16px",
   fontFamily: "var(--font-inter, system-ui, sans-serif)",
-  fontSize: "18px",
-  lineHeight: "28px",
+  fontSize: "15px",
+  lineHeight: "22px",
   color: "#1C1C1F",
   outline: "none",
 } as const;
@@ -457,7 +457,7 @@ export default function PitchPage() {
             fontWeight: 300,
             color: "#1C1C1F",
             margin: 0,
-            marginTop: "8px",
+            marginTop: "24px",
             maxWidth: "56%",
           }}
         >
@@ -631,8 +631,8 @@ export default function PitchPage() {
                 paddingRight: "16px",
                 paddingTop: "16px",
                 fontFamily: "var(--font-inter, system-ui, sans-serif)",
-                fontSize: "18px",
-                lineHeight: "28px",
+                fontSize: "15px",
+                lineHeight: "22px",
                 color: "#1C1C1F",
                 outline: "none",
                 resize: "vertical",
@@ -701,23 +701,20 @@ export default function PitchPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          6 · GENERAL INQUIRIES + MEDIA CONTACT
+          6 · GENERAL INQUIRIES + MEDIA CONTACT + CONTACT US
           Figma: divider at y=3881 (120px above it = form bottom), headings y=3945
-          Left col: General Inquiries (x=0 content)
-          Right col: Media contact (x=52% — same split as numbered rows)
+          Three 405px columns with vertical dividers between columns at desktop.
           Heading → subtext gap: 12px · subtext → email gap: 32px
          ══════════════════════════════════════════════════════════ */}
       <section aria-label="Contact Information" className="w-full bg-white px-5 md:px-12 lg:px-20">
-        <div style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
-
         {/*
          * pt-16 = 64px (Figma: divider y=3881, headings y=3945 → 64px gap ✓)
          * pb-20 = 80px (Figma: email bottom y=4065, divider y=4145 → 80px ✓)
          */}
-        <div className="flex flex-col lg:flex-row pt-16 gap-12 lg:gap-0">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8 pb-20">
 
-          {/* General Inquiries — left col (flex-1) */}
-          <div className="flex-1">
+          {/* General Inquiries */}
+          <div className="border-t border-[#D2D5D9] pt-16 text-center">
             <h3
               className="font-heading"
               style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -739,8 +736,8 @@ export default function PitchPage() {
             </a>
           </div>
 
-          {/* Media Contact — right col at 52% (same as numbered rows) */}
-          <div className="lg:w-[52%] lg:flex-shrink-0">
+          {/* Media Contact */}
+          <div className="border-t border-[#D2D5D9] pt-16 text-center lg:border-l lg:border-[#D2D5D9] lg:pl-8">
             <h3
               className="font-heading"
               style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -759,6 +756,29 @@ export default function PitchPage() {
               style={{ color: "#373738", display: "block", marginTop: "32px" }}
             >
               media@mssinvestmentsholding.com
+            </a>
+          </div>
+
+          {/* Contact Us */}
+          <div className="border-t border-[#D2D5D9] pt-16 text-center lg:border-l lg:border-[#D2D5D9] lg:pl-8">
+            <h3
+              className="font-heading"
+              style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+            >
+              Contact Us
+            </h3>
+            <p
+              className="font-body"
+              style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
+            >
+              For all support related matters, contact us at:
+            </p>
+            <a
+              href="tel:+971503840381"
+              className="font-body text-body-sm-emphasized"
+              style={{ color: "#373738", display: "block", marginTop: "32px" }}
+            >
+              +971 50 384 0381
             </a>
           </div>
         </div>
