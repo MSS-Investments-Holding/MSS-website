@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { getAllArticles } from "@/lib/sanity/queries";
@@ -45,14 +46,10 @@ export default async function NewsPage({
         className="relative w-full overflow-hidden flex flex-col"
         style={{ minHeight: "520px", backgroundColor: "#0B1738" }}
       >
-        <Image
+        <HeroBackgroundImage
           src="/images/news/news-hero-bg.jpg"
           alt=""
-          fill
-          priority
-          quality={90}
           className="object-cover object-center"
-          sizes="100vw"
         />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.30)" }} />
 

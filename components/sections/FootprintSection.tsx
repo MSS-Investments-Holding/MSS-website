@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import { useRef, useEffect, useState } from "react";
 import ArrowRight from "@/components/icons/ArrowRight";
 
@@ -36,12 +37,11 @@ export default function FootprintSection() {
       className="relative w-full overflow-hidden h-[920px] md:h-[766px]"
     >
       {/* Background image */}
-      <Image
+      <HeroBackgroundImage
         src="/images/home/footprint-bg.jpg"
         alt=""
-        fill
         className="object-cover object-center"
-        sizes="100vw"
+        priority={false}
       />
 
       {/* Scroll-driven card wrapper — translateY disabled on mobile */}

@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -27,14 +27,10 @@ export default function NotFound(): ReactElement {
         aria-label="Page not found"
         className="relative h-[520px] w-full shrink-0 overflow-hidden"
       >
-        <Image
+        <HeroBackgroundImage
           src="/images/404-hero-bg.jpg"
           alt=""
-          fill
-          priority
-          quality={90}
           className="z-0 object-cover object-center"
-          sizes="100vw"
         />
 
         <div className="relative z-20 shrink-0">

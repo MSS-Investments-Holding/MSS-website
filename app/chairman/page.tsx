@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -57,14 +58,10 @@ export default function ChairmanPage() {
         className="relative w-full overflow-hidden flex flex-col"
         style={{ minHeight: "930px", backgroundColor: "#1C1C1F" }}
       >
-        <Image
+        <HeroBackgroundImage
           src="/images/chairman/chairman-hero-bg.jpg"
           alt=""
-          fill
-          priority
-          quality={90}
           className="object-cover object-center"
-          sizes="100vw"
         />
 
         <div className="relative z-20">

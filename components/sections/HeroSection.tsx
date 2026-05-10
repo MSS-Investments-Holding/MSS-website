@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import type { SanityArticle } from "@/lib/sanity/types";
 import ArrowRight from "@/components/icons/ArrowRight";
@@ -16,14 +17,10 @@ export default function HeroSection({ articles }: Props) {
       aria-label="Hero"
     >
       {/* Background image */}
-      <Image
+      <HeroBackgroundImage
         src="/images/home/hero-bg.jpg"
         alt=""
-        fill
-        priority
-        quality={90}
         className="object-cover object-center"
-        sizes="100vw"
       />
       {/* Figma overlays: 10% OVERLAY + 10% NORMAL black */}
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)", mixBlendMode: "overlay" }} />

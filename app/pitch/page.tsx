@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -93,14 +94,10 @@ export default function PitchPage() {
         className="relative w-full overflow-hidden flex flex-col"
         style={{ minHeight: "930px" }}
       >
-        <Image
+        <HeroBackgroundImage
           src="/images/pitch/pitch-hero-bg.jpg"
           alt=""
-          fill
-          priority
-          quality={90}
           className="object-cover object-center"
-          sizes="100vw"
         />
         {/* Figma: RECTANGLE fill rgba(0,0,0,0.20) */}
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />

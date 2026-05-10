@@ -32,6 +32,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.sanity.io" },
     ],
     formats: ["image/avif", "image/webp"],
+    /** Long-lived cache for `/_next/image` responses (Sanity covers, etc.) */
+    minimumCacheTTL: 31_536_000,
   },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

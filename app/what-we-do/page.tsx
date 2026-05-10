@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -93,14 +94,10 @@ export default function WhatWeDoPage() {
         className="relative w-full overflow-hidden flex flex-col"
         style={{ minHeight: "930px", backgroundColor: "#1B1C1E" }}
       >
-        <Image
+        <HeroBackgroundImage
           src="/images/investments/hero-bg.jpg"
           alt=""
-          fill
-          priority
-          quality={90}
           className="object-cover object-center"
-          sizes="100vw"
         />
         {/* No overlay — Figma: image rectangle has IMAGE fill only, no solid fills */}
 

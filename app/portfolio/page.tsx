@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PortfolioGrid from "@/components/sections/PortfolioGrid";
@@ -30,14 +31,10 @@ export default function PortfolioPage(): React.ReactElement {
         className="relative w-full overflow-hidden flex flex-col"
         style={{ minHeight: "930px", backgroundColor: "#1B1C1E" }}
       >
-        <Image
+        <HeroBackgroundImage
           src="/images/portfolio/hero-bg.jpg"
           alt=""
-          fill
-          priority
-          quality={90}
           className="object-cover object-center"
-          sizes="100vw"
         />
         <div
           className="absolute inset-0"

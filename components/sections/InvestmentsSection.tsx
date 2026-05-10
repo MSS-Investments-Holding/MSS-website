@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import ArrowRight from "@/components/icons/ArrowRight";
 
 const cards = [
@@ -46,7 +46,12 @@ const GHOST_STYLE = {
 export default function InvestmentsSection() {
   return (
     <section aria-label="Investment Sectors" className="relative w-full overflow-hidden">
-      <Image src="/images/home/investments-section-bg.jpg" alt="" fill className="object-cover object-center" sizes="100vw" />
+      <HeroBackgroundImage
+        src="/images/home/investments-section-bg.jpg"
+        alt=""
+        className="object-cover object-center"
+        priority={false}
+      />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)" }} />
 
