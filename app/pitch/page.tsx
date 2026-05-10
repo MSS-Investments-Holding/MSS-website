@@ -342,7 +342,7 @@ export default function PitchPage() {
                   whiteSpace: "nowrap",
                 }}
               >
-                Send Us Your Pitch →
+                Send Us Your Pitch
               </a>
             </div>
           </div>
