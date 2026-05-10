@@ -345,7 +345,7 @@ export default function PortfolioGrid(): React.ReactElement {
               <button
                 onClick={() => setSelected(null)}
                 className="flex-shrink-0 flex items-center justify-center"
-                style={{ width: "40px", height: "40px", backgroundColor: "#F5E9DC" }}
+                style={{ width: "40px", height: "40px", backgroundColor: "#F5E9DC", cursor: "pointer" }}
                 aria-label="Close panel"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
