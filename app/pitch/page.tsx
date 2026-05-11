@@ -253,7 +253,7 @@ export default function PitchPage() {
          * Frame 55 is content-width (inside px-20 padding), h=702px on desktop.
          * overflow-hidden clips both the bg image and the globe that extend beyond.
          */}
-        <div className="relative w-full overflow-hidden min-h-[640px] md:min-h-0 md:h-auto min-[1440px]:h-[702px]">
+        <div className="relative w-full overflow-hidden h-auto min-[1440px]:h-[702px]">
 
           {/* Background image */}
           <Image
@@ -272,8 +272,8 @@ export default function PitchPage() {
            * At lg: left=5% proportional → xl:left-16 = 4rem = 64px (Figma exact)
            */}
           <div
-            className="absolute hidden md:block"
-            style={{ left: "5%", top: "80px", bottom: "80px", width: "1px", backgroundColor: "rgba(255,255,255,0.40)" }}
+            className="absolute block left-8 md:left-[5%]"
+            style={{ top: "clamp(64px, 5.6vw, 80px)", bottom: "clamp(64px, 5.6vw, 80px)", width: "1px", backgroundColor: "rgba(255,255,255,0.40)" }}
           />
 
           {/*
@@ -281,7 +281,7 @@ export default function PitchPage() {
            * pl: 8% (proportional) → at xl 1280px content: 8%×1280=102px ≈ 104px ✓
            * pt-20 = 80px ✓
            */}
-          <div className="relative z-10 px-8 pt-16 pb-16 md:px-16 md:pt-20 md:pb-20 md:max-w-[72%] lg:px-0 lg:pl-[8%] min-[1440px]:max-w-[52%]">
+          <div className="relative z-10 px-10 py-16 md:px-16 md:py-20 md:max-w-[72%] lg:px-0 lg:pl-[8%] min-[1440px]:max-w-[52%]">
             <span
               className="text-label font-body block"
               style={{ color: "rgba(255,255,255,0.80)" }}
