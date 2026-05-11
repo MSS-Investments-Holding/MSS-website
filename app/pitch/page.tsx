@@ -129,7 +129,7 @@ export default function PitchPage() {
             </h1>
           </div>
 
-          <div className="w-full lg:w-[44%] xl:w-[560px] flex flex-col justify-end pb-10 lg:pb-[40px]">
+          <div className="w-full md:w-1/2 md:ml-auto lg:ml-0 lg:w-[44%] xl:w-[560px] flex flex-col justify-end pb-10 lg:pb-[40px]">
             <p
               className="font-body text-white"
               style={{ fontSize: "clamp(1.0625rem, 1.5vw, 1.125rem)", lineHeight: "clamp(26px, 2vw, 28px)", letterSpacing: "-0.18px" }}
@@ -204,9 +204,9 @@ export default function PitchPage() {
           {conversations.map((item) => (
             <div key={item.number}>
               <div style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
-              <div className="flex flex-col lg:flex-row py-10 gap-3 lg:gap-0">
-                {/* Number column — 52% at lg, full width stacked at mobile */}
-                <div className="lg:w-[52%] lg:flex-shrink-0">
+              <div className="flex flex-col md:flex-row py-10 gap-3 md:gap-0">
+                {/* Number column — left side from tablet up, full width stacked at mobile */}
+                <div className="md:w-1/2 md:flex-shrink-0 lg:w-[52%]">
                   <span
                     className="font-heading"
                     style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#C5D3E5" }}
@@ -214,8 +214,8 @@ export default function PitchPage() {
                     {item.number}
                   </span>
                 </div>
-                {/* Content — flex-1 takes remaining 48% */}
-                <div className="flex-1 min-w-0">
+                {/* Content — right side from tablet up, matching the desktop row organization */}
+                <div className="flex-1 min-w-0 md:w-1/2 md:flex-none lg:flex-1">
                   <h3
                     className="font-heading break-words"
                     style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -253,7 +253,7 @@ export default function PitchPage() {
          * Frame 55 is content-width (inside px-20 padding), h=702px on desktop.
          * overflow-hidden clips both the bg image and the globe that extend beyond.
          */}
-        <div className="relative w-full overflow-hidden min-h-[640px] md:min-h-[702px] lg:h-[702px] lg:min-h-0">
+        <div className="relative w-full overflow-hidden min-h-[640px] md:min-h-0 md:h-auto min-[1440px]:h-[702px]">
 
           {/* Background image */}
           <Image
@@ -272,8 +272,8 @@ export default function PitchPage() {
            * At lg: left=5% proportional → xl:left-16 = 4rem = 64px (Figma exact)
            */}
           <div
-            className="absolute hidden lg:block"
-            style={{ left: "5%", top: "80px", width: "1px", height: "542px", backgroundColor: "rgba(255,255,255,0.40)" }}
+            className="absolute hidden md:block"
+            style={{ left: "5%", top: "80px", bottom: "80px", width: "1px", backgroundColor: "rgba(255,255,255,0.40)" }}
           />
 
           {/*
@@ -281,7 +281,7 @@ export default function PitchPage() {
            * pl: 8% (proportional) → at xl 1280px content: 8%×1280=102px ≈ 104px ✓
            * pt-20 = 80px ✓
            */}
-          <div className="relative z-10 px-8 pt-16 md:px-16 md:pt-20 lg:px-0 lg:pl-[8%] lg:max-w-[52%]">
+          <div className="relative z-10 px-8 pt-16 pb-16 md:px-16 md:pt-20 md:pb-20 md:max-w-[72%] lg:px-0 lg:pl-[8%] min-[1440px]:max-w-[52%]">
             <span
               className="text-label font-body block"
               style={{ color: "rgba(255,255,255,0.80)" }}
@@ -328,7 +328,7 @@ export default function PitchPage() {
             </p>
 
             {/* Button: body ends at 486px, button at 582px → gap 96px (mt-24) ✓ */}
-            <div className="mt-12 lg:mt-24">
+            <div className="mt-12 md:mt-24">
               <a
                 href="#pitch-form"
                 className="inline-flex items-center font-body"
@@ -354,7 +354,7 @@ export default function PitchPage() {
            * 1200×1200px, overflows frame on all sides, clipped by overflow-hidden.
            */}
           <div
-            className="absolute hidden lg:block pointer-events-none"
+            className="absolute hidden min-[1440px]:block pointer-events-none"
             style={{ left: "62.5%", top: "-249px", width: "1200px", height: "1200px" }}
           >
             <Image
