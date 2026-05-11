@@ -250,7 +250,7 @@ export default function PitchPage() {
          * Frame 55 is content-width (inside px-20 padding), h=702px on desktop.
          * overflow-hidden clips both the bg image and the globe that extend beyond.
          */}
-        <div className="relative w-full overflow-hidden h-auto min-[1440px]:h-[702px]">
+        <div className="relative w-full overflow-hidden h-auto">
 
           {/* Background image */}
           <Image
@@ -297,7 +297,7 @@ export default function PitchPage() {
                 lineHeight: "1.167",
                 fontWeight: 300,
                 margin: 0,
-                marginTop: "clamp(64px, 6.7vw, 96px)",
+                marginTop: "clamp(80px, 6.7vw, 96px)",
                 maxWidth: "520px",
               }}
             >
@@ -324,26 +324,6 @@ export default function PitchPage() {
               value rather than short-term momentum.
             </p>
 
-            {/* Button: body ends at 486px, button at 582px → gap 96px (mt-24) ✓ */}
-            <div className="mt-12 md:mt-24">
-              <a
-                href="#pitch-form"
-                className="inline-flex items-center font-body"
-                style={{
-                  height: "40px",
-                  backgroundColor: "#FFFFFF",
-                  color: "#1C1C1F",
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                  letterSpacing: "-0.32px",
-                  paddingLeft: "20px",
-                  paddingRight: "20px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Send Us Your Pitch
-              </a>
-            </div>
           </div>
 
           {/*
