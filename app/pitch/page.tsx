@@ -278,7 +278,7 @@ export default function PitchPage() {
            * pl: 8% (proportional) → at xl 1280px content: 8%×1280=102px ≈ 104px ✓
            * pt-20 = 80px ✓
            */}
-          <div className="relative z-10 p-6 md:px-16 md:py-20 md:max-w-[72%] lg:px-0 lg:pl-[8%] min-[1440px]:max-w-[52%]">
+          <div className="relative z-10 px-6 py-10 md:px-16 md:py-20 md:max-w-[72%] lg:px-0 lg:pl-[8%] min-[1440px]:max-w-[52%]">
             <span
               className="text-label font-body block"
               style={{ color: "rgba(255,255,255,0.80)" }}
