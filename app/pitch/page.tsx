@@ -173,14 +173,12 @@ export default function PitchPage() {
         </span>
 
         {/*
-         * Full-width Merriweather 36px/42px — spans the full 1280px content width.
-         * clamp: 24px(1.5rem) at narrow → 36px(2.25rem) at 1440px via 2.5vw.
+         * H3 token: desktop 36px/42px, mobile 28px/34px.
+         * Spans the full 1280px content width.
          */}
         <h2
-          className="font-heading max-w-full"
+          className="font-heading text-h3 max-w-full"
           style={{
-            fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)",
-            lineHeight: "1.167",
             fontWeight: 300,
             color: "#1C1C1F",
             margin: 0,
@@ -216,8 +214,8 @@ export default function PitchPage() {
                 {/* Content — right side from tablet up, matching the desktop row organization */}
                 <div className="flex-1 min-w-0 md:w-1/2 md:flex-none lg:flex-1">
                   <h3
-                    className="font-heading break-words"
-                    style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+                    className="font-heading text-h4 break-words"
+                    style={{ fontWeight: 300, color: "#1C1C1F", margin: 0 }}
                   >
                     {item.title}
                   </h3>
