@@ -84,7 +84,7 @@ export default function PitchPage() {
     <main id="main-content" className="overflow-x-hidden">
 
       {/* ══════════════════════════════════════════════════════════
-          1 · HERO  (h=930px min)
+          1 · HERO  (h=880px mobile, 930px md+)
           Figma: H1 at absolute y=-61 → 280px from section top
                  Nav h=94px → H1 pt = 280-94 = 186px below nav
                  Body at y=742px, button at y=850px from section top
@@ -92,8 +92,7 @@ export default function PitchPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Pitch to Us Hero"
-        className="relative w-full overflow-hidden flex flex-col"
-        style={{ minHeight: "930px" }}
+        className="relative w-full overflow-hidden flex flex-col min-h-[880px] md:min-h-[930px]"
       >
         <HeroBackgroundImage
           src="/images/pitch/pitch-hero-bg.jpg"
