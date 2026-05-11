@@ -244,7 +244,7 @@ export default function PitchPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="What We Look For"
-        className="w-full bg-white px-5 md:px-12 lg:px-20"
+        className="w-full bg-white px-6 md:px-12 lg:px-20"
       >
         {/*
          * Frame 55 is content-width (inside px-20 padding), h=702px on desktop.
@@ -269,7 +269,7 @@ export default function PitchPage() {
            * At lg: left=5% proportional → xl:left-16 = 4rem = 64px (Figma exact)
            */}
           <div
-            className="absolute block left-8 md:left-[5%]"
+            className="absolute hidden md:block md:left-[5%]"
             style={{ top: "clamp(64px, 5.6vw, 80px)", bottom: "clamp(64px, 5.6vw, 80px)", width: "1px", backgroundColor: "rgba(255,255,255,0.40)" }}
           />
 
@@ -278,7 +278,7 @@ export default function PitchPage() {
            * pl: 8% (proportional) → at xl 1280px content: 8%×1280=102px ≈ 104px ✓
            * pt-20 = 80px ✓
            */}
-          <div className="relative z-10 px-10 py-16 md:px-16 md:py-20 md:max-w-[72%] lg:px-0 lg:pl-[8%] min-[1440px]:max-w-[52%]">
+          <div className="relative z-10 p-6 md:px-16 md:py-20 md:max-w-[72%] lg:px-0 lg:pl-[8%] min-[1440px]:max-w-[52%]">
             <span
               className="text-label font-body block"
               style={{ color: "rgba(255,255,255,0.80)" }}
