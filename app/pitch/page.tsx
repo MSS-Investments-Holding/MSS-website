@@ -690,9 +690,9 @@ export default function PitchPage() {
       <section aria-label="Contact Information" className="w-full bg-white px-5 md:px-12 lg:px-20">
         {/*
          * pt-16 = 64px (Figma: divider y=3881, headings y=3945 → 64px gap ✓)
-         * pb-20 = 80px (Figma: email bottom y=4065, divider y=4145 → 80px ✓)
+         * Footer owns the 80px gap above its top divider via mt-20.
          */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8 pb-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8">
 
           {/* General Inquiries */}
           <div className="border-t border-[#D2D5D9] pt-16 text-center min-w-0">
