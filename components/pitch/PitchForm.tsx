@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitPitch } from "@/app/pitch/actions";
+import ArrowRight from "@/components/icons/ArrowRight";
 
 const fieldBase = {
   display: "block",
@@ -38,44 +39,43 @@ function FieldError({ message }: { message?: string }) {
   );
 }
 
-function SubmitButton() {
+function SubmitButton({ termsAccepted }: { termsAccepted: boolean }) {
   const { pending } = useFormStatus();
+  const disabled = pending || !termsAccepted;
 
   return (
     <button
       type="submit"
-      disabled={pending}
-      className="font-body text-white inline-flex items-center justify-center transition-opacity disabled:cursor-not-allowed disabled:opacity-60"
+      disabled={disabled}
+      className="font-body inline-flex items-center justify-center gap-[8px] transition-colors disabled:cursor-not-allowed"
       style={{
         minWidth: "134px",
         height: "40px",
         paddingLeft: "20px",
-        paddingRight: "20px",
-        backgroundColor: "#1C1C1F",
+        paddingRight: "16px",
+        backgroundColor: disabled ? "#E8E9EB" : "#1C1C1F",
+        color: disabled ? "#AEB0B3" : "#FFFFFF",
         fontSize: "16px",
         lineHeight: "24px",
         letterSpacing: "-0.32px",
         border: "none",
-        cursor: pending ? "not-allowed" : "pointer",
+        cursor: disabled ? "not-allowed" : "pointer",
       }}
     >
-      {pending ? "Sending..." : "Send Pitch →"}
+      {pending ? "Sending..." : "Send Pitch"}
+      {!pending ? <ArrowRight size="lg" fill="currentColor" /> : null}
     </button>
   );
 }
 
 export default function PitchForm() {
   const [state, formAction] = useActionState(submitPitch, initialState);
-  const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    if (state.ok) {
-      formRef.current?.reset();
-    }
-  }, [state.ok]);
+  const [location, setLocation] = useState("");
+  const [inquiryType, setInquiryType] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   return (
-    <form ref={formRef} className="w-full lg:w-[64%]" action={formAction} noValidate>
+    <form className="w-full lg:w-[64%]" action={formAction} noValidate>
       <div className="hidden" aria-hidden="true">
         <label htmlFor="company_website">Company website</label>
         <input
@@ -131,14 +131,15 @@ export default function PitchForm() {
             <select
               name="location"
               required
+              value={location}
+              onChange={(event) => setLocation(event.target.value)}
               style={{
                 ...fieldBase,
                 appearance: "none",
                 WebkitAppearance: "none",
                 paddingRight: "40px",
-                color: "#AEB0B3",
+                color: location ? "#1C1C1F" : "#AEB0B3",
               }}
-              defaultValue=""
             >
               <option value="" disabled>Your Location</option>
               <optgroup label="MSS Presence">
@@ -214,14 +215,15 @@ export default function PitchForm() {
         <select
           name="inquiry_type"
           required
+          value={inquiryType}
+          onChange={(event) => setInquiryType(event.target.value)}
           style={{
             ...fieldBase,
             appearance: "none",
             WebkitAppearance: "none",
             paddingRight: "40px",
-            color: "#AEB0B3",
+            color: inquiryType ? "#1C1C1F" : "#AEB0B3",
           }}
-          defaultValue=""
         >
           <option value="" disabled>Inquiry Type</option>
           <option value="founders">Founders &amp; Ventures</option>
@@ -289,6 +291,8 @@ export default function PitchForm() {
             id="terms"
             name="terms"
             required
+            checked={termsAccepted}
+            onChange={(event) => setTermsAccepted(event.target.checked)}
             style={{ width: "16px", height: "16px", flexShrink: 0, marginTop: "3px", accentColor: "#1C1C1F" }}
           />
           <label htmlFor="terms" className="font-body min-w-0" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", overflowWrap: "anywhere" }}>
@@ -318,7 +322,7 @@ export default function PitchForm() {
 
       {/* Submit button — 64px gap (Figma: btn y=3721, checkbox2 bottom y=3657 → 64px) */}
       <div style={{ marginTop: "64px" }}>
-        <SubmitButton />
+        <SubmitButton termsAccepted={termsAccepted} />
       </div>
     </form>
   );
