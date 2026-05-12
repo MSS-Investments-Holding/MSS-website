@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitPitch } from "@/app/pitch/actions";
 import ArrowRight from "@/components/icons/ArrowRight";
@@ -73,6 +73,18 @@ export default function PitchForm() {
   const [location, setLocation] = useState("");
   const [inquiryType, setInquiryType] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
+
+  useEffect(() => {
+    if (!state.ok) return;
+
+    const frame = requestAnimationFrame(() => {
+      setLocation("");
+      setInquiryType("");
+      setTermsAccepted(false);
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [state.ok]);
 
   return (
     <form className="w-full lg:w-[64%]" action={formAction} noValidate>
