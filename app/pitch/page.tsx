@@ -116,12 +116,12 @@ export default function PitchPage() {
         <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
           <div className="flex-1 pt-24 lg:pt-[186px] pb-10">
             <h1
-              className="font-heading text-white"
+              className="font-heading text-white w-full md:w-[calc(50vw-40px)]"
               style={{
                 fontSize: "clamp(3rem, 5vw, 4.5rem)",
                 lineHeight: "1.056",
                 fontWeight: 300,
-                maxWidth: "520px",
+                maxWidth: "800px",
               }}
             >
               A Starting Point for Strategic Growth
