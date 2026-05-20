@@ -4,7 +4,7 @@ import ArrowRight from "@/components/icons/ArrowRight";
 const stats = [
   { value: "$1.5B+", label: "Strategic capital across the broader financial ecosystem.", bg: "#F5E9DC", valueColor: "#1C1C1F", labelColor: "#373738" },
   { value: "7+",     label: "Ventures operating across emerging, priority sectors.",    bg: "#0B1738", valueColor: "#FFFFFF",  labelColor: "#E8E9EB" },
-  { value: "200+",   label: "Collective workforce driving execution across the MSS ecosystem.", bg: "#C5D3E5", valueColor: "#1C1C1F", labelColor: "#373738" },
+  { value: "100+",   label: "Collective workforce driving execution across the MSS ecosystem.", bg: "#C5D3E5", valueColor: "#1C1C1F", labelColor: "#373738" },
 ];
 
 export default function CompanySection() {

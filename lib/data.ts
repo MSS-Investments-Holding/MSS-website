@@ -35,7 +35,7 @@ export const stats = [
     bg: "navy",
   },
   {
-    value: "200+",
+    value: "100+",
     label: "Collective workforce driving execution across the MSS ecosystem.",
     bg: "silver",
   },
