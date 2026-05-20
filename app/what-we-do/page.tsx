@@ -75,7 +75,7 @@ const icons = [IconCapital, IconDirection, IconAccess, IconExecution];
 const stats = [
   { value: "$1.5B+", label: "Strategic capital across the broader financial ecosystem.", bg: "#F5E9DC", textColor: "#1C1C1F", labelColor: "#373738" },
   { value: "7+",    label: "Ventures operating across emerging, priority sectors.",    bg: "#0B1738", textColor: "#FFFFFF",  labelColor: "rgba(232,233,234,1)" },
-  { value: "200+",  label: "Collective workforce driving execution across the MSS ecosystem.", bg: "#C5D3E5", textColor: "#1C1C1F", labelColor: "#373738" },
+  { value: "100+",  label: "Collective workforce driving execution across the MSS ecosystem.", bg: "#C5D3E5", textColor: "#1C1C1F", labelColor: "#373738" },
   { value: "8+",    label: "Markets represented across the MSS footprint.",            bg: "#E8E9EB", textColor: "#1C1C1F", labelColor: "#373738" },
 ];
 
