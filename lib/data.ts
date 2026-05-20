@@ -67,7 +67,7 @@ export const sectors = [
     icon: "digital-asset",
   },
   {
-    title: "Digital Media",
+    title: "Performance Digital Marketing",
     description:
       "We back digital platforms and media-led businesses shaping how audiences engage, consume, and interact with content globally.",
     icon: "media",
