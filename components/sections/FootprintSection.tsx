@@ -84,7 +84,7 @@ export default function FootprintSection() {
               marginTop: "12px",
             }}
           >
-            With exposure across the UAE, Pakistan, UK, and wider regional
+            With exposure across the UAE, UK, Switzerland and wider regional
             growth markets, we are positioned where capital, infrastructure, and
             long-term opportunity increasingly converge. Our geographic presence
             reflects a deliberate alignment with markets driving the next phase
