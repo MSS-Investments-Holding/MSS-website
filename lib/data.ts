@@ -221,7 +221,7 @@ export const footerLinks = {
     { label: "X — Formerly Twitter", href: "#" },
   ],
   legal: [
-    { label: "Terms and Conditions", href: "/legal/terms" },
+    { label: "Terms & Conditions", href: "/legal/terms" },
     { label: "Privacy Policy", href: "/legal/privacy" },
     { label: "Cookies Policy", href: "/legal/cookies" },
   ],

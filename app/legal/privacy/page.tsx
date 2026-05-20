@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const sections: LegalSection[] = [
   {
     heading: "Introduction",
-    body: "MSS Investments Holding is committed to protecting the privacy of individuals who interact with our website, submit inquiries, or engage with us through our digital channels. This Privacy Policy explains how we collect, use, store, share, and protect personal information in connection with your use of our website.\n\nBy accessing or using this website, or by submitting information to us, you acknowledge that you have read and understood this Privacy Policy. This policy should be read alongside our Terms and Conditions and Cookie Policy.",
+    body: "MSS Investments Holding is committed to protecting the privacy of individuals who interact with our website, submit inquiries, or engage with us through our digital channels. This Privacy Policy explains how we collect, use, store, share, and protect personal information in connection with your use of our website.\n\nBy accessing or using this website, or by submitting information to us, you acknowledge that you have read and understood this Privacy Policy. This policy should be read alongside our Terms & Conditions and Cookie Policy.",
   },
   {
     heading: "Information We Collect",

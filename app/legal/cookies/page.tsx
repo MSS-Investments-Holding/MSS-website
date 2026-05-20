@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const sections: LegalSection[] = [
   {
     heading: "Introduction",
-    body: "This Cookie Policy explains how MSS Investments Holding uses cookies and similar tracking technologies when you visit our website. It describes what cookies are, why we use them, and what choices you have regarding their use.\n\nThis Cookie Policy should be read alongside our Privacy Policy and Terms and Conditions. By continuing to use our website, you acknowledge that you have read and understood how we use cookies as described in this policy.",
+    body: "This Cookie Policy explains how MSS Investments Holding uses cookies and similar tracking technologies when you visit our website. It describes what cookies are, why we use them, and what choices you have regarding their use.\n\nThis Cookie Policy should be read alongside our Privacy Policy and Terms & Conditions. By continuing to use our website, you acknowledge that you have read and understood how we use cookies as described in this policy.",
   },
   {
     heading: "What Are Cookies",

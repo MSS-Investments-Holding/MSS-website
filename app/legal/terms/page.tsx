@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import LegalPageLayout, { type LegalSection } from "@/components/legal/LegalPageLayout";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | MSS Investments Holding",
+  title: "Terms & Conditions | MSS Investments Holding",
   description:
-    "Terms and Conditions governing access to and use of the MSS Investments Holding website.",
+    "Terms & Conditions governing access to and use of the MSS Investments Holding website.",
 };
 
 const sections: LegalSection[] = [
@@ -65,7 +65,7 @@ const sections: LegalSection[] = [
 export default function TermsPage() {
   return (
     <LegalPageLayout
-      title="Terms and Conditions"
+      title="Terms & Conditions"
       lastUpdated="Last updated: January 22, 2026"
       sections={sections}
     />
