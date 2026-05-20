@@ -34,7 +34,7 @@ const leaders = [
     role: "Director",
     // Full frame exported from Figma node 242:5027 — includes navy background
     image: "/images/about/leadership/leader-husnain-frame.png",
-    bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With leadership roles tied to major digital finance and transformation initiatives in Pakistan, he contributes deep expertise in strategy, investments, and business development to MSS.",
+    bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With leadership roles tied to major digital finance and transformation initiatives in Pakistan, he contributes deep expertise in strategy and investments.",
   },
 ];
 
