@@ -80,10 +80,6 @@ export default function ChairmanPage() {
           <h1 className="chairman-hero-title font-heading text-white">
             Building with Vision, Discipline, and Purpose
           </h1>
-
-          <p className="chairman-hero-bio font-body">
-            Vincent brings over four decades of experience across executive leadership, governance, private banking, acquisitions, and restructuring. His perspective helps guide MSS with a focus on institutional discipline, strategic growth, and long-term value creation.
-          </p>
         </div>
       </section>
 

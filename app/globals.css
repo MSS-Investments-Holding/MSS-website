@@ -293,18 +293,6 @@ body {
   font-weight: 300;
 }
 
-.chairman-hero-bio {
-  position: absolute;
-  left: 20px;
-  top: 678px;
-  width: calc(100vw - 40px);
-  max-width: 362px;
-  color: #F0F2F5;
-  font-size: 17px;
-  line-height: 26px;
-  letter-spacing: -0.17px;
-}
-
 .chairman-portrait-frame {
   width: 100%;
   height: 340px;
@@ -476,17 +464,6 @@ body {
     max-width: 720px;
     font-size: clamp(2.25rem, 5vw, 4.5rem);
     line-height: 76px;
-  }
-
-  .chairman-hero-bio {
-    left: calc(50% + 80px);
-    top: 750px;
-    width: 560px;
-    max-width: 560px;
-    color: #FFFFFF;
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: -0.18px;
   }
 
   .chairman-portrait-frame {
