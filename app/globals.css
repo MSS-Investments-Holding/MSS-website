@@ -465,12 +465,12 @@ body {
   }
 
   .chairman-hero-label {
-    left: 80px;
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
     top: 250px;
   }
 
   .chairman-hero-title {
-    left: 80px;
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
     top: 298px;
     width: 720px;
     max-width: 720px;
