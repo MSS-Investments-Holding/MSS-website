@@ -512,7 +512,7 @@ export default function AboutPage() {
             </p>
             <div style={{ marginTop: "56px" }}>
               <Link
-                href="/about/careers"
+                href="/careers"
                 className="inline-flex items-center font-body"
                 style={{
                   height: "40px",

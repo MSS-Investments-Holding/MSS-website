@@ -22,7 +22,7 @@ const exploreCol1 = [
 const exploreCol2 = [
   { label: "Chairman Message", href: "/chairman" },
   { label: "Portfolio",        href: "/portfolio" },
-  { label: "Careers",         href: "/about/careers" },
+  { label: "Careers",         href: "/careers" },
 ];
 
 const socialLinks = [

@@ -4,12 +4,7 @@ export const navLinks = [
   {
     label: "About Us",
     href: "/about",
-    hasDropdown: true,
-    dropdownItems: [
-      { label: "Overview",    href: "/about" },
-      { label: "Leadership",  href: "/about/leadership" },
-      { label: "Careers",     href: "/about/careers" },
-    ],
+    hasDropdown: false,
   },
   {
     label: "What We Do",
@@ -216,7 +211,7 @@ export const footerLinks = {
   more: [
     { label: "Chairman Message", href: "/chairman" },
     { label: "Portfolio", href: "/portfolio" },
-    { label: "Careers", href: "/about/careers" },
+    { label: "Careers", href: "/careers" },
   ],
   social: [
     { label: "LinkedIn", href: "#" },
