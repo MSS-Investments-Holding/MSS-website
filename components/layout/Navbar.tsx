@@ -7,7 +7,6 @@ import { navLinks } from "@/lib/data";
 
 const DROPDOWN_LEFT: Record<string, string> = {
   "About Us":   "0px",
-  "What We Do": "111px",
 };
 
 const dropdownStyle: React.CSSProperties = {

@@ -1,19 +1,25 @@
 import { NEWS_ENABLED } from "@/lib/features";
 
-export const navLinks = [
+type NavLink = {
+  label: string;
+  href: string;
+  hasDropdown: boolean;
+  dropdownItems?: Array<{
+    label: string;
+    href: string;
+  }>;
+};
+
+export const navLinks: NavLink[] = [
   {
     label: "About Us",
     href: "/about",
     hasDropdown: false,
   },
   {
-    label: "What We Do",
-    href: "/what-we-do",
-    hasDropdown: true,
-    dropdownItems: [
-      { label: "Overview",  href: "/what-we-do" },
-      { label: "Portfolio", href: "/portfolio" },
-    ],
+    label: "Portfolio",
+    href: "/portfolio",
+    hasDropdown: false,
   },
   { label: "How We Invest", href: "/how-we-invest", hasDropdown: false },
   ...(NEWS_ENABLED
@@ -203,14 +209,13 @@ export const heroNewsItems = [
 export const footerLinks = {
   explore: [
     { label: "About Us", href: "/about" },
-    { label: "What We Do", href: "/what-we-do" },
+    { label: "Portfolio", href: "/portfolio" },
     { label: "How We Invest", href: "/how-we-invest" },
     ...(NEWS_ENABLED ? [{ label: "News & Media", href: "/news" }] : []),
     { label: "Pitch to Us", href: "/pitch" },
   ],
   more: [
     { label: "Chairman Message", href: "/chairman" },
-    { label: "Portfolio", href: "/portfolio" },
     { label: "Careers", href: "/careers" },
   ],
   social: [

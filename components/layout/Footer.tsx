@@ -13,7 +13,7 @@ import { NEWS_ENABLED } from "@/lib/features";
 
 const exploreCol1 = [
   { label: "About Us",        href: "/about" },
-  { label: "What We Do",      href: "/what-we-do" },
+  { label: "Portfolio",       href: "/portfolio" },
   { label: "How We Invest",   href: "/how-we-invest" },
   ...(NEWS_ENABLED ? [{ label: "News & Media", href: "/news" }] : []),
   { label: "Pitch to Us",     href: "/pitch" },
@@ -21,7 +21,6 @@ const exploreCol1 = [
 
 const exploreCol2 = [
   { label: "Chairman Message", href: "/chairman" },
-  { label: "Portfolio",        href: "/portfolio" },
   { label: "Careers",         href: "/careers" },
 ];
 
