@@ -138,7 +138,7 @@ body {
 }
 
 .partners-marquee:hover {
-  animation-play-state: paused;
+  animation-duration: 31.111s;
 }
 
 .mss-shared-cta-frame {
