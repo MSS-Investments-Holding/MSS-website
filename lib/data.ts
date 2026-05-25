@@ -1,3 +1,5 @@
+import { NEWS_ENABLED } from "@/lib/features";
+
 export const navLinks = [
   {
     label: "About Us",
@@ -19,7 +21,9 @@ export const navLinks = [
     ],
   },
   { label: "How We Invest", href: "/how-we-invest", hasDropdown: false },
-  { label: "News & Media",  href: "/news",        hasDropdown: false },
+  ...(NEWS_ENABLED
+    ? [{ label: "News & Media", href: "/news", hasDropdown: false }]
+    : []),
   { label: "Pitch to Us",   href: "/pitch",       hasDropdown: false },
 ];
 
@@ -206,7 +210,7 @@ export const footerLinks = {
     { label: "About Us", href: "/about" },
     { label: "What We Do", href: "/what-we-do" },
     { label: "How We Invest", href: "/how-we-invest" },
-    { label: "News & Media", href: "/news" },
+    ...(NEWS_ENABLED ? [{ label: "News & Media", href: "/news" }] : []),
     { label: "Pitch to Us", href: "/pitch" },
   ],
   more: [

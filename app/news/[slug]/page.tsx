@@ -8,12 +8,15 @@ import Footer from "@/components/layout/Footer";
 import { getArticleBySlug, getAllArticleSlugs, getAllArticles } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import { formatDate } from "@/lib/formatDate";
+import { NEWS_ENABLED } from "@/lib/features";
 
 // Revalidate every 60 s so new Sanity content appears within a minute
 export const revalidate = 60;
 
 /* ── Static params (generated from Sanity slugs) ─────────────── */
 export async function generateStaticParams() {
+  if (!NEWS_ENABLED) return [];
+
   const slugs = await getAllArticleSlugs();
   return slugs.map((slug) => ({ slug }));
 }
@@ -24,6 +27,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  if (!NEWS_ENABLED) return {};
+
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
   if (!article) return {};
@@ -88,6 +93,8 @@ export default async function ArticlePage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  if (!NEWS_ENABLED) notFound();
+
   const { slug } = await params;
   const [article, allArticles] = await Promise.all([
     getArticleBySlug(slug),

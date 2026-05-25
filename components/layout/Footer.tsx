@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { NEWS_ENABLED } from "@/lib/features";
 
 /*
  * Footer — Figma y=8056 to y=8740 (684px total)
@@ -14,7 +15,7 @@ const exploreCol1 = [
   { label: "About Us",        href: "/about" },
   { label: "What We Do",      href: "/what-we-do" },
   { label: "How We Invest",   href: "/how-we-invest" },
-  { label: "News & Media",    href: "/news" },
+  ...(NEWS_ENABLED ? [{ label: "News & Media", href: "/news" }] : []),
   { label: "Pitch to Us",     href: "/pitch" },
 ];
 

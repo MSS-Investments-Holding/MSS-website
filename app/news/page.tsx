@@ -6,6 +6,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { getAllArticles } from "@/lib/sanity/queries";
 import { formatDate } from "@/lib/formatDate";
+import { NEWS_ENABLED } from "@/lib/features";
+import { notFound } from "next/navigation";
 
 export const revalidate = 60;
 
@@ -22,6 +24,8 @@ export default async function NewsPage({
 }: {
   searchParams: Promise<{ category?: string }>;
 }) {
+  if (!NEWS_ENABLED) notFound();
+
   const params = await searchParams;
   const active = params.category || "all";
 
