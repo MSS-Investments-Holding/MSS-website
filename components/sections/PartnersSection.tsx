@@ -1,12 +1,12 @@
 const partners = [
-  { src: "/images/icons/partner-01.svg", width: 140, height: 40, alt: "" },
-  { src: "/images/icons/partner-02.svg", width: 159, height: 40, alt: "" },
-  { src: "/images/icons/partner-03.svg", width: 160, height: 40, alt: "" },
-  { src: "/images/icons/partner-04.svg", width: 110, height: 40, alt: "" },
-  { src: "/images/icons/partner-05.svg", width: 110, height: 40, alt: "" },
-  { src: "/images/icons/partner-06.svg", width: 111, height: 40, alt: "" },
-  { src: "/images/icons/partner-07.png", width: 123, height: 40, alt: "" },
-  { src: "/images/icons/partner-08.png", width: 152, height: 40, alt: "" },
+  { src: "/images/icons/partner-01.svg", width: 140, maxHeight: 40, alt: "Binance" },
+  { src: "/images/icons/partner-02.svg", width: 159, maxHeight: 40, alt: "Sumsub" },
+  { src: "/images/icons/partner-03.svg", width: 160, maxHeight: 40, alt: "Twilio SendGrid" },
+  { src: "/images/icons/partner-04.svg", width: 110, maxHeight: 40, alt: "Fireblocks" },
+  { src: "/images/icons/partner-05.svg", width: 110, maxHeight: 40, alt: "" },
+  { src: "/images/icons/partner-06.svg", width: 111, maxHeight: 40, alt: "" },
+  { src: "/images/icons/partner-07.png", width: 123, maxHeight: 40, alt: "" },
+  { src: "/images/icons/partner-08.png", width: 152, maxHeight: 40, alt: "" },
 ];
 
 export default function PartnersSection() {
@@ -32,15 +32,21 @@ export default function PartnersSection() {
           {logoSet.map((partner, index) => (
             <div
               key={`${partner.src}-${index}`}
-              className="relative shrink-0"
-              style={{ width: `${partner.width}px`, height: `${partner.height}px` }}
+              className="flex shrink-0 items-center justify-center"
+              style={{ width: `${partner.width}px`, height: "40px" }}
             >
               <img
                 src={partner.src}
                 alt={partner.alt}
                 width={partner.width}
-                height={partner.height}
-                style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                height={partner.maxHeight}
+                style={{
+                  width: "auto",
+                  height: "auto",
+                  maxWidth: "100%",
+                  maxHeight: `${partner.maxHeight}px`,
+                  objectFit: "contain",
+                }}
               />
             </div>
           ))}
