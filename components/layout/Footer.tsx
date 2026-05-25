@@ -72,13 +72,15 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           className="absolute top-20 right-12 lg:right-20 hidden md:block overflow-hidden bg-[#0B1738]"
           style={{ width: "43.05%", height: "488px" }}
         >
-          <Image
-            src="/images/footer-image.png"
-            alt=""
-            fill
-            className="object-cover object-center"
-            sizes="43vw"
-          />
+          <div className="mss-footer-media-image" aria-hidden="true">
+            <Image
+              src="/images/footer-image.png"
+              alt=""
+              fill
+              className="object-fill"
+              sizes="43vw"
+            />
+          </div>
         </div>
 
         {/* Left area — logo + link grid */}
@@ -142,13 +144,15 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
 
           {/* Footer image — mobile only, below links */}
           <div className="md:hidden w-full overflow-hidden bg-[#0B1738]" style={{ marginTop: "40px", height: "240px", position: "relative" }}>
-            <Image
-              src="/images/footer-image.png"
-              alt=""
-              fill
-              className="object-cover object-center"
-              sizes="100vw"
-            />
+            <div className="mss-footer-media-image" aria-hidden="true">
+              <Image
+                src="/images/footer-image.png"
+                alt=""
+                fill
+                className="object-fill"
+                sizes="100vw"
+              />
+            </div>
           </div>
 
           {/* Copyright — mobile only (md+ uses the bottom row below the image) */}

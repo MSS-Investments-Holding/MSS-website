@@ -141,6 +141,47 @@ body {
   animation-play-state: paused;
 }
 
+.mss-shared-cta-frame {
+  height: 428px;
+  background-color: var(--color-brand-navy);
+}
+
+.mss-shared-cta-image {
+  position: absolute;
+  left: -74.5856%;
+  top: -188.785%;
+  width: 249.448%;
+  height: 290.187%;
+}
+
+.mss-footer-media-image {
+  position: absolute;
+  left: -1.934%;
+  top: -23.75%;
+  width: 137.569%;
+  height: 138.333%;
+}
+
+@media (min-width: 768px) {
+  .mss-shared-cta-frame {
+    height: 628px;
+  }
+
+  .mss-shared-cta-image {
+    left: -6.484%;
+    top: -213.694%;
+    width: 112.969%;
+    height: 316.72%;
+  }
+
+  .mss-footer-media-image {
+    left: -6.129%;
+    top: -21.926%;
+    width: 156.29%;
+    height: 132.377%;
+  }
+}
+
 /* ─── Focus visible ──────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--color-brand-navy);

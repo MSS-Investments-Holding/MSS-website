@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CTASection from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
   title: "About Us | MSS Investments Holding",
@@ -630,74 +631,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════
-          7 · CONVERSATION CTA  (content-width frame, h=612px)
-          Frame 2147227497: x=content-left, w=1280, h=612 within page.
-          Image fills full frame; content centered (H2 starts at ~200px
-          from frame top = vertical center of the 612px frame).
-          H2: Merriweather 36px/42px, white, max-w-[520px], centered.
-         ══════════════════════════════════════════════════════════ */}
-      <section
-        aria-label="Start the Conversation"
-        className="w-full bg-white px-5 md:px-12 lg:px-20"
-      >
-        <div
-          className="relative w-full overflow-hidden"
-          style={{ height: "612px" }}
-        >
-          <Image
-            src="/images/about/cta-bg.jpg"
-            alt=""
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 1280px"
-          />
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)" }} />
-
-          {/* Centered content */}
-          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
-            <h2
-              className="font-heading text-white"
-              style={{
-                fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)",
-                lineHeight: "1.167",
-                fontWeight: 300,
-                margin: 0,
-                maxWidth: "520px",
-              }}
-            >
-              Let&apos;s Start the Right Conversation!
-            </h2>
-            <p
-              className="font-body text-white"
-              style={{ fontSize: "15px", lineHeight: "22px", margin: 0, marginTop: "16px", maxWidth: "520px" }}
-            >
-              If you are building, scaling, or exploring a strategic path
-              forward, we welcome opportunities that align with the MSS ecosystem.
-            </p>
-            <div style={{ marginTop: "32px" }}>
-              <Link
-                href="/pitch"
-                className="inline-flex items-center font-body"
-                style={{
-                  height: "40px",
-                  backgroundColor: "#FFFFFF",
-                  color: "#1C1C1F",
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                  letterSpacing: "-0.32px",
-                  paddingLeft: "20px",
-                  paddingRight: "20px",
-                  whiteSpace: "nowrap",
-                  textDecoration: "none",
-                }}
-              >
-                Pitch to Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection />
 
       {/* ── FOOTER ─────────────────────────────────────────────── */}
       <Footer />
