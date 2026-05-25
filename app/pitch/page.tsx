@@ -1,9 +1,9 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PitchForm from "@/components/pitch/PitchForm";
+import ArrowRight from "@/components/icons/ArrowRight";
 
 export const metadata: Metadata = {
   title: "Pitch to Us | MSS Investments Holding",
@@ -74,69 +74,41 @@ export default function PitchPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Pitch to Us Hero"
-        className="relative w-full overflow-hidden flex flex-col min-h-[880px] md:min-h-[930px]"
+        className="pitch-hero-section relative w-full overflow-hidden"
       >
-        <HeroBackgroundImage
-          src="/images/pitch/pitch-hero-bg.jpg"
-          alt=""
-          className="object-cover object-center"
-        />
-        {/* Figma: RECTANGLE fill rgba(0,0,0,0.20) */}
+        <div className="pitch-hero-media" aria-hidden="true">
+          <Image
+            src="/images/pitch/pitch-hero-bg.jpg"
+            alt=""
+            fill
+            priority
+            sizes="1986px"
+            className="object-fill"
+            unoptimized
+          />
+        </div>
+        <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
 
-        {/* Navbar sits above the hero content */}
         <div className="relative z-20">
           <Navbar />
         </div>
 
-        {/*
-         * Two-col at lg+:
-         *   LEFT  flex-1 : H1, pt-[186px] = 280px from section top (186px below nav)
-         *   RIGHT lg:w-[44%] xl:w-[560px] : body+button, justify-end pb-[40px]
-         *     (button bottom y=890px, hero h=930px → pb=40px)
-         */}
-        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
-          <div className="flex-1 pt-24 lg:pt-[186px] pb-10">
-            <h1
-              className="font-heading text-white w-full md:w-[calc(50vw-40px)]"
-              style={{
-                fontSize: "clamp(3rem, 5vw, 4.5rem)",
-                lineHeight: "1.056",
-                fontWeight: 300,
-                maxWidth: "800px",
-              }}
-            >
-              A Starting Point for Strategic Growth
-            </h1>
-          </div>
+        <h1 className="pitch-hero-title font-heading text-white">
+          A Starting Point for Strategic Growth
+        </h1>
 
-          <div className="w-full md:w-1/2 md:ml-auto lg:ml-0 lg:w-[44%] xl:w-[560px] flex flex-col justify-end pb-10 lg:pb-[40px]">
-            <p
-              className="font-body text-white"
-              style={{ fontSize: "clamp(1.0625rem, 1.5vw, 1.125rem)", lineHeight: "clamp(26px, 2vw, 28px)", letterSpacing: "-0.18px" }}
-            >
-              MSS welcomes relevant opportunities from founders, operators, partners, and institutions aligned with the sectors shaping modern economies.
-            </p>
-            <div className="mt-8">
-              <a
-                href="#pitch-form"
-                className="inline-flex items-center font-body"
-                style={{
-                  height: "40px",
-                  backgroundColor: "#FFFFFF",
-                  color: "#1C1C1F",
-                  fontSize: "clamp(0.875rem, 1.2vw, 1rem)",
-                  lineHeight: "24px",
-                  letterSpacing: "-0.32px",
-                  paddingLeft: "20px",
-                  paddingRight: "20px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Send Us Your Pitch
-              </a>
-            </div>
-          </div>
+        <div className="pitch-hero-copy">
+          <p className="font-body m-0">
+            MSS welcomes relevant opportunities from founders, operators, partners, and institutions aligned with the sectors shaping modern economies.
+          </p>
+          <a
+            href="#pitch-form"
+            className="pitch-hero-button inline-flex items-center justify-center gap-[8px] font-body"
+          >
+            Send Us Your Pitch
+            <ArrowRight size="lg" fill="currentColor" />
+          </a>
         </div>
       </section>
 
@@ -226,41 +198,30 @@ export default function PitchPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="What We Look For"
-        className="w-full bg-white px-6 md:px-12 lg:px-20"
+        className="w-full bg-white px-5 md:px-12 lg:px-20"
       >
-        {/*
-         * Frame 55 is content-width (inside px-20 padding), h=702px on desktop.
-         * overflow-hidden clips both the bg image and the globe that extend beyond.
-         */}
-        <div className="relative w-full overflow-hidden h-auto">
+        <div className="pitch-look-card relative w-full overflow-hidden">
 
-          {/* Background image */}
-          <Image
-            src="/images/pitch/pitch-what-we-look-for-bg.jpg"
-            alt=""
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 1280px"
-            loading="eager"
-          />
-          {/* Figma RECTANGLE fill rgba(0,0,0,0.20) */}
+          <div className="pitch-look-media" aria-hidden="true">
+            <Image
+              src="/images/pitch/pitch-what-we-look-for-bg.jpg"
+              alt=""
+              fill
+              className="object-fill"
+              sizes="1962px"
+              loading="eager"
+              unoptimized
+            />
+          </div>
+          <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
 
-          {/*
-           * Decorative vertical line: x=64 (5%), y=80 to y=622 (h=542px)
-           * At lg: left=5% proportional → xl:left-16 = 4rem = 64px (Figma exact)
-           */}
           <div
-            className="absolute hidden md:block md:left-[5%]"
-            style={{ top: "clamp(64px, 5.6vw, 80px)", bottom: "clamp(64px, 5.6vw, 80px)", width: "1px", backgroundColor: "rgba(255,255,255,0.40)" }}
+            className="pitch-look-rule absolute hidden md:block"
+            style={{ width: "1px", backgroundColor: "rgba(255,255,255,0.40)" }}
           />
 
-          {/*
-           * Text content positioned from frame top/left.
-           * pl: 8% (proportional) → at xl 1280px content: 8%×1280=102px ≈ 104px ✓
-           * pt-20 = 80px ✓
-           */}
-          <div className="relative z-10 px-6 py-10 md:px-16 md:py-20 md:max-w-[72%] lg:px-0 lg:pl-[8%] min-[1440px]:max-w-[52%]">
+          <div className="pitch-look-content relative z-10">
             <span
               className="text-label font-body block"
               style={{ color: "rgba(255,255,255,0.80)" }}
@@ -273,14 +234,10 @@ export default function PitchPage() {
              * Merriweather 36px/42px, white
              */}
             <h2
-              className="font-heading text-white"
+              className="pitch-look-title font-heading text-white"
               style={{
-                fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)",
-                lineHeight: "1.167",
                 fontWeight: 300,
                 margin: 0,
-                marginTop: "clamp(80px, 6.7vw, 96px)",
-                maxWidth: "520px",
               }}
             >
               MSS evaluates opportunities through the lens of strategic fit,
@@ -289,14 +246,10 @@ export default function PitchPage() {
 
             {/* Body: H2 ends at 360px, body at 376px → gap 16px (mt-4) ✓ */}
             <p
-              className="font-body text-white"
+              className="pitch-look-body font-body text-white"
               style={{
-                fontSize: "15px",
-                lineHeight: "22px",
                 color: "rgba(255,255,255,0.90)",
                 margin: 0,
-                marginTop: "16px",
-                maxWidth: "520px",
               }}
             >
               We look for opportunities that align with our ecosystem, demonstrate
@@ -306,24 +259,6 @@ export default function PitchPage() {
               value rather than short-term momentum.
             </p>
 
-          </div>
-
-          {/*
-           * Globe/diagram — positioned at x=62.5% (800/1280), y=-249px from frame top.
-           * 1200×1200px, overflows frame on all sides, clipped by overflow-hidden.
-           */}
-          <div
-            className="absolute hidden min-[1440px]:block pointer-events-none"
-            style={{ left: "62.5%", top: "-249px", width: "1200px", height: "1200px" }}
-          >
-            <Image
-              src="/images/pitch/pitch-globe.svg"
-              alt=""
-              width={1200}
-              height={1200}
-              loading="eager"
-              style={{ width: "1200px", height: "1200px", opacity: 0.5 }}
-            />
           </div>
         </div>
       </section>
@@ -401,7 +336,7 @@ export default function PitchPage() {
       <section
         id="pitch-form"
         aria-label="Submit Your Pitch"
-        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-24"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20 md:pt-24"
         style={{ scrollMarginTop: "94px" }}
       >
         <span className="text-label font-body block" style={{ color: "#373738" }}>
@@ -427,7 +362,7 @@ export default function PitchPage() {
         </h2>
 
         {/* Divider — 42px below H2, 40px above form (Figma Vector 6 spacing) */}
-        <div style={{ height: "1px", backgroundColor: "#D2D5D9", marginTop: "42px", marginBottom: "40px" }} />
+        <div className="pitch-form-divider" style={{ height: "1px", backgroundColor: "#D2D5D9", marginBottom: "40px" }} />
 
         {/*
          * Form right-aligned at 64% content width.
@@ -440,91 +375,7 @@ export default function PitchPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          6 · GENERAL INQUIRIES + MEDIA CONTACT + CONTACT US
-          Figma: divider at y=3881 (120px above it = form bottom), headings y=3945
-          Three 405px columns with vertical dividers between columns at desktop.
-          Heading → subtext gap: 12px · subtext → email gap: 32px
-         ══════════════════════════════════════════════════════════ */}
-      <section aria-label="Contact Information" className="w-full bg-white px-5 md:px-12 lg:px-20">
-        {/*
-         * pt-16 = 64px (Figma: divider y=3881, headings y=3945 → 64px gap ✓)
-         * Footer owns the 80px gap above its top divider via mt-20.
-         */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8">
-
-          {/* General Inquiries */}
-          <div className="border-t border-[#D2D5D9] pt-16 text-center min-w-0">
-            <h3
-              className="font-heading"
-              style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
-            >
-              General Inquiries
-            </h3>
-            <p
-              className="font-body break-words"
-              style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
-            >
-              All general enquiries for MSS should be directed to:
-            </p>
-            <a
-              href="mailto:info@mssinvestmentsholding.com"
-              className="font-body text-body-sm-emphasized break-all"
-              style={{ color: "#373738", display: "block", marginTop: "32px", overflowWrap: "anywhere" }}
-            >
-              info@mssinvestmentsholding.com
-            </a>
-          </div>
-
-          {/* Media Contact */}
-          <div className="border-t border-[#D2D5D9] pt-16 text-center min-w-0 lg:border-l lg:border-[#D2D5D9] lg:pl-8">
-            <h3
-              className="font-heading"
-              style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
-            >
-              Media contact
-            </h3>
-            <p
-              className="font-body break-words"
-              style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
-            >
-              All group media enquiries for MSS should be directed to:
-            </p>
-            <a
-              href="mailto:media@mssinvestmentsholding.com"
-              className="font-body text-body-sm-emphasized break-all"
-              style={{ color: "#373738", display: "block", marginTop: "32px", overflowWrap: "anywhere" }}
-            >
-              media@mssinvestmentsholding.com
-            </a>
-          </div>
-
-          {/* Contact Us */}
-          <div className="border-t border-[#D2D5D9] pt-16 text-center min-w-0 lg:border-l lg:border-[#D2D5D9] lg:pl-8">
-            <h3
-              className="font-heading"
-              style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
-            >
-              Contact Us
-            </h3>
-            <p
-              className="font-body break-words"
-              style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
-            >
-              For all support related matters, contact us at:
-            </p>
-            <a
-              href="tel:+971503840381"
-              className="font-body text-body-sm-emphasized"
-              style={{ color: "#373738", display: "block", marginTop: "32px" }}
-            >
-              +971 50 384 0381
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════
-          7 · FOOTER — shared component (same as homepage)
+          6 · FOOTER — shared component (same as homepage)
          ══════════════════════════════════════════════════════════ */}
       <Footer />
 

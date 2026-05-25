@@ -9,16 +9,16 @@ import ArrowRight from "@/components/icons/ArrowRight";
 const fieldBase = {
   display: "block",
   width: "100%",
-  height: "54px",
+  height: "var(--pitch-field-height)",
   minWidth: 0,
   backgroundColor: "#FFFFFF",
   border: "none",
-  borderBottom: "1px solid #E8E9EB",
+  borderBottom: "1px solid #AEB0B3",
   paddingLeft: "0px",
   paddingRight: "16px",
   fontFamily: "var(--font-inter, system-ui, sans-serif)",
-  fontSize: "15px",
-  lineHeight: "22px",
+  fontSize: "var(--pitch-field-font-size)",
+  lineHeight: "var(--pitch-field-line-height)",
   color: "#1C1C1F",
   outline: "none",
 } as const;
@@ -55,8 +55,8 @@ function SubmitButton({ termsAccepted }: { termsAccepted: boolean }) {
         paddingRight: "16px",
         backgroundColor: disabled ? "#E8E9EB" : "#1C1C1F",
         color: disabled ? "#AEB0B3" : "#FFFFFF",
-        fontSize: "16px",
-        lineHeight: "24px",
+        fontSize: "var(--pitch-button-font-size)",
+        lineHeight: "var(--pitch-button-line-height)",
         letterSpacing: "-0.32px",
         border: "none",
         cursor: disabled ? "not-allowed" : "pointer",
@@ -87,7 +87,7 @@ export default function PitchForm() {
   }, [state.ok]);
 
   return (
-    <form className="w-full lg:w-[64%]" action={formAction} noValidate>
+    <form className="pitch-form w-full lg:w-[64%]" action={formAction} noValidate>
       <div className="hidden" aria-hidden="true">
         <label htmlFor="company_website">Company website</label>
         <input
@@ -258,16 +258,16 @@ export default function PitchForm() {
           display: "block",
           width: "100%",
           minWidth: 0,
-          height: "200px",
+          height: "var(--pitch-message-height)",
           backgroundColor: "#FFFFFF",
           border: "none",
-          borderBottom: "1px solid #E8E9EB",
+          borderBottom: "1px solid #AEB0B3",
           paddingLeft: "0px",
           paddingRight: "16px",
           paddingTop: "16px",
           fontFamily: "var(--font-inter, system-ui, sans-serif)",
-          fontSize: "15px",
-          lineHeight: "22px",
+          fontSize: "var(--pitch-field-font-size)",
+          lineHeight: "var(--pitch-field-line-height)",
           color: "#1C1C1F",
           outline: "none",
           resize: "vertical",
