@@ -162,6 +162,87 @@ body {
   height: 138.333%;
 }
 
+.chairman-hero-section {
+  min-height: 900px;
+}
+
+.chairman-hero-media {
+  position: absolute;
+  left: calc(50% + 44.5px);
+  top: -495px;
+  width: 1145px;
+  height: 1716px;
+  transform: translateX(-50%);
+}
+
+.chairman-hero-label {
+  position: absolute;
+  left: 20px;
+  top: 160px;
+}
+
+.chairman-hero-title {
+  position: absolute;
+  left: 20px;
+  top: 208px;
+  width: calc(100vw - 40px);
+  max-width: 362px;
+  font-size: 48px;
+  line-height: 52px;
+  font-weight: 300;
+}
+
+.chairman-hero-bio {
+  position: absolute;
+  left: 20px;
+  top: 678px;
+  width: calc(100vw - 40px);
+  max-width: 362px;
+  color: #F0F2F5;
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.17px;
+}
+
+.chairman-portrait-frame {
+  width: 100%;
+  height: 340px;
+}
+
+.chairman-portrait-image {
+  position: absolute;
+  left: -2px;
+  top: -12px;
+  width: 370px;
+  height: 415px;
+}
+
+[data-chairman-name] {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+[data-chairman-role] {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+[data-chairman-quote] {
+  font-size: 48px;
+  line-height: 52px;
+}
+
+[data-chairman-letter] {
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: -0.17px;
+}
+
+[data-chairman-signature] {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 @media (min-width: 768px) {
   .mss-shared-cta-frame {
     height: 628px;
@@ -179,6 +260,80 @@ body {
     top: -21.926%;
     width: 156.29%;
     height: 132.377%;
+  }
+
+  .chairman-hero-section {
+    min-height: 930px;
+  }
+
+  .chairman-hero-media {
+    left: calc(50% + 0.5px);
+    top: -758px;
+    width: 1657px;
+    height: 2484px;
+  }
+
+  .chairman-hero-label {
+    left: 80px;
+    top: 250px;
+  }
+
+  .chairman-hero-title {
+    left: 80px;
+    top: 298px;
+    width: 720px;
+    max-width: 720px;
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 76px;
+  }
+
+  .chairman-hero-bio {
+    left: calc(50% + 80px);
+    top: 750px;
+    width: 560px;
+    max-width: 560px;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.18px;
+  }
+
+  .chairman-portrait-frame {
+    width: 340px;
+    height: 320px;
+  }
+
+  .chairman-portrait-image {
+    left: -2px;
+    top: -14px;
+    width: 347px;
+    height: 389px;
+  }
+
+  [data-chairman-name] {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  [data-chairman-role] {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  [data-chairman-quote] {
+    font-size: 72px;
+    line-height: 76px;
+  }
+
+  [data-chairman-letter] {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.18px;
+  }
+
+  [data-chairman-signature] {
+    font-size: 20px;
+    line-height: 26px;
   }
 }
 
