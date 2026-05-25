@@ -80,7 +80,7 @@ export default function PortfolioProcessSection() {
             >
               <div
                 className={[
-                  "h-full lg:min-h-[444px] lg:px-10",
+                  "h-full lg:min-h-[444px] lg:px-10 flex flex-col",
                   index === 0 ? "lg:pl-0" : "lg:border-l lg:border-[#D2D5D9]",
                 ].join(" ")}
               >
@@ -112,7 +112,7 @@ export default function PortfolioProcessSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
-                  style={{ marginTop: "48px", textDecoration: "none" }}
+                  style={{ marginTop: "auto", textDecoration: "none", alignSelf: "flex-start" }}
                 >
                   Visit Website
                   <ArrowRight size="sm" fill="currentColor" />
