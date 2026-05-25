@@ -7,6 +7,7 @@ const leaders = [
     image: "/images/home/leader-vincent.png",
     cardBg: "#F5E9DC",
     imageClassName: "object-cover object-top",
+    placedImage: false,
     bio: "Vincent brings over 40 years of experience across executive leadership, governance, private banking, acquisitions, and restructuring. Having served as CEO and board member for major financial and real estate institutions across Europe and the Middle East, he provides MSS with seasoned strategic direction and institutional oversight.",
   },
   {
@@ -14,7 +15,8 @@ const leaders = [
     role: "Director",
     image: "/images/home/leader-husnain.png",
     cardBg: "#C5D3E5",
-    imageClassName: "object-cover object-[center_24%]",
+    imageClassName: "absolute max-w-none object-fill left-[-1px] top-[-110px] h-[calc(100%+324px)] w-[calc(100%+145px)] lg:left-[-2px] lg:top-[-115px] lg:h-[calc(100%+326px)] lg:w-[calc(100%+115px)]",
+    placedImage: true,
     bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With leadership roles tied to major digital finance and transformation initiatives in Pakistan, he contributes deep expertise in strategy and investments.",
   },
 ];
@@ -52,13 +54,24 @@ function LeaderRow({ leader, reverse = false }: { leader: typeof leaders[number]
       ].join(" ")}
     >
       <div className="relative bg-[#0B1738] overflow-hidden h-[336px] md:h-[400px] lg:h-[400px]">
-        <Image
-          src={leader.image}
-          alt={leader.name}
-          fill
-          className={leader.imageClassName}
-          sizes="(max-width: 1024px) 100vw, 400px"
-        />
+        {leader.placedImage ? (
+          <Image
+            src={leader.image}
+            alt={leader.name}
+            width={960}
+            height={1280}
+            className={leader.imageClassName}
+            sizes="(max-width: 1024px) calc(100vw + 145px), 515px"
+          />
+        ) : (
+          <Image
+            src={leader.image}
+            alt={leader.name}
+            fill
+            className={leader.imageClassName}
+            sizes="(max-width: 1024px) 100vw, 400px"
+          />
+        )}
       </div>
 
       <div
