@@ -6,8 +6,7 @@ import { useState, useEffect } from "react";
 import { navLinks } from "@/lib/data";
 
 export default function Navbar() {
-  const [mobileOpen,     setMobileOpen]     = useState(false);
-  const [expandedItem,   setExpandedItem]   = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -21,7 +20,6 @@ export default function Navbar() {
 
   const closeMobile = () => {
     setMobileOpen(false);
-    setExpandedItem(null);
   };
 
   return (
@@ -120,10 +118,10 @@ export default function Navbar() {
 
       {/* ── Mobile full-screen overlay ── */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col md:hidden h-screen overflow-hidden" style={{ backgroundColor: "#0B1738" }}>
+        <div className="fixed inset-0 z-50 md:hidden h-screen w-screen overflow-hidden" style={{ backgroundColor: "#0B1738" }}>
 
           {/* Top nav bar — same height as closed nav */}
-          <div className="w-full h-[72px] flex items-center justify-between px-5 flex-shrink-0">
+          <div className="w-full h-[72px] flex items-center justify-between px-5">
             <Link href="/" onClick={closeMobile} className="flex-shrink-0">
               <Image
                 src="/images/logo-white.png"
@@ -136,95 +134,82 @@ export default function Navbar() {
             <button
               aria-label="Close menu"
               onClick={closeMobile}
-              className="flex items-center justify-center font-body text-white"
+              className="absolute right-5 top-[22px] flex items-center justify-center font-body text-white"
               style={{
+                position: "absolute",
+                right: "20px",
+                top: "22px",
                 width: "58px", height: "28px",
                 paddingLeft: "8px", paddingRight: "8px",
                 paddingTop: "6px", paddingBottom: "6px",
                 backgroundColor: "rgba(255,255,255,0.10)",
-                fontSize: "12px", letterSpacing: "0.72px",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                fontSize: "12px", letterSpacing: "0.72px", textTransform: "uppercase",
               }}
             >
               Close
             </button>
           </div>
 
-          {/* Nav links — 80px gap below the navbar top bar */}
-          <nav className="flex-1 px-5 overflow-y-auto" style={{ paddingTop: "80px" }} aria-label="Mobile navigation">
+          {/* Nav links — Figma mobile-open rows start at y=140, text at y=160. */}
+          <nav style={{ position: "absolute", left: "20px", right: "20px", top: "140px" }} aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <div key={link.label}>
-                <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.15)" }} />
-
-                {/* Full-width row: button for dropdown items, Link for plain items */}
-                {link.hasDropdown ? (
-                  <button
-                    onClick={() => setExpandedItem(expandedItem === link.label ? null : link.label)}
-                    className="w-full flex items-center justify-between bg-transparent border-0 text-left"
-                    style={{ paddingTop: "16px", paddingBottom: "16px" }}
+                <Link
+                  href={link.href}
+                  onClick={closeMobile}
+                  className="relative flex w-full items-center"
+                  style={{ height: "64px", textDecoration: "none" }}
+                >
+                  <span
+                    className="font-heading text-white"
+                    style={{ fontSize: "18px", lineHeight: "24px", fontWeight: 300 }}
                   >
-                    <span
-                      className="font-heading text-white"
-                      style={{ fontSize: "18px", lineHeight: "24px", fontWeight: 300 }}
-                    >
-                      {link.label}
-                    </span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="flex-shrink-0">
-                      <path
-                        d={expandedItem === link.label ? "M6 13l4-4 4 4" : "M6 8l4 4 4-4"}
-                        stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                ) : (
-                  <Link
-                    href={link.href}
-                    onClick={closeMobile}
-                    className="w-full flex items-center"
-                    style={{ paddingTop: "16px", paddingBottom: "16px", textDecoration: "none" }}
-                  >
-                    <span
-                      className="font-heading text-white"
-                      style={{ fontSize: "18px", lineHeight: "24px", fontWeight: 300 }}
-                    >
-                      {link.label}
-                    </span>
-                  </Link>
-                )}
-                {link.hasDropdown && expandedItem === link.label && link.dropdownItems && (
-                  <div className="flex flex-col pb-4" style={{ gap: "12px" }}>
-                    {link.dropdownItems.map((item) => (
-                      <Link
-                        key={item.href + item.label}
-                        href={item.href}
-                        onClick={closeMobile}
-                        className="font-body"
-                        style={{ fontSize: "14px", lineHeight: "20px", color: "rgba(255,255,255,0.70)", textDecoration: "none" }}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                    {link.label}
+                  </span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="absolute right-0 flex-shrink-0">
+                    <path d="M8 5l5 5-5 5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+                <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.70)" }} />
               </div>
             ))}
-            <div style={{ height: "1px", backgroundColor: "rgba(255,255,255,0.15)" }} />
           </nav>
 
-          {/* Bottom: EN language selector */}
-          <div className="px-5 flex-shrink-0" style={{ paddingTop: "24px", paddingBottom: "24px" }}>
+          {/* Bottom: EN language selector + search */}
+          <div className="absolute left-5 bottom-10 flex items-center gap-2">
             <button
               aria-label="Select language"
               className="flex items-center gap-1 font-body text-white"
               style={{
                 fontSize: "13px",
                 paddingLeft: "12px", paddingRight: "8px",
-                paddingTop: "9px", paddingBottom: "9px",
+                paddingTop: "8px", paddingBottom: "8px",
                 backgroundColor: "rgba(255,255,255,0.10)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
               }}
             >
               EN
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              aria-label="Search"
+              className="flex items-center justify-center text-white"
+              style={{
+                width: "34px",
+                height: "34px",
+                backgroundColor: "rgba(255,255,255,0.10)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="9" cy="9" r="5.5" stroke="white" strokeWidth="1.5" />
+                <path d="M13.5 13.5L17 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </button>
           </div>

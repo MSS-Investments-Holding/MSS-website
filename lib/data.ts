@@ -15,12 +15,12 @@ export const navLinks: NavLink[] = [
     hasDropdown: false,
   },
   { label: "How We Invest", href: "/how-we-invest", hasDropdown: false },
+  { label: "Pitch to Us",   href: "/pitch",       hasDropdown: false },
   {
     label: "Careers",
     href: "/careers",
     hasDropdown: false,
   },
-  { label: "Pitch to Us",   href: "/pitch",       hasDropdown: false },
 ];
 
 export const stats = [
