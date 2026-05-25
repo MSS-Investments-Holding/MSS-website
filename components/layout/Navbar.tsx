@@ -2,49 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { navLinks } from "@/lib/data";
-
-const DROPDOWN_LEFT: Record<string, string> = {
-  "About Us":   "0px",
-};
-
-const dropdownStyle: React.CSSProperties = {
-  position:             "absolute",
-  top:                  "calc(100% + 8px)",
-  backgroundColor:      "rgba(255,255,255,0.10)",
-  backdropFilter:       "blur(24px)",
-  WebkitBackdropFilter: "blur(24px)",
-  padding:              "8px 0",
-  zIndex:               50,
-};
-
-const dropdownItemStyle: React.CSSProperties = {
-  display:     "block",
-  height:      "18px",
-  lineHeight:  "18px",
-  fontSize:    "13px",
-  fontWeight:  400,
-  color:       "#FFFFFF",
-  padding:     "0 16px",
-  whiteSpace:  "nowrap",
-  textDecoration: "none",
-};
 
 export default function Navbar() {
   const [mobileOpen,     setMobileOpen]     = useState(false);
   const [expandedItem,   setExpandedItem]   = useState<string | null>(null);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const openDropdown = (label: string) => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setActiveDropdown(label);
-  };
-
-  const scheduleClose = () => {
-    closeTimer.current = setTimeout(() => setActiveDropdown(null), 300);
-  };
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -80,80 +43,29 @@ export default function Navbar() {
         {/* ── Desktop nav ── */}
         <nav
           aria-label="Primary navigation"
-          className="hidden md:flex items-center gap-5 px-4 relative"
+          className="hidden md:flex items-center gap-4 px-4 py-2 relative"
           style={{
             backgroundColor:      "rgba(255,255,255,0.10)",
-            backdropFilter:       "blur(24px)",
-            WebkitBackdropFilter: "blur(24px)",
+            backdropFilter:       "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
           }}
         >
-          {navLinks.map((link) =>
-            link.hasDropdown ? (
-              /* Dropdown trigger — button only, no page navigation */
-              <div
-                key={link.label}
-                onMouseEnter={() => openDropdown(link.label)}
-                onMouseLeave={scheduleClose}
-                className="flex items-center"
-              >
-                <button
-                  onClick={() => openDropdown(link.label)}
-                  className="flex items-center gap-[2px] text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap py-[8px] cursor-default bg-transparent border-0 p-0"
-                >
-                  {link.label}
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-              </div>
-            ) : (
+          {navLinks.map((link, index) => (
+            <div key={link.label} className="flex items-center gap-4">
               <Link
-                key={link.label}
                 href={link.href}
-                className="flex items-center text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap py-[8px]"
+                className="flex items-center text-links font-body text-white hover:text-white/70 transition-colors duration-200 whitespace-nowrap"
               >
                 {link.label}
               </Link>
-            )
-          )}
-
-          {navLinks
-            .filter((l) => l.hasDropdown && l.dropdownItems?.length)
-            .map((link) => {
-              const isOpen = activeDropdown === link.label;
-              return (
+              {index < navLinks.length - 1 && (
                 <div
-                  key={link.label + "-dropdown"}
-                  style={{ ...dropdownStyle, left: DROPDOWN_LEFT[link.label] }}
-                  className={[
-                    "transition-[opacity,transform] duration-200 ease-out",
-                    isOpen
-                      ? "opacity-100 translate-y-0 pointer-events-auto"
-                      : "opacity-0 -translate-y-1 pointer-events-none",
-                  ].join(" ")}
-                  onMouseEnter={() => openDropdown(link.label)}
-                  onMouseLeave={scheduleClose}
-                  role="menu"
-                  aria-label={link.label + " submenu"}
-                  aria-hidden={!isOpen}
-                >
-                  <div className="flex flex-col" style={{ gap: "8px" }}>
-                    {link.dropdownItems?.map((item) => (
-                      <Link
-                        key={item.href + item.label}
-                        href={item.href}
-                        role="menuitem"
-                        style={dropdownItemStyle}
-                        className="hover:opacity-70 transition-opacity duration-150 font-body"
-                        tabIndex={isOpen ? 0 : -1}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+                  aria-hidden="true"
+                  className="h-[10px] w-px bg-white/45"
+                />
+              )}
+            </div>
+          ))}
         </nav>
 
         {/* ── Desktop right controls: EN + Search ── */}

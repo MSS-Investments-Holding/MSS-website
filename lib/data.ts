@@ -1,5 +1,3 @@
-import { NEWS_ENABLED } from "@/lib/features";
-
 type NavLink = {
   label: string;
   href: string;
@@ -16,15 +14,12 @@ export const navLinks: NavLink[] = [
     href: "/about",
     hasDropdown: false,
   },
+  { label: "How We Invest", href: "/how-we-invest", hasDropdown: false },
   {
-    label: "Portfolio",
-    href: "/portfolio",
+    label: "Careers",
+    href: "/careers",
     hasDropdown: false,
   },
-  { label: "How We Invest", href: "/how-we-invest", hasDropdown: false },
-  ...(NEWS_ENABLED
-    ? [{ label: "News & Media", href: "/news", hasDropdown: false }]
-    : []),
   { label: "Pitch to Us",   href: "/pitch",       hasDropdown: false },
 ];
 
@@ -209,13 +204,12 @@ export const heroNewsItems = [
 export const footerLinks = {
   explore: [
     { label: "About Us", href: "/about" },
-    { label: "Portfolio", href: "/portfolio" },
     { label: "How We Invest", href: "/how-we-invest" },
-    ...(NEWS_ENABLED ? [{ label: "News & Media", href: "/news" }] : []),
     { label: "Pitch to Us", href: "/pitch" },
   ],
   more: [
     { label: "Chairman Message", href: "/chairman" },
+    { label: "Portfolio", href: "/portfolio" },
     { label: "Careers", href: "/careers" },
   ],
   social: [

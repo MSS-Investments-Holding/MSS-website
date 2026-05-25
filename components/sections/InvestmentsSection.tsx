@@ -7,7 +7,7 @@ const cards = [
   { row: 1, icon: "/images/icons/icon-ai.svg",            title: "Agentic AI",                 filter: "agentic-ai",                 body: "We invest in AI-led ventures developing intelligent systems that improve decision-making, efficiency, and digital experiences at scale." },
   { row: 1, icon: "/images/icons/icon-digital-asset.svg", title: "Digital Asset Tokenization", filter: "digital-asset-tokenization", body: "We support platforms exploring the digitization of value, enabling new models, and asset participation within modern financial ecosystems." },
   { row: 2, icon: "/images/icons/icon-venture.svg",       title: "Venture Capitalization",     filter: "venture-capitalization",     body: "We partner with emerging businesses at high-potential stages, providing capital and strategic support to help them scale with clarity and direction." },
-  { row: 2, icon: "/images/icons/icon-media.svg",         title: "Performance Digital Marketing", filter: "digital-media",           body: "We back digital platforms and media-led businesses shaping how audiences engage, consume, and interact across evolving online ecosystems." },
+  { row: 2, icon: "/images/icons/icon-media.svg",         title: "Performance Digital Marketing", filter: "performance-digital-marketing", body: "We back digital platforms and media-led businesses shaping how audiences engage, consume, and interact across evolving online ecosystems." },
 ];
 
 /*
@@ -47,7 +47,7 @@ export default function InvestmentsSection() {
   return (
     <section aria-label="Investment Sectors" className="relative w-full overflow-hidden">
       <HeroBackgroundImage
-        src="/images/home/investments-section-bg.jpg"
+        src="/images/home/investments-section-bg.png"
         alt=""
         className="object-cover object-center"
         priority={false}
@@ -133,7 +133,7 @@ function SectorCard({ card, desktopStyle }: { card: typeof cards[number]; deskto
         className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
         style={{ marginTop: "16px", textDecoration: "none" }}
       >
-        {card.title} Portfolio
+        Read More
         <ArrowRight size="sm" fill="currentColor" />
       </Link>
     </article>

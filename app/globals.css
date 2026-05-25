@@ -127,6 +127,20 @@ body {
 .scrollbar-hide { scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 
+@keyframes partners-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.partners-marquee {
+  width: max-content;
+  animation: partners-marquee 28s linear infinite;
+}
+
+.partners-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* ─── Focus visible ──────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--color-brand-navy);

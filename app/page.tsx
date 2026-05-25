@@ -2,8 +2,10 @@ import HeroSection from "@/components/sections/HeroSection";
 import CompanySection from "@/components/sections/CompanySection";
 import InvestmentsSection from "@/components/sections/InvestmentsSection";
 import PortfolioProcessSection from "@/components/sections/PortfolioProcessSection";
-import LeadershipSection from "@/components/sections/LeadershipSection";
 import FootprintSection from "@/components/sections/FootprintSection";
+import PartnersSection from "@/components/sections/PartnersSection";
+import LeadershipSection from "@/components/sections/LeadershipSection";
+import HomeCTASection from "@/components/sections/HomeCTASection";
 import NewsSection from "@/components/sections/NewsSection";
 import Footer from "@/components/layout/Footer";
 import { getAllArticles } from "@/lib/sanity/queries";
@@ -25,11 +27,12 @@ export default async function HomePage() {
       <CompanySection />
       <InvestmentsSection />
       <PortfolioProcessSection />
-      <LeadershipSection />
-      <div className="mt-20 lg:mt-28" />
       <FootprintSection />
+      <PartnersSection />
+      <LeadershipSection />
+      <HomeCTASection />
       {NEWS_ENABLED ? <NewsSection articles={newsArticles} /> : null}
-      <Footer />
+      <Footer topMargin={false} />
     </main>
   );
 }

@@ -56,8 +56,8 @@ export default function CompanySection() {
               deliberate investment approach shaped by sector relevance,
               operational depth, and strategic market positioning.
               <br /><br />
-              With a footprint spanning the UAE, Pakistan, the United Kingdom,
-              and surrounding growth markets, MSS brings together businesses
+              With a footprint spanning the UAE, Switzerland, United Kingdom,
+              and surrounding growth markets, we bring together businesses
               aligned with the structural shifts redefining how modern economies
               move, transact, and scale.
             </p>

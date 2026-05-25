@@ -20,7 +20,7 @@ export default function HeroSection({ articles }: Props) {
     >
       {/* Background image */}
       <HeroBackgroundImage
-        src="/images/home/hero-bg.jpg"
+        src="/images/home/hero-bg.png"
         alt=""
         className="object-cover object-center"
       />
@@ -37,7 +37,7 @@ export default function HeroSection({ articles }: Props) {
       <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
 
         {/* LEFT — badge + H1 + body */}
-        <div className="flex-1 pt-24 lg:pt-[170px] pb-10">
+        <div className="w-full min-w-0 flex-1 pt-24 lg:pt-[170px] pb-10">
           {/* Badge */}
           <div
             className="inline-flex items-center mb-6"
@@ -53,19 +53,46 @@ export default function HeroSection({ articles }: Props) {
 
           {/* H1 */}
           <h1
-            className="font-heading text-white"
-            style={{ fontSize: "clamp(2.25rem, 5vw, 4.375rem)", lineHeight: "1.06", fontWeight: 300, maxWidth: "780px" }}
+            className="font-heading text-white max-w-[calc(100vw-40px)] md:max-w-[780px]"
+            style={{ fontSize: "clamp(2.25rem, 5vw, 4.375rem)", lineHeight: "1.06", fontWeight: 300 }}
           >
-            Building the Platforms of Future Economies
+            <span className="block md:inline">Building the</span>
+            <span className="block md:inline"> Platforms</span>
+            <span className="block">of Future Economies</span>
           </h1>
 
           {/* Body */}
           <p
-            className="font-body mt-4 lg:mt-3"
-            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", maxWidth: "524px", color: "var(--color-neutral-100)" }}
+            className="font-body mt-4 lg:mt-3 max-w-[calc(100vw-40px)] md:max-w-[524px]"
+            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", width: "100%", color: "var(--color-neutral-100)" }}
           >
-            We brings capital, structure, and strategic direction to businesses shaping how currency moves, technology scales, and markets grow.
+            We bring capital, structure, and strategic<span className="hidden md:inline"> </span>
+            <br className="md:hidden" />
+            direction to businesses shaping how value<span className="hidden md:inline"> </span>
+            <br className="md:hidden" />
+            moves, technology scales, and markets grow.
           </p>
+
+          <Link
+            href="/pitch"
+            className="inline-flex items-center gap-[4px] font-body mt-8"
+            style={{
+              height: "40px",
+              backgroundColor: "#FFFFFF",
+              color: "#1C1C1F",
+              fontSize: "15px",
+              lineHeight: "22px",
+              paddingLeft: "20px",
+              paddingRight: "16px",
+              paddingTop: "8px",
+              paddingBottom: "8px",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Send Us Your Pitch
+            <ArrowRight size="lg" fill="#1C1C1F" />
+          </Link>
         </div>
 
         {hasNews ? (

@@ -38,7 +38,7 @@ export default function FootprintSection() {
     >
       {/* Background image */}
       <HeroBackgroundImage
-        src="/images/home/footprint-bg.jpg"
+        src="/images/home/footprint-bg.png"
         alt=""
         className="object-cover object-center"
         priority={false}

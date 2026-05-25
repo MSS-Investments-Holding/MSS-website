@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NEWS_ENABLED } from "@/lib/features";
 
 /*
  * Footer — Figma y=8056 to y=8740 (684px total)
@@ -13,14 +12,13 @@ import { NEWS_ENABLED } from "@/lib/features";
 
 const exploreCol1 = [
   { label: "About Us",        href: "/about" },
-  { label: "Portfolio",       href: "/portfolio" },
   { label: "How We Invest",   href: "/how-we-invest" },
-  ...(NEWS_ENABLED ? [{ label: "News & Media", href: "/news" }] : []),
   { label: "Pitch to Us",     href: "/pitch" },
 ];
 
 const exploreCol2 = [
   { label: "Chairman Message", href: "/chairman" },
+  { label: "Portfolio",        href: "/portfolio" },
   { label: "Careers",         href: "/careers" },
 ];
 
@@ -56,9 +54,9 @@ function ColLabel({ text }: { text: string }) {
   );
 }
 
-export default function Footer() {
+export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
   return (
-    <footer role="contentinfo" className="w-full bg-white mt-20">
+    <footer role="contentinfo" className={["w-full bg-white", topMargin ? "mt-20" : ""].join(" ")}>
 
       {/* Top divider */}
       <div className="mx-5 md:mx-12 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
@@ -67,12 +65,12 @@ export default function Footer() {
        * Main area — lg:min-h-[570px] ensures the container is tall enough
        * for the absolute-positioned right image without a stacking spacer div.
        */}
-      <div className="relative w-full md:min-h-[570px] lg:min-h-[570px]">
+      <div className="relative w-full md:min-h-[568px] lg:min-h-[568px]">
 
-        {/* Right image — 627px wide, 570px tall, absolute top-right */}
+        {/* Right image — desktop follows the updated Figma crop and placement. */}
         <div
-          className="absolute top-0 right-12 lg:right-20 hidden md:block overflow-hidden"
-          style={{ width: "43.5%", height: "570px" }}
+          className="absolute top-20 right-12 lg:right-20 hidden md:block overflow-hidden bg-[#0B1738]"
+          style={{ width: "43.05%", height: "488px" }}
         >
           <Image
             src="/images/footer-image.png"
@@ -143,7 +141,7 @@ export default function Footer() {
           </div>
 
           {/* Footer image — mobile only, below links */}
-          <div className="md:hidden w-full overflow-hidden" style={{ marginTop: "40px", height: "280px", position: "relative" }}>
+          <div className="md:hidden w-full overflow-hidden bg-[#0B1738]" style={{ marginTop: "40px", height: "240px", position: "relative" }}>
             <Image
               src="/images/footer-image.png"
               alt=""
@@ -156,7 +154,10 @@ export default function Footer() {
           {/* Copyright — mobile only (md+ uses the bottom row below the image) */}
           <div className="mt-6 pb-10 md:hidden">
             <p className="text-label font-body" style={{ color: "#67686B" }}>
-              ©2026 MSS Investment Holding Company. All rights reserved.
+              ©2026 MSS Holding Company. All rights reserved
+            </p>
+            <p className="text-label font-body mt-4" style={{ color: "#67686B" }}>
+              info@mssholdings.com
             </p>
           </div>
 
@@ -168,12 +169,12 @@ export default function Footer() {
        * Figma: image ends at y=8626, copyright at y=8650 (24px gap),
        * footer bottom at y=8740 (74px below copyright text).
        */}
-      <div
-        className="hidden md:flex justify-end px-12 lg:px-20"
-        style={{ paddingTop: "24px", paddingBottom: "64px" }}
-      >
+      <div className="hidden md:flex flex-col items-end px-12 lg:px-20" style={{ paddingTop: "20px", paddingBottom: "40px", gap: "8px" }}>
         <p className="text-label font-body" style={{ color: "#67686B" }}>
-          ©2026 MSS Investment Holding Company. All rights reserved.
+          ©2026 MSS Holding Company. All rights reserved
+        </p>
+        <p className="text-label font-body" style={{ color: "#67686B" }}>
+          info@mssholdings.com
         </p>
       </div>
 
