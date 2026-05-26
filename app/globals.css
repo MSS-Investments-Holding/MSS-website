@@ -314,6 +314,113 @@ body {
   height: 20px;
 }
 
+.careers-hero-section {
+  min-height: 900px;
+}
+
+.careers-hero-media {
+  position: absolute;
+  left: calc(50% + 98px);
+  top: calc(50% - 46px);
+  width: 1054px;
+  height: 1318px;
+  transform: translate(-50%, -50%);
+}
+
+.careers-hero-title {
+  width: calc(100vw - 40px);
+  font-size: 48px;
+  line-height: 52px;
+}
+
+.careers-hero-body {
+  width: calc(100vw - 40px);
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 26px;
+}
+
+.careers-hero-button {
+  margin-top: 32px;
+}
+
+.careers-why-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.careers-benefits-list {
+  margin-top: 40px;
+}
+
+.careers-benefit-row {
+  padding-top: 24px;
+  padding-bottom: 40px;
+}
+
+.careers-stand-section {
+  height: 478px;
+}
+
+.careers-stand-media {
+  position: absolute;
+  left: 0;
+  top: -292px;
+  width: 1325px;
+  height: 883px;
+}
+
+.careers-stand-content {
+  padding-top: 64px;
+}
+
+.careers-stand-title {
+  margin-top: 96px;
+}
+
+.careers-roles-section {
+  padding-top: 104px;
+  padding-bottom: 80px;
+}
+
+.careers-roles-list {
+  margin-top: 78px;
+}
+
+.careers-role-row {
+  padding-top: 24px;
+  padding-bottom: 36px;
+}
+
+.careers-application-wrap {
+  min-height: 778px;
+}
+
+.careers-application-image-frame {
+  height: 280px;
+}
+
+.careers-application-image {
+  position: absolute;
+  left: -85px;
+  top: -63px;
+  width: 497px;
+  height: 373px;
+}
+
+.careers-application-card {
+  min-height: 434px;
+  padding: 40px 20px 0;
+}
+
+.careers-application-title {
+  margin-top: 96px;
+}
+
+.careers-application-button {
+  margin-top: 36px;
+}
+
 .pitch-hero-section {
   min-height: 900px;
 }
@@ -702,6 +809,115 @@ body {
   .about-map-pin-icon svg {
     width: 40px;
     height: 50px;
+  }
+
+  .careers-hero-section {
+    min-height: 930px;
+  }
+
+  .careers-hero-media {
+    left: calc(50% + 34.5px);
+    top: calc(50% - 164px);
+    width: 1509px;
+    height: 1886px;
+  }
+
+  .careers-hero-title {
+    width: auto;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.056;
+  }
+
+  .careers-hero-body {
+    width: auto;
+    margin-top: 28px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .careers-hero-button {
+    margin-top: 32px;
+  }
+
+  .careers-why-section {
+    min-height: 1056px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .careers-benefits-list {
+    margin-top: 90px;
+  }
+
+  .careers-benefit-row {
+    min-height: 146px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .careers-stand-section {
+    height: 586px;
+  }
+
+  .careers-stand-media {
+    left: 0;
+    top: -578px;
+    width: 2092px;
+    height: 1395px;
+  }
+
+  .careers-stand-content {
+    padding-top: 120px;
+  }
+
+  .careers-stand-title {
+    margin-top: 120px;
+  }
+
+  .careers-roles-section {
+    min-height: 902px;
+    padding-top: 140px;
+    padding-bottom: 96px;
+  }
+
+  .careers-roles-list {
+    margin-top: 130px;
+  }
+
+  .careers-role-row {
+    min-height: 114px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .careers-application-wrap {
+    min-height: 584px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .careers-application-image-frame {
+    height: 504px;
+  }
+
+  .careers-application-image {
+    left: -121px;
+    top: -127px;
+    width: 870px;
+    height: 653px;
+  }
+
+  .careers-application-card {
+    min-height: 504px;
+    padding: 64px 80px 0;
+  }
+
+  .careers-application-title {
+    margin-top: 140px;
+  }
+
+  .careers-application-button {
+    margin-top: 40px;
   }
 
   .pitch-hero-section {

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ArrowRight from "@/components/icons/ArrowRight";
@@ -54,16 +53,10 @@ const roles = [
     desc: "Help shape growth initiatives across ventures, identify market opportunities, support business planning, and work closely with leadership teams.",
   },
   {
-    title: "Brand & Communications Lead",
+    title: "Head of Compliance.",
     location: "Dubai",
     type: "On-Site",
     desc: "Lead brand messaging, corporate communications, content, and digital presence across MSS and selected portfolio companies.",
-  },
-  {
-    title: "Finance & Reporting Associate",
-    location: "Pakistan",
-    type: "On-Site",
-    desc: "Support financial reporting, budgeting, portfolio-level analysis, and internal finance operations across the wider MSS group.",
   },
 ];
 
@@ -76,36 +69,49 @@ export default function CareersPage() {
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Careers Hero"
-        className="relative w-full overflow-hidden flex flex-col"
-        style={{ minHeight: "930px", backgroundColor: "#1C1C1F" }}
+        className="careers-hero-section relative w-full overflow-hidden flex flex-col"
+        style={{ backgroundColor: "#1C1C1F" }}
       >
-        <HeroBackgroundImage
-          src="/images/careers/careers-hero-bg.jpg"
-          alt=""
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.45)" }} />
+        <div className="careers-hero-media" aria-hidden="true">
+          <Image
+            src="/images/careers/careers-hero-bg.jpg"
+            alt=""
+            fill
+            className="object-fill"
+            sizes="(max-width: 767px) 1054px, 1509px"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: "rgba(0,0,0,0.10)" }} />
 
         <div className="relative z-20">
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-16 lg:pt-[170px] pb-16">
+        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-[108px] lg:pt-[166px] pb-16">
           <h1
-            className="font-heading text-white"
-            style={{ fontSize: "clamp(2.25rem, 5vw, 4.375rem)", lineHeight: "1.06", fontWeight: 300, maxWidth: "620px" }}
+            className="careers-hero-title font-heading text-white"
+            style={{ fontWeight: 300, width: "min(620px, calc(100vw - 40px))", maxWidth: "620px" }}
           >
-            Let&apos;s Build the Future of the Global Economy Together
+            <span className="md:hidden">
+              Let&apos;s Build the<br />
+              Future of the<br />
+              Global Economy<br />
+              Together
+            </span>
+            <span className="hidden md:inline">
+              Let&apos;s Build the Future of the Global Economy Together
+            </span>
           </h1>
 
           <p
-            className="font-body mt-6"
-            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", letterSpacing: "-0.18px", maxWidth: "620px", color: "var(--color-neutral-100)" }}
+            className="careers-hero-body font-body"
+            style={{ letterSpacing: "-0.18px", width: "min(620px, calc(100vw - 64px))", maxWidth: "620px", color: "var(--color-neutral-100)" }}
           >
             We&apos;re always looking to connect with talented people who are passionate about tackling the biggest challenges facing our planet.
           </p>
 
-          <div className="mt-10">
+          <div className="careers-hero-button">
             <a
               href="#open-roles"
               className="inline-flex items-center justify-center font-body"
@@ -124,7 +130,7 @@ export default function CareersPage() {
                 textDecoration: "none",
               }}
             >
-              View Open Roles
+              Browse Open Roles
             </a>
           </div>
         </div>
@@ -133,7 +139,7 @@ export default function CareersPage() {
       {/* ══════════════════════════════════════════════════════════
           WHY JOIN US — label + H2 + 4 numbered rows with dividers
          ══════════════════════════════════════════════════════════ */}
-      <section aria-label="Why Join Us" className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 md:pt-20 lg:pt-24 pb-16 md:pb-20 lg:pb-24">
+      <section aria-label="Why Join Us" className="careers-why-section w-full bg-white px-5 md:px-12 lg:px-20">
 
         <span className="text-label font-body block" style={{ color: "#373738" }}>
           Why Join Us
@@ -141,23 +147,23 @@ export default function CareersPage() {
 
         <h2
           className="font-heading"
-          style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "545px" }}
+          style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "640px" }}
         >
           Work Where Businesses, Ideas, and Execution Meet
         </h2>
 
-        <div className="mt-10">
+        <div className="careers-benefits-list">
           <div style={{ height: "1px", backgroundColor: "#E8E9EB" }} />
 
           {benefits.map((item) => (
             <div key={item.num}>
-              <div className="flex flex-col lg:flex-row py-10 gap-4 lg:gap-0">
+              <div className="careers-benefit-row flex flex-col lg:flex-row gap-4 lg:gap-0">
 
                 {/* LEFT — number only, 51.6% of content width */}
                 <div className="lg:w-[51.6%] lg:flex-shrink-0">
                   <span
                     className="font-heading"
-                    style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#C5D3E5" }}
+                    style={{ fontSize: "clamp(22px, 1.8vw, 26px)", lineHeight: "1.23", fontWeight: 300, color: "#C5D3E5" }}
                   >
                     {item.num}
                   </span>
@@ -167,7 +173,7 @@ export default function CareersPage() {
                 <div className="flex-1">
                   <h3
                     className="font-heading"
-                    style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+                    style={{ fontSize: "clamp(22px, 1.8vw, 26px)", lineHeight: "1.23", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
                   >
                     {item.title}
                   </h3>
@@ -186,35 +192,38 @@ export default function CareersPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          OUR MISSION — full-bleed image, h≥586px
+          WHAT WE STAND FOR — full-bleed image
           Vertical line left · label top · H2 below
          ══════════════════════════════════════════════════════════ */}
       <section
-        aria-label="Our Mission"
-        className="relative w-full overflow-hidden flex items-center"
-        style={{ minHeight: "586px", backgroundColor: "#C5D3E5" }}
+        aria-label="What We Stand For"
+        className="careers-stand-section relative w-full overflow-hidden"
+        style={{ backgroundColor: "#C5D3E5" }}
       >
-        <Image
-          src="/images/careers/careers-mission-bg.jpg"
-          alt=""
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.45)" }} />
+        <div className="careers-stand-media" aria-hidden="true">
+          <Image
+            src="/images/careers/careers-mission-bg.jpg"
+            alt=""
+            fill
+            className="object-fill"
+            sizes="(max-width: 767px) 1325px, 2092px"
+          />
+        </div>
+        <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
 
         {/* Decorative vertical line */}
         <div
           className="absolute hidden lg:block"
-          style={{ left: "4.4%", top: "80px", width: "1px", height: "346px", backgroundColor: "rgba(255,255,255,0.40)" }}
+          style={{ left: "80px", top: "120px", width: "1px", height: "346px", backgroundColor: "rgba(255,255,255,0.40)" }}
         />
 
-        <div className="relative z-10 w-full px-5 md:px-12 lg:px-20 py-20">
+        <div className="careers-stand-content relative z-10 w-full px-5 md:px-12 lg:px-[120px]">
           <span className="text-label font-body block" style={{ color: "rgba(255,255,255,0.80)" }}>
-            Our Mission
+            What We Stand For
           </span>
           <h2
-            className="font-heading text-white mt-10"
+            className="careers-stand-title font-heading text-white"
             style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", lineHeight: "1.167", fontWeight: 300, maxWidth: "620px" }}
           >
             We support ideas and ventures that create long-term, global economic value, while empowering people to contribute to meaningful work across the growing ecosystem.
@@ -228,7 +237,7 @@ export default function CareersPage() {
       <section
         id="open-roles"
         aria-label="Open Roles"
-        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 md:pt-24 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24"
+        className="careers-roles-section w-full bg-white px-5 md:px-12 lg:px-20"
       >
         <div className="flex flex-col items-center text-center">
           <span className="text-label font-body block" style={{ color: "#373738" }}>
@@ -237,18 +246,19 @@ export default function CareersPage() {
 
           <h2
             className="font-heading"
-            style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
+            style={{ fontSize: "clamp(2.125rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
           >
-            Start Your Journey Today
+            Start Your <br />
+            Journey Today
           </h2>
         </div>
 
-        <div className="mt-16 lg:mt-20">
+        <div className="careers-roles-list">
           <div style={{ height: "1px", backgroundColor: "#E8E9EB" }} />
 
           {roles.map((role) => (
             <div key={role.title}>
-              <div className="flex flex-col lg:flex-row lg:items-start py-8 gap-6 lg:gap-x-8">
+              <div className="careers-role-row flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-x-8">
 
                 {/* COL 1 — title + location (fixed 40.6% = 520/1280) */}
                 <div className="lg:w-[40.6%] lg:flex-shrink-0 flex flex-col gap-2">
@@ -299,22 +309,24 @@ export default function CareersPage() {
           Vertical line · label · H2 · body · CTA
          ══════════════════════════════════════════════════════════ */}
       <section aria-label="Open Application" className="w-full bg-white px-5 md:px-12 lg:px-20">
-        <div className="flex flex-col lg:flex-row lg:gap-6" style={{ minHeight: "506px" }}>
+        <div className="careers-application-wrap flex flex-col lg:flex-row lg:gap-6">
 
         {/* LEFT — image */}
-        <div className="relative w-full lg:w-1/2 flex-shrink-0" style={{ minHeight: "300px" }}>
-          <Image
-            src="/images/careers/careers-open-application.jpg"
-            alt=""
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+        <div className="careers-application-image-frame relative w-full lg:w-1/2 flex-shrink-0 overflow-hidden">
+          <div className="careers-application-image" aria-hidden="true">
+            <Image
+              src="/images/careers/careers-open-application.jpg"
+              alt=""
+              fill
+              className="object-fill"
+              sizes="(max-width: 767px) 497px, 870px"
+            />
+          </div>
         </div>
 
         {/* RIGHT — warm beige content */}
         <div
-          className="flex-1 relative flex flex-col px-8 lg:px-12 xl:px-20 pt-16"
+          className="careers-application-card flex-1 relative flex flex-col"
           style={{ backgroundColor: "#F5E9DC" }}
         >
           {/* Decorative vertical line */}
@@ -324,12 +336,12 @@ export default function CareersPage() {
           />
 
           <span className="text-label font-body block" style={{ color: "#1C1C1F" }}>
-            For Partners
+            For Talent
           </span>
 
           <h2
-            className="font-heading mt-10 lg:mt-[140px]"
-            style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", lineHeight: "1.167", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "40px" }}
+            className="careers-application-title font-heading"
+            style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.25rem)", lineHeight: "1.167", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
           >
             Open Application
           </h2>
@@ -338,12 +350,12 @@ export default function CareersPage() {
             className="font-body mt-4"
             style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "16px", maxWidth: "480px" }}
           >
-            We are always open to hearing from thoughtful, capable people who may be a strong fit for the MSS ecosystem. Send us your CV, cover letter and a short introduction, and we&apos;ll keep your profile in mind for future opportunities.
+            We are always open to hearing from thoughtful, capable people who are a strong fit for the ecosystem. Send us your CV and a short introduction at <a href="mailto:careers@mssholdings.com" className="font-medium underline" style={{ color: "#1C1C1F" }}>careers@mssholdings.com</a>, and we&apos;ll keep your profile in mind for future opportunities.
           </p>
 
-          <div className="mt-10">
+          <div className="careers-application-button">
             <a
-              href="mailto:careers@mssinvestmentsholding.com"
+              href="mailto:careers@mssholdings.com"
               className="inline-flex items-center justify-center gap-[8px] font-body text-white"
               style={{
                 height: "40px",
