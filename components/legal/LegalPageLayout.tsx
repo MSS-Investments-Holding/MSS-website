@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import LegalContactMediums from "@/components/legal/LegalContactMediums";
 
 /*
  * Shared layout for all legal pages — Figma node 353-1809 pattern.
@@ -32,43 +33,20 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section
         aria-label={`${title} Hero`}
-        className="relative w-full flex flex-col"
-        style={{ minHeight: "520px", backgroundColor: "#0B1738" }}
+        className="legal-hero-section relative w-full"
+        style={{ backgroundColor: "#0B1738" }}
       >
         <div className="relative z-20">
           <Navbar />
         </div>
 
-        {/*
-         * Two-col at lg+:
-         *   LEFT  flex-1:                    H1 at lg:pt-[310px]
-         *   RIGHT lg:w-[28%] xl:w-[360px]:  meta text, justify-end pb-[40px]
-         * Both end at the same y (386px from content div top = 40px from bottom).
-         */}
-        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
-          <div className="flex-1 pt-16 lg:pt-[310px] pb-10 lg:pb-[40px]">
-            <h1
-              className="font-heading text-white"
-              style={{
-                fontSize: "clamp(2.25rem, 5vw, 4.375rem)",
-                lineHeight: "1.056",
-                fontWeight: 300,
-                maxWidth: "720px",
-              }}
-            >
-              {title}
-            </h1>
-          </div>
+        <h1 className="legal-hero-title font-heading text-white">
+          {title}
+        </h1>
 
-          <div className="lg:w-[28%] xl:w-[360px] flex flex-col justify-end pb-10 lg:pb-[40px]">
-            <p
-              className="font-body"
-              style={{ fontSize: "18px", lineHeight: "28px", color: "#E8E9EB" }}
-            >
-              {lastUpdated}
-            </p>
-          </div>
-        </div>
+        <p className="legal-hero-meta font-body text-[#E8E9EB]">
+          {lastUpdated}
+        </p>
       </section>
 
       {/* ── CONTENT ──────────────────────────────────────────── */}
@@ -78,7 +56,7 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
        */}
       <section
         aria-label={title}
-        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20 pb-24"
+        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 md:pt-20 pb-24"
       >
         <div style={{ maxWidth: "740px" }}>
           {sections.map((section, i) => {
@@ -87,10 +65,8 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
               <div key={i} className={i > 0 ? "mt-10" : ""}>
                 {/* Heading — Merriweather 26px/32px */}
                 <h2
-                  className="font-heading"
+                  className="legal-section-heading font-heading"
                   style={{
-                    fontSize: "26px",
-                    lineHeight: "32px",
                     fontWeight: 300,
                     color: "#1C1C1F",
                     margin: 0,
@@ -107,10 +83,8 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
                   {paragraphs.map((para, j) => (
                     <p
                       key={j}
-                      className="font-body"
+                      className="legal-section-body font-body"
                       style={{
-                        fontSize: "15px",
-                        lineHeight: "22px",
                         color: "#1C1C1F",
                         margin: 0,
                         marginTop: j > 0 ? "16px" : 0,
@@ -126,7 +100,8 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
         </div>
       </section>
 
-      <Footer />
+      <LegalContactMediums />
+      <Footer topMargin={false} />
     </main>
   );
 }
