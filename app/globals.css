@@ -162,6 +162,158 @@ body {
   height: 138.333%;
 }
 
+.about-hero-section {
+  min-height: 900px;
+}
+
+.about-hero-media {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 49px);
+  width: 1126px;
+  height: 1090px;
+  transform: translate(-50%, -50%);
+}
+
+.about-hero-title {
+  width: calc(100vw - 40px);
+  font-size: 48px;
+  line-height: 52px;
+}
+
+.about-who-image-frame {
+  height: 280px;
+}
+
+.about-who-image {
+  position: absolute;
+  left: -237px;
+  top: -120px;
+  width: 599px;
+  height: 400px;
+}
+
+.about-mission-card {
+  height: 464px;
+}
+
+.about-mission-content {
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.about-mission-title {
+  margin-top: 96px;
+}
+
+.about-drive-image-frame {
+  height: 320px;
+}
+
+.about-drive-image-1,
+.about-drive-image-2,
+.about-drive-image-3,
+.about-drive-image-4 {
+  position: absolute;
+}
+
+.about-drive-image-1 {
+  left: 50%;
+  top: 50%;
+  width: 389px;
+  height: 361px;
+  transform: translate(-50%, -50%);
+}
+
+.about-drive-image-2 {
+  left: 50%;
+  top: 50%;
+  width: 572px;
+  height: 381px;
+  transform: translate(-50%, -50%);
+}
+
+.about-drive-image-3 {
+  left: 50%;
+  top: 50%;
+  width: 544px;
+  height: 362px;
+  transform: translate(-50%, -50%);
+}
+
+.about-drive-image-4 {
+  left: 50%;
+  top: 50%;
+  width: 421px;
+  height: 631px;
+  transform: translate(-50%, -50%);
+}
+
+.about-split-cta-tile {
+  height: 350px;
+}
+
+.about-split-cta-content {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 48px;
+}
+
+.about-split-cta-content h2 {
+  margin-top: 64px !important;
+}
+
+.about-split-cta-content p {
+  max-width: 330px !important;
+}
+
+.about-split-cta-content div {
+  margin-top: 48px !important;
+}
+
+.about-portfolio-cta-image,
+.about-careers-cta-image {
+  position: absolute;
+}
+
+.about-portfolio-cta-image {
+  left: 0;
+  top: -36px;
+  width: 1264px;
+  height: 842px;
+}
+
+.about-careers-cta-image {
+  left: 50%;
+  top: calc(50% - 47px);
+  width: 740px;
+  height: 492px;
+  transform: translate(-50%, -50%);
+}
+
+.about-map-frame {
+  height: 152px;
+}
+
+.about-map-image {
+  position: absolute;
+  left: -2.66%;
+  top: 0;
+  width: 105.47%;
+  height: 100%;
+}
+
+.about-map-pin {
+  left: var(--pin-left-mobile);
+  top: var(--pin-top-mobile);
+}
+
+.about-map-pin-icon svg {
+  width: 16px;
+  height: 20px;
+}
+
 .pitch-hero-section {
   min-height: 900px;
 }
@@ -414,6 +566,142 @@ body {
     top: -21.926%;
     width: 156.29%;
     height: 132.377%;
+  }
+
+  .about-hero-section {
+    min-height: 930px;
+  }
+
+  .about-hero-media {
+    top: calc(50% - 9px);
+    width: 1440px;
+    height: 1394px;
+  }
+
+  .about-hero-title {
+    width: auto;
+    font-size: clamp(3rem, 5vw, 4.375rem);
+    line-height: 1.056;
+  }
+
+  .about-who-image-frame {
+    height: auto;
+    aspect-ratio: 740 / 590;
+  }
+
+  .about-who-image {
+    left: -28.378%;
+    top: -7.458%;
+    width: 128.378%;
+    height: 107.458%;
+  }
+
+  .about-mission-card {
+    height: 538px;
+  }
+
+  .about-mission-content {
+    padding-top: 96px;
+    padding-left: 8.1%;
+    padding-right: 40px;
+  }
+
+  .about-mission-title {
+    margin-top: 120px;
+  }
+
+  .about-drive-image-frame {
+    aspect-ratio: 302 / 400;
+    height: auto;
+  }
+
+  .about-drive-image-1 {
+    width: 152.98%;
+    height: 107%;
+  }
+
+  .about-drive-image-2 {
+    width: 217.55%;
+    height: 109.5%;
+  }
+
+  .about-drive-image-3 {
+    left: -12.58%;
+    top: -0.75%;
+    width: 201.32%;
+    height: 101.5%;
+    transform: none;
+  }
+
+  .about-drive-image-4 {
+    width: 103.97%;
+    height: 118%;
+  }
+
+  .about-split-cta-tile {
+    height: 760px;
+  }
+
+  .about-split-cta-content {
+    padding-left: 80px;
+    padding-right: 40px;
+  }
+
+  .about-split-cta-content-top {
+    padding-top: 64px;
+  }
+
+  .about-split-cta-content-bottom {
+    padding-top: 424px;
+  }
+
+  .about-split-cta-content h2 {
+    margin-top: 32px !important;
+  }
+
+  .about-split-cta-content p {
+    max-width: 480px !important;
+  }
+
+  .about-split-cta-content div {
+    margin-top: 56px !important;
+  }
+
+  .about-portfolio-cta-image {
+    left: 0;
+    top: 0;
+    width: 294.03%;
+    height: 185.66%;
+  }
+
+  .about-careers-cta-image {
+    left: 50%;
+    top: 50%;
+    width: 171.38%;
+    height: 107.89%;
+  }
+
+  .about-map-frame {
+    height: auto;
+    aspect-ratio: 1280 / 540;
+  }
+
+  .about-footprint-label {
+    margin-left: 45%;
+  }
+
+  .about-footprint-title {
+    margin-left: 22% !important;
+  }
+
+  .about-map-pin {
+    left: var(--pin-left-desktop);
+    top: var(--pin-top-desktop);
+  }
+
+  .about-map-pin-icon svg {
+    width: 40px;
+    height: 50px;
   }
 
   .pitch-hero-section {
