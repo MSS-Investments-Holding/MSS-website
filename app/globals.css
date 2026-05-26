@@ -1135,6 +1135,509 @@ body {
   }
 }
 
+/* ─── How We Invest page ─────────────────────────────────────── */
+.how-invest-hero-section {
+  min-height: 880px;
+}
+
+.how-invest-hero-media {
+  left: calc(50% - 1226px);
+  top: -250px;
+  width: 2760px;
+  height: 1841px;
+}
+
+.how-invest-hero-title {
+  left: 20px;
+  top: 180px;
+  width: calc(100vw - 40px);
+  max-width: 362px;
+  font-size: 48px;
+  line-height: 52px;
+}
+
+.how-section-label {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+}
+
+.how-philosophy-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.how-philosophy-grid {
+  display: grid;
+  gap: 40px;
+}
+
+.how-philosophy-heading {
+  margin: 0;
+  max-width: 362px;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+.how-philosophy-list {
+  margin-top: 64px;
+  border-top: 1px solid #D2D5D9;
+}
+
+.how-philosophy-item {
+  border-bottom: 1px solid #D2D5D9;
+  padding: 20px 0 20px;
+}
+
+.how-philosophy-item-title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.how-philosophy-item-body {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.how-philosophy-image-frame {
+  width: 100%;
+  height: 360px;
+}
+
+.how-process-section {
+  padding-top: 120px;
+}
+
+.how-process-heading {
+  margin: 24px auto 0;
+  max-width: 362px;
+  font-size: 34px;
+  line-height: 38px;
+}
+
+.how-process-steps {
+  display: grid;
+  gap: 40px;
+  margin-top: 64px;
+}
+
+.how-process-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.how-process-step-title {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.how-process-step-body {
+  margin: 6px auto 0;
+  max-width: 260px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.how-process-band {
+  height: 790px;
+  margin-top: 80px;
+}
+
+.how-process-media {
+  left: calc(50% - 585px);
+  top: -731px;
+  width: 1061px;
+  height: 1588px;
+}
+
+.how-process-band-text {
+  max-width: 362px;
+  padding-top: 140px;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+.how-sectors-section {
+  padding-top: 96px;
+  padding-bottom: 80px;
+}
+
+.how-sectors-header {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.how-sectors-heading {
+  margin: 0;
+  max-width: 362px;
+  font-size: 34px;
+  line-height: 38px;
+}
+
+.how-sectors-intro {
+  margin: 0;
+  max-width: 362px;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.how-sector-rows {
+  margin-top: 64px;
+  border-top: 1px solid #D2D5D9;
+}
+
+.how-sector-row {
+  display: grid;
+  gap: 12px;
+  border-bottom: 1px solid #D2D5D9;
+  padding: 20px 0 24px;
+}
+
+.how-sector-title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.how-sector-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.how-sector-signals {
+  margin-top: 8px;
+}
+
+.how-sector-signals-title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.how-sector-signals-list {
+  margin-top: 8px;
+}
+
+.how-sector-signals-list p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.how-sectors-link-wrap {
+  display: none;
+}
+
+.how-sectors-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 38px;
+  padding: 8px 20px;
+  font-size: 15px;
+  line-height: 22px;
+  text-decoration: none;
+  background: #F5E9DC;
+}
+
+.how-numbers-section {
+  display: grid;
+  gap: 64px;
+  padding-top: 96px;
+  padding-bottom: 80px;
+}
+
+.how-numbers-heading {
+  margin: 24px 0 0;
+  max-width: 362px;
+  font-size: 34px;
+  line-height: 38px;
+}
+
+.how-numbers-body {
+  margin: 16px 0 0;
+  max-width: 362px;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.how-numbers-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.how-number-card {
+  min-height: 122px;
+  padding: 16px;
+}
+
+.how-number-card-cream {
+  background: #F5E9DC;
+  color: #1C1C1F;
+}
+
+.how-number-card-navy {
+  background: #0B1738;
+  color: #FFFFFF;
+}
+
+.how-number-card-gray {
+  background: #E8E9EB;
+  color: #1C1C1F;
+}
+
+.how-number-card-blue {
+  background: #C5D3E5;
+  color: #1C1C1F;
+}
+
+.how-number-value {
+  margin: 0;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+.how-number-body {
+  margin: 16px 0 0;
+  max-width: 330px;
+  color: inherit;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .how-invest-hero-section {
+    min-height: 930px;
+  }
+
+  .how-invest-hero-media {
+    left: calc(50% - 1702px);
+    top: -304px;
+    width: 3316px;
+    height: 2212px;
+  }
+
+  .how-invest-hero-title {
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    top: 280px;
+    width: min(calc(100vw - 160px), 800px);
+    max-width: 800px;
+    font-size: clamp(56px, 5vw, 72px);
+    line-height: 76px;
+  }
+
+  .how-philosophy-section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .how-philosophy-grid {
+    grid-template-columns: minmax(0, 600px) minmax(360px, 620px);
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  .how-philosophy-heading {
+    max-width: 600px;
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .how-philosophy-list {
+    margin-top: 120px;
+  }
+
+  .how-philosophy-item {
+    padding: 24px 0;
+  }
+
+  .how-philosophy-item-title {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .how-philosophy-item-body {
+    max-width: 536px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .how-philosophy-image-frame {
+    height: 750px;
+    max-width: 620px;
+  }
+
+  .how-process-section {
+    padding-top: 140px;
+  }
+
+  .how-process-heading {
+    max-width: 724px;
+    font-size: 46px;
+    line-height: 50px;
+  }
+
+  .how-process-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: 64px;
+  }
+
+  .how-process-step-title {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .how-process-step-body {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .how-process-band {
+    height: 694px;
+    margin-top: 80px;
+  }
+
+  .how-process-media {
+    left: calc(50% - 738px);
+    top: -1137px;
+    width: 1477px;
+    height: 2212px;
+  }
+
+  .how-process-band-text {
+    max-width: 1000px;
+    padding-top: 200px;
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .how-sectors-section {
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  .how-sectors-header {
+    grid-template-columns: minmax(0, 600px) minmax(0, 540px);
+    justify-content: space-between;
+    gap: 80px;
+    margin-top: 24px;
+  }
+
+  .how-sectors-heading {
+    max-width: 600px;
+    font-size: 46px;
+    line-height: 50px;
+  }
+
+  .how-sectors-intro {
+    max-width: 540px;
+    padding-top: 17px;
+  }
+
+  .how-sector-rows {
+    margin-top: 80px;
+  }
+
+  .how-sector-row {
+    grid-template-columns: 240px minmax(360px, 520px) minmax(220px, 280px);
+    justify-content: space-between;
+    gap: 40px;
+    padding: 24px 0 40px;
+  }
+
+  .how-sector-title {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .how-sector-description {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .how-sector-signals {
+    margin-top: 0;
+  }
+
+  .how-sector-signals-title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .how-sector-signals-list {
+    margin-top: 12px;
+  }
+
+  .how-sector-signals-list p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .how-sectors-link-wrap {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 64px;
+  }
+
+  .how-numbers-section {
+    grid-template-columns: minmax(0, 472px) minmax(520px, 624px);
+    justify-content: space-between;
+    gap: 80px;
+    padding-top: 120px;
+    padding-bottom: 96px;
+  }
+
+  .how-numbers-heading {
+    max-width: 472px;
+    font-size: 46px;
+    line-height: 50px;
+  }
+
+  .how-numbers-body {
+    max-width: 413px;
+    margin-top: 16px;
+  }
+
+  .how-numbers-grid {
+    grid-template-columns: repeat(2, minmax(0, 302px));
+    gap: 20px;
+    align-content: start;
+    padding-top: 40px;
+  }
+
+  .how-number-card {
+    min-height: 174px;
+    padding: 32px;
+  }
+
+  .how-number-card:nth-child(3),
+  .how-number-card:nth-child(4) {
+    min-height: 196px;
+  }
+
+  .how-number-value {
+    font-size: 46px;
+    line-height: 50px;
+  }
+
+  .how-number-body {
+    margin-top: 16px;
+    max-width: 238px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
 /* ─── Focus visible ──────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--color-brand-navy);
