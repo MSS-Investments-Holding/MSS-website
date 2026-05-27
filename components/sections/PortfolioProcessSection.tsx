@@ -72,7 +72,7 @@ export default function PortfolioProcessSection() {
       <div className="mx-5 md:mx-12 lg:mx-20 h-px bg-[#D2D5D9]" />
 
       <div className="px-5 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {companies.map((company, index) => (
             <article
               key={company.name}
@@ -80,8 +80,8 @@ export default function PortfolioProcessSection() {
             >
               <div
                 className={[
-                  "h-full lg:min-h-[444px] lg:px-10 flex flex-col",
-                  index === 0 ? "lg:pl-0" : "lg:border-l lg:border-[#D2D5D9]",
+                  "h-full md:min-h-[360px] lg:min-h-[444px] lg:px-10 flex flex-col",
+                  index === 0 ? "lg:pl-0" : index === 1 ? "md:border-l md:border-[#D2D5D9] md:pl-8" : "lg:border-l lg:border-[#D2D5D9]",
                 ].join(" ")}
               >
                 <img
