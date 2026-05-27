@@ -14,8 +14,7 @@ export default function HeroSection({ articles }: Props) {
 
   return (
     <section
-      className="relative w-full overflow-hidden flex flex-col"
-      style={{ minHeight: "930px" }}
+      className="relative w-full overflow-hidden flex flex-col min-h-[930px] md:min-h-[800px] lg:min-h-[930px]"
       aria-label="Hero"
     >
       {/* Background image */}
