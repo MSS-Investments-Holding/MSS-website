@@ -71,12 +71,12 @@ export default function PortfolioProcessSection() {
 
       <div className="mx-5 md:mx-12 lg:mx-20 h-px bg-[#D2D5D9]" />
 
-      <div className="px-5 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="px-5 md:px-12 lg:px-20 overflow-x-auto md:overflow-x-visible">
+        <div className="flex gap-6 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {companies.map((company, index) => (
             <article
               key={company.name}
-              className="flex flex-col py-10 lg:pt-10 lg:pb-10"
+              className="flex flex-col py-10 lg:pt-10 lg:pb-10 min-w-[280px] shrink-0 md:min-w-0 md:shrink"
             >
               <div
                 className={[
