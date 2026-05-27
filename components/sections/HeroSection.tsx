@@ -75,7 +75,7 @@ export default function HeroSection({ articles }: Props) {
 
           <Link
             href="/pitch"
-            className="inline-flex items-center gap-[4px] font-body mt-8"
+            className="inline-flex items-center gap-[6px] font-body mt-8"
             style={{
               height: "40px",
               backgroundColor: "#FFFFFF",

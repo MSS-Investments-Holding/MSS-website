@@ -129,7 +129,7 @@ function SectorCard({ card, desktopStyle }: { card: typeof cards[number]; deskto
         {card.body}
       </p>
       <Link
-        href="#"
+        href="/how-we-invest#investing-sectors"
         className="self-start inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
         style={{ marginTop: "16px", textDecoration: "none" }}
       >

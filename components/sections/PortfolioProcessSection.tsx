@@ -128,7 +128,7 @@ export default function PortfolioProcessSection() {
       <div className="flex justify-end px-5 md:px-12 lg:px-20" style={{ paddingTop: "64px", paddingBottom: "88px" }}>
         <Link
           href="/portfolio"
-          className="inline-flex items-center justify-center gap-[4px] font-body text-white"
+          className="inline-flex items-center justify-center gap-[6px] font-body text-white"
           style={{ height: "40px", backgroundColor: "#1C1C1F", fontSize: "15px", lineHeight: "22px", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", whiteSpace: "nowrap", textDecoration: "none" }}
         >
           Visit Portfolio

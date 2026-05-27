@@ -31,7 +31,7 @@ export default function CTASection({ ariaLabel = "Start the Conversation" }: { a
           </p>
           <Link
             href="/pitch"
-            className="inline-flex items-center gap-[4px] font-body mt-8"
+            className="inline-flex items-center gap-[6px] font-body mt-8"
             style={{ height: "40px", backgroundColor: "#FFFFFF", color: "#1C1C1F", fontSize: "15px", lineHeight: "22px", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", textDecoration: "none", whiteSpace: "nowrap" }}
           >
             Send Us Your Pitch

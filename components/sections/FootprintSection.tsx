@@ -93,7 +93,7 @@ export default function FootprintSection() {
 
           <Link
             href="/pitch"
-            className="inline-flex items-center gap-[4px] font-body text-white"
+            className="inline-flex items-center gap-[6px] font-body text-white"
             style={{
               marginTop: "40px",
               height: "40px",
