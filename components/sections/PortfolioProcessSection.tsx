@@ -81,7 +81,7 @@ export default function PortfolioProcessSection() {
               <div
                 className={[
                   "h-full min-h-[360px] lg:min-h-[444px] lg:px-10 flex flex-col",
-                  index === 0 ? "lg:pl-0" : index === 1 ? "md:border-l md:border-[#D2D5D9] md:pl-8" : "lg:border-l lg:border-[#D2D5D9]",
+                  index === 0 ? "lg:pl-0" : index === 1 ? "border-l border-[#D2D5D9] pl-6 md:pl-8" : "border-l border-[#D2D5D9] pl-6 md:border-l-0 md:pl-0 lg:border-l lg:border-[#D2D5D9]",
                 ].join(" ")}
               >
                 <img
