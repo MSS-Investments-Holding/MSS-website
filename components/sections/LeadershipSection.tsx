@@ -75,7 +75,7 @@ function LeaderRow({ leader, reverse = false }: { leader: typeof leaders[number]
       </div>
 
       <div
-        className="flex flex-col min-h-[360px] md:min-h-[400px] p-6"
+        className="flex flex-col min-h-[360px] md:min-h-0 lg:min-h-[400px] p-6"
         style={{ backgroundColor: leader.cardBg }}
       >
         <h3 className="font-heading" style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}>
@@ -84,7 +84,7 @@ function LeaderRow({ leader, reverse = false }: { leader: typeof leaders[number]
         <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
           {leader.role}
         </p>
-        <p className="font-body mt-auto" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", marginBottom: 0 }}>
+        <p className="font-body mt-auto md:mt-[120px] lg:mt-auto" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", marginBottom: 0 }}>
           {leader.bio}
         </p>
       </div>
