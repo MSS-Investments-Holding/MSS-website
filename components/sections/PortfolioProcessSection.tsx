@@ -71,7 +71,7 @@ export default function PortfolioProcessSection() {
 
       <div className="mx-5 md:mx-12 lg:mx-20 h-px bg-[#D2D5D9]" />
 
-      <div className="px-5 md:px-12 lg:px-20 overflow-x-auto md:overflow-x-visible">
+      <div className="px-5 md:px-12 lg:px-20 overflow-x-auto md:overflow-x-visible scrollbar-hide md:scrollbar-auto">
         <div className="flex gap-6 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {companies.map((company, index) => (
             <article
@@ -80,7 +80,7 @@ export default function PortfolioProcessSection() {
             >
               <div
                 className={[
-                  "h-full md:min-h-[360px] lg:min-h-[444px] lg:px-10 flex flex-col",
+                  "h-full min-h-[360px] lg:min-h-[444px] lg:px-10 flex flex-col",
                   index === 0 ? "lg:pl-0" : index === 1 ? "md:border-l md:border-[#D2D5D9] md:pl-8" : "lg:border-l lg:border-[#D2D5D9]",
                 ].join(" ")}
               >
