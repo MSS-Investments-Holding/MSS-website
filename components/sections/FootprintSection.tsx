@@ -34,7 +34,7 @@ export default function FootprintSection() {
       ref={sectionRef}
       aria-label="Global Footprint"
       // Mobile: tall enough for content + globe; tablet+: fixed scroll-driven height
-      className="relative w-full overflow-hidden h-[920px] md:h-[766px]"
+      className="relative w-full overflow-hidden h-[960px] md:h-[766px]"
     >
       {/* Background image */}
       <HeroBackgroundImage
@@ -111,14 +111,14 @@ export default function FootprintSection() {
             <ArrowRight size="lg" fill="white" />
           </Link>
 
-          {/* Globe — mobile: below content in normal flow (per Figma mobile design) */}
-          <div className="md:hidden w-full" style={{ marginTop: "32px" }}>
+          {/* Globe — mobile: shows top half only, clipped by aspect-ratio container */}
+          <div className="md:hidden w-full overflow-hidden" style={{ marginTop: "32px", aspectRatio: "2/1" }}>
             <Image
               src="/images/home/footprint-globe.png"
               alt=""
               width={400}
               height={400}
-              className="w-full object-contain"
+              className="w-full"
             />
           </div>
 
