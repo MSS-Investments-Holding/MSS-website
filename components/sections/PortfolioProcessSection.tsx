@@ -76,7 +76,7 @@ export default function PortfolioProcessSection() {
           {companies.map((company, index) => (
             <article
               key={company.name}
-              className="flex flex-col py-10 lg:pt-10 lg:pb-10 min-w-[280px] shrink-0 md:min-w-0 md:shrink"
+              className="flex flex-col py-10 lg:pt-10 lg:pb-10 w-[69vw] shrink-0 md:w-auto md:min-w-0 md:shrink"
             >
               <div
                 className={[
