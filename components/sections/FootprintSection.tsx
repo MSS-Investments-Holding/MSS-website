@@ -51,7 +51,7 @@ export default function FootprintSection() {
       >
         <div
           ref={cardRef}
-          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20 p-5 md:pl-10 md:pt-10 md:pb-10 md:pr-[260px] overflow-hidden min-h-[560px] md:min-h-[406px]"
+          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20 p-5 md:pl-10 md:pt-10 md:pb-10 md:pr-[260px] overflow-hidden min-h-[700px] md:min-h-[406px]"
         >
           <span className="text-label font-body block" style={{ color: "#373738" }}>
             Global Footprint
@@ -109,17 +109,17 @@ export default function FootprintSection() {
             <ArrowRight size="lg" fill="white" />
           </Link>
 
-          {/* Globe — mobile: mirrors desktop approach, fixed size, card overflow:hidden clips it */}
+          {/* Globe — mobile: fills card width, translateY(50%) puts center at card bottom, top dome visible */}
           <div
-            className="md:hidden absolute left-1/2 -translate-x-1/2"
-            style={{ bottom: "-220px", width: "440px", height: "440px", pointerEvents: "none" }}
+            className="md:hidden absolute left-0 right-0"
+            style={{ bottom: 0, transform: "translateY(50%)", pointerEvents: "none" }}
           >
             <Image
               src="/images/home/footprint-globe.png"
               alt=""
               width={440}
               height={440}
-              className="w-full h-full object-contain"
+              className="w-full h-auto"
             />
           </div>
 
