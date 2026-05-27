@@ -49,7 +49,7 @@ function LeaderRow({ leader, reverse = false }: { leader: typeof leaders[number]
   return (
     <div
       className={[
-        "grid grid-cols-1 flex-1 min-w-[140px] max-w-[400px] lg:max-w-none lg:w-[840px] lg:grid-cols-[400px_440px] items-stretch",
+        "grid grid-cols-1 flex-1 min-w-[300px] max-w-[400px] lg:max-w-none lg:w-[840px] lg:grid-cols-[400px_440px] items-stretch",
         reverse ? "lg:ml-auto" : "",
       ].join(" ")}
     >
