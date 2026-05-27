@@ -35,7 +35,7 @@ const companies: Company[] = [
     logoW: 116,
     logoH: 40,
     tags: ["Fintech", "B2C", "Agentic AI"],
-    desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized electronic money institution, DT&T supports accessible cross-border financial activity through a modern digital platform.",
+    desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized EMI, DT&T supports accessible cross-border financial activity through a modern digital platform.",
     site: "https://www.dtandt.com/",
   },
 ];
