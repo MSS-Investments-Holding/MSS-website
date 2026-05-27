@@ -51,9 +51,7 @@ export default function FootprintSection() {
       >
         <div
           ref={cardRef}
-          // Mobile: 20px padding all sides; tablet+: 40px left/top/bottom, 260px right for globe clearance
-          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20 p-5 md:pl-10 md:pt-10 md:pb-10 md:pr-[260px]"
-          style={{ minHeight: "406px", overflow: "hidden" }}
+          className="relative bg-white mx-5 md:mx-12 lg:mx-0 lg:ml-[33.3%] lg:mr-20 p-5 md:pl-10 md:pt-10 md:pb-10 md:pr-[260px] overflow-hidden min-h-[560px] md:min-h-[406px]"
         >
           <span className="text-label font-body block" style={{ color: "#373738" }}>
             Global Footprint
@@ -111,14 +109,17 @@ export default function FootprintSection() {
             <ArrowRight size="lg" fill="white" />
           </Link>
 
-          {/* Globe — mobile: shows top half only, clipped by aspect-ratio container */}
-          <div className="md:hidden w-full overflow-hidden" style={{ marginTop: "32px", aspectRatio: "2/1" }}>
+          {/* Globe — mobile: mirrors desktop approach, fixed size, card overflow:hidden clips it */}
+          <div
+            className="md:hidden absolute left-1/2 -translate-x-1/2"
+            style={{ bottom: "-220px", width: "440px", height: "440px", pointerEvents: "none" }}
+          >
             <Image
               src="/images/home/footprint-globe.png"
               alt=""
-              width={400}
-              height={400}
-              className="w-full"
+              width={440}
+              height={440}
+              className="w-full h-full object-contain"
             />
           </div>
 
