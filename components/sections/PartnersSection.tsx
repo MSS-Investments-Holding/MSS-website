@@ -1,16 +1,28 @@
+"use client";
+
+import { useCallback, useRef } from "react";
+
 const partners = [
-  { src: "/images/icons/partner-01.svg", width: 140, maxHeight: 40, alt: "Binance" },
-  { src: "/images/icons/partner-02.svg", width: 159, maxHeight: 40, alt: "Sumsub" },
-  { src: "/images/icons/partner-03.svg", width: 160, maxHeight: 40, alt: "Twilio SendGrid" },
-  { src: "/images/icons/partner-04.svg", width: 110, maxHeight: 40, alt: "Fireblocks" },
-  { src: "/images/icons/partner-05.svg", width: 110, maxHeight: 40, alt: "" },
-  { src: "/images/icons/partner-06.svg", width: 111, maxHeight: 40, alt: "" },
-  { src: "/images/icons/partner-07.png", width: 123, maxHeight: 40, alt: "" },
-  { src: "/images/icons/partner-08.png", width: 152, maxHeight: 40, alt: "" },
+  { src: "/images/partner-logos/partner-01.svg", width: 140, maxHeight: 40, alt: "Binance" },
+  { src: "/images/partner-logos/partner-02.svg", width: 159, maxHeight: 40, alt: "Sumsub" },
+  { src: "/images/partner-logos/partner-03.svg", width: 160, maxHeight: 40, alt: "Twilio SendGrid" },
+  { src: "/images/partner-logos/partner-04.svg", width: 110, maxHeight: 40, alt: "Fireblocks" },
+  { src: "/images/partner-logos/partner-05.svg", width: 110, maxHeight: 40, alt: "" },
+  { src: "/images/partner-logos/partner-06.svg", width: 111, maxHeight: 40, alt: "" },
+  { src: "/images/partner-logos/partner-07.png", width: 123, maxHeight: 40, alt: "" },
+  { src: "/images/partner-logos/partner-08.svg", width: 152, maxHeight: 40, alt: "" },
 ];
 
 export default function PartnersSection() {
   const logoSet = [...partners, ...partners];
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  const setMarqueeSpeed = useCallback((playbackRate: number) => {
+    const animations = marqueeRef.current?.getAnimations() ?? [];
+    animations.forEach((animation) => {
+      animation.updatePlaybackRate(playbackRate);
+    });
+  }, []);
 
   return (
     <section aria-label="Our Esteemed Partners" className="w-full bg-white overflow-hidden py-14 md:py-16">
@@ -28,7 +40,12 @@ export default function PartnersSection() {
           style={{ background: "linear-gradient(270deg, #FFFFFF 5%, rgba(255,255,255,0.24) 100%)" }}
         />
 
-        <div className="partners-marquee flex items-center gap-10 md:gap-20 py-1">
+        <div
+          ref={marqueeRef}
+          className="partners-marquee flex items-center gap-10 md:gap-20 py-1"
+          onMouseEnter={() => setMarqueeSpeed(0.9)}
+          onMouseLeave={() => setMarqueeSpeed(1)}
+        >
           {logoSet.map((partner, index) => (
             <div
               key={`${partner.src}-${index}`}

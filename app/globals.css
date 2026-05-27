@@ -137,10 +137,6 @@ body {
   animation: partners-marquee 28s linear infinite;
 }
 
-.partners-marquee:hover {
-  animation-duration: 31.111s;
-}
-
 .mss-shared-cta-frame {
   height: 428px;
   background-color: var(--color-brand-navy);
