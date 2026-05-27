@@ -1573,6 +1573,40 @@ body {
   text-align: right;
 }
 
+/* ─── 404 page ───────────────────────────────────────────────── */
+.not-found-hero-section {
+  height: 460px;
+}
+
+.not-found-hero-media {
+  left: calc(50% - 406px);
+  top: -102px;
+  width: 811px;
+  height: 1216px;
+  transform: scaleX(-1);
+}
+
+.not-found-hero-blend {
+  mix-blend-mode: overlay;
+}
+
+.not-found-hero-title {
+  left: 20px;
+  top: 254px;
+  width: 362px;
+  max-width: calc(100vw - 40px);
+  font-size: 34px;
+  line-height: 38px;
+}
+
+.not-found-return-link {
+  left: 20px;
+  top: 400px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
 @media (min-width: 768px) {
   .how-invest-hero-section {
     min-height: 930px;
@@ -1881,6 +1915,35 @@ body {
 
   .portfolio-list-note {
     margin-top: 40px;
+  }
+
+  .not-found-hero-section {
+    height: 520px;
+  }
+
+  .not-found-hero-media {
+    left: -27px;
+    top: -233px;
+    width: 1483px;
+    height: 2222px;
+  }
+
+  .not-found-hero-title {
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    top: 380px;
+    width: 630px;
+    max-width: min(630px, calc(100vw - 293px));
+    font-size: 46px;
+    line-height: 50px;
+  }
+
+  .not-found-return-link {
+    left: auto;
+    right: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    top: 442px;
+    height: 38px;
+    font-size: 15px;
+    line-height: 22px;
   }
 }
 
