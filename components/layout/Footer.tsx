@@ -143,7 +143,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           </div>
 
           {/* Footer image — mobile only, below links */}
-          <div className="md:hidden w-full overflow-hidden bg-[#0B1738]" style={{ marginTop: "40px", height: "240px", position: "relative" }}>
+          <div className="md:hidden w-full overflow-hidden bg-[#0B1738]" style={{ marginTop: "40px", aspectRatio: "627/488", position: "relative" }}>
             <div className="mss-footer-media-image" aria-hidden="true">
               <Image
                 src="/images/footer-image.png"
