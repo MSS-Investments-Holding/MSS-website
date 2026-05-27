@@ -36,7 +36,7 @@ export default function LeadershipSection() {
           Experienced Leadership, with Depth and Perspective
         </h2>
 
-        <div className="mt-20 lg:mt-20 flex flex-col gap-10 lg:gap-6">
+        <div className="mt-20 flex flex-col gap-10 md:flex-row md:items-start md:gap-6 lg:flex-col lg:gap-6">
           <LeaderRow leader={leaders[0]} />
           <LeaderRow leader={leaders[1]} reverse />
         </div>
@@ -49,7 +49,7 @@ function LeaderRow({ leader, reverse = false }: { leader: typeof leaders[number]
   return (
     <div
       className={[
-        "grid grid-cols-1 lg:w-[840px] lg:grid-cols-[400px_440px] items-stretch",
+        "grid grid-cols-1 md:flex-1 md:max-w-[400px] lg:max-w-none lg:w-[840px] lg:grid-cols-[400px_440px] items-stretch",
         reverse ? "lg:ml-auto" : "",
       ].join(" ")}
     >
