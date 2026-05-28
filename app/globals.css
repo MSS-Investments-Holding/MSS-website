@@ -589,7 +589,11 @@ body {
 
 .chairman-hero-media {
   position: absolute;
-  inset: 0;
+  left: calc(50% + 44.5px);
+  top: -495px;
+  width: 1145px;
+  height: 1716px;
+  transform: translateX(-50%);
 }
 
 .chairman-hero-label {
@@ -1133,6 +1137,19 @@ body {
     top: 312px;
     width: 720px;
     max-width: 720px;
+  }
+}
+
+@media (min-width: 1440px) {
+  /* Scale the background container proportionally above 1440px.
+   * Values derived from the 768px block (1657×2484px, top -758px) divided by 1440
+   * so they match exactly at 1440px and expand with the viewport above it. */
+  .chairman-hero-media {
+    left: 50%;
+    top: -52.64vw;
+    width: 115.07vw;
+    height: 172.5vw;
+    transform: translateX(-50%);
   }
 }
 
