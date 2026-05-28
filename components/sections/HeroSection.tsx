@@ -36,7 +36,7 @@ export default function HeroSection({ articles }: Props) {
       <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
 
         {/* LEFT — badge + H1 + body */}
-        <div className="w-full min-w-0 flex-1 pt-24 md:pt-[140px] lg:pt-[170px] pb-10">
+        <div className="w-full min-w-0 flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-10">
           {/* Badge */}
           <div
             className="inline-flex items-center mb-6"

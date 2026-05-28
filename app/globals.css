@@ -599,13 +599,13 @@ body {
 .chairman-hero-label {
   position: absolute;
   left: 20px;
-  top: 160px;
+  top: 214px;
 }
 
 .chairman-hero-title {
   position: absolute;
   left: 20px;
-  top: 208px;
+  top: 262px;
   width: calc(100vw - 40px);
   max-width: 362px;
   font-size: 48px;
@@ -1138,12 +1138,12 @@ body {
 
   .chairman-hero-label {
     left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 250px;
+    top: 264px;
   }
 
   .chairman-hero-title {
     left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 298px;
+    top: 312px;
     width: 720px;
     max-width: 720px;
   }
