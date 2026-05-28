@@ -208,7 +208,7 @@ export const footerLinks = {
     { label: "Pitch to Us", href: "/pitch" },
   ],
   more: [
-    { label: "Chairman Message", href: "/chairman" },
+    { label: "Chairman Message", href: "/chairman-message" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Careers", href: "/careers" },
   ],
