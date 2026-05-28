@@ -1182,7 +1182,11 @@ body {
     transform: translate(-50%, -50%);
   }
 
-  /* Pitch copy right edge tracks the wide-screen margin formula. */
+  /* Pitch title + copy track the wide-screen margin formula. */
+  .pitch-hero-title {
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+  }
+
   .pitch-hero-copy {
     right: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
   }
