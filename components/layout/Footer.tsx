@@ -84,7 +84,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
         </div>
 
         {/* Left area — logo + link grid */}
-        <div className="relative z-10 px-5 md:pl-12 md:pr-[calc(43.5%_+_72px)] lg:px-20 pt-10">
+        <div className="footer-left-content relative z-10 pt-10">
 
           {/* Logo — 70×100px, links to homepage */}
           <Link href="/" aria-label="MSS Investments Holding — Home" className="inline-block mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative", display: "block" }}>
@@ -98,10 +98,10 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           </Link>
 
           {/* Link grid: 2 columns × 2 rows */}
-          <div className="grid grid-cols-2 gap-x-8 lg:gap-x-0" style={{ maxWidth: "504px" }}>
+          <div className="grid grid-cols-2 gap-x-8" style={{ maxWidth: "504px" }}>
 
             {/* Row 1 — Explore × 2 */}
-            <div className="mb-12 lg:pr-16">
+            <div className="mb-12">
               <ColLabel text="Company" />
               <div className="flex flex-col" style={{ gap: "8px" }}>
                 {exploreCol1.map(l => <FooterLink key={l.href} {...l} />)}
@@ -116,7 +116,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
             </div>
 
             {/* Row 2 — Legal + Social Media */}
-            <div className="lg:pr-16">
+            <div>
               <ColLabel text="Legal" />
               <div className="flex flex-col" style={{ gap: "8px" }}>
                 {legalLinks.map(l => <FooterLink key={l.href} {...l} />)}
