@@ -1079,14 +1079,14 @@ body {
   }
 
   .chairman-hero-label {
-    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 250px;
+    left: 48px;
+    top: 190px;
   }
 
   .chairman-hero-title {
-    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 298px;
-    width: 720px;
+    left: 48px;
+    top: 238px;
+    width: calc(100vw - 96px);
     max-width: 720px;
     font-size: clamp(2.25rem, 5vw, 4.5rem);
     line-height: 1.06;
@@ -1134,6 +1134,18 @@ body {
 @media (min-width: 1024px) {
   .chairman-hero-section {
     min-height: 930px;
+  }
+
+  .chairman-hero-label {
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    top: 250px;
+  }
+
+  .chairman-hero-title {
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    top: 298px;
+    width: 720px;
+    max-width: 720px;
   }
 }
 
