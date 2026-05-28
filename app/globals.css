@@ -932,10 +932,9 @@ body {
   }
 
   .pitch-hero-copy {
-    left: calc(50% + 80px);
+    right: 80px;
     top: 744px;
-    width: 560px;
-    max-width: calc(50vw - 120px);
+    width: 620px;
     color: #FFFFFF;
   }
 
@@ -1150,6 +1149,21 @@ body {
     width: 115.07vw;
     height: 172.5vw;
     transform: translateX(-50%);
+  }
+
+  /* Pitch hero backdrop — same proportional scaling approach.
+   * Values from 768px block (width 1986px, height 1221px) ÷ 1440. */
+  .pitch-hero-media {
+    left: 50%;
+    top: calc(50% + 1.007vw);
+    width: 137.92vw;
+    height: 84.79vw;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Pitch copy right edge tracks the wide-screen margin formula. */
+  .pitch-hero-copy {
+    right: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
   }
 }
 
