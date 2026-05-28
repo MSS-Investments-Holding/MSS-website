@@ -77,7 +77,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
               src="/images/footer-image.png"
               alt=""
               fill
-              className="object-fill"
+              className="object-cover"
               sizes="43vw"
             />
           </div>
@@ -149,7 +149,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
                 src="/images/footer-image.png"
                 alt=""
                 fill
-                className="object-fill"
+                className="object-cover"
                 sizes="100vw"
               />
             </div>
