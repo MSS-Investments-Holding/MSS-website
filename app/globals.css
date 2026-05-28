@@ -589,11 +589,7 @@ body {
 
 .chairman-hero-media {
   position: absolute;
-  left: calc(50% + 44.5px);
-  top: -495px;
-  width: 1145px;
-  height: 1716px;
-  transform: translateX(-50%);
+  inset: 0;
 }
 
 .chairman-hero-label {
