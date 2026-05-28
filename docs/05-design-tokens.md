@@ -81,7 +81,7 @@ All heading styles use **Merriweather Light (300)**. All body styles use **Inter
 | `text-h6` | H6 | Merriweather | 300 | 16px / 1rem | 22px | 0 | Fine-grain headings, list titles |
 | `text-body-lg` | p (large) | Inter | 400 | 18px / 1.125rem | 28px | -1% (≈ -0.18px) | Lead paragraphs, intro text |
 | `text-body-sm` | p (small) | Inter | 400 | 15px / 0.9375rem | 22px | 0 | Standard body copy |
-| `text-body-sm-emphasized` | a / span | Inter | **500** | 15px / 0.9375rem | 22px | 0 | Emphasized body-sm — same size as `text-body-sm` but **medium weight + underlined**. Used for inline links and email addresses in contact sections. |
+| `text-body-sm-emphasized` | a / span | Inter | **500** | 15px / 0.9375rem | 22px | 0 | Emphasized body-sm — same size as `text-body-sm` but **medium weight + underlined**. Underline: thickness `auto`, offset `25%`, skip-ink `auto`. Used for inline links and email addresses in contact sections. |
 | `text-links` | nav links, lang button | Inter | 400 | 13px / 0.8125rem | 1rem (16px) | -1% (≈ -0.13px) | Navbar navigation links and language switcher only |
 | `text-label` | label / span | Inter | 400 | 12px / 0.75rem | 16px | +6% (≈ +0.72px) | Tags, categories, overlines, button labels — **always `text-transform: uppercase`** (confirmed via Figma `textCase: UPPER` on node 242:4822) |
 
@@ -247,7 +247,7 @@ export default config
 1. **Semantic tokens in components** — always use `text-primary`, `bg-surface` etc. in component code. Raw palette tokens (`brand-navy`, `grey-200`) are only referenced in `globals.css` to define the semantic aliases.
 2. **Headings always use `font-heading`** — `Merriweather Light` at all times. Never use Inter for a heading.
 3. **Body and UI always use `font-body`** — Inter Regular for all prose, labels, buttons, and navigation.
-4. **Loaded weights** — Merriweather 300 and Inter 400 + 500 are loaded. Inter 500 exists solely for `text-body-sm-emphasized`. Don't add further weight variants without adding them to the font loader in `app/layout.tsx` first.
+4. **No weight variants yet** — only Merriweather 300 and Inter 400 are loaded. Don't add weight variants without adding them to the font loader first.
 5. **Letter spacing on labels** — `text-label` has a positive letter-spacing (`+0.72px`). This is intentional for overlines and category tags — do not override it.
 6. **Mobile placeholders** — all mobile sizes above are interim. Mark with `/* TODO: replace with finalised mobile token */` and replace when the designer delivers the mobile type scale.
 7. **Portable Text styles** — define `portableTextComponents` in `lib/sanity/portableText.tsx` mapping block types to these token classes. Never write raw `<p>` tags with hardcoded font sizes.
