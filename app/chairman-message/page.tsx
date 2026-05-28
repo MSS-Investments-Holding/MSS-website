@@ -39,9 +39,8 @@ export default function ChairmanPage() {
 
       {/* ══════════════════════════════════════════════════════════
           HERO — h=930px, bg=#1C1C1F + full-bleed image
-          LEFT:  badge (y=250 from top) → pt-[156px] below nav
-                 H1 (y=298 from top) → mt-6 (24px) below badge
-          RIGHT: bio (y=750 from top, justify-end pb-[40px])
+          Badge: y=250 from top → 156px below nav
+          H1:    y=298 from top → 24px below badge
          ══════════════════════════════════════════════════════════ */}
       <section
         aria-label="Chairman's Message Hero"
