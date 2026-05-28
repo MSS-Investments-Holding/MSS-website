@@ -35,8 +35,8 @@ export default function HeroSection({ articles }: Props) {
       {/* Content — flex row at lg+, stacked below */}
       <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
 
-        {/* LEFT — badge + H1 + body */}
-        <div className="w-full min-w-0 flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-10">
+        {/* LEFT — badge + H1 */}
+        <div className="w-full min-w-0 lg:w-[52%] lg:flex-shrink-0 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-10">
           {/* Badge */}
           <div
             className="inline-flex items-center mb-6"
@@ -59,11 +59,14 @@ export default function HeroSection({ articles }: Props) {
             <span className="block md:inline"> Platforms</span>
             <span className="block">of Future Economies</span>
           </h1>
+        </div>
 
+        {/* RIGHT — body + button + news (flex-1, 48%) */}
+        <div className="flex-1 min-w-0 flex flex-col justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
           {/* Body */}
           <p
-            className="font-body mt-4 lg:mt-3 max-w-[calc(100vw-40px)] md:max-w-[524px]"
-            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", width: "100%", color: "var(--color-neutral-100)" }}
+            className="font-body max-w-[calc(100vw-40px)] md:max-w-[524px] lg:max-w-none"
+            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", color: "var(--color-neutral-100)" }}
           >
             We bring capital, structure, and strategic<span className="hidden md:inline"> </span>
             <br className="md:hidden" />
@@ -92,36 +95,36 @@ export default function HeroSection({ articles }: Props) {
             Send Us Your Pitch
             <ArrowRight size="lg" fill="#1C1C1F" />
           </Link>
-        </div>
 
-        {hasNews ? (
-          /* RIGHT — news articles, bottom-aligned; 1 article on mobile, 2 on desktop */
-          <div className="w-[200px] self-end md:w-auto md:self-end lg:w-[416px] flex flex-col lg:justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
-            <p className="text-label font-body mb-4" style={{ color: "var(--color-neutral-300)" }}>In the News:</p>
-            <div className="w-full h-px bg-white/30 mb-4" />
-            <div className="flex gap-4 flex-wrap sm:flex-nowrap">
-              {articles.map((article, idx) => (
-                <Link
-                  key={article.slug.current}
-                  href={`/news/${article.slug.current}`}
-                  className={`flex flex-col gap-3 ${idx >= 1 ? "hidden md:flex" : ""}`}
-                  style={{ width: "200px", flexShrink: 0, textDecoration: "none" }}
-                >
-                  <div className="relative overflow-hidden bg-[var(--color-grey-black)]" style={{ width: "200px", height: "130px" }}>
-                    {article.image && (
-                      <Image src={article.image} alt="" fill className="object-cover" sizes="200px" />
-                    )}
-                  </div>
-                  <p className="font-body text-white text-[15px] leading-[22px] line-clamp-3">{article.title}</p>
-                  <span className="self-start inline-flex items-center gap-[4px] text-links font-body text-white py-[2px] border-b border-white hover:opacity-70 transition-opacity">
-                    Read More
-                    <ArrowRight size="sm" fill="white" />
-                  </span>
-                </Link>
-              ))}
+          {hasNews ? (
+            /* News articles, below body+button */
+            <div className="mt-8 lg:mt-10">
+              <p className="text-label font-body mb-4" style={{ color: "var(--color-neutral-300)" }}>In the News:</p>
+              <div className="w-full h-px bg-white/30 mb-4" />
+              <div className="flex gap-4 flex-wrap sm:flex-nowrap">
+                {articles.map((article, idx) => (
+                  <Link
+                    key={article.slug.current}
+                    href={`/news/${article.slug.current}`}
+                    className={`flex flex-col gap-3 ${idx >= 1 ? "hidden md:flex" : ""}`}
+                    style={{ width: "200px", flexShrink: 0, textDecoration: "none" }}
+                  >
+                    <div className="relative overflow-hidden bg-[var(--color-grey-black)]" style={{ width: "200px", height: "130px" }}>
+                      {article.image && (
+                        <Image src={article.image} alt="" fill className="object-cover" sizes="200px" />
+                      )}
+                    </div>
+                    <p className="font-body text-white text-[15px] leading-[22px] line-clamp-3">{article.title}</p>
+                    <span className="self-start inline-flex items-center gap-[4px] text-links font-body text-white py-[2px] border-b border-white hover:opacity-70 transition-opacity">
+                      Read More
+                      <ArrowRight size="sm" fill="white" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
 
       </div>
     </section>
