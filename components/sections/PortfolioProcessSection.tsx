@@ -72,7 +72,7 @@ export default function PortfolioProcessSection() {
       <div className="mx-5 md:mx-12 lg:mx-20 h-px bg-[#D2D5D9]" />
 
       <div className="px-5 md:px-12 lg:px-20 overflow-x-auto md:overflow-x-visible scrollbar-hide md:scrollbar-auto">
-        <div className="flex gap-6 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+        <div className="flex gap-6 pr-5 md:pr-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {companies.map((company, index) => (
             <article
               key={company.name}
@@ -107,12 +107,13 @@ export default function PortfolioProcessSection() {
                   {company.desc}
                 </p>
 
+                <div className="flex-1 min-h-[64px]" />
                 <a
                   href={company.site}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-[4px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
-                  style={{ marginTop: "auto", textDecoration: "none", alignSelf: "flex-start" }}
+                  style={{ textDecoration: "none", alignSelf: "flex-start" }}
                 >
                   Visit Website
                   <ArrowRight size="sm" fill="currentColor" />
