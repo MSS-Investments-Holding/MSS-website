@@ -1130,6 +1130,10 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .pitch-hero-copy {
+    width: calc(48vw - 76.8px);
+  }
+
   .chairman-hero-section {
     min-height: 930px;
   }
