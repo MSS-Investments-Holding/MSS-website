@@ -112,7 +112,7 @@ export default function ChairmanPage() {
                 alt="Vincent de Cannière, Chairman"
                 fill
                 className="chairman-portrait-image object-cover"
-                sizes="(max-width: 767px) min(400px, calc(100vw - 40px)), 340px"
+                sizes="(max-width: 767px) min(360px, calc(100vw - 40px)), 340px"
                 unoptimized
               />
             </div>

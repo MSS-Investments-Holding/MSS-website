@@ -615,12 +615,12 @@ body {
 
 .chairman-portrait-frame {
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
   height: 340px;
 }
 
 .chairman-portrait-image {
-  object-position: left top;
+  object-position: center top;
 }
 
 [data-chairman-name] {
