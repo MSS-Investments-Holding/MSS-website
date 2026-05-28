@@ -584,7 +584,7 @@ body {
 }
 
 .chairman-hero-section {
-  min-height: 900px;
+  min-height: 880px;
 }
 
 .chairman-hero-media {
@@ -931,7 +931,7 @@ body {
     width: calc(50vw - 40px);
     max-width: 800px;
     font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 76px;
+    line-height: 1.06;
   }
 
   .pitch-hero-copy {
@@ -1016,7 +1016,7 @@ body {
     width: 720px;
     max-width: 720px;
     font-size: clamp(2.25rem, 5vw, 4.5rem);
-    line-height: 76px;
+    line-height: 1.06;
   }
 
   .legal-hero-meta {
@@ -1068,7 +1068,7 @@ body {
   }
 
   .chairman-hero-section {
-    min-height: 930px;
+    min-height: 800px;
   }
 
   .chairman-hero-media {
@@ -1089,7 +1089,7 @@ body {
     width: 720px;
     max-width: 720px;
     font-size: clamp(2.25rem, 5vw, 4.5rem);
-    line-height: 76px;
+    line-height: 1.06;
   }
 
   .chairman-portrait-frame {
@@ -1128,6 +1128,12 @@ body {
   [data-chairman-signature] {
     font-size: 20px;
     line-height: 26px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chairman-hero-section {
+    min-height: 930px;
   }
 }
 
@@ -1621,7 +1627,7 @@ body {
     width: min(calc(100vw - 160px), 800px);
     max-width: 800px;
     font-size: clamp(56px, 5vw, 72px);
-    line-height: 76px;
+    line-height: 1.06;
   }
 
   .how-philosophy-section {
@@ -1843,7 +1849,7 @@ body {
     width: 680px;
     max-width: min(680px, calc(100vw - 160px));
     font-size: clamp(56px, 5vw, 72px);
-    line-height: 76px;
+    line-height: 1.06;
   }
 
   .portfolio-hero-body {
