@@ -471,7 +471,7 @@ body {
 }
 
 .pitch-look-card {
-  height: 568px;
+  min-height: 400px;
 }
 
 .pitch-look-media {
@@ -485,22 +485,23 @@ body {
 
 .pitch-look-content {
   padding-left: 20px;
+  padding-right: 20px;
   padding-top: 40px;
+  padding-bottom: 48px;
   width: 100%;
-  max-width: 362px;
 }
 
 .pitch-look-title {
-  width: 322px;
-  max-width: calc(100vw - 80px);
+  width: auto;
+  max-width: none;
   margin-top: 80px;
   font-size: 28px;
   line-height: 34px;
 }
 
 .pitch-look-body {
-  width: 322px;
-  max-width: calc(100vw - 80px);
+  width: auto;
+  max-width: none;
   margin-top: 12px;
   font-size: 14px;
   line-height: 20px;
