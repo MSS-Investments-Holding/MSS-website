@@ -419,7 +419,7 @@ body {
 }
 
 .pitch-hero-section {
-  min-height: 900px;
+  min-height: 880px;
 }
 
 .pitch-hero-media {
@@ -915,7 +915,7 @@ body {
   }
 
   .pitch-hero-section {
-    min-height: 930px;
+    min-height: 800px;
   }
 
   .pitch-hero-media {
@@ -1130,6 +1130,10 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .pitch-hero-section {
+    min-height: 930px;
+  }
+
   .pitch-hero-copy {
     right: 80px;
     width: calc(48vw - 76.8px);
