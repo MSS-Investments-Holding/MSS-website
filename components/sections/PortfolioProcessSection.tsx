@@ -72,7 +72,7 @@ export default function PortfolioProcessSection() {
       <div className="mx-5 md:mx-12 lg:mx-20 h-px bg-[#D2D5D9]" />
 
       <div className="px-5 md:px-12 lg:px-20 overflow-x-auto md:overflow-x-visible scrollbar-hide md:scrollbar-auto">
-        <div className="flex gap-6 pr-5 md:pr-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+        <div className="flex gap-6 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {companies.map((company, index) => (
             <article
               key={company.name}
@@ -121,6 +121,9 @@ export default function PortfolioProcessSection() {
               </div>
             </article>
           ))}
+          {/* Trailing spacer — ensures last card has 20px right gap when scrolled.
+              padding-right on the scroll container is swallowed by WebKit; a flex child is not. */}
+          <div className="w-5 shrink-0 md:hidden" aria-hidden="true" />
         </div>
       </div>
 
