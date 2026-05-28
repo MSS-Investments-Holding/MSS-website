@@ -1080,12 +1080,12 @@ body {
 
   .chairman-hero-label {
     left: 48px;
-    top: 190px;
+    top: 234px;
   }
 
   .chairman-hero-title {
     left: 48px;
-    top: 238px;
+    top: 282px;
     width: calc(100vw - 96px);
     max-width: 720px;
     font-size: clamp(2.25rem, 5vw, 4.5rem);
