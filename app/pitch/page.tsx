@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PitchForm from "@/components/pitch/PitchForm";
-import ArrowRight from "@/components/icons/ArrowRight";
+import PitchScrollButton from "@/components/pitch/PitchScrollButton";
 
 export const metadata: Metadata = {
   title: "Pitch to Us | MSS Investments Holding",
@@ -101,13 +101,7 @@ export default function PitchPage() {
           <p className="font-body m-0">
             MSS welcomes relevant opportunities from founders, operators, partners, and institutions aligned with the sectors shaping modern economies.
           </p>
-          <a
-            href="#pitch-form"
-            className="pitch-hero-button inline-flex items-center justify-center gap-[8px] font-body"
-          >
-            Send Us Your Pitch
-            <ArrowRight size="lg" fill="currentColor" />
-          </a>
+          <PitchScrollButton />
         </div>
       </section>
 
