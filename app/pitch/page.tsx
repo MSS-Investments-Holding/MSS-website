@@ -243,7 +243,8 @@ export default function PitchPage() {
               className="pitch-look-body font-body text-white"
               style={{
                 color: "rgba(255,255,255,0.90)",
-                margin: 0,
+                marginTop: "16px",
+                marginBottom: 0,
               }}
             >
               We look for opportunities that align with our ecosystem, demonstrate
