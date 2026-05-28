@@ -934,10 +934,10 @@ body {
 
   .pitch-hero-copy {
     left: auto;
-    right: 80px;
+    right: 48px;
     top: auto;
     bottom: 40px;
-    width: 620px;
+    width: calc(48vw - 46.08px);
     max-width: none;
     color: #FFFFFF;
   }
@@ -1131,6 +1131,7 @@ body {
 
 @media (min-width: 1024px) {
   .pitch-hero-copy {
+    right: 80px;
     width: calc(48vw - 76.8px);
   }
 
