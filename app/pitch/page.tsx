@@ -214,10 +214,6 @@ export default function PitchPage() {
           <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
 
-          <div
-            className="pitch-look-rule absolute hidden md:block"
-            style={{ width: "1px", backgroundColor: "rgba(255,255,255,0.40)" }}
-          />
 
           <div className="pitch-look-content relative z-10">
             <span
@@ -235,7 +231,7 @@ export default function PitchPage() {
               className="pitch-look-title font-heading text-white"
               style={{
                 fontWeight: 300,
-                margin: 0,
+                marginBottom: 0,
               }}
             >
               MSS evaluates opportunities through the lens of strategic fit,
