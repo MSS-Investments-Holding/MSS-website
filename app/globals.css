@@ -924,7 +924,7 @@ body {
   }
 
   .pitch-hero-title {
-    left: 80px;
+    left: 48px;
     top: 280px;
     width: calc(50vw - 40px);
     max-width: 800px;
@@ -1132,6 +1132,10 @@ body {
 @media (min-width: 1024px) {
   .pitch-hero-section {
     min-height: 930px;
+  }
+
+  .pitch-hero-title {
+    left: 80px;
   }
 
   .pitch-hero-copy {
