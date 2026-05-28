@@ -620,11 +620,7 @@ body {
 }
 
 .chairman-portrait-image {
-  position: absolute;
-  left: -2px;
-  top: -12px;
-  width: 370px;
-  height: 415px;
+  object-position: left top;
 }
 
 [data-chairman-name] {
@@ -1098,12 +1094,6 @@ body {
     height: 320px;
   }
 
-  .chairman-portrait-image {
-    left: -2px;
-    top: -14px;
-    width: 347px;
-    height: 389px;
-  }
 
   [data-chairman-name] {
     font-size: 26px;

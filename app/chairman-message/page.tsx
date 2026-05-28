@@ -110,10 +110,9 @@ export default function ChairmanPage() {
               <Image
                 src="/images/chairman/chairman-portrait.png"
                 alt="Vincent de Cannière, Chairman"
-                width={370}
-                height={415}
-                className="chairman-portrait-image max-w-none object-fill"
-                sizes="(max-width: 767px) 370px, 347px"
+                fill
+                className="chairman-portrait-image object-cover"
+                sizes="(max-width: 767px) min(400px, calc(100vw - 40px)), 340px"
                 unoptimized
               />
             </div>
