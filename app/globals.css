@@ -937,7 +937,7 @@ body {
     right: 48px;
     top: auto;
     bottom: 40px;
-    width: calc(48vw - 46.08px);
+    width: calc(50vw - 48px);
     max-width: none;
     color: #FFFFFF;
   }
