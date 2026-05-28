@@ -309,9 +309,9 @@ export default function PitchForm() {
           />
           <label htmlFor="terms" className="font-body min-w-0" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", overflowWrap: "anywhere" }}>
             By submitting this form, I agree to the MSS{" "}
-            <Link href="/legal/terms" className="underline">Terms &amp; Conditions</Link>{" "}
+            <Link href="/legal/terms" className="text-body-sm-emphasized font-body">Terms &amp; Conditions</Link>{" "}
             and{" "}
-            <Link href="/legal/privacy" className="underline">Privacy Policy</Link>.
+            <Link href="/legal/privacy" className="text-body-sm-emphasized font-body">Privacy Policy</Link>.
           </label>
         </div>
         <FieldError message={state.fieldErrors?.terms} />
