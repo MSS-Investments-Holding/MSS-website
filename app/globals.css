@@ -932,8 +932,10 @@ body {
   }
 
   .pitch-hero-copy {
+    left: auto;
     right: 80px;
-    top: 744px;
+    top: auto;
+    bottom: 24px;
     width: 620px;
     color: #FFFFFF;
   }

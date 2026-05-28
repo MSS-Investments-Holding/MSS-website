@@ -82,9 +82,8 @@ export default function PitchPage() {
             alt=""
             fill
             priority
-            sizes="1986px"
+            sizes="100vw"
             className="object-fill"
-            unoptimized
           />
         </div>
         <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
@@ -208,9 +207,8 @@ export default function PitchPage() {
               alt=""
               fill
               className="object-fill"
-              sizes="1962px"
+              sizes="100vw"
               loading="eager"
-              unoptimized
             />
           </div>
           <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />

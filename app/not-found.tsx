@@ -25,7 +25,6 @@ export default function NotFound(): ReactElement {
           width={1483}
           height={2222}
           priority
-          unoptimized
           className="not-found-hero-media absolute z-0 max-w-none"
           sizes="100vw"
         />

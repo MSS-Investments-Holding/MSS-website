@@ -55,7 +55,6 @@ export default function ChairmanPage() {
             priority
             className="object-fill"
             sizes="100vw"
-            unoptimized
           />
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)", mixBlendMode: "overlay" }} />
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)" }} />
@@ -113,7 +112,6 @@ export default function ChairmanPage() {
                 fill
                 className="chairman-portrait-image object-cover"
                 sizes="(max-width: 767px) min(360px, calc(100vw - 40px)), 340px"
-                unoptimized
               />
             </div>
 
