@@ -32,11 +32,10 @@ export default function HeroSection({ articles }: Props) {
         <Navbar />
       </div>
 
-      {/* Content — flex row at lg+, stacked below */}
-      <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
+      {/* Content — single left-aligned column */}
+      <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20">
 
-        {/* LEFT — badge + H1 */}
-        <div className="w-full min-w-0 lg:w-[52%] lg:flex-shrink-0 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-10">
+        <div className="w-full min-w-0 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-10">
           {/* Badge */}
           <div
             className="inline-flex items-center mb-6"
@@ -59,25 +58,19 @@ export default function HeroSection({ articles }: Props) {
             <span className="block md:inline"> Platforms</span>
             <span className="block">of Future Economies</span>
           </h1>
-        </div>
 
-        {/* RIGHT — body + button + news (flex-1, 48%) */}
-        <div className="flex-1 min-w-0 flex flex-col justify-end pb-10 lg:pb-[70px] pt-8 lg:pt-0">
           {/* Body */}
           <p
-            className="font-body max-w-[calc(100vw-40px)] md:max-w-[524px] lg:max-w-none"
+            className="font-body mt-3 max-w-[calc(100vw-40px)] md:max-w-[524px]"
             style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", color: "var(--color-neutral-100)" }}
           >
-            We bring capital, structure, and strategic<span className="hidden md:inline"> </span>
-            <br className="md:hidden" />
-            direction to businesses shaping how value<span className="hidden md:inline"> </span>
-            <br className="md:hidden" />
-            moves, technology scales, and markets grow.
+            We bring capital, structure, and strategic direction to businesses shaping how value moves, technology scales, and markets grow.
           </p>
 
+          {/* CTA button — content-width only */}
           <Link
             href="/pitch"
-            className="inline-flex items-center gap-[6px] font-body mt-8"
+            className="self-start inline-flex items-center gap-[6px] font-body mt-8"
             style={{
               height: "40px",
               backgroundColor: "#FFFFFF",
@@ -97,7 +90,7 @@ export default function HeroSection({ articles }: Props) {
           </Link>
 
           {hasNews ? (
-            /* News articles, below body+button */
+            /* News articles, below button */
             <div className="mt-8 lg:mt-10">
               <p className="text-label font-body mb-4" style={{ color: "var(--color-neutral-300)" }}>In the News:</p>
               <div className="w-full h-px bg-white/30 mb-4" />
