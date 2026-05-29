@@ -1550,6 +1550,10 @@ body {
   border-bottom: 1px solid #D2D5D9;
 }
 
+.portfolio-list-card:last-child {
+  border-bottom: none;
+}
+
 .portfolio-list-logo {
   display: block;
   object-fit: contain;
