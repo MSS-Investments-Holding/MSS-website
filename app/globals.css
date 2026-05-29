@@ -153,9 +153,10 @@ body {
 
 .mss-footer-media-image {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: -1.934%;
+  top: -23.75%;
+  width: 137.569%;
+  height: 138.333%;
 }
 
 .about-hero-section {
@@ -662,9 +663,10 @@ body {
   }
 
   .mss-footer-media-image {
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    left: -6.129%;
+    top: -21.926%;
+    width: 156.29%;
+    height: 132.377%;
   }
 
   .about-hero-section {
@@ -1189,6 +1191,17 @@ body {
     right: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
     /* width = 48% × (vw − 2×margin); derived by distributing 0.96 into the max() */
     width: calc(48vw - max(4.8rem, calc(32vw - 24rem), calc(48vw - 48rem)));
+  }
+
+  /* Footer image — scale both axes proportionally to maintain 969:646 (≈1.5) ratio.
+   * At 1440px this matches the 768px % values exactly; above 1440px both
+   * width (156.29% of growing container = 67.28vw) and height (44.85vw) grow
+   * together so the image never stretches. top keeps the crop center fixed. */
+  .mss-footer-media-image {
+    width: 67.28vw;
+    height: 44.85vw;
+    left: -2.638vw;
+    top: calc(216px - 22.425vw);
   }
 }
 
