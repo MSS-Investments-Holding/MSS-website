@@ -1976,8 +1976,10 @@ body {
     position: static;
     width: 100%;
     height: auto;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 24px;
+    column-gap: 24px;
+    row-gap: 12px;
   }
 
   .portfolio-list-actions .portfolio-list-link:first-child,
