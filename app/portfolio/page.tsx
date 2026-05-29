@@ -34,13 +34,15 @@ export default function PortfolioPage(): React.ReactElement {
           <Navbar />
         </div>
 
-        <h1 className="portfolio-hero-title absolute z-10 font-heading font-light text-white">
-          Our Companies, Ventures, and Strategic Interests
-        </h1>
-        <p className="portfolio-hero-body absolute z-10 font-body text-[#F0F2F5]">
-          Our portfolio reflects the sectors, partnerships, and businesses MSS is helping build,
-          back, and support across a growing global ecosystem.
-        </p>
+        <div className="portfolio-hero-content absolute z-10">
+          <h1 className="portfolio-hero-title font-heading font-light text-white">
+            Our Companies, Ventures, and Strategic Interests
+          </h1>
+          <p className="portfolio-hero-body font-body text-[#F0F2F5]">
+            Our portfolio reflects the sectors, partnerships, and businesses MSS is helping build,
+            back, and support across a growing global ecosystem.
+          </p>
+        </div>
       </section>
 
       <PortfolioGrid />
