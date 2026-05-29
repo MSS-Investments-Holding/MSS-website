@@ -1616,7 +1616,7 @@ body {
 .portfolio-list-link {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   border: 0;
   border-bottom: 1px solid #67686B;
   padding: 2px 0;

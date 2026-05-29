@@ -1,4 +1,4 @@
-import ArrowRight from "@/components/icons/ArrowRight";
+import ExternalLink from "@/components/icons/ExternalLink";
 
 interface Company {
   name: string;
@@ -93,7 +93,7 @@ export default function PortfolioGrid(): React.ReactElement {
                 aria-label={`Visit ${company.name} website`}
               >
                 Visit Website
-                <ArrowRight size="sm" fill="currentColor" />
+                <ExternalLink fill="currentColor" />
               </a>
             </div>
           </article>
