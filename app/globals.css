@@ -1143,6 +1143,20 @@ body {
     width: calc(48vw - 76.8px);
   }
 
+  .portfolio-hero-section {
+    min-height: 930px;
+  }
+
+  .portfolio-hero-title {
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    max-width: min(680px, calc(100vw - 160px));
+  }
+
+  .portfolio-hero-body {
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    max-width: min(620px, calc(100vw - 160px));
+  }
+
   .chairman-hero-section {
     min-height: 930px;
   }
@@ -1180,6 +1194,17 @@ body {
     width: 137.92vw;
     height: 84.79vw;
     transform: translate(-50%, -50%);
+  }
+
+  /* Portfolio hero backdrop — proportional scaling above 1440px.
+   * Values from 768px block (1482×989px, top -59px) converted to vw
+   * so they match exactly at 1440px and scale with the viewport above it. */
+  .portfolio-hero-media {
+    left: 50%;
+    top: -4.097vw;
+    width: 102.917vw;
+    height: 68.69vw;
+    transform: translateX(-50%);
   }
 
   /* Pitch title + copy track the wide-screen margin formula. */
@@ -1486,7 +1511,7 @@ body {
 
 /* ─── Portfolio page ─────────────────────────────────────────── */
 .portfolio-hero-section {
-  height: 900px;
+  min-height: 880px;
 }
 
 .portfolio-hero-media {
@@ -1901,7 +1926,7 @@ body {
   }
 
   .portfolio-hero-section {
-    height: 930px;
+    min-height: 800px;
   }
 
   .portfolio-hero-media {
@@ -1912,19 +1937,19 @@ body {
   }
 
   .portfolio-hero-title {
-    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    left: 48px;
     top: 260px;
     width: 680px;
-    max-width: min(680px, calc(100vw - 160px));
+    max-width: min(680px, calc(100vw - 96px));
     font-size: clamp(56px, 5vw, 72px);
     line-height: 1.06;
   }
 
   .portfolio-hero-body {
-    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    left: 48px;
     top: 504px;
     width: 620px;
-    max-width: min(620px, calc(100vw - 160px));
+    max-width: min(620px, calc(100vw - 96px));
     font-size: 18px;
     line-height: 28px;
     letter-spacing: -0.18px;
