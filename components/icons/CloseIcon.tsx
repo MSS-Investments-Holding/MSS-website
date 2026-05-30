@@ -4,9 +4,9 @@ interface Props {
 
 export default function CloseIcon({ fill = "currentColor" }: Props) {
   return (
-    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
-        d="M6.4997 5.05535L11.5551 0L12.9994 1.44437L7.94406 6.49972L12.9994 11.555L11.5551 12.9993L6.4997 7.94408L1.44438 12.9993L0 11.555L5.05533 6.49972L0 1.44437L1.44438 0L6.4997 5.05535Z"
+        d="M11.9987 10.5865L16.9485 5.63672L18.3627 7.05093L13.4129 12.0007L18.3627 16.9504L16.9485 18.3646L11.9987 13.4149L7.04899 18.3646L5.63477 16.9504L10.5845 12.0007L5.63477 7.05093L7.04899 5.63672L11.9987 10.5865Z"
         fill={fill}
       />
     </svg>
