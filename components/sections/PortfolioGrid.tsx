@@ -1,6 +1,7 @@
 "use client";
 
 import { type CSSProperties, useEffect, useId, useState } from "react";
+import CloseIcon from "@/components/icons/CloseIcon";
 
 interface Company {
   name: string;
@@ -225,7 +226,7 @@ export default function PortfolioGrid(): React.ReactElement {
                   aria-label="Close portfolio details"
                   onClick={() => setActiveCompany(null)}
                 >
-                  <PlusIcon />
+                  <CloseIcon fill="#1C1C1F" />
                 </button>
               </div>
 

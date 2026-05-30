@@ -1699,18 +1699,15 @@ body {
 
 .portfolio-detail-close {
   display: inline-flex;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   border: 0;
   background: #F5E9DC;
   color: #1C1C1F;
-}
-
-.portfolio-detail-close svg {
-  transform: rotate(45deg);
+  cursor: pointer;
 }
 
 .portfolio-detail-tags {
