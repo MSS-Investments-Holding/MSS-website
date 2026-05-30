@@ -1632,6 +1632,7 @@ body {
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .portfolio-list-link:hover {
@@ -1762,9 +1763,8 @@ body {
 }
 
 .portfolio-detail-meta-link {
+  display: block;
   color: #373738;
-  font-weight: 500;
-  text-decoration: none;
   overflow-wrap: anywhere;
 }
 

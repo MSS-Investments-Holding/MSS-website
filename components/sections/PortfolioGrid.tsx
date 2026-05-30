@@ -250,7 +250,7 @@ export default function PortfolioGrid(): React.ReactElement {
                     href={activeCompany.site}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="portfolio-detail-meta-value portfolio-detail-meta-link font-body"
+                    className="portfolio-detail-meta-value portfolio-detail-meta-link font-body text-body-sm-emphasized"
                   >
                     {activeCompany.details.websiteLabel}
                   </a>
