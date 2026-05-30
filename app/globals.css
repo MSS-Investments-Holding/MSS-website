@@ -1629,8 +1629,9 @@ body {
   padding: 2px 0;
   color: #67686B;
   background: transparent;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: var(--text-links);
+  line-height: 1rem;
+  letter-spacing: var(--tracking-links);
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
@@ -2136,11 +2137,6 @@ body {
   .portfolio-list-description {
     margin-top: 80px;
     max-width: 394px;
-    font-size: 15px;
-    line-height: 22px;
-  }
-
-  .portfolio-list-link {
     font-size: 15px;
     line-height: 22px;
   }
