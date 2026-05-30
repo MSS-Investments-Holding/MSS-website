@@ -1782,10 +1782,19 @@ body {
 
 .portfolio-detail-list {
   margin: 12px 0 0;
+  padding-left: 16px;
   color: #67686B;
   font-size: 14px;
   line-height: 20px;
-  white-space: pre-line;
+  list-style: disc;
+}
+
+.portfolio-detail-list li {
+  margin-top: 6px;
+}
+
+.portfolio-detail-list li:first-child {
+  margin-top: 0;
 }
 
 @keyframes portfolio-detail-fade {

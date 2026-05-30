@@ -115,8 +115,10 @@ export default function PortfolioGrid(): React.ReactElement {
   useEffect(() => {
     if (!activeCompany) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -127,7 +129,10 @@ export default function PortfolioGrid(): React.ReactElement {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollY);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [activeCompany]);
@@ -259,12 +264,16 @@ export default function PortfolioGrid(): React.ReactElement {
 
               <div className="portfolio-detail-content-group">
                 <h2 className="portfolio-detail-heading font-heading">Core Services</h2>
-                <p className="portfolio-detail-list font-body">{activeCompany.details.coreServices.join("\n")}</p>
+                <ul className="portfolio-detail-list font-body">
+                  {activeCompany.details.coreServices.map((s) => <li key={s}>{s}</li>)}
+                </ul>
               </div>
 
               <div className="portfolio-detail-content-group portfolio-detail-content-group-last">
                 <h2 className="portfolio-detail-heading font-heading">Subscription Tiers</h2>
-                <p className="portfolio-detail-list font-body">{activeCompany.details.subscriptionTiers.join("\n")}</p>
+                <ul className="portfolio-detail-list font-body">
+                  {activeCompany.details.subscriptionTiers.map((s) => <li key={s}>{s}</li>)}
+                </ul>
               </div>
             </div>
           </aside>
