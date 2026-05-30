@@ -1537,6 +1537,8 @@ body {
   width: 100%;
   max-width: calc(100vw - 40px);
   grid-template-columns: minmax(0, 1fr);
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .portfolio-list-card {
