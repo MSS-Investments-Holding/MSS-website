@@ -1900,8 +1900,7 @@ body {
   }
 
   .how-philosophy-grid {
-    grid-template-columns: minmax(0, 600px) minmax(360px, 620px);
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
     gap: 60px;
   }
 
@@ -1931,8 +1930,7 @@ body {
   }
 
   .how-philosophy-image-frame {
-    height: auto;
-    align-self: stretch;
+    height: 750px;
     max-width: 620px;
   }
 
@@ -1975,7 +1973,7 @@ body {
   }
 
   .how-process-band-text {
-    max-width: 1000px;
+    max-width: min(1000px, calc(100vw - 96px));
     padding-top: 200px;
     font-size: 36px;
     line-height: 42px;
@@ -2050,8 +2048,6 @@ body {
   }
 
   .how-numbers-section {
-    grid-template-columns: minmax(0, 472px) minmax(520px, 624px);
-    justify-content: space-between;
     gap: 80px;
     padding-top: 120px;
     padding-bottom: 96px;
@@ -2069,10 +2065,10 @@ body {
   }
 
   .how-numbers-grid {
-    grid-template-columns: repeat(2, minmax(0, 302px));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     align-content: start;
-    padding-top: 40px;
+    padding-top: 0;
   }
 
   .how-number-card {
@@ -2290,6 +2286,22 @@ body {
     min-height: 930px;
   }
 
+  .how-numbers-section {
+    grid-template-columns: minmax(0, 472px) minmax(0, 624px);
+    column-gap: 80px;
+    justify-content: space-between;
+  }
+
+  .how-numbers-grid {
+    grid-template-columns: minmax(0, 440px);
+    padding-top: 40px;
+    margin-left: auto;
+  }
+
+  .how-process-band-text {
+    max-width: min(1000px, calc(100vw - 160px));
+  }
+
   .portfolio-hero-section {
     min-height: 930px;
   }
@@ -2301,6 +2313,11 @@ body {
 }
 
 @media (min-width: 1440px) {
+  .how-numbers-grid {
+    grid-template-columns: repeat(2, minmax(0, 302px));
+    margin-left: 0;
+  }
+
   /* How We Invest — hero backdrop. Values from 768px block ÷ 1440. */
   .how-invest-hero-media {
     left: calc(50% - 118.19vw); /* 1702/1440 × 100 */
