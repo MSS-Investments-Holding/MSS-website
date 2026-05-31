@@ -179,7 +179,8 @@ body {
 }
 
 .about-who-image-frame {
-  height: 280px;
+  height: auto;
+  aspect-ratio: 740 / 590;
 }
 
 /* Who We Are interactive section */
