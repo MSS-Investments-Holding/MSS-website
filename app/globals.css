@@ -1260,7 +1260,8 @@ body {
 
 .how-invest-hero-title {
   margin: 0;
-  max-width: 362px;
+  width: min(520px, calc(100vw - 40px));
+  max-width: 520px;
   font-size: clamp(2.5rem, 12.8vw, 3rem);
   line-height: 1.083;
 }
@@ -1285,7 +1286,6 @@ body {
 
 .how-philosophy-heading {
   margin: 0;
-  max-width: 362px;
   font-size: 28px;
   line-height: 34px;
 }
@@ -1330,7 +1330,8 @@ body {
 
 .how-process-steps {
   display: grid;
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 40px 20px;
   margin-top: 64px;
 }
 
@@ -1368,7 +1369,8 @@ body {
 }
 
 .how-process-band-text {
-  max-width: 362px;
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: 28px;
   line-height: 34px;
 }
@@ -1488,6 +1490,7 @@ body {
 
 .how-numbers-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
 }
 
@@ -1979,6 +1982,8 @@ body {
   }
 
   .how-process-band-text {
+    padding-left: 0;
+    padding-right: 0;
     max-width: min(1000px, calc(100vw - 96px));
     font-size: 36px;
     line-height: 42px;
@@ -2450,6 +2455,9 @@ body {
   [data-chairman-name]    { font-size: 1.5rem; line-height: 30px; }
   .leadership-person-h3   { font-size: 1.5rem; line-height: 30px; }
   .careers-benefit-h3     { font-size: 1.5rem; line-height: 30px; }
+
+  /* Display numbers — stat tiles */
+  .how-number-value       { font-size: 2.25rem; line-height: 42px; }
 }
 
 /* ─── Focus visible ──────────────────────────────────────────── */
