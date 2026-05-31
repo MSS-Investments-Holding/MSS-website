@@ -250,45 +250,6 @@ body {
   height: 320px;
 }
 
-.about-drive-image-1,
-.about-drive-image-2,
-.about-drive-image-3,
-.about-drive-image-4 {
-  position: absolute;
-}
-
-.about-drive-image-1 {
-  left: 50%;
-  top: 50%;
-  width: 389px;
-  height: 361px;
-  transform: translate(-50%, -50%);
-}
-
-.about-drive-image-2 {
-  left: 50%;
-  top: 50%;
-  width: 572px;
-  height: 381px;
-  transform: translate(-50%, -50%);
-}
-
-.about-drive-image-3 {
-  left: 50%;
-  top: 50%;
-  width: 544px;
-  height: 362px;
-  transform: translate(-50%, -50%);
-}
-
-.about-drive-image-4 {
-  left: 50%;
-  top: 50%;
-  width: 421px;
-  height: 631px;
-  transform: translate(-50%, -50%);
-}
-
 .about-split-cta-tile {
   height: 350px;
 }
@@ -764,29 +725,6 @@ body {
   .about-drive-image-frame {
     aspect-ratio: 302 / 400;
     height: auto;
-  }
-
-  .about-drive-image-1 {
-    width: 152.98%;
-    height: 107%;
-  }
-
-  .about-drive-image-2 {
-    width: 217.55%;
-    height: 109.5%;
-  }
-
-  .about-drive-image-3 {
-    left: -12.58%;
-    top: -0.75%;
-    width: 201.32%;
-    height: 101.5%;
-    transform: none;
-  }
-
-  .about-drive-image-4 {
-    width: 103.97%;
-    height: 118%;
   }
 
   .about-split-cta-tile {

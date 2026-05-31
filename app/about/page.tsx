@@ -35,25 +35,21 @@ const drivesItems = [
     title: "A More Connected Economy",
     body: "We support businesses that help people, companies, and markets move value and operate across borders with greater ease.",
     image: "/images/about/drives-1.jpg",
-    imageClass: "about-drive-image-1",
   },
   {
     title: "Opportunity Without Borders",
     body: "We believe strong ideas should be able to scale beyond geography, supported by the right capital, structure, and direction.",
     image: "/images/about/drives-2.jpg",
-    imageClass: "about-drive-image-2",
   },
   {
     title: "Ubiquitous Technology",
     body: "We back technology that becomes naturally embedded into everyday systems, making experiences simpler and more useful.",
     image: "/images/about/drives-3.jpg",
-    imageClass: "about-drive-image-3",
   },
   {
     title: "Purposeful Progress",
     body: "We pursue growth with intention, creating value for stakeholders while contributing meaningfully to the markets we serve.",
     image: "/images/about/drives-4.jpg",
-    imageClass: "about-drive-image-4",
   },
 ];
 
@@ -293,20 +289,18 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-20 md:gap-6 mt-12 lg:mt-16">
           {drivesItems.map((item) => (
             <div key={item.title} className="flex flex-col">
-              {/* Image frame — 302×400px navy bg */}
+              {/* Image frame — 302×400px, Figma-exported crop */}
               <div
                 className="about-drive-image-frame relative w-full overflow-hidden flex-shrink-0"
                 style={{ backgroundColor: "#0B1738" }}
               >
-                <div className={item.imageClass}>
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-fill"
-                    sizes="(max-width: 767px) 572px, 657px"
-                  />
-                </div>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 767px) 572px, 657px"
+                />
               </div>
               {/* Title — Merriweather 20px/26px, mt-6 (24px) */}
               <h3
