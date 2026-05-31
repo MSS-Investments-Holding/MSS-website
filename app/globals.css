@@ -250,6 +250,10 @@ body {
   height: 320px;
 }
 
+.about-drive-image-frame img {
+  transform: scale(1.02);
+}
+
 .about-split-cta-tile {
   height: 350px;
 }
@@ -293,25 +297,12 @@ body {
 }
 
 .about-map-frame {
-  height: 152px;
-}
-
-.about-map-image {
-  position: absolute;
-  left: -2.66%;
-  top: 0;
-  width: 105.47%;
-  height: 100%;
-}
-
-.about-map-pin {
-  left: var(--pin-left-mobile);
-  top: var(--pin-top-mobile);
+  aspect-ratio: 1280 / 540;
 }
 
 .about-map-pin-icon svg {
   width: 16px;
-  height: 20px;
+  height: 16px;
 }
 
 .careers-hero-section {
@@ -770,30 +761,17 @@ body {
     height: 107.89%;
   }
 
-  .about-map-frame {
-    height: auto;
-    aspect-ratio: 1280 / 540;
-  }
-
-  .about-footprint-label {
-    margin-left: 45%;
-  }
-
   .about-footprint-title {
     font-size: clamp(2rem, 3.3vw, 3rem);
     line-height: 1.083;
     max-width: 724px;
-    margin-left: 22% !important;
-  }
-
-  .about-map-pin {
-    left: var(--pin-left-desktop);
-    top: var(--pin-top-desktop);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .about-map-pin-icon svg {
     width: 40px;
-    height: 50px;
+    height: 40px;
   }
 
   .careers-hero-section {

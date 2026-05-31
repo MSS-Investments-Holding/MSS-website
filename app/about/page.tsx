@@ -53,37 +53,18 @@ const drivesItems = [
   },
 ];
 
+/* Pin positions derived from Figma node coordinates.
+ * Map image: x=19437, y=4443, w=1350, h=540 (node 455:18840).
+ * Container: aspect-ratio 1280/540; image offset left=-2.66% width=105.47%.
+ * container_x = (-34 + pin_img_px_from_left) / 1280; container_y = pin_y_img%.
+ * One set of values works at all breakpoints since aspect-ratio is constant. */
 const mapPins = [
-  {
-    label: "Canada",
-    desktop: { left: "16.41%", top: "31.67%" },
-    mobile: { left: "17.45%", top: "30.92%" },
-  },
-  {
-    label: "United Kingdom",
-    desktop: { left: "48.44%", top: "17.96%" },
-    mobile: { left: "43.21%", top: "20.39%" },
-  },
-  {
-    label: "United Arab Emirates",
-    desktop: { left: "44.06%", top: "23.33%" },
-    mobile: { left: "49.31%", top: "15.13%" },
-  },
-  {
-    label: "Switzerland",
-    desktop: { left: "49.53%", top: "37.96%" },
-    mobile: { left: "49.86%", top: "34.87%" },
-  },
-  {
-    label: "Nigeria",
-    desktop: { left: "55.23%", top: "44.07%" },
-    mobile: { left: "55.68%", top: "41.45%" },
-  },
-  {
-    label: "Uganda",
-    desktop: { left: "55.70%", top: "34.63%" },
-    mobile: { left: "57.06%", top: "30.92%" },
-  },
+  { label: "Canada",               left: "18.04%", top: "39.07%" }, // 455:18842
+  { label: "United Kingdom",       left: "45.69%", top: "30.74%" }, // 455:18893
+  { label: "Switzerland",          left: "50.07%", top: "25.37%" }, // 455:18847
+  { label: "Nigeria",              left: "56.88%", top: "51.48%" }, // 455:18895
+  { label: "Uganda",               left: "63.92%", top: "40.19%" }, // 455:18897
+  { label: "United Arab Emirates", left: "70.24%", top: "40.19%" }, // 455:18849
 ];
 
 const locations = [
@@ -117,9 +98,9 @@ const locations = [
 function LocationPin({ label }: { label: string }) {
   return (
     <div className="about-map-pin-icon absolute -translate-x-1/2 -translate-y-full" aria-label={label}>
-      <svg viewBox="0 0 28 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 0C6.268 0 0 6.268 0 14c0 9.33 14 21 14 21S28 23.33 28 14C28 6.268 21.732 0 14 0z" fill="#0B1738" />
-        <circle cx="14" cy="13" r="5" fill="#F5E9DC" />
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M31.25 35H23.5219C24.8201 33.8408 26.0444 32.6014 27.1875 31.2891C31.4766 26.3563 33.75 21.1562 33.75 16.25C33.75 12.6033 32.3013 9.10591 29.7227 6.52728C27.1441 3.94866 23.6467 2.5 20 2.5C16.3533 2.5 12.8559 3.94866 10.2773 6.52728C7.69866 9.10591 6.25 12.6033 6.25 16.25C6.25 21.1562 8.51719 26.3563 12.8125 31.2891C13.9556 32.6014 15.1799 33.8408 16.4781 35H8.75C8.41848 35 8.10054 35.1317 7.86612 35.3661C7.6317 35.6005 7.5 35.9185 7.5 36.25C7.5 36.5815 7.6317 36.8995 7.86612 37.1339C8.10054 37.3683 8.41848 37.5 8.75 37.5H31.25C31.5815 37.5 31.8995 37.3683 32.1339 37.1339C32.3683 36.8995 32.5 36.5815 32.5 36.25C32.5 35.9185 32.3683 35.6005 32.1339 35.3661C31.8995 35.1317 31.5815 35 31.25 35ZM20 11.25C20.9889 11.25 21.9556 11.5432 22.7779 12.0927C23.6001 12.6421 24.241 13.423 24.6194 14.3366C24.9978 15.2502 25.0969 16.2555 24.9039 17.2255C24.711 18.1954 24.2348 19.0863 23.5355 19.7855C22.8363 20.4848 21.9454 20.961 20.9755 21.1539C20.0055 21.3469 19.0002 21.2478 18.0866 20.8694C17.173 20.491 16.3921 19.8501 15.8427 19.0279C15.2932 18.2056 15 17.2389 15 16.25C15 14.9239 15.5268 13.6521 16.4645 12.7145C17.4021 11.7768 18.6739 11.25 20 11.25Z" fill="#0B1738" />
+        <circle cx="20" cy="16" r="6" fill="#F5E9DD" />
       </svg>
     </div>
   );
@@ -480,7 +461,7 @@ export default function AboutPage() {
          * Label at x=575/1280=44.9% from content left.
          * H2 at x=278/1280=21.7% from content left, w=724, Merriweather 48px/52px.
          */}
-        <div className="relative mb-10 lg:mb-[56px]">
+        <div className="relative mb-10 lg:mb-[56px]" style={{ textAlign: "center" }}>
           <span
             className="about-footprint-label text-label font-body"
             style={{ color: "#373738", display: "block" }}
@@ -489,36 +470,26 @@ export default function AboutPage() {
           </span>
           <h2
             className="about-footprint-title font-heading"
-            style={{ margin: 0, marginTop: "8px" }}
+            style={{ margin: "0 auto", marginTop: "24px" }}
           >
             Proud to partner ideas shaping the economy of tomorrow
           </h2>
         </div>
 
         {/* World map — nearly full-bleed (45px margin each side at 1440px = 3.1%) */}
-        <div
-          className="about-map-frame relative w-full overflow-hidden"
-        >
-          <div className="about-map-image" aria-hidden="true">
-            <Image
-              src="/images/about/world-map.jpg"
-              alt="MSS global presence map"
-              fill
-              className="object-fill"
-              sizes="(max-width: 767px) 381px, 1350px"
-            />
-          </div>
-          {/* Location pins */}
+        <div className="about-map-frame relative w-full overflow-hidden">
+          <Image
+            src="/images/about/world-map.jpg"
+            alt="MSS global presence map"
+            fill
+            className="object-fill"
+            sizes="(max-width: 767px) 768px, 2560px"
+          />
           {mapPins.map((pin) => (
             <div
               key={pin.label}
               className="about-map-pin absolute"
-              style={{
-                ["--pin-left-mobile" as string]: pin.mobile.left,
-                ["--pin-top-mobile" as string]: pin.mobile.top,
-                ["--pin-left-desktop" as string]: pin.desktop.left,
-                ["--pin-top-desktop" as string]: pin.desktop.top,
-              }}
+              style={{ left: pin.left, top: pin.top }}
             >
               <LocationPin label={pin.label} />
             </div>
