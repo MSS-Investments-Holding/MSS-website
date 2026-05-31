@@ -256,13 +256,14 @@ body {
 }
 
 .about-split-cta-tile {
-  height: 350px;
+  height: auto;
 }
 
 .about-split-cta-content {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .about-split-cta-content h2 {
@@ -721,12 +722,13 @@ body {
   }
 
   .about-split-cta-tile {
-    height: 760px;
+    height: 540px;
   }
 
   .about-split-cta-content {
-    padding-left: 80px;
+    padding-left: 48px;
     padding-right: 40px;
+    padding-bottom: 0;
   }
 
   .about-split-cta-content-top {
@@ -734,7 +736,7 @@ body {
   }
 
   .about-split-cta-content-bottom {
-    padding-top: 424px;
+    padding-top: 250px;
   }
 
   .about-split-cta-content h2 {
@@ -1136,6 +1138,18 @@ body {
     top: 312px;
     width: 720px;
     max-width: 720px;
+  }
+
+  .about-split-cta-tile {
+    height: 760px;
+  }
+
+  .about-split-cta-content {
+    padding-left: 80px;
+  }
+
+  .about-split-cta-content-bottom {
+    padding-top: 424px;
   }
 }
 
