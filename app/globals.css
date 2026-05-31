@@ -1254,19 +1254,17 @@ body {
 }
 
 .how-invest-hero-title {
-  left: 20px;
-  top: 214px;
-  width: calc(100vw - 40px);
+  margin: 0;
   max-width: 362px;
-  font-size: 48px;
-  line-height: 52px;
+  font-size: clamp(2.5rem, 12.8vw, 3rem);
+  line-height: 1.083;
 }
 
 .how-section-label {
   margin: 0;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.72px;
+  font-size: var(--text-label);
+  line-height: var(--leading-label);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
@@ -1289,11 +1287,11 @@ body {
 
 .how-philosophy-list {
   margin-top: 64px;
-  border-top: 1px solid #D2D5D9;
+  border-top: 1px solid var(--color-neutral-300);
 }
 
 .how-philosophy-item {
-  border-bottom: 1px solid #D2D5D9;
+  border-bottom: 1px solid var(--color-neutral-300);
   padding: 20px 0 20px;
 }
 
@@ -1397,13 +1395,13 @@ body {
 
 .how-sector-rows {
   margin-top: 64px;
-  border-top: 1px solid #D2D5D9;
+  border-top: 1px solid var(--color-neutral-300);
 }
 
 .how-sector-row {
   display: grid;
   gap: 12px;
-  border-bottom: 1px solid #D2D5D9;
+  border-bottom: 1px solid var(--color-neutral-300);
   padding: 20px 0 24px;
 }
 
@@ -1452,7 +1450,8 @@ body {
   font-size: 15px;
   line-height: 22px;
   text-decoration: none;
-  background: #F5E9DC;
+  background: var(--color-brand-warm);
+  color: var(--color-grey-black);
 }
 
 .how-numbers-section {
@@ -1487,23 +1486,23 @@ body {
 }
 
 .how-number-card-cream {
-  background: #F5E9DC;
-  color: #1C1C1F;
+  background: var(--color-brand-warm);
+  color: var(--color-grey-black);
 }
 
 .how-number-card-navy {
-  background: #0B1738;
-  color: #FFFFFF;
+  background: var(--color-brand-navy);
+  color: var(--color-white);
 }
 
 .how-number-card-gray {
-  background: #E8E9EB;
-  color: #1C1C1F;
+  background: var(--color-grey-200);
+  color: var(--color-grey-black);
 }
 
 .how-number-card-blue {
-  background: #C5D3E5;
-  color: #1C1C1F;
+  background: var(--color-brand-silver);
+  color: var(--color-grey-black);
 }
 
 .how-number-value {
@@ -1884,9 +1883,6 @@ body {
   }
 
   .how-invest-hero-title {
-    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 234px;
-    width: min(calc(100vw - 160px), 800px);
     max-width: 800px;
     font-size: clamp(56px, 5vw, 72px);
     line-height: 1.06;
@@ -2285,10 +2281,6 @@ body {
 @media (min-width: 1024px) {
   .how-invest-hero-section {
     min-height: 930px;
-  }
-
-  .how-invest-hero-title {
-    top: 264px;
   }
 
   .portfolio-hero-section {

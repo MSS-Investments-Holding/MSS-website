@@ -147,7 +147,7 @@ export default function HowWeInvestPage() {
     <main id="main-content">
       <section
         aria-label="Hero"
-        className="how-invest-hero-section relative w-full overflow-hidden bg-[#1C1C1F]"
+        className="how-invest-hero-section relative w-full overflow-hidden bg-[#1C1C1F] flex flex-col"
       >
         <Image
           src="/images/investments/how-we-invest-hero-bg.jpg"
@@ -156,15 +156,20 @@ export default function HowWeInvestPage() {
           height={2212}
           priority
           className="how-invest-hero-media absolute max-w-none"
-          sizes="100vw"
+          sizes="(max-width: 767px) 200vw, 100vw"
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 bg-black/20" />
-        <Navbar />
 
-        <h1 className="how-invest-hero-title absolute z-10 font-heading font-light text-white">
-          A Coherent Standard for Strategic, Meaningful Investments
-        </h1>
+        <div className="relative z-20">
+          <Navbar />
+        </div>
+
+        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-16">
+          <h1 className="how-invest-hero-title font-heading font-light text-white">
+            A Coherent Standard for Strategic, Meaningful Investments
+          </h1>
+        </div>
       </section>
 
       <section
@@ -213,7 +218,7 @@ export default function HowWeInvestPage() {
 
       <section aria-label="Process" className="how-process-section w-full bg-white">
         <div className="px-5 text-center md:px-12 lg:px-20">
-          <p className="how-section-label font-body text-[#373738]">Process</p>
+          <span className="how-section-label font-body block text-[#373738]">Process</span>
           <h2 className="how-process-heading mx-auto font-heading font-light text-[#1C1C1F]">
             A process built for selectivity, clarity, and long-term value.
           </h2>
@@ -261,7 +266,7 @@ export default function HowWeInvestPage() {
         aria-label="Investing Sectors"
         className="how-sectors-section w-full bg-white px-5 md:px-12 lg:px-20"
       >
-        <p className="how-section-label font-body text-[#373738]">Investing Sectors</p>
+        <span className="how-section-label font-body block text-[#373738]">Investing Sectors</span>
 
         <div className="how-sectors-header">
           <h2 className="how-sectors-heading font-heading font-light text-[#1C1C1F]">
@@ -309,7 +314,7 @@ export default function HowWeInvestPage() {
 
       <section aria-label="By the Numbers" className="how-numbers-section w-full bg-white px-5 md:px-12 lg:px-20">
         <div className="how-numbers-copy">
-          <p className="how-section-label font-body text-[#373738]">By the Numbers</p>
+          <span className="how-section-label font-body block text-[#373738]">By the Numbers</span>
           <h2 className="how-numbers-heading font-heading font-light text-[#1C1C1F]">
             An Expanding Ecosystem with Tangible Impact
           </h2>
