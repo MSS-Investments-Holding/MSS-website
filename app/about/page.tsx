@@ -138,26 +138,26 @@ export default function AboutPage() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col md:flex-row gap-5 md:gap-10 px-5 md:px-12 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col lg:flex-row gap-5 md:gap-10 px-5 md:px-12 lg:px-20">
           {/* LEFT — H1 */}
-          <div className="md:flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] md:pb-10">
+          <div className="md:w-[70%] lg:flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] lg:pb-10">
             <h1
               className="about-hero-title font-heading text-white"
               style={{ fontWeight: 300, maxWidth: "646px" }}
             >
-              <span className="md:hidden">
+              <span className="lg:hidden">
                 Where Capital,<br />
                 Conviction, and<br />
                 Opportunity Align
               </span>
-              <span className="hidden md:inline">
+              <span className="hidden lg:inline">
                 Where Capital, Conviction, and Opportunity Align
               </span>
             </h1>
           </div>
 
           {/* RIGHT — body, bottom-third area */}
-          <div className="w-full md:w-[42%] xl:w-[540px] flex flex-col pt-0 md:pt-[434px] pb-10">
+          <div className="w-full md:w-[50%] lg:w-[42%] xl:w-[540px] flex flex-col pt-0 lg:pt-[434px] pb-10">
             <p
               className="font-body text-white max-w-[460px] md:max-w-none"
               style={{ fontSize: "clamp(17px, 1.25vw, 18px)", lineHeight: "1.555", letterSpacing: "-0.18px" }}
