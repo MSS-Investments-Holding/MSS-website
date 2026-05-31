@@ -210,27 +210,29 @@ export default function PitchPage() {
 
 
           <div className="pitch-look-content relative z-10">
-            <span
-              className="text-label font-body block"
-              style={{ color: "rgba(255,255,255,0.80)" }}
-            >
-              What We Look For
-            </span>
+            <div className="pitch-look-header relative">
+              <span
+                className="text-label font-body block"
+                style={{ color: "rgba(255,255,255,0.80)" }}
+              >
+                What We Look For
+              </span>
 
-            {/*
-             * H2: label ends at 96px (80+16), H2 at 192px → gap = 96px (mt-24 = 6rem = 96px) ✓
-             * Merriweather 36px/42px, white
-             */}
-            <h2
-              className="pitch-look-title font-heading text-white"
-              style={{
-                fontWeight: 300,
-                marginBottom: 0,
-              }}
-            >
-              MSS evaluates opportunities through the lens of strategic fit,
-              execution potential, and long-term value creation.
-            </h2>
+              {/*
+               * H2: label ends at 96px (80+16), H2 at 192px → gap = 96px (mt-24 = 6rem = 96px) ✓
+               * Merriweather 36px/42px, white
+               */}
+              <h2
+                className="pitch-look-title font-heading text-white"
+                style={{
+                  fontWeight: 300,
+                  marginBottom: 0,
+                }}
+              >
+                MSS evaluates opportunities through the lens of strategic fit,
+                execution potential, and long-term value creation.
+              </h2>
+            </div>
 
             {/* Body: H2 ends at 360px, body at 376px → gap 16px (mt-4) ✓ */}
             <p
