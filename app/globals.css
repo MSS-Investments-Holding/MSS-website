@@ -1255,7 +1255,7 @@ body {
 
 .how-invest-hero-title {
   left: 20px;
-  top: 180px;
+  top: 214px;
   width: calc(100vw - 40px);
   max-width: 362px;
   font-size: 48px;
@@ -1873,7 +1873,7 @@ body {
 
 @media (min-width: 768px) {
   .how-invest-hero-section {
-    min-height: 930px;
+    min-height: 800px;
   }
 
   .how-invest-hero-media {
@@ -1885,7 +1885,7 @@ body {
 
   .how-invest-hero-title {
     left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 280px;
+    top: 234px;
     width: min(calc(100vw - 160px), 800px);
     max-width: 800px;
     font-size: clamp(56px, 5vw, 72px);
@@ -2283,6 +2283,14 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .how-invest-hero-section {
+    min-height: 930px;
+  }
+
+  .how-invest-hero-title {
+    top: 264px;
+  }
+
   .portfolio-hero-section {
     min-height: 930px;
   }
@@ -2294,6 +2302,22 @@ body {
 }
 
 @media (min-width: 1440px) {
+  /* How We Invest — hero backdrop. Values from 768px block ÷ 1440. */
+  .how-invest-hero-media {
+    left: calc(50% - 118.19vw); /* 1702/1440 × 100 */
+    top: -21.11vw;              /* 304/1440 × 100  */
+    width: 230.28vw;            /* 3316/1440 × 100 */
+    height: 153.61vw;           /* 2212/1440 × 100 */
+  }
+
+  /* How We Invest — process band backdrop. Values from 768px block ÷ 1440. */
+  .how-process-media {
+    left: calc(50% - 51.25vw);  /* 738/1440 × 100  */
+    top: -78.96vw;              /* 1137/1440 × 100 */
+    width: 102.57vw;            /* 1477/1440 × 100 */
+    height: 153.61vw;           /* 2212/1440 × 100 */
+  }
+
   /* Portfolio hero backdrop — proportional scaling above 1440px.
    * Values from 768px block (1482×989px, top -59px) converted to vw
    * so they match exactly at 1440px and scale with the viewport above it. */
