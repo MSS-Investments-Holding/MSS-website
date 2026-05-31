@@ -138,9 +138,9 @@ export default function AboutPage() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
+        <div className="relative z-10 flex-1 flex flex-col md:flex-row px-5 md:px-12 lg:px-20">
           {/* LEFT — H1 */}
-          <div className="lg:flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-3 lg:pb-10">
+          <div className="md:flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-3 md:pb-10">
             <h1
               className="about-hero-title font-heading text-white"
               style={{ fontWeight: 300, maxWidth: "646px" }}
@@ -157,9 +157,9 @@ export default function AboutPage() {
           </div>
 
           {/* RIGHT — body, bottom-third area */}
-          <div className="w-full lg:w-[42%] xl:w-[540px] flex flex-col pt-0 lg:pt-[434px] pb-10">
+          <div className="w-full md:w-[42%] xl:w-[540px] flex flex-col pt-0 md:pt-[434px] pb-10">
             <p
-              className="font-body text-white"
+              className="font-body text-white max-w-[460px] md:max-w-none"
               style={{ fontSize: "clamp(17px, 1.25vw, 18px)", lineHeight: "1.555", letterSpacing: "-0.18px" }}
             >
               We operate with a long-term view, backing ventures and platforms
