@@ -291,14 +291,26 @@ body {
   margin-top: 32px !important;
 }
 
-/* Mobile: images cover the full tile; tile height is content-driven */
+/* Mobile: vw-based sizing derived from Figma mobile node (871:1151).
+ * Tile width = 100vw, reference width = 402px → divide px by 402 × 100.
+ * vw units keep images proportional as viewport grows within mobile range. */
 .about-portfolio-cta-image,
 .about-careers-cta-image {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  transform: none;
+}
+
+.about-portfolio-cta-image {
+  left: 0;
+  top: -8.96vw;     /* -36px ÷ 402 × 100 */
+  width: 314.43vw;  /* 1264px ÷ 402 × 100 */
+  height: 209.70vw; /* 843px ÷ 402 × 100 */
+}
+
+.about-careers-cta-image {
+  left: -42.04vw;   /* -169px ÷ 402 × 100 */
+  top: -29.35vw;    /* -118px ÷ 402 × 100 */
+  width: 184.08vw;  /* 740px ÷ 402 × 100 */
+  height: 122.39vw; /* 492px ÷ 402 × 100 */
 }
 
 .about-map-frame {
