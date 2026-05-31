@@ -44,8 +44,8 @@ export default function PortfolioProcessSection() {
       <div className="w-full flex flex-col items-center text-center px-5 md:px-12 lg:px-20 pt-20 md:pt-24 lg:pt-[140px] pb-14 md:pb-16 lg:pb-[60px]">
         <span className="text-label font-body" style={{ color: "#67686B" }}>Investment Portfolio</span>
         <h2
-          className="font-heading"
-          style={{ fontSize: "clamp(2.125rem, 3.4vw, 3rem)", lineHeight: "1.083", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "15.1em" }}
+          className="portfolio-process-h2 font-heading font-light"
+          style={{ color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "15.1em" }}
         >
           A Portfolio Built with Strategic Intent
         </h2>

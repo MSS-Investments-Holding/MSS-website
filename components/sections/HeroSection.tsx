@@ -51,8 +51,7 @@ export default function HeroSection({ articles }: Props) {
 
           {/* H1 */}
           <h1
-            className="font-heading text-white max-w-[calc(100vw-40px)] md:max-w-[780px]"
-            style={{ fontSize: "clamp(2.25rem, 5vw, 4.375rem)", lineHeight: "1.06", fontWeight: 300 }}
+            className="home-hero-h1 font-heading font-light text-white max-w-[calc(100vw-40px)] md:max-w-[780px]"
           >
             <span className="block md:inline">Building the</span>
             <span className="block md:inline"> Platforms</span>

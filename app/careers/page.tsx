@@ -146,8 +146,8 @@ export default function CareersPage() {
         </span>
 
         <h2
-          className="font-heading"
-          style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "640px" }}
+          className="careers-why-h2 font-heading font-light"
+          style={{ color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "640px" }}
         >
           Work Where Businesses, Ideas, and Execution Meet
         </h2>
@@ -172,8 +172,8 @@ export default function CareersPage() {
                 {/* RIGHT — title then description stacked */}
                 <div className="flex-1">
                   <h3
-                    className="font-heading"
-                    style={{ fontSize: "clamp(22px, 1.8vw, 26px)", lineHeight: "1.23", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+                    className="careers-benefit-h3 font-heading font-light"
+                    style={{ color: "#1C1C1F", margin: 0 }}
                   >
                     {item.title}
                   </h3>
@@ -223,8 +223,8 @@ export default function CareersPage() {
             What We Stand For
           </span>
           <h2
-            className="careers-stand-title font-heading text-white"
-            style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", lineHeight: "1.167", fontWeight: 300, maxWidth: "620px" }}
+            className="careers-stand-title font-heading font-light text-white"
+            style={{ fontWeight: 300, maxWidth: "620px" }}
           >
             We support ideas and ventures that create long-term, global economic value, while empowering people to contribute to meaningful work across the growing ecosystem.
           </h2>
@@ -245,8 +245,8 @@ export default function CareersPage() {
           </span>
 
           <h2
-            className="font-heading"
-            style={{ fontSize: "clamp(2.125rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
+            className="careers-roles-h2 font-heading font-light"
+            style={{ color: "#1C1C1F", margin: 0, marginTop: "24px" }}
           >
             Start Your <br />
             Journey Today
@@ -340,8 +340,8 @@ export default function CareersPage() {
           </span>
 
           <h2
-            className="careers-application-title font-heading"
-            style={{ fontSize: "clamp(1.75rem, 2.5vw, 2.25rem)", lineHeight: "1.167", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+            className="careers-application-title font-heading font-light"
+            style={{ color: "#1C1C1F", margin: 0 }}
           >
             Open Application
           </h2>

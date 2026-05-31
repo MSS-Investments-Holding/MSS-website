@@ -30,8 +30,8 @@ export default function LeadershipSection() {
         </span>
 
         <h2
-          className="font-heading"
-          style={{ fontSize: "clamp(2.125rem, 3.4vw, 3rem)", lineHeight: "1.083", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "700px" }}
+          className="leadership-section-h2 font-heading font-light"
+          style={{ color: "#1C1C1F", margin: 0, marginTop: "24px", maxWidth: "700px" }}
         >
           Experienced Leadership, with Depth and Perspective
         </h2>
@@ -78,7 +78,7 @@ function LeaderRow({ leader, reverse = false }: { leader: typeof leaders[number]
         className="flex flex-col min-h-0 lg:min-h-[400px] p-6"
         style={{ backgroundColor: leader.cardBg }}
       >
-        <h3 className="font-heading" style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}>
+        <h3 className="leadership-person-h3 font-heading font-light" style={{ color: "#1C1C1F", margin: 0 }}>
           {leader.name}
         </h3>
         <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>

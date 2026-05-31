@@ -391,6 +391,8 @@ body {
 
 .careers-stand-title {
   margin-top: 96px;
+  font-size: 2.25rem;
+  line-height: 1.167;
 }
 
 .careers-roles-section {
@@ -430,6 +432,8 @@ body {
 
 .careers-application-title {
   margin-top: 96px;
+  font-size: 2.25rem;
+  line-height: 1.167;
 }
 
 .careers-application-button {
@@ -2355,6 +2359,97 @@ body {
     height: 68.69vw;
     transform: translateX(-50%);
   }
+}
+
+/* ─── Heading classes for tablet-responsive typography ──────────
+ * Replaces inline clamp() fontSize for heading elements that need
+ * distinct mobile / tablet / desktop values.
+ * Default = desktop. Mobile overrides below. Tablet in the
+ * @media (min-width: 768px) and (max-width: 1023px) block at end.
+ * ──────────────────────────────────────────────────────────────── */
+.home-hero-h1          { font-size: 4.375rem;  line-height: 1.056; }
+.news-hero-h1          { font-size: 4.375rem;  line-height: 1.056; }
+.company-section-h2    { font-size: 2.875rem;  line-height: 1.087; }
+.home-news-section-h2  { font-size: 2.875rem;  line-height: 1.087; }
+.leadership-section-h2 { font-size: 3rem;      line-height: 1.083; }
+.portfolio-process-h2  { font-size: 3rem;      line-height: 1.083; }
+.leadership-person-h3  { font-size: 26px;      line-height: 32px;  }
+.footprint-section-h2  { font-size: 2.25rem;   line-height: 1.2;   }
+.news-article-hero-title { font-size: 2.875rem; line-height: 1.087; }
+.news-press-kit-h2     { font-size: 2.25rem;   line-height: 1.167; }
+.careers-why-h2        { font-size: 2.875rem;  line-height: 1.087; }
+.careers-roles-h2      { font-size: 2.875rem;  line-height: 1.087; }
+.careers-benefit-h3    { font-size: 26px;      line-height: 1.23;  }
+
+@media (max-width: 767px) {
+  .home-hero-h1          { font-size: 2.25rem; }
+  .news-hero-h1          { font-size: 2.25rem; }
+  .company-section-h2    { font-size: 1.75rem; }
+  .home-news-section-h2  { font-size: 1.75rem; }
+  .leadership-section-h2 { font-size: 2.125rem; }
+  .portfolio-process-h2  { font-size: 2.125rem; }
+  .leadership-person-h3  { font-size: 26px; }
+  .footprint-section-h2  { font-size: 1.75rem; }
+  .news-article-hero-title { font-size: 1.75rem; }
+  .news-press-kit-h2     { font-size: 1.5rem; }
+  .careers-why-h2        { font-size: 1.75rem; }
+  .careers-roles-h2      { font-size: 2.125rem; }
+  .careers-benefit-h3    { font-size: 22px; }
+  .careers-stand-title   { font-size: 1.5rem; }
+  .careers-application-title { font-size: 1.75rem; }
+}
+
+/* ─── Tablet type scale (768px – 1023px) ─────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Token utility classes */
+  .text-h1 { font-size: 3.875rem; line-height: 66px; }   /* 62px */
+  .text-h2 { font-size: 2.5rem;   line-height: 44px; }   /* 40px */
+  .text-h3 { font-size: 2rem;     line-height: 38px; }   /* 32px */
+  .text-h4 { font-size: 1.5rem;   line-height: 30px; }   /* 24px */
+
+  /* H1 — hero headings */
+  .about-hero-title      { font-size: 3.875rem; line-height: 66px; }
+  .careers-hero-title    { font-size: 3.875rem; line-height: 66px; }
+  .pitch-hero-title      { font-size: 3.875rem; line-height: 66px; }
+  .legal-hero-title      { font-size: 3.875rem; line-height: 66px; }
+  .chairman-hero-title   { font-size: 3.875rem; line-height: 66px; }
+  .how-invest-hero-title { font-size: 3.875rem; line-height: 66px; }
+  .portfolio-hero-title  { font-size: 3.875rem; line-height: 66px; }
+  .home-hero-h1          { font-size: 3.875rem; line-height: 66px; }
+  .news-hero-h1          { font-size: 3.875rem; line-height: 66px; }
+
+  /* H2 — section headings */
+  .how-process-heading    { font-size: 2.5rem; line-height: 44px; }
+  .how-sectors-heading    { font-size: 2.5rem; line-height: 44px; }
+  .how-numbers-heading    { font-size: 2.5rem; line-height: 44px; }
+  .about-footprint-title  { font-size: 2.5rem; line-height: 44px; }
+  .about-drives-h2        { font-size: 2.5rem; line-height: 44px; }
+  .company-section-h2     { font-size: 2.5rem; line-height: 44px; }
+  .home-news-section-h2   { font-size: 2.5rem; line-height: 44px; }
+  .leadership-section-h2  { font-size: 2.5rem; line-height: 44px; }
+  .portfolio-process-h2   { font-size: 2.5rem; line-height: 44px; }
+  .careers-why-h2         { font-size: 2.5rem; line-height: 44px; }
+  .careers-roles-h2       { font-size: 2.5rem; line-height: 44px; }
+
+  /* H3 — sub-section headings */
+  .about-who-h2          { font-size: 2rem; line-height: 38px; }
+  .about-section-h2      { font-size: 2rem; line-height: 38px; }
+  .about-mission-title   { font-size: 2rem; line-height: 38px; }
+  .how-philosophy-heading { font-size: 2rem; line-height: 38px; }
+  .how-process-band-text  { font-size: 2rem; line-height: 38px; }
+  .pitch-look-title       { font-size: 2rem; line-height: 38px; }
+  .careers-stand-title    { font-size: 2rem; line-height: 38px; }
+  .careers-application-title { font-size: 2rem; line-height: 38px; }
+  .footprint-section-h2   { font-size: 2rem; line-height: 38px; }
+  .news-article-hero-title { font-size: 2rem; line-height: 38px; }
+  .news-press-kit-h2      { font-size: 2rem; line-height: 38px; }
+
+  /* H4 — item headings */
+  .legal-section-heading  { font-size: 1.5rem; line-height: 30px; }
+  .legal-contact-title    { font-size: 1.5rem; line-height: 30px; }
+  [data-chairman-name]    { font-size: 1.5rem; line-height: 30px; }
+  .leadership-person-h3   { font-size: 1.5rem; line-height: 30px; }
+  .careers-benefit-h3     { font-size: 1.5rem; line-height: 30px; }
 }
 
 /* ─── Focus visible ──────────────────────────────────────────── */

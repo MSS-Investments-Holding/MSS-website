@@ -14,8 +14,8 @@ export default function NewsSection({ articles }: Props) {
       {/* HEADER */}
       <div className="flex flex-col md:flex-row md:items-start md:gap-10 lg:gap-20 mb-16 lg:mb-20">
         <h2
-          className="font-heading md:w-1/2 lg:w-auto lg:flex-shrink-0"
-          style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, color: "#1C1C1F", margin: 0, maxWidth: "540px" }}
+          className="home-news-section-h2 font-heading font-light md:w-1/2 lg:w-auto lg:flex-shrink-0"
+          style={{ color: "#1C1C1F", margin: 0, maxWidth: "540px" }}
         >
           News &amp; Media
         </h2>

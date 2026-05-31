@@ -65,13 +65,8 @@ export default async function NewsPage({
           {/* LEFT — H1 */}
           <div className="flex-1 pt-16 lg:pt-[310px] pb-10">
             <h1
-              className="font-heading text-white"
-              style={{
-                fontSize: "clamp(2.25rem, 5vw, 4.375rem)",
-                lineHeight: "1.056",
-                fontWeight: 300,
-                maxWidth: "720px",
-              }}
+              className="news-hero-h1 font-heading font-light text-white"
+              style={{ maxWidth: "720px" }}
             >
               News &amp; Media
             </h1>
@@ -260,15 +255,8 @@ export default async function NewsPage({
 
           {/* H2: label ends at 96px (80+16), H2 at 240px → gap=144px */}
           <h2
-            className="font-heading text-white"
-            style={{
-              fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)",
-              lineHeight: "1.167",
-              fontWeight: 300,
-              margin: 0,
-              marginTop: "144px",
-              maxWidth: "527px",
-            }}
+            className="news-press-kit-h2 font-heading font-light text-white"
+            style={{ margin: 0, marginTop: "144px", maxWidth: "527px" }}
           >
             Looking for media resources? Download the MSS press kit for
             free-to-use press and product imagery for both web and print.

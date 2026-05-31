@@ -58,16 +58,8 @@ export default function FootprintSection() {
           </span>
 
           <h2
-            className="font-heading"
-            style={{
-              // 28px on mobile (Figma), 36px on desktop
-              fontSize: "clamp(1.75rem, 3.5vw, 2.25rem)",
-              lineHeight: "1.2",
-              fontWeight: 300,
-              color: "#1C1C1F",
-              margin: 0,
-              marginTop: "24px",
-            }}
+            className="footprint-section-h2 font-heading font-light"
+            style={{ color: "#1C1C1F", margin: 0, marginTop: "24px" }}
           >
             Positioned Across<br className="hidden lg:block" /> Markets That Matter
           </h2>

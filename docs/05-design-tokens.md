@@ -87,22 +87,39 @@ All heading styles use **Merriweather Light (300)**. All body styles use **Inter
 
 ---
 
+### Tablet Type Scale
+
+**Breakpoint: 768px – 1023px** — Confirmed values for all heading tokens at the tablet tier.
+
+| Token | Tablet Size | Tablet LH | LS |
+|---|---|---|---|
+| `text-h1` | 62px / 3.875rem | 66px | 0 |
+| `text-h2` | 40px / 2.5rem | 44px | 0 |
+| `text-h3` | 32px / 2rem | 38px | 0 |
+| `text-h4` | 24px / 1.5rem | 30px | 0 |
+| `text-h5` | 20px / 1.25rem | 26px | 0 |
+| `text-h6` | 16px / 1rem | 22px | 0 |
+
+**Implementation:** Applied via `@media (min-width: 768px) and (max-width: 1023px)` in `app/globals.css`. Covers all `.text-h*` token utility classes plus named CSS classes for headings that previously used inline `clamp()` font-sizes.
+
+---
+
 ### Mobile Type Scale
 
 **Status: CONFIRMED** — Extracted from Figma node `244-5346` on 2026-04-29. All values are final and in production.
 
-| Token | Desktop Size | Desktop LH | Mobile Size | Mobile LH | LS |
-|---|---|---|---|---|---|
-| `text-h1` | 72px / 4.5rem | 76px | 48px / 3rem | 54px | 0 |
-| `text-h2` | 48px / 3rem | 52px | 36px / 2.25rem | 40px | 0 |
-| `text-h3` | 36px / 2.25rem | 42px | 28px / 1.75rem | 34px | 0 |
-| `text-h4` | 26px / 1.625rem | 32px | 22px / 1.375rem | 28px | 0 |
-| `text-h5` | 20px / 1.25rem | 26px | 18px / 1.125rem | 24px | 0 |
-| `text-h6` | 16px / 1rem | 22px | 14px / 0.875rem | 20px | 0 |
-| `text-body-lg` | 18px / 1.125rem | 28px | 17px / 1.0625rem | 26px | −1% |
-| `text-body-sm` | 15px / 0.9375rem | 22px | 14px / 0.875rem | 20px | 0 |
-| `text-body-sm-emphasized` | 15px / 0.9375rem | 22px | 14px / 0.875rem | 20px | 0 |
-| `text-label` | 12px / 0.75rem | 16px | 12px / 0.75rem | 16px | +6% |
+| Token | Desktop Size | Desktop LH | Tablet Size | Tablet LH | Mobile Size | Mobile LH | LS |
+|---|---|---|---|---|---|---|---|
+| `text-h1` | 72px / 4.5rem | 76px | 62px / 3.875rem | 66px | 48px / 3rem | 54px | 0 |
+| `text-h2` | 48px / 3rem | 52px | 40px / 2.5rem | 44px | 36px / 2.25rem | 40px | 0 |
+| `text-h3` | 36px / 2.25rem | 42px | 32px / 2rem | 38px | 28px / 1.75rem | 34px | 0 |
+| `text-h4` | 26px / 1.625rem | 32px | 24px / 1.5rem | 30px | 22px / 1.375rem | 28px | 0 |
+| `text-h5` | 20px / 1.25rem | 26px | 20px / 1.25rem | 26px | 18px / 1.125rem | 24px | 0 |
+| `text-h6` | 16px / 1rem | 22px | 16px / 1rem | 22px | 14px / 0.875rem | 20px | 0 |
+| `text-body-lg` | 18px / 1.125rem | 28px | — | — | 17px / 1.0625rem | 26px | −1% |
+| `text-body-sm` | 15px / 0.9375rem | 22px | — | — | 14px / 0.875rem | 20px | 0 |
+| `text-body-sm-emphasized` | 15px / 0.9375rem | 22px | — | — | 14px / 0.875rem | 20px | 0 |
+| `text-label` | 12px / 0.75rem | 16px | — | — | 12px / 0.75rem | 16px | +6% |
 
 ---
 

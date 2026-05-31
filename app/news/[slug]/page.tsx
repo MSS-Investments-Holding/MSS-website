@@ -150,8 +150,8 @@ export default async function ArticlePage({
           </div>
 
           <h1
-            className="font-heading text-white"
-            style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, maxWidth: "600px" }}
+            className="news-article-hero-title font-heading font-light text-white"
+            style={{ maxWidth: "600px" }}
           >
             {article.title}
           </h1>
