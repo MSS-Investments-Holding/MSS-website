@@ -140,7 +140,7 @@ export default function AboutPage() {
 
         <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
           {/* LEFT — H1 */}
-          <div className="flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-10">
+          <div className="lg:flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-3 lg:pb-10">
             <h1
               className="about-hero-title font-heading text-white"
               style={{ fontWeight: 300, maxWidth: "646px" }}
@@ -208,7 +208,7 @@ export default function AboutPage() {
           >
             {/* Vertical decorative line */}
             <div
-              className="absolute hidden lg:block"
+              className="absolute hidden md:block"
               style={{ left: "5%", top: "80px", bottom: "80px", width: "1px", backgroundColor: "rgba(28,28,31,0.30)" }}
             />
 
@@ -310,11 +310,11 @@ export default function AboutPage() {
           Both: vertical line at left=40px, text at pl-[80px]
          ══════════════════════════════════════════════════════════ */}
       <div className="about-split-cta-outer w-full">
-      <div className="flex flex-col lg:flex-row w-full">
+      <div className="flex flex-col md:flex-row w-full">
 
         {/* LEFT — Portfolio */}
         <div
-          className="about-split-cta-tile relative w-full lg:w-1/2 overflow-hidden"
+          className="about-split-cta-tile relative w-full md:w-1/2 overflow-hidden"
           style={{ backgroundColor: "#0B1738" }}
         >
           <div className="about-portfolio-cta-image" aria-hidden="true">
@@ -379,7 +379,7 @@ export default function AboutPage() {
 
         {/* RIGHT — Careers */}
         <div
-          className="about-split-cta-tile relative w-full lg:w-1/2 overflow-hidden"
+          className="about-split-cta-tile relative w-full md:w-1/2 overflow-hidden"
           style={{ backgroundColor: "#0B1738" }}
         >
           <div className="about-careers-cta-image" aria-hidden="true">
