@@ -160,7 +160,7 @@ body {
 }
 
 .about-hero-section {
-  min-height: 900px;
+  min-height: 880px;
 }
 
 .about-hero-media {
@@ -202,6 +202,19 @@ body {
 
 .about-mission-title {
   margin-top: 96px;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  line-height: 1.167;
+  max-width: 640px;
+}
+
+.about-section-h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  line-height: 1.167;
+}
+
+.about-drives-h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.875rem);
+  line-height: 1.087;
 }
 
 .about-drive-image-frame {
@@ -670,7 +683,7 @@ body {
   }
 
   .about-hero-section {
-    min-height: 930px;
+    min-height: 800px;
   }
 
   .about-hero-media {
@@ -792,6 +805,9 @@ body {
   }
 
   .about-footprint-title {
+    font-size: clamp(2rem, 3.3vw, 3rem);
+    line-height: 1.083;
+    max-width: 724px;
     margin-left: 22% !important;
   }
 
@@ -1130,6 +1146,10 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .about-hero-section {
+    min-height: 930px;
+  }
+
   .pitch-hero-section {
     min-height: 930px;
   }
@@ -1170,6 +1190,15 @@ body {
     width: 115.07vw;
     height: 172.5vw;
     transform: translateX(-50%);
+  }
+
+  /* About hero backdrop — proportional scaling above 1440px.
+   * Values from 768px block (1440×1394px, top offset -9px) converted to vw
+   * so they match exactly at 1440px and scale with the viewport above it. */
+  .about-hero-media {
+    width: 100vw;
+    height: 96.806vw;
+    top: calc(50% - 0.625vw);
   }
 
   /* Pitch hero backdrop — same proportional scaling approach.

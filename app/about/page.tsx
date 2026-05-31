@@ -167,7 +167,7 @@ export default function AboutPage() {
 
         <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
           {/* LEFT — H1 */}
-          <div className="flex-1 pt-[72px] lg:pt-[166px] pb-10">
+          <div className="flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-10">
             <h1
               className="about-hero-title font-heading text-white"
               style={{ fontWeight: 300, maxWidth: "646px" }}
@@ -213,16 +213,8 @@ export default function AboutPage() {
           Who are we
         </span>
         <h2
-          className="font-heading"
-          style={{
-            fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)",
-            lineHeight: "1.167",
-            fontWeight: 300,
-            color: "#1C1C1F",
-            margin: 0,
-            marginTop: "24px",
-            maxWidth: "600px",
-          }}
+          className="about-section-h2 font-heading"
+          style={{ margin: 0, marginTop: "24px", maxWidth: "600px" }}
         >
           A Global Holding Company{"\n"}Shaping Tomorrow&apos;s Economy
         </h2>
@@ -339,14 +331,6 @@ export default function AboutPage() {
               </span>
               <h2
                 className="about-mission-title font-heading"
-                style={{
-                  fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)",
-                  lineHeight: "1.167",
-                  fontWeight: 300,
-                  color: "#1C1C1F",
-                  margin: 0,
-                  maxWidth: "640px",
-                }}
               >
                 We back businesses that create lasting economic value, ideas that
                 can endure, scale responsibly, and contribute meaningfully to the
@@ -384,14 +368,8 @@ export default function AboutPage() {
         className="w-full bg-white px-5 md:px-12 lg:px-20 pt-[120px] lg:pt-[126px] pb-[120px] lg:pb-40"
       >
         <h2
-          className="font-heading"
-          style={{
-            fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)",
-            lineHeight: "1.087",
-            fontWeight: 300,
-            color: "#1C1C1F",
-            margin: 0,
-          }}
+          className="about-drives-h2 font-heading"
+          style={{ margin: 0 }}
         >
           What drives us.
         </h2>
@@ -475,8 +453,8 @@ export default function AboutPage() {
               For Partners
             </span>
             <h2
-              className="font-heading text-white"
-              style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", lineHeight: "1.167", fontWeight: 300, margin: 0, marginTop: "32px", maxWidth: "480px" }}
+              className="about-section-h2 font-heading text-white"
+              style={{ margin: 0, marginTop: "32px", maxWidth: "480px" }}
             >
               Our Portfolio
             </h2>
@@ -541,8 +519,8 @@ export default function AboutPage() {
               For talent
             </span>
             <h2
-              className="font-heading text-white"
-              style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", lineHeight: "1.167", fontWeight: 300, margin: 0, marginTop: "32px", maxWidth: "480px" }}
+              className="about-section-h2 font-heading text-white"
+              style={{ margin: 0, marginTop: "32px", maxWidth: "480px" }}
             >
               Join Us
             </h2>
@@ -604,15 +582,7 @@ export default function AboutPage() {
           </span>
           <h2
             className="about-footprint-title font-heading"
-            style={{
-              fontSize: "clamp(2rem, 3.3vw, 3rem)",
-              lineHeight: "1.083",
-              fontWeight: 300,
-              color: "#1C1C1F",
-              margin: 0,
-              marginTop: "8px",
-              maxWidth: "724px",
-            }}
+            style={{ margin: 0, marginTop: "8px" }}
           >
             Proud to partner ideas shaping the economy of tomorrow
           </h2>
