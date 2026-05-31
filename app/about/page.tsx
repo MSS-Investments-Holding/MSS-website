@@ -498,7 +498,7 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 mt-5" style={{ gap: "0 32px" }}>
+        <div className="about-locations-grid grid grid-cols-1 md:grid-cols-3 mt-5" style={{ gap: "0 32px" }}>
           {locations.map((entry) => (
             <div key={entry.name} className="border-t border-[#D2D5D9] pt-10 pb-10">
               <h3
