@@ -80,6 +80,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -2007,7 +2008,7 @@ body {
   }
 
   .how-sector-row {
-    grid-template-columns: 240px minmax(360px, 520px) minmax(220px, 280px);
+    grid-template-columns: minmax(0, 240px) minmax(0, 520px) minmax(0, 280px);
     justify-content: space-between;
     gap: 40px;
     padding: 24px 0 40px;
