@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/sections/CTASection";
 import WhoWeAreSection from "@/components/sections/WhoWeAreSection";
+import ArrowRight from "@/components/icons/ArrowRight";
 
 export const metadata: Metadata = {
   title: "About Us | MSS Investments Holding",
@@ -379,7 +380,7 @@ export default function AboutPage() {
             <div style={{ marginTop: "56px" }}>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center font-body"
+                className="inline-flex items-center gap-[6px] font-body"
                 style={{
                   height: "40px",
                   backgroundColor: "#FFFFFF",
@@ -388,12 +389,13 @@ export default function AboutPage() {
                   lineHeight: "24px",
                   letterSpacing: "-0.32px",
                   paddingLeft: "20px",
-                  paddingRight: "20px",
+                  paddingRight: "16px",
                   whiteSpace: "nowrap",
                   textDecoration: "none",
                 }}
               >
-                Visit Portfolio →
+                Visit Portfolio
+                <ArrowRight size="lg" fill="#1C1C1F" />
               </Link>
             </div>
           </div>
@@ -445,7 +447,7 @@ export default function AboutPage() {
             <div style={{ marginTop: "56px" }}>
               <Link
                 href="/careers"
-                className="inline-flex items-center font-body"
+                className="inline-flex items-center gap-[6px] font-body"
                 style={{
                   height: "40px",
                   backgroundColor: "#FFFFFF",
@@ -454,12 +456,13 @@ export default function AboutPage() {
                   lineHeight: "24px",
                   letterSpacing: "-0.32px",
                   paddingLeft: "20px",
-                  paddingRight: "20px",
+                  paddingRight: "16px",
                   whiteSpace: "nowrap",
                   textDecoration: "none",
                 }}
               >
-                Visit Careers →
+                Visit Careers
+                <ArrowRight size="lg" fill="#1C1C1F" />
               </Link>
             </div>
           </div>
