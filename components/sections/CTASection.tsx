@@ -18,8 +18,7 @@ export default function CTASection({ ariaLabel = "Start the Conversation" }: { a
 
         <div className="relative z-10 flex flex-col items-center text-center px-5" style={{ maxWidth: "560px" }}>
           <h2
-            className="font-heading text-white"
-            style={{ fontSize: "clamp(2.125rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, margin: 0 }}
+            className="font-heading font-light text-white text-h2 m-0"
           >
             Let&apos;s Start the Right Conversation!
           </h2>
