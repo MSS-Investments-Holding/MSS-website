@@ -345,7 +345,7 @@ body {
 .careers-hero-title {
   width: calc(100vw - 40px);
   font-size: 48px;
-  line-height: 52px;
+  line-height: 54px;
 }
 
 .careers-hero-body {
@@ -2401,7 +2401,7 @@ body {
   .news-press-kit-h2     { font-size: 1.5rem; }
   .careers-why-h2        { font-size: 1.75rem; }
   .careers-roles-h2      { font-size: 2.125rem; }
-  .careers-benefit-h3    { font-size: 22px; }
+  .careers-benefit-h3    { font-size: 22px; line-height: 28px; }
   .careers-stand-title   { font-size: 1.5rem; }
   .careers-application-title { font-size: 1.75rem; }
 }
