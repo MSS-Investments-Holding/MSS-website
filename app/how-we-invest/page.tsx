@@ -285,11 +285,13 @@ export default function HowWeInvestPage() {
               <h3 className="how-sector-title font-heading font-light text-[#1C1C1F]">
                 {sector.name}
               </h3>
-              {sector.description.split('\n\n').map((para, i) => (
-                <p key={i} className="how-sector-description font-body text-[#67686B]">
-                  {para}
-                </p>
-              ))}
+              <div>
+                {sector.description.split('\n\n').map((para, i) => (
+                  <p key={i} className="how-sector-description font-body text-[#67686B]">
+                    {para}
+                  </p>
+                ))}
+              </div>
               <div className="how-sector-signals">
                 <h4 className="how-sector-signals-title font-heading font-light text-[#1C1C1F]">
                   Opportunity Signals:
