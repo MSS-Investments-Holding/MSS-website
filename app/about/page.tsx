@@ -157,7 +157,7 @@ export default function AboutPage() {
           </div>
 
           {/* RIGHT — body, bottom-third area */}
-          <div className="w-full md:w-[50%] lg:w-[42%] xl:w-[540px] flex flex-col pt-0 lg:pt-[434px] pb-10">
+          <div className="w-full md:w-[50%] md:ml-auto lg:ml-0 lg:w-[42%] xl:w-[540px] flex flex-col pt-0 lg:pt-[434px] pb-10">
             <p
               className="font-body text-white max-w-[460px] md:max-w-none"
               style={{ fontSize: "clamp(17px, 1.25vw, 18px)", lineHeight: "1.555", letterSpacing: "-0.18px" }}
