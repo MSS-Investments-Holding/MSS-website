@@ -35,22 +35,22 @@ const processSteps = [
   {
     title: "Origination",
     body: "Identify opportunities via our network, market activity, founder talks, and sector research.",
-    Icon: IconOrigination,
+    icon: "/images/icons/step-discovery.svg",
   },
   {
     title: "Evaluation",
     body: "Assess business model, market timing, team, growth potential, risk, and ecosystem fit.",
-    Icon: IconEvaluation,
+    icon: "/images/icons/step-strategy.svg",
   },
   {
     title: "Execution",
     body: "Structure the right involvement, via capital, partnership, strategic support within the portfolio.",
-    Icon: IconExecution,
+    icon: "/images/icons/step-validation.svg",
   },
   {
     title: "Management",
     body: "Stay involved post-investment, supporting governance, priorities, and value creation.",
-    Icon: IconManagement,
+    icon: "/images/icons/step-launch.svg",
   },
 ];
 
@@ -58,7 +58,7 @@ const sectors = [
   {
     name: "Fintech",
     description:
-      "Fintech remains one of the clearest areas where infrastructure, access, and everyday utility come together. We look at businesses improving how people and companies move money, access financial services, manage transactions, and operate across markets. The strongest fintech opportunities are not just digital versions of traditional services. They create simpler, faster, and more reliable ways for users and businesses to participate in the economy. For us, this includes payment infrastructure, remittances, digital banking, merchant services, multi-currency platforms, and cross-border financial systems.",
+      "Fintech remains one of the clearest areas where infrastructure, access, and everyday utility come together. We look at businesses improving how people and companies move money, access financial services, manage transactions, and operate across markets.\n\nThe strongest fintech opportunities are not just digital versions of traditional services. They create simpler, faster, and more reliable ways for users and businesses to participate in the economy. For us, this includes payment infrastructure, remittances, digital banking, merchant services, multi-currency platforms, and cross-border financial systems.",
     signals: [
       "Payments",
       "Remittances",
@@ -71,7 +71,7 @@ const sectors = [
   {
     name: "AI Agents",
     description:
-      "AI is moving from experimentation into practical business systems. We are interested in AI-led opportunities that improve workflows, decision-making, automation, and operational intelligence across businesses. The focus is not on AI as a trend, but on AI as a capability that can become embedded into how companies work. Strong opportunities in this category are those that reduce complexity, improve speed, support better decisions, or create new ways for teams and systems to operate at scale.",
+      "AI is moving from experimentation into practical business systems. We are interested in AI-led opportunities that improve workflows, decision-making, automation, and operational intelligence across businesses.\n\nThe focus is not on AI as a trend, but on AI as a capability that can become embedded into how companies work. Strong opportunities in this category are those that reduce complexity, improve speed, support better decisions, or create new ways for teams and systems to operate at scale.",
     signals: [
       "AI agents",
       "Workflow automation",
@@ -83,7 +83,7 @@ const sectors = [
   {
     name: "Digital Asset Tokenization",
     description:
-      "Digital asset tokenization is creating new ways to structure, access, and transfer value. MSS looks at platforms that bring greater efficiency, transparency, and utility to ownership, participation, and financial infrastructure. This category is especially relevant where traditional asset systems are slow, fragmented, or difficult to access. We are interested in models that connect digital and traditional value in a responsible and commercially useful way, especially where trust, compliance, liquidity, and transparency are central to adoption.",
+      "Digital asset tokenization is creating new ways to structure, access, and transfer value. MSS looks at platforms that bring greater efficiency, transparency, and utility to ownership, participation, and financial infrastructure.\n\nThis category is especially relevant where traditional asset systems are slow, fragmented, or difficult to access. We are interested in models that connect digital and traditional value in a responsible and commercially useful way, especially where trust, compliance, liquidity, and transparency are central to adoption.",
     signals: [
       "Tokenized assets",
       "Digital ownership models",
@@ -95,7 +95,7 @@ const sectors = [
   {
     name: "Venture Capitalization",
     description:
-      "Venture capitalization reflects our interest in identifying promising businesses before their full potential is visible. This is where capital, structure, and strategic support can help a venture move from early promise to stronger commercial footing. We look for ventures with clear market relevance, capable teams, and the ability to scale with the right operating support. The opportunity is not only in providing funding, but in helping shape direction, improve readiness, and create conditions for long-term growth.",
+      "Venture capitalization reflects our interest in identifying promising businesses before their full potential is visible. This is where capital, structure, and strategic support can help a venture move from early promise to stronger commercial footing.\n\nWe look for ventures with clear market relevance, capable teams, and the ability to scale with the right operating support. The opportunity is not only in providing funding, but in helping shape direction, improve readiness, and create conditions for long-term growth.",
     signals: [
       "Early-stage ventures",
       "Growth-stage companies",
@@ -107,7 +107,7 @@ const sectors = [
   {
     name: "Performance Digital Marketing",
     description:
-      "Digital marketing is increasingly tied to how businesses grow, communicate, and build customer relationships. We look at media-led platforms and digital growth businesses that shape attention, distribution, conversion, and engagement. In a digital economy, distribution is a strategic advantage. Businesses that understand how to acquire, retain, and influence audiences can become powerful growth engines across sectors. For us, digital media is not only about content; it is about measurable commercial impact and the systems that connect brands, users, and markets.",
+      "Digital marketing is increasingly tied to how businesses grow, communicate, and build customer relationships. We look at media-led platforms and digital growth businesses that shape attention, distribution, conversion, and engagement.\n\nIn a digital economy, distribution is a strategic advantage. Businesses that understand how to acquire, retain, and influence audiences can become powerful growth engines across sectors. For us, digital media is not only about content; it is about measurable commercial impact and the systems that connect brands, users, and markets.",
     signals: [
       "Performance marketing",
       "Digital content",
@@ -227,7 +227,7 @@ export default function HowWeInvestPage() {
             {processSteps.map((step) => (
               <article key={step.title} className="how-process-step">
                 <div className="how-process-icon mx-auto flex items-center justify-center">
-                  <step.Icon />
+                  <img src={step.icon} alt="" width={40} height={40} style={{ width: "40px", height: "40px", objectFit: "contain" }} />
                 </div>
                 <h3 className="how-process-step-title font-heading font-light text-[#1C1C1F]">
                   {step.title}
@@ -285,27 +285,29 @@ export default function HowWeInvestPage() {
               <h3 className="how-sector-title font-heading font-light text-[#1C1C1F]">
                 {sector.name}
               </h3>
-              <p className="how-sector-description font-body text-[#67686B]">
-                {sector.description}
-              </p>
+              {sector.description.split('\n\n').map((para, i) => (
+                <p key={i} className="how-sector-description font-body text-[#67686B]">
+                  {para}
+                </p>
+              ))}
               <div className="how-sector-signals">
                 <h4 className="how-sector-signals-title font-heading font-light text-[#1C1C1F]">
                   Opportunity Signals:
                 </h4>
-                <div className="how-sector-signals-list">
+                <ul className="how-sector-signals-list">
                   {sector.signals.map((signal) => (
-                    <p key={signal} className="font-body text-[#373738]">
+                    <li key={signal} className="font-body text-[#373738]">
                       {signal}
-                    </p>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </article>
           ))}
         </div>
 
         <div className="how-sectors-link-wrap">
-          <Link href="/portfolio" className="how-sectors-link font-body text-[#1C1C1F]">
+          <Link href="/portfolio" className="how-sectors-link font-body">
             Visit Portfolio
             <ArrowRight size="sm" fill="currentColor" />
           </Link>
@@ -340,75 +342,3 @@ export default function HowWeInvestPage() {
   );
 }
 
-function IconOrigination() {
-  return (
-    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" aria-hidden="true">
-      <circle cx="13" cy="13" r="9" stroke="#67686B" strokeWidth="1.5" />
-      <circle cx="13" cy="13" r="4" stroke="#67686B" strokeWidth="1.5" />
-      <path d="M20 20L28 28" stroke="#67686B" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function IconEvaluation() {
-  return (
-    <svg width="32" height="31" viewBox="0 0 32 31" fill="none" aria-hidden="true">
-      <rect x="5" y="4" width="22" height="24" rx="2" stroke="#67686B" strokeWidth="1.5" />
-      <path
-        d="M11 10h10M11 16h10M11 22h6"
-        stroke="#67686B"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <rect x="10" y="1" width="12" height="6" rx="1.5" stroke="#67686B" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
-function IconExecution() {
-  return (
-    <svg width="35" height="28" viewBox="0 0 35 28" fill="none" aria-hidden="true">
-      <path
-        d="M3 20l14.5 7L32 20"
-        stroke="#67686B"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M3 14l14.5 7L32 14"
-        stroke="#67686B"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M3 8l14.5-7L32 8l-14.5 7L3 8z"
-        stroke="#67686B"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconManagement() {
-  return (
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-      <path
-        d="M17 4l12 4v9c0 7-6 12-12 14C11 29 5 24 5 17V8l12-4z"
-        stroke="#67686B"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M11 17l4 4 8-8"
-        stroke="#67686B"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}

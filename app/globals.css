@@ -1429,12 +1429,18 @@ body {
 
 .how-sector-signals-list {
   margin-top: 8px;
+  padding-left: 1.2em;
+  list-style: disc;
 }
 
-.how-sector-signals-list p {
+.how-sector-signals-list li {
   margin: 0;
   font-size: 14px;
   line-height: 20px;
+}
+
+.how-sector-description + .how-sector-description {
+  margin-top: 16px;
 }
 
 .how-sectors-link-wrap {
@@ -1446,12 +1452,12 @@ body {
   align-items: center;
   gap: 4px;
   height: 38px;
-  padding: 8px 20px;
+  padding: 8px 16px 8px 20px;
   font-size: 15px;
   line-height: 22px;
   text-decoration: none;
-  background: var(--color-brand-warm);
-  color: var(--color-grey-black);
+  background: var(--color-grey-black);
+  color: var(--color-white);
 }
 
 .how-numbers-section {
@@ -1925,7 +1931,8 @@ body {
   }
 
   .how-philosophy-image-frame {
-    height: 750px;
+    height: auto;
+    align-self: stretch;
     max-width: 620px;
   }
 
@@ -2031,7 +2038,7 @@ body {
     margin-top: 12px;
   }
 
-  .how-sector-signals-list p {
+  .how-sector-signals-list li {
     font-size: 15px;
     line-height: 22px;
   }
