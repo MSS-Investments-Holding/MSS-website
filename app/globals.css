@@ -2291,6 +2291,14 @@ body {
   }
 }
 
+/* ─── Split CTA tiles — constrain to global margins at 1440px+ ── */
+@media (min-width: 1440px) {
+  .about-split-cta-outer {
+    padding-left:  max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+    padding-right: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+  }
+}
+
 /* ─── Wide-screen margin scaling (>1440px) ───────────────────── */
 /*
  * At 1440px: 80px margins (5rem) — unchanged from lg:px-20

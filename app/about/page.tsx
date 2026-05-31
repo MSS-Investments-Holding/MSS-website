@@ -309,6 +309,7 @@ export default function AboutPage() {
           Careers:   content at bottom (pt-[424px])
           Both: vertical line at left=40px, text at pl-[80px]
          ══════════════════════════════════════════════════════════ */}
+      <div className="about-split-cta-outer w-full">
       <div className="flex flex-col lg:flex-row w-full">
 
         {/* LEFT — Portfolio */}
@@ -442,6 +443,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       {/* ══════════════════════════════════════════════════════════
