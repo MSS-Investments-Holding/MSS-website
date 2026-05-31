@@ -307,7 +307,7 @@ body {
 }
 
 .careers-hero-section {
-  min-height: 900px;
+  min-height: 880px;
 }
 
 .careers-hero-media {
@@ -777,7 +777,7 @@ body {
   }
 
   .careers-hero-section {
-    min-height: 930px;
+    min-height: 800px;
   }
 
   .careers-hero-media {
@@ -1105,6 +1105,10 @@ body {
     min-height: 930px;
   }
 
+  .careers-hero-section {
+    min-height: 930px;
+  }
+
   .pitch-hero-section {
     min-height: 930px;
   }
@@ -1154,6 +1158,15 @@ body {
     width: 100vw;
     height: 96.806vw;
     top: calc(50% - 0.625vw);
+  }
+
+  /* Careers hero backdrop — proportional scaling above 1440px.
+   * Values from 768px block (1509×1886px, offsets +34.5px / -164px) ÷ 1440. */
+  .careers-hero-media {
+    left: calc(50% + 2.40vw);
+    top: calc(50% - 11.39vw);
+    width: 104.79vw;
+    height: 130.97vw;
   }
 
   /* Pitch hero backdrop — same proportional scaling approach.

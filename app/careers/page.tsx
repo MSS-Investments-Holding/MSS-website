@@ -88,7 +88,7 @@ export default function CareersPage() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-[108px] lg:pt-[166px] pb-16">
+        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-[120px] md:pt-[140px] lg:pt-[170px] pb-16">
           <h1
             className="careers-hero-title font-heading text-white"
             style={{ fontWeight: 300, width: "min(620px, calc(100vw - 40px))", maxWidth: "620px" }}
