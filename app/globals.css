@@ -220,11 +220,12 @@ body {
 }
 
 .about-mission-card {
-  height: 464px;
+  height: auto;
 }
 
 .about-mission-content {
   padding-top: 40px;
+  padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -700,11 +701,12 @@ body {
   }
 
   .about-mission-card {
-    height: 538px;
+    height: auto;
   }
 
   .about-mission-content {
     padding-top: 96px;
+    padding-bottom: 96px;
     padding-left: 8.1%;
     padding-right: 40px;
   }

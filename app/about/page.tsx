@@ -53,18 +53,18 @@ const drivesItems = [
   },
 ];
 
-/* Pin positions derived from Figma node coordinates.
- * Map image: x=19437, y=4443, w=1350, h=540 (node 455:18840).
- * Container: aspect-ratio 1280/540; image offset left=-2.66% width=105.47%.
- * container_x = (-34 + pin_img_px_from_left) / 1280; container_y = pin_y_img%.
- * One set of values works at all breakpoints since aspect-ratio is constant. */
+/* Pin positions derived from Figma node coordinates (design 872:1404).
+ * Map image (872:1405): x=10850, y=4710, w=1280, h=540.
+ * anchor_x = frame.x + 20 (center); anchor_y = frame.y + 40 (bottom).
+ * left% = (anchor_x - 10850) / 1280;  top% = (anchor_y - 4710) / 540.
+ * Container uses aspect-ratio 1280/540 so one set works at all breakpoints. */
 const mapPins = [
-  { label: "Canada",               left: "18.04%", top: "39.07%" }, // 455:18842
-  { label: "United Kingdom",       left: "45.69%", top: "30.74%" }, // 455:18893
-  { label: "Switzerland",          left: "50.07%", top: "25.37%" }, // 455:18847
-  { label: "Nigeria",              left: "56.88%", top: "51.48%" }, // 455:18895
-  { label: "Uganda",               left: "63.92%", top: "40.19%" }, // 455:18897
-  { label: "United Arab Emirates", left: "70.24%", top: "40.19%" }, // 455:18849
+  { label: "Canada",               left: "17.97%", top: "39.07%" }, // 872:1408
+  { label: "United Kingdom",       left: "45.62%", top: "30.74%" }, // 872:1423
+  { label: "Switzerland",          left: "50.00%", top: "25.37%" }, // 872:1420
+  { label: "Nigeria",              left: "51.09%", top: "45.37%" }, // 872:1411
+  { label: "United Arab Emirates", left: "57.27%", top: "42.04%" }, // 872:1417
+  { label: "Uganda",               left: "56.80%", top: "51.48%" }, // 872:1414
 ];
 
 const locations = [
@@ -209,7 +209,7 @@ export default function AboutPage() {
             {/* Vertical decorative line */}
             <div
               className="absolute hidden lg:block"
-              style={{ left: "5%", top: "80px", width: "1px", height: "362px", backgroundColor: "rgba(28,28,31,0.30)" }}
+              style={{ left: "5%", top: "80px", bottom: "80px", width: "1px", backgroundColor: "rgba(28,28,31,0.30)" }}
             />
 
             {/* Text content */}
