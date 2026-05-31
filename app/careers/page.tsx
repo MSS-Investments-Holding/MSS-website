@@ -215,10 +215,10 @@ export default function CareersPage() {
         {/* Decorative vertical line */}
         <div
           className="absolute hidden lg:block"
-          style={{ left: "80px", top: "120px", width: "1px", height: "346px", backgroundColor: "rgba(255,255,255,0.40)" }}
+          style={{ left: "40px", top: "120px", width: "1px", height: "346px", backgroundColor: "rgba(255,255,255,0.40)" }}
         />
 
-        <div className="careers-stand-content relative z-10 w-full px-5 md:px-12 lg:px-[120px]">
+        <div className="careers-stand-content relative z-10 w-full px-5 md:px-12 lg:px-20">
           <span className="text-label font-body block" style={{ color: "rgba(255,255,255,0.80)" }}>
             What We Stand For
           </span>
