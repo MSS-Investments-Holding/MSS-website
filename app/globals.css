@@ -252,6 +252,12 @@ body {
   height: 320px;
 }
 
+@media (max-width: 767px) {
+  .about-drives-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
 .about-drive-image-frame img {
   transform: scale(1.02);
 }

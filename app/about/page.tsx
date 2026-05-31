@@ -267,7 +267,7 @@ export default function AboutPage() {
          * Total: 4×302+3×24=1280 ✓
          * At xl: grid-cols-4 with xl:gap-6 — each cell ≈ 302px
          */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-20 md:gap-6 mt-12 lg:mt-16">
+        <div className="about-drives-grid grid md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-5 md:gap-6 mt-12 lg:mt-16">
           {drivesItems.map((item) => (
             <div key={item.title} className="flex flex-col">
               {/* Image frame — 302×400px, Figma-exported crop */}
