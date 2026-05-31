@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/sections/CTASection";
+import WhoWeAreSection from "@/components/sections/WhoWeAreSection";
 
 export const metadata: Metadata = {
   title: "About Us | MSS Investments Holding",
@@ -27,12 +28,6 @@ export const metadata: Metadata = {
  */
 
 /* ── Data ──────────────────────────────────────────────────────── */
-
-const subItems = [
-  "Connected Ecosystem",
-  "Operational Perspective",
-  "Global Market View",
-];
 
 const drivesItems = [
   {
@@ -198,94 +193,9 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════
-          2 · WHO WE ARE  (bg-white, 994px total)
-          pt-24 (96px → label), two-col at lg:
-            LEFT 740px: label + H2 + Frame55 image
-            RIGHT 500px: Strategic Ownership heading + body + sub-items
-          pb-[120px] before Mission section
+          2 · WHO WE ARE — interactive accordion, client component
          ══════════════════════════════════════════════════════════ */}
-      <section
-        aria-label="Who We Are"
-        className="w-full bg-white px-5 md:px-12 lg:px-20 pt-24 pb-24 lg:pb-[120px]"
-      >
-        {/* Label + H2 (always full-width above the two-col area) */}
-        <span className="text-label font-body block" style={{ color: "#373738" }}>
-          Who are we
-        </span>
-        <h2
-          className="about-section-h2 font-heading"
-          style={{ margin: 0, marginTop: "24px", maxWidth: "600px" }}
-        >
-          A Global Holding Company{"\n"}Shaping Tomorrow&apos;s Economy
-        </h2>
-
-        {/*
-         * Two-col area — starts 64px below H2 bottom (mt-16).
-         * LEFT:  xl:w-[740px] — large image frame (Frame 55, 740×590px)
-         * RIGHT: flex-1 — heading + body at top, sub-items at bottom
-         * Gap between cols: xl:gap-x-[40px] lg:gap-x-8
-         */}
-        <div className="flex flex-col lg:flex-row mt-16 lg:gap-x-10 xl:gap-x-[40px]">
-
-          {/* LEFT — Frame 55 image (740×590, bleeds left in Figma) */}
-          <div
-            className="about-who-image-frame w-full lg:flex-shrink-0 xl:w-[740px] lg:w-[57%] relative overflow-hidden mb-6 lg:mb-0"
-            style={{ backgroundColor: "#0B1738" }}
-          >
-            <div className="about-who-image">
-              <Image
-                src="/images/about/who-we-are-img.jpg"
-                alt="MSS Investments Holding"
-                fill
-                className="object-fill"
-                sizes="(max-width: 767px) 599px, 950px"
-              />
-            </div>
-          </div>
-
-          {/* RIGHT — flex-col with content at top and sub-items pushed to bottom */}
-          <div
-            className="flex-1 flex flex-col lg:min-h-[590px]"
-          >
-            {/* Top content */}
-            <div>
-              <h3
-                className="font-heading"
-                style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
-              >
-                Strategic Ownership
-              </h3>
-              <p
-                className="font-body"
-                style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
-              >
-                MSS invests in and supports businesses with long-term relevance,
-                helping shape direction beyond capital alone. The focus is on
-                building companies with structure, clarity, and the ability to
-                grow within changing markets.
-              </p>
-            </div>
-
-            {/* Spacer pushes sub-items to the bottom */}
-            <div className="flex-1" />
-
-            {/* Bottom: sub-items with dividers */}
-            <div>
-              {subItems.map((item) => (
-                <div key={item} className="border-t border-[#D2D5D9] py-4">
-                  <span
-                    className="font-heading"
-                    style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#67686B" }}
-                  >
-                    {item}
-                  </span>
-                </div>
-              ))}
-              <div className="border-t border-[#D2D5D9]" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhoWeAreSection />
 
       {/* ══════════════════════════════════════════════════════════
           3 · MISSION  full-bleed navy, h=818px

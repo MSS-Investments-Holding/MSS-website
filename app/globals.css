@@ -182,12 +182,41 @@ body {
   height: 280px;
 }
 
-.about-who-image {
-  position: absolute;
-  left: -237px;
-  top: -120px;
-  width: 599px;
-  height: 400px;
+/* Who We Are interactive section */
+.about-who-h2 {
+  font-size: 34px;
+  line-height: 38px;
+  color: #1c1c1f;
+}
+
+.about-who-item {
+  padding-bottom: 16px;
+}
+
+.about-who-item-bordered {
+  border-top: 1px solid #D2D5D9;
+  padding-top: 16px;
+}
+
+.about-who-item-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.about-who-item-heading {
+  display: block;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.about-who-item-body {
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .about-mission-card {
@@ -703,11 +732,19 @@ body {
     aspect-ratio: 740 / 590;
   }
 
-  .about-who-image {
-    left: -28.378%;
-    top: -7.458%;
-    width: 128.378%;
-    height: 107.458%;
+  .about-who-h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .about-who-item-heading {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .about-who-item-body {
+    font-size: 15px;
+    line-height: 22px;
   }
 
   .about-mission-card {
