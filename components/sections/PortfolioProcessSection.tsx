@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArrowRight from "@/components/icons/ArrowRight";
+import ArrowUpRight from "@/components/icons/ArrowUpRight";
 
 const steps = [
   { icon: "/images/icons/step-discovery.svg",  title: "Origination", desc: "Identify opportunities via our network, market activity, founder talks, and sector research." },
@@ -116,7 +117,7 @@ export default function PortfolioProcessSection() {
                   style={{ textDecoration: "none", alignSelf: "flex-start" }}
                 >
                   Visit Website
-                  <ArrowRight size="sm" fill="currentColor" />
+                  <ArrowUpRight fill="currentColor" />
                 </a>
               </div>
             </article>
