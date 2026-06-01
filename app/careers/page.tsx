@@ -261,7 +261,7 @@ export default function CareersPage() {
               <div className="careers-role-row flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-x-0">
 
                 {/* COL 1 — title + location (fixed 40.6% = 520/1280) */}
-                <div className="lg:w-[40.6%] lg:flex-shrink-0 flex flex-col gap-2">
+                <div className="lg:w-[30%] lg:flex-shrink-0 flex flex-col gap-2">
                   <h3
                     className="font-heading"
                     style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
@@ -332,7 +332,7 @@ export default function CareersPage() {
           {/* Decorative vertical line */}
           <div
             className="absolute hidden lg:block"
-            style={{ left: "40px", top: "64px", width: "1px", height: "376px", backgroundColor: "rgba(28,28,31,0.15)" }}
+            style={{ left: "40px", top: "64px", width: "1px", height: "376px", backgroundColor: "#1C1C1F" }}
           />
 
           <span className="text-label font-body block" style={{ color: "#1C1C1F" }}>
@@ -350,7 +350,7 @@ export default function CareersPage() {
             className="font-body mt-4"
             style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "16px", maxWidth: "480px" }}
           >
-            We are always open to hearing from thoughtful, capable people who are a strong fit for the ecosystem. Send us your CV and a short introduction at <a href="mailto:careers@mssholdings.com" className="font-medium underline" style={{ color: "#1C1C1F" }}>careers@mssholdings.com</a>, and we&apos;ll keep your profile in mind for future opportunities.
+            We are always open to hearing from thoughtful, capable people who are a strong fit for the ecosystem. Send us your CV and a short introduction at <a href="mailto:careers@mssholdings.com" className="text-body-sm-emphasized font-body" style={{ color: "#1C1C1F" }}>careers@mssholdings.com</a>, and we&apos;ll keep your profile in mind for future opportunities.
           </p>
 
           <div className="careers-application-button">
