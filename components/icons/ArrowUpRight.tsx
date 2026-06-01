@@ -3,11 +3,11 @@ interface Props {
   size?: number;
 }
 
-export default function ArrowUpRight({ fill = "currentColor", size = 10 }: Props) {
+export default function ArrowUpRight({ fill = "currentColor", size = 16 }: Props) {
   return (
-    <svg width={size} height={size} viewBox="0 0 10 10" fill="none" aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path
-        d="M8.33619 2.84024L1.17647 9.99997L0 8.82352L7.15973 1.66378H0.849209V0H9.99996V9.15078H8.33619V2.84024Z"
+        d="M10.6692 6.27614L4.93151 12.0139L3.98871 11.0711L9.72643 5.33333H4.66925V4H12.0026V11.3333H10.6692V6.27614Z"
         fill={fill}
       />
     </svg>
