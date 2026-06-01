@@ -73,8 +73,8 @@ All heading styles use **Merriweather Light (300)**. All body styles use **Inter
 
 | Token Name | Element | Font | Weight | Size | Line Height | Letter Spacing | When to Use |
 |---|---|---|---|---|---|---|---|
-| `text-h1` | H1 | Merriweather | 300 | 72px / 4.5rem | 76px | 0 | Hero headlines |
-| `text-h2` | H2 | Merriweather | 300 | 48px / 3rem | 52px | 0 | Page-level section headers |
+| `text-h1` | H1 | Merriweather | 300 | 70px / 4.375rem | 74px | 0 | Hero headlines |
+| `text-h2` | H2 | Merriweather | 300 | 46px / 2.875rem | 50px | 0 | Page-level section headers |
 | `text-h3` | H3 | Merriweather | 300 | 36px / 2.25rem | 42px | 0 | Sub-section headers |
 | `text-h4` | H4 | Merriweather | 300 | 26px / 1.625rem | 32px | 0 | Card titles, callout heads |
 | `text-h5` | H5 | Merriweather | 300 | 20px / 1.25rem | 26px | 0 | Small headers, sidebar titles |
@@ -94,7 +94,7 @@ All heading styles use **Merriweather Light (300)**. All body styles use **Inter
 | Token | Tablet Size | Tablet LH | LS |
 |---|---|---|---|
 | `text-h1` | 62px / 3.875rem | 66px | 0 |
-| `text-h2` | 40px / 2.5rem | 44px | 0 |
+| `text-h2` | 40px / 2.5rem  | 44px | 0 |
 | `text-h3` | 32px / 2rem | 38px | 0 |
 | `text-h4` | 24px / 1.5rem | 30px | 0 |
 | `text-h5` | 20px / 1.25rem | 26px | 0 |
@@ -110,8 +110,8 @@ All heading styles use **Merriweather Light (300)**. All body styles use **Inter
 
 | Token | Desktop Size | Desktop LH | Tablet Size | Tablet LH | Mobile Size | Mobile LH | LS |
 |---|---|---|---|---|---|---|---|
-| `text-h1` | 72px / 4.5rem | 76px | 62px / 3.875rem | 66px | 48px / 3rem | 54px | 0 |
-| `text-h2` | 48px / 3rem | 52px | 40px / 2.5rem | 44px | 36px / 2.25rem | 40px | 0 |
+| `text-h1` | 70px / 4.375rem | 74px | 62px / 3.875rem | 66px | 48px / 3rem | 54px | 0 |
+| `text-h2` | 46px / 2.875rem | 50px | 40px / 2.5rem | 44px | 36px / 2.25rem | 40px | 0 |
 | `text-h3` | 36px / 2.25rem | 42px | 32px / 2rem | 38px | 28px / 1.75rem | 34px | 0 |
 | `text-h4` | 26px / 1.625rem | 32px | 24px / 1.5rem | 30px | 22px / 1.375rem | 28px | 0 |
 | `text-h5` | 20px / 1.25rem | 26px | 20px / 1.25rem | 26px | 18px / 1.125rem | 24px | 0 |
@@ -235,8 +235,8 @@ const config: Config = {
         body: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        'h1': ['4.5rem', { lineHeight: '76px', letterSpacing: '0' }],          // 72px
-        'h2': ['3rem', { lineHeight: '52px', letterSpacing: '0' }],            // 48px
+        'h1': ['4.375rem', { lineHeight: '74px', letterSpacing: '0' }],        // 70px
+        'h2': ['2.875rem', { lineHeight: '50px', letterSpacing: '0' }],        // 46px
         'h3': ['2.25rem', { lineHeight: '42px', letterSpacing: '0' }],        // 36px
         'h4': ['1.625rem', { lineHeight: '32px', letterSpacing: '0' }],       // 26px
         'h5': ['1.25rem', { lineHeight: '26px', letterSpacing: '0' }],        // 20px
@@ -266,5 +266,4 @@ export default config
 3. **Body and UI always use `font-body`** — Inter Regular for all prose, labels, buttons, and navigation.
 4. **No weight variants yet** — only Merriweather 300 and Inter 400 are loaded. Don't add weight variants without adding them to the font loader first.
 5. **Letter spacing on labels** — `text-label` has a positive letter-spacing (`+0.72px`). This is intentional for overlines and category tags — do not override it.
-6. **Mobile placeholders** — all mobile sizes above are interim. Mark with `/* TODO: replace with finalised mobile token */` and replace when the designer delivers the mobile type scale.
-7. **Portable Text styles** — define `portableTextComponents` in `lib/sanity/portableText.tsx` mapping block types to these token classes. Never write raw `<p>` tags with hardcoded font sizes.
+6. **Portable Text styles** — define `portableTextComponents` in `lib/sanity/portableText.tsx` mapping block types to these token classes. Never write raw `<p>` tags with hardcoded font sizes.
