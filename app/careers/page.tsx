@@ -139,10 +139,10 @@ export default function CareersPage() {
 
           {benefits.map((item) => (
             <div key={item.num}>
-              <div className="careers-benefit-row flex flex-col lg:flex-row gap-4 lg:gap-0">
+              <div className="careers-benefit-row flex flex-col md:flex-row gap-4 md:gap-0">
 
                 {/* LEFT — number only, 51.6% of content width */}
-                <div className="lg:w-[51.6%] lg:flex-shrink-0">
+                <div className="md:w-1/2 md:flex-shrink-0 lg:w-[51.6%]">
                   <span
                     className="font-heading"
                     style={{ fontSize: "clamp(22px, 1.8vw, 26px)", lineHeight: "1.23", fontWeight: 300, color: "#C5D3E5" }}
@@ -152,7 +152,7 @@ export default function CareersPage() {
                 </div>
 
                 {/* RIGHT — title then description stacked */}
-                <div className="flex-1">
+                <div className="flex-1 min-w-0 md:w-1/2 md:flex-none lg:flex-1">
                   <h3
                     className="careers-benefit-h3 font-heading font-light"
                     style={{ color: "#1C1C1F", margin: 0 }}
