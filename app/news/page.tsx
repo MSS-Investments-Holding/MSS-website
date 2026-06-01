@@ -196,7 +196,7 @@ export default async function NewsPage({
         {filtered.length >= 9 && (
           <div className="flex justify-center mt-20 pb-16">
             <button
-              className="font-body text-btn text-white inline-flex items-center justify-center"
+              className="font-body text-body-sm text-white inline-flex items-center justify-center"
               style={{
                 width: "119px",
                 height: "40px",
@@ -257,7 +257,7 @@ export default async function NewsPage({
           <div style={{ marginTop: "158px" }}>
             <a
               href="#"
-              className="inline-flex items-center gap-2 font-body text-btn"
+              className="inline-flex items-center gap-2 font-body text-body-sm"
               style={{
                 height: "40px",
                 backgroundColor: "#FFFFFF",

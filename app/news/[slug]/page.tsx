@@ -231,7 +231,7 @@ export default async function ArticlePage({
             </h2>
             <Link
               href="/news"
-              className="inline-flex items-center justify-center font-body text-btn text-white"
+              className="inline-flex items-center justify-center font-body text-body-sm text-white"
               style={{ height: "40px", backgroundColor: "#1C1C1F", paddingLeft: "20px", paddingRight: "20px", whiteSpace: "nowrap" }}
             >
               View All

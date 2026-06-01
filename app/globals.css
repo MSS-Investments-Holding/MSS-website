@@ -48,7 +48,6 @@
   --text-label: 0.75rem;   /* 12px */
   --text-links: 0.8125rem; /* 13px */
   --text-nav: 0.875rem;    /* 14px */
-  --text-btn: 1rem;        /* 16px */
 
   /* Line heights */
   --leading-h1: 74px;
@@ -110,7 +109,6 @@ body {
 .text-label    { font-size: var(--text-label);    line-height: var(--leading-label); letter-spacing: var(--tracking-label); text-transform: uppercase; }
 .text-links    { font-size: var(--text-links); line-height: 1rem; letter-spacing: var(--tracking-links); }
 .text-nav      { font-size: var(--text-nav);      line-height: 20px; }
-.text-btn      { font-size: var(--text-btn);      line-height: 24px; }
 
 /* Mobile type scale — applied via responsive prefix md: and up */
 @media (max-width: 767px) {

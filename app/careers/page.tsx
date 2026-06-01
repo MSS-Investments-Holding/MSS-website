@@ -313,7 +313,7 @@ export default function CareersPage() {
           <div className="careers-application-button">
             <a
               href="mailto:careers@mssholdings.com"
-              className="inline-flex items-center justify-center gap-[8px] font-body text-btn text-white"
+              className="inline-flex items-center justify-center gap-[8px] font-body text-body-sm text-white"
               style={{
                 height: "40px",
                 backgroundColor: "#1C1C1F",

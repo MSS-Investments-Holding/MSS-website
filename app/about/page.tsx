@@ -356,7 +356,7 @@ export default function AboutPage() {
             <div style={{ marginTop: "56px" }}>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-[6px] font-body text-btn"
+                className="inline-flex items-center gap-[6px] font-body text-body-sm"
                 style={{
                   height: "40px",
                   backgroundColor: "#FFFFFF",
@@ -420,7 +420,7 @@ export default function AboutPage() {
             <div style={{ marginTop: "56px" }}>
               <Link
                 href="/careers"
-                className="inline-flex items-center gap-[6px] font-body text-btn"
+                className="inline-flex items-center gap-[6px] font-body text-body-sm"
                 style={{
                   height: "40px",
                   backgroundColor: "#FFFFFF",

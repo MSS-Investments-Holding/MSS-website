@@ -17,7 +17,7 @@ export default function CareersScrollButton() {
     <a
       href="#open-roles"
       onClick={handleClick}
-      className="inline-flex items-center justify-center font-body text-btn"
+      className="inline-flex items-center justify-center font-body text-body-sm"
       style={{
         height: "40px",
         backgroundColor: "#FFFFFF",
