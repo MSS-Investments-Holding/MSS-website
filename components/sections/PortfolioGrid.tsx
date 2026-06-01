@@ -189,34 +189,44 @@ function PlusIcon() {
  * pattern as homepage PortfolioProcessSection). Top rules are hidden for
  * cards in row 2+ at each breakpoint so only row 1 shows a top divider.
  */
-function getCardLayout(index: number): { bodyClass: string; ruleClass: string; topRuleClass: string; showRightSeparator: boolean } {
+function getCardLayout(index: number): {
+  bodyClass: string;
+  ruleClass: string;
+  topRuleClass: string;
+  leftSeparatorClass: string;
+  showRightSeparator: boolean;
+} {
   const hasMdBorder = index % 2 !== 0;
   const hasLgBorder = index % 3 !== 0;
 
-  // Left inset: ml-6 where card has a left border (rule aligns with content start).
+  // Left inset: ml-6 where card has a left separator (rule aligns with content start).
   let mlClass = "";
   if (hasMdBorder && hasLgBorder)       mlClass = "md:ml-6";
   else if (!hasMdBorder && hasLgBorder) mlClass = "lg:ml-6";
   else if (hasMdBorder && !hasLgBorder) mlClass = "md:ml-6 lg:ml-0";
 
-  let borderClass = "";
-  if (hasMdBorder && hasLgBorder)       borderClass = "md:border-l md:pl-6";
-  else if (!hasMdBorder && hasLgBorder) borderClass = "lg:border-l lg:pl-6";
-  // At md this card is C2 (left border); at lg it wraps to C1.
-  // No border on the body — the column separator is an absolutely-positioned sibling
-  // placed at C2's left edge so it aligns pixel-perfectly with Swiss Payments' border-l.
-  else if (hasMdBorder && !hasLgBorder) borderClass = "md:border-l md:pl-6 lg:border-l-0 lg:pl-0";
+  // Content padding only — vertical separators are rendered as absolute-positioned elements
+  // so their height can be precisely inset from the top/bottom rules.
+  let paddingClass = "";
+  if (hasMdBorder && hasLgBorder)       paddingClass = "md:pl-6";
+  else if (!hasMdBorder && hasLgBorder) paddingClass = "lg:pl-6";
+  else if (hasMdBorder && !hasLgBorder) paddingClass = "md:pl-6 lg:pl-0";
+
+  // Responsive display class for the absolute left separator div.
+  let leftSeparatorClass = "";
+  if (hasMdBorder && hasLgBorder)       leftSeparatorClass = "hidden md:block";
+  else if (!hasMdBorder && hasLgBorder) leftSeparatorClass = "hidden lg:block";
+  else if (hasMdBorder && !hasLgBorder) leftSeparatorClass = "hidden md:block lg:hidden";
 
   const isMdCol1 = index % 2 === 0;
   const isLgCol1 = index % 3 === 0;
   const isLgCol2 = index % 3 === 1;
 
-  // Right padding on the body (breathing room before the next card's border).
+  // Right padding on the body (breathing room before the next card's separator).
   let prClass = "";
   if (isMdCol1 && isLgCol1)          prClass = "md:pr-6";
   else if (isMdCol1 && !isLgCol1)    prClass = "md:pr-6 lg:pr-0";
   else if (!isMdCol1 && isLgCol2)    prClass = "lg:pr-6";
-  // Card is md-C2 but lg-C1 — needs right padding at lg to align with C1 above it.
   else if (!isMdCol1 && isLgCol1)    prClass = "lg:pr-6";
 
   // Right inset on the rule mirrors prClass so the rule ends where content ends.
@@ -224,14 +234,13 @@ function getCardLayout(index: number): { bodyClass: string; ruleClass: string; t
   if (isMdCol1 && isLgCol1)          mrClass = "md:mr-6";
   else if (isMdCol1 && !isLgCol1)    mrClass = "md:mr-6 lg:mr-0";
   else if (!isMdCol1 && isLgCol2)    mrClass = "lg:mr-6";
-  // Mirrors the prClass case above — rule must end at the same right edge as content.
   else if (!isMdCol1 && isLgCol1)    mrClass = "lg:mr-6";
 
   const ruleClass = [mlClass, mrClass].filter(Boolean).join(" ");
 
   const bodyClass = [
-    "flex-1 min-h-[436px] flex flex-col py-10 border-[#D2D5D9]",
-    borderClass,
+    "flex-1 min-h-[436px] flex flex-col py-10",
+    paddingClass,
     prClass,
   ].filter(Boolean).join(" ");
 
@@ -245,13 +254,12 @@ function getCardLayout(index: number): { bodyClass: string; ruleClass: string; t
     index === 2 ? "hidden lg:block" :
     "hidden";
 
-  // When a card moves from md-C2 to lg-C1, no adjacent card supplies a border-l for the
-  // column separator. We render a separate 1px div positioned at C2's left edge via
-  // `right-0 translate-x-full` — this places it at [C2_left, C2_left+1], pixel-identical
-  // to Swiss Payments' border-l, avoiding the 1px offset that border-r on C1 would produce.
+  // Card is md-C2 but lg-C1: no adjacent card supplies a left separator at lg.
+  // Rendered via translate-x-full to place the 1px line at C2's left edge (not C1's right),
+  // matching the pixel position of left separators on adjacent column cards.
   const showRightSeparator = hasMdBorder && !hasLgBorder;
 
-  return { bodyClass, ruleClass, topRuleClass, showRightSeparator };
+  return { bodyClass, ruleClass, topRuleClass, leftSeparatorClass, showRightSeparator };
 }
 
 const CLOSE_DURATION = 240;
@@ -308,9 +316,9 @@ export default function PortfolioGrid(): React.ReactElement {
       {/* ── COMPANY GRID ─────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {companies.map((company, index) => {
-          const { bodyClass, ruleClass, topRuleClass, showRightSeparator } = getCardLayout(index);
+          const { bodyClass, ruleClass, topRuleClass, leftSeparatorClass, showRightSeparator } = getCardLayout(index);
           return (
-            <article key={company.name} className={`flex flex-col${showRightSeparator ? " relative" : ""}`}>
+            <article key={company.name} className={`flex flex-col${(leftSeparatorClass || showRightSeparator) ? " relative" : ""}`}>
               {/* Top rule — row 1 only, inset to match content width */}
               <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass} ${topRuleClass}`} />
 
@@ -369,12 +377,20 @@ export default function PortfolioGrid(): React.ReactElement {
               {/* Bottom rule — inset to match content width */}
               <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass}`} />
 
-              {/* Column separator for lg-C1 cards with no adjacent C2 card.
-                  right-0 + translate-x-full places the 1px line at [C2_left, C2_left+1],
-                  pixel-identical to Swiss Payments' border-l. Hidden below lg. */}
+              {/* Left column separator — inset 16px inside each rule (top-[17px] = 1px rule + 16px gap) */}
+              {leftSeparatorClass && (
+                <div
+                  className={`${leftSeparatorClass} absolute left-0 top-[17px] bottom-[17px] w-px bg-[#D2D5D9]`}
+                  aria-hidden="true"
+                />
+              )}
+
+              {/* Right column separator for lg-C1 with no adjacent C2 card.
+                  translate-x-full places the 1px line at C2's left edge — same pixel position
+                  as the left separator on adjacent cards. Inset 16px inside each rule. */}
               {showRightSeparator && (
                 <div
-                  className="hidden lg:block absolute top-px bottom-px right-0 w-px translate-x-full bg-[#D2D5D9]"
+                  className="hidden lg:block absolute top-[17px] bottom-[17px] right-0 w-px translate-x-full bg-[#D2D5D9]"
                   aria-hidden="true"
                 />
               )}
