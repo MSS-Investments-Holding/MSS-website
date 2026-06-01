@@ -70,14 +70,12 @@ export default function PortfolioProcessSection() {
         </div>
       </div>
 
-      <div className="mx-5 md:mx-12 lg:mx-20 h-px bg-[#D2D5D9]" />
-
       <div className="px-5 md:px-12 lg:px-20 overflow-x-auto md:overflow-x-visible scrollbar-hide md:scrollbar-auto">
         <div className="flex gap-6 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {companies.map((company, index) => (
             <article
               key={company.name}
-              className="flex flex-col py-10 lg:pt-10 lg:pb-10 w-[69vw] shrink-0 md:w-auto md:min-w-0 md:shrink"
+              className="flex flex-col py-10 lg:pt-10 lg:pb-10 border-t border-b border-[#D2D5D9] w-[69vw] shrink-0 md:w-auto md:min-w-0 md:shrink"
             >
               <div
                 className={[
@@ -127,8 +125,6 @@ export default function PortfolioProcessSection() {
           <div className="w-5 shrink-0 md:hidden" aria-hidden="true" />
         </div>
       </div>
-
-      <div className="mx-5 md:mx-12 lg:mx-20 h-px bg-[#D2D5D9]" />
 
       <div className="flex justify-end px-5 md:px-12 lg:px-20" style={{ paddingTop: "64px", paddingBottom: "88px" }}>
         <Link
