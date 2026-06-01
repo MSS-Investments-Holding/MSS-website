@@ -136,6 +136,28 @@ const companies: Company[] = [
     },
     site: "https://www.metaxpayments.com/",
   },
+  {
+    name: "TokenBazaar",
+    logo: "/images/icons/logo-tokenbazaar.svg",
+    logoW: 224,
+    logoH: 40,
+    detailLogoW: 224,
+    detailLogoH: 40,
+    tags: ["Fintech Investments", "Real World Assets"],
+    desc: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals.",
+    details: {
+      partnershipStart: "—",
+      status: "Ongoing",
+      websiteLabel: "tokenbazaar.com",
+      sections: [
+        {
+          heading: "Platform Overview",
+          body: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals.",
+        },
+      ],
+    },
+    site: "https://tokenbazaar.com/",
+  },
 ];
 
 function PlusIcon() {
@@ -147,6 +169,52 @@ function PlusIcon() {
       />
     </svg>
   );
+}
+
+/*
+ * Per-card responsive border/padding classes.
+ *
+ * Grid columns by breakpoint:
+ *   mobile  (< 768px) : 1-col  — no left borders, no rule inset
+ *   tablet  (768–1023px): 2-col  — odd indices get left border at md+
+ *   desktop (≥ 1024px) : 3-col  — index%3!==0 gets left border at lg+
+ *
+ * For 4 companies the resolved positions are:
+ *   i=0 → md R1C1 / lg R1C1  — no border
+ *   i=1 → md R1C2 / lg R1C2  — border md+
+ *   i=2 → md R2C1 / lg R1C3  — border lg only
+ *   i=3 → md R2C2 / lg R2C1  — border md, not lg
+ */
+function getCardLayout(index: number): { ruleClass: string; bodyClass: string } {
+  const hasMdBorder = index % 2 !== 0;
+  const hasLgBorder = index % 3 !== 0;
+
+  let ruleClass = "";
+  if (hasMdBorder && hasLgBorder)    ruleClass = "md:ml-6";
+  else if (!hasMdBorder && hasLgBorder) ruleClass = "lg:ml-6";
+  else if (hasMdBorder && !hasLgBorder) ruleClass = "md:ml-6 lg:ml-0";
+
+  let borderClass = "";
+  if (hasMdBorder && hasLgBorder)       borderClass = "md:border-l md:pl-6";
+  else if (!hasMdBorder && hasLgBorder) borderClass = "lg:border-l lg:pl-6";
+  else if (hasMdBorder && !hasLgBorder) borderClass = "md:border-l md:pl-6 lg:border-l-0 lg:pl-0";
+
+  // Right padding to create visual gap before the adjacent card's divider
+  const isMdCol1 = index % 2 === 0;
+  const isLgCol1 = index % 3 === 0;
+  const isLgCol2 = index % 3 === 1;
+  let prClass = "";
+  if (isMdCol1 && isLgCol1)        prClass = "md:pr-6";
+  else if (isMdCol1 && !isLgCol1)  prClass = "md:pr-6 lg:pr-0";
+  else if (!isMdCol1 && isLgCol2)  prClass = "lg:pr-6";
+
+  const bodyClass = [
+    "flex-1 min-h-[436px] flex flex-col py-10 border-[#D2D5D9]",
+    borderClass,
+    prClass,
+  ].filter(Boolean).join(" ");
+
+  return { ruleClass, bodyClass };
 }
 
 const CLOSE_DURATION = 240;
@@ -181,11 +249,8 @@ export default function PortfolioGrid(): React.ReactElement {
     document.body.style.width = "100%";
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closePanel();
-      }
+      if (event.key === "Escape") closePanel();
     };
-
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -199,51 +264,81 @@ export default function PortfolioGrid(): React.ReactElement {
   }, [activeCompany]);
 
   return (
-    <section aria-label="Investment Portfolio" className="portfolio-list-section w-full bg-white px-5 md:px-12 lg:px-20">
-      <div className="portfolio-list-rule" />
+    <section
+      aria-label="Investment Portfolio"
+      className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20 lg:pt-24 pb-20 lg:pb-24"
+    >
+      {/* ── COMPANY GRID ─────────────────────────────────────────── */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {companies.map((company, index) => {
+          const { ruleClass, bodyClass } = getCardLayout(index);
+          return (
+            <article key={company.name} className="flex flex-col">
+              {/* Top rule — inset for non-first-column cards */}
+              <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass}`} />
 
-      <div className="portfolio-list-grid">
-        {companies.map((company) => (
-          <article key={company.name} className="portfolio-list-card">
-            <img
-              src={company.logo}
-              alt={company.name}
-              width={company.logoW}
-              height={company.logoH}
-              className="portfolio-list-logo"
-              style={{ width: company.logoW, height: company.logoH }}
-              draggable={false}
-            />
+              <div className={bodyClass}>
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  width={company.logoW}
+                  height={company.logoH}
+                  style={{
+                    width: `${company.logoW}px`,
+                    height: `${company.logoH}px`,
+                    objectFit: "contain",
+                    objectPosition: "left",
+                  }}
+                  draggable={false}
+                />
 
-            <div className="portfolio-list-tags">
-              {company.tags.map((tag, index) => (
-                <span key={tag} className="portfolio-list-tag-wrap">
-                  <span className="portfolio-list-tag font-body">{tag}</span>
-                  {index < company.tags.length - 1 ? <span className="portfolio-list-tag-divider" /> : null}
-                </span>
-              ))}
-            </div>
+                {/* Tags with vertical dividers */}
+                <div className="flex items-center flex-wrap" style={{ marginTop: "24px", gap: "8px" }}>
+                  {company.tags.map((tag, tagIndex) => (
+                    <span key={tag} className="flex items-center gap-2">
+                      <span className="text-label font-body" style={{ color: "#67686B" }}>{tag}</span>
+                      {tagIndex < company.tags.length - 1 && (
+                        <span
+                          style={{ width: "1px", height: "10px", backgroundColor: "#67686B", display: "inline-block" }}
+                        />
+                      )}
+                    </span>
+                  ))}
+                </div>
 
-            <p className="portfolio-list-description font-body">{company.desc}</p>
+                {/* Description */}
+                <p
+                  className="font-body text-body-sm"
+                  style={{ color: "#373738", margin: 0, marginTop: "80px", maxWidth: "394px" }}
+                >
+                  {company.desc}
+                </p>
 
-            <div className="portfolio-list-actions">
-              <button
-                type="button"
-                className="portfolio-list-link font-body"
-                aria-label={`Read more about ${company.name}`}
-                onClick={() => setActiveCompany(company)}
-              >
-                Read More
-                <PlusIcon />
-              </button>
-            </div>
-          </article>
-        ))}
+                {/* Spacer — pushes button to bottom */}
+                <div className="flex-1 min-h-[24px]" />
+
+                {/* Read More — opens detail panel */}
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-[2px] text-links font-body py-[2px] border-b border-[#67686B] text-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200 self-start cursor-pointer bg-transparent"
+                  aria-label={`Read more about ${company.name}`}
+                  onClick={() => setActiveCompany(company)}
+                >
+                  Read More
+                  <PlusIcon />
+                </button>
+              </div>
+
+              {/* Bottom rule — same inset as top */}
+              <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass}`} />
+            </article>
+          );
+        })}
       </div>
 
-      <div className="portfolio-list-rule" />
-      <p className="portfolio-list-note font-body">More ventures will be added soon!</p>
+      <p className="portfolio-list-note font-body">More venture&apos;s details will be added soon!</p>
 
+      {/* ── DETAIL PANEL ─────────────────────────────────────────── */}
       {activeCompany ? (
         <div className={`portfolio-detail-layer${isClosing ? " is-closing" : ""}`} role="presentation">
           <button
@@ -278,7 +373,6 @@ export default function PortfolioGrid(): React.ReactElement {
                   }
                   draggable={false}
                 />
-
                 <button
                   type="button"
                   className="portfolio-detail-close"
