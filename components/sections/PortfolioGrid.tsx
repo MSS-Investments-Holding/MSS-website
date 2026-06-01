@@ -185,13 +185,20 @@ function PlusIcon() {
  *   i=2 → md R2C1 / lg R1C3  — border lg only
  *   i=3 → md R2C2 / lg R2C1  — border md, not lg
  *
- * Horizontal rules are ALWAYS full-width (no ml offset) so the line is
- * continuous across the row. The border-l on the body creates the column
- * separator. Top rules are hidden for cards in row 2+ at each breakpoint.
+ * Horizontal rules are inset with ml-6 to align with card content (same
+ * pattern as homepage PortfolioProcessSection). Top rules are hidden for
+ * cards in row 2+ at each breakpoint so only row 1 shows a top divider.
  */
-function getCardLayout(index: number): { bodyClass: string; topRuleClass: string } {
+function getCardLayout(index: number): { bodyClass: string; ruleClass: string; topRuleClass: string } {
   const hasMdBorder = index % 2 !== 0;
   const hasLgBorder = index % 3 !== 0;
+
+  // Rule inset: ml-6 where the card has a left border, so the rule aligns
+  // with the content start (matching the homepage card pattern).
+  let ruleClass = "";
+  if (hasMdBorder && hasLgBorder)       ruleClass = "md:ml-6";
+  else if (!hasMdBorder && hasLgBorder) ruleClass = "lg:ml-6";
+  else if (hasMdBorder && !hasLgBorder) ruleClass = "md:ml-6 lg:ml-0";
 
   let borderClass = "";
   if (hasMdBorder && hasLgBorder)       borderClass = "md:border-l md:pl-6";
@@ -212,7 +219,7 @@ function getCardLayout(index: number): { bodyClass: string; topRuleClass: string
     prClass,
   ].filter(Boolean).join(" ");
 
-  // Top rule: only visible when this card is in row 1 at the active breakpoint.
+  // Top rule visibility: only shown when this card is in row 1.
   // mobile (1-col): row 1 = i=0 only
   // md    (2-col): row 1 = i=0,1
   // lg    (3-col): row 1 = i=0,1,2
@@ -222,7 +229,7 @@ function getCardLayout(index: number): { bodyClass: string; topRuleClass: string
     index === 2 ? "hidden lg:block" :
     "hidden";
 
-  return { bodyClass, topRuleClass };
+  return { bodyClass, ruleClass, topRuleClass };
 }
 
 const CLOSE_DURATION = 240;
@@ -279,11 +286,11 @@ export default function PortfolioGrid(): React.ReactElement {
       {/* ── COMPANY GRID ─────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {companies.map((company, index) => {
-          const { bodyClass, topRuleClass } = getCardLayout(index);
+          const { bodyClass, ruleClass, topRuleClass } = getCardLayout(index);
           return (
             <article key={company.name} className="flex flex-col">
-              {/* Top rule — row 1 only, full-width (no ml offset) */}
-              <div className={`h-px shrink-0 bg-[#D2D5D9] ${topRuleClass}`} />
+              {/* Top rule — row 1 only, inset to match content width */}
+              <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass} ${topRuleClass}`} />
 
               <div className={bodyClass}>
                 <img
@@ -337,8 +344,8 @@ export default function PortfolioGrid(): React.ReactElement {
                 </button>
               </div>
 
-              {/* Bottom rule — always full-width */}
-              <div className="h-px shrink-0 bg-[#D2D5D9]" />
+              {/* Bottom rule — inset to match content width */}
+              <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass}`} />
             </article>
           );
         })}
