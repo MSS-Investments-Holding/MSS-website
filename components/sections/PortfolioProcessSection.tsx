@@ -75,11 +75,13 @@ export default function PortfolioProcessSection() {
           {companies.map((company, index) => (
             <article
               key={company.name}
-              className="flex flex-col py-10 lg:pt-10 lg:pb-10 border-t border-b border-[#D2D5D9] w-[69vw] shrink-0 md:w-auto md:min-w-0 md:shrink"
+              className="flex flex-col w-[69vw] shrink-0 md:w-auto md:min-w-0 md:shrink"
             >
+              {/* Top rule — inset at lg to align with content left for cards 1/2 */}
+              <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "lg:ml-6" : ""].join(" ")} />
               <div
                 className={[
-                  "h-full min-h-[360px] lg:min-h-[444px] lg:px-6 flex flex-col",
+                  "flex-1 min-h-[360px] lg:min-h-[444px] lg:px-6 flex flex-col py-10",
                   index === 0 ? "lg:pl-0" : index === 1 ? "border-l border-[#D2D5D9] pl-6 md:pl-8" : "border-l border-[#D2D5D9] pl-6 md:border-l-0 md:pl-0 lg:border-l lg:border-[#D2D5D9]",
                 ].join(" ")}
               >
@@ -118,6 +120,8 @@ export default function PortfolioProcessSection() {
                   <ArrowUpRight fill="currentColor" />
                 </a>
               </div>
+              {/* Bottom rule — same inset as top */}
+              <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "lg:ml-6" : ""].join(" ")} />
             </article>
           ))}
           {/* Trailing spacer — ensures last card has 20px right gap when scrolled.
