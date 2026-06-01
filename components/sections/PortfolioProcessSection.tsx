@@ -70,19 +70,19 @@ export default function PortfolioProcessSection() {
         </div>
       </div>
 
-      <div className="px-5 md:px-12 lg:px-20 overflow-x-auto md:overflow-x-visible scrollbar-hide md:scrollbar-auto">
-        <div className="flex gap-6 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+      <div className="px-5 md:px-12 lg:px-20 overflow-x-auto lg:overflow-x-visible scrollbar-hide lg:scrollbar-auto">
+        <div className="flex gap-6 lg:grid lg:grid-cols-3">
           {companies.map((company, index) => (
             <article
               key={company.name}
-              className="flex flex-col w-[69vw] shrink-0 md:w-auto md:min-w-0 md:shrink"
+              className="flex flex-col w-[69vw] shrink-0 max-w-[420px] lg:w-auto lg:min-w-0 lg:shrink lg:max-w-none"
             >
-              {/* Top rule — inset at lg to align with content left for cards 1/2 */}
-              <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "lg:ml-6" : ""].join(" ")} />
+              {/* Top rule — inset to align with content left for cards 1/2 (all breakpoints have pl-6) */}
+              <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "ml-6" : ""].join(" ")} />
               <div
                 className={[
                   "flex-1 min-h-[360px] lg:min-h-[444px] lg:px-6 flex flex-col py-10",
-                  index === 0 ? "lg:pl-0" : index === 1 ? "border-l border-[#D2D5D9] pl-6 md:pl-8" : "border-l border-[#D2D5D9] pl-6 md:border-l-0 md:pl-0 lg:border-l lg:border-[#D2D5D9]",
+                  index === 0 ? "lg:pl-0" : "border-l border-[#D2D5D9] pl-6",
                 ].join(" ")}
               >
                 <img
@@ -121,12 +121,12 @@ export default function PortfolioProcessSection() {
                 </a>
               </div>
               {/* Bottom rule — same inset as top */}
-              <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "lg:ml-6" : ""].join(" ")} />
+              <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "ml-6" : ""].join(" ")} />
             </article>
           ))}
           {/* Trailing spacer — ensures last card has 20px right gap when scrolled.
               padding-right on the scroll container is swallowed by WebKit; a flex child is not. */}
-          <div className="w-5 shrink-0 md:hidden" aria-hidden="true" />
+          <div className="w-5 shrink-0 lg:hidden" aria-hidden="true" />
         </div>
       </div>
 
