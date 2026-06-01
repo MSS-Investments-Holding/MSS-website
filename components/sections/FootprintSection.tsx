@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import { useRef, useEffect, useState } from "react";
@@ -106,12 +105,13 @@ export default function FootprintSection() {
             className="md:hidden absolute left-0 right-0"
             style={{ bottom: 0, transform: "translateY(50%)", pointerEvents: "none" }}
           >
-            <Image
-              src="/images/home/footprint-globe.png"
+            <img
+              src="/images/home/footprint-globe.svg"
               alt=""
               width={440}
               height={440}
               className="w-full h-auto"
+              draggable={false}
             />
           </div>
 
@@ -126,12 +126,13 @@ export default function FootprintSection() {
               pointerEvents: "none",
             }}
           >
-            <Image
-              src="/images/home/footprint-globe.png"
+            <img
+              src="/images/home/footprint-globe.svg"
               alt=""
               width={440}
               height={440}
               className="w-full h-full object-contain"
+              draggable={false}
             />
           </div>
         </div>
