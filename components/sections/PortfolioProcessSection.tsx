@@ -10,11 +10,20 @@ const steps = [
 
 const companies = [
   {
+    name: "DT&T",
+    logo: "/images/icons/logo-dtt.svg",
+    logoW: 116,
+    logoH: 40,
+    tags: ["Fintech", "B2C", "UK EMI"],
+    desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized EMI, DT&T supports accessible cross-border financial activity through a modern digital platform.",
+    site: "https://www.dtandt.com/",
+  },
+  {
     name: "Swiss Payments",
     logo: "/images/icons/logo-swiss-payments.svg",
     logoW: 148,
     logoH: 40,
-    tags: ["Fintech", "B2C", "Agentic AI"],
+    tags: ["Fintech", "B2C", "SRO License"],
     desc: "Swiss Payments is a digital payments and account experience built on a Swiss fintech platform. We created Swiss Payments to make it easier for individuals and businesses to access a Swiss Payments account, cards, payments, and certain digital assets all in one place, with transparent pricing and rigorous compliance.",
     site: "https://www.swisspayments.ch/",
   },
@@ -23,18 +32,9 @@ const companies = [
     logo: "/images/icons/logo-metax.svg",
     logoW: 89,
     logoH: 40,
-    tags: ["Fintech", "B2C"],
+    tags: ["Fintech", "B2C", "MSB License"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     site: "https://www.metaxpayments.com/",
-  },
-  {
-    name: "DT&T",
-    logo: "/images/icons/logo-dtt.svg",
-    logoW: 116,
-    logoH: 40,
-    tags: ["Fintech", "B2C", "Agentic AI"],
-    desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized EMI, DT&T supports accessible cross-border financial activity through a modern digital platform.",
-    site: "https://www.dtandt.com/",
   },
 ];
 
