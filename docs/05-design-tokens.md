@@ -111,7 +111,7 @@ All heading styles use **Merriweather Light (300)**. All body styles use **Inter
 | Token | Desktop Size | Desktop LH | Tablet Size | Tablet LH | Mobile Size | Mobile LH | LS |
 |---|---|---|---|---|---|---|---|
 | `text-h1` | 70px / 4.375rem | 74px | 62px / 3.875rem | 66px | 48px / 3rem | 54px | 0 |
-| `text-h2` | 46px / 2.875rem | 50px | 40px / 2.5rem | 44px | 36px / 2.25rem | 40px | 0 |
+| `text-h2` | 46px / 2.875rem | 50px | 40px / 2.5rem | 44px | 34px / 2.125rem | 38px | 0 |
 | `text-h3` | 36px / 2.25rem | 42px | 32px / 2rem | 38px | 28px / 1.75rem | 34px | 0 |
 | `text-h4` | 26px / 1.625rem | 32px | 24px / 1.5rem | 30px | 22px / 1.375rem | 28px | 0 |
 | `text-h5` | 20px / 1.25rem | 26px | 20px / 1.25rem | 26px | 18px / 1.125rem | 24px | 0 |
