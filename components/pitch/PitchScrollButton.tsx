@@ -8,7 +8,10 @@ export default function PitchScrollButton() {
 
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
-    lenis?.scrollTo("#pitch-form", { duration: 1.4 });
+    lenis?.scrollTo("#pitch-form", {
+      duration: 1.8,
+      easing: (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+    });
   }
 
   return (

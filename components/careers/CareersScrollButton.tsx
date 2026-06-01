@@ -7,7 +7,10 @@ export default function CareersScrollButton() {
 
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
-    lenis?.scrollTo("#open-roles", { duration: 1.4 });
+    lenis?.scrollTo("#open-roles", {
+      duration: 1.8,
+      easing: (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+    });
   }
 
   return (
