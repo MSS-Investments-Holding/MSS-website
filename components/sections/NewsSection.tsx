@@ -20,8 +20,8 @@ export default function NewsSection({ articles }: Props) {
           News &amp; Media
         </h2>
         <p
-          className="font-body mt-4 md:mt-0 md:w-1/2 lg:w-auto lg:ml-auto"
-          style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.18px", color: "#67686B", maxWidth: "410px" }}
+          className="font-body text-body-lg mt-4 md:mt-0 md:w-1/2 lg:w-auto lg:ml-auto"
+          style={{ color: "#67686B", maxWidth: "410px" }}
         >
           Perspectives on the ideas, partnerships, sectors, and market shifts
           shaping long-term growth.
@@ -74,7 +74,7 @@ export default function NewsSection({ articles }: Props) {
               )}
             </div>
 
-            <h3 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}>
+            <h3 className="font-heading text-h5" style={{ color: "#1C1C1F", margin: 0, marginTop: "24px" }}>
               {article.title}
             </h3>
             <p className="font-body text-body-sm" style={{ color: "#67686B", margin: 0, marginTop: "12px" }}>

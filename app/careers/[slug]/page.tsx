@@ -88,10 +88,8 @@ export default async function JobDetailsPage({ params }: Props) {
                       {bullets.map((item, j) => (
                         <li
                           key={j}
-                          className="font-body flex gap-3"
+                          className="font-body text-body-sm flex gap-3"
                           style={{
-                            fontSize: "15px",
-                            lineHeight: "22px",
                             color: "#373738",
                             marginTop: j > 0 ? "10px" : 0,
                           }}
@@ -115,10 +113,8 @@ export default async function JobDetailsPage({ params }: Props) {
                     paragraphs.map((para, j) => (
                       <p
                         key={j}
-                        className="font-body"
+                        className="font-body text-body-sm"
                         style={{
-                          fontSize: "15px",
-                          lineHeight: "22px",
                           color: "#373738",
                           margin: 0,
                           marginTop: j > 0 ? "16px" : 0,

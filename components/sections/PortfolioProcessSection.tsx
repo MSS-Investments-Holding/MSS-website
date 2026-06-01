@@ -59,7 +59,7 @@ export default function PortfolioProcessSection() {
               <div className="w-10 h-10 bg-white flex items-center justify-center flex-shrink-0">
                 <img src={step.icon} alt="" width={40} height={40} style={{ width: "40px", height: "40px", objectFit: "contain" }} />
               </div>
-              <h3 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}>
+              <h3 className="font-heading text-h5" style={{ color: "#1C1C1F", margin: 0, marginTop: "24px" }}>
                 {step.title}
               </h3>
               <p className="font-body text-body-sm" style={{ color: "#67686B", margin: 0, marginTop: "4px", maxWidth: "260px" }}>

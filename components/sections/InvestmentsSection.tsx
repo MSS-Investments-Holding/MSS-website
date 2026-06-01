@@ -60,8 +60,8 @@ export default function InvestmentsSection() {
         {/* ── HEADER ──────────────────────────────────────────── */}
         <div className="flex flex-col md:flex-row md:items-start md:gap-10 lg:gap-20 mb-16 lg:mb-20">
           <h2
-            className="font-heading text-white md:w-1/2 lg:w-[540px] lg:flex-shrink-0"
-            style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)", lineHeight: "1.087", fontWeight: 300, margin: 0 }}
+            className="investments-section-h2 font-heading text-white md:w-1/2 lg:w-[540px] lg:flex-shrink-0"
+            style={{ margin: 0 }}
           >
             Investing Across High-Impact Digital Sectors and Eco-systems
           </h2>
@@ -122,7 +122,7 @@ function SectorCard({ card, desktopStyle }: { card: typeof cards[number]; deskto
       <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
         <img src={card.icon} alt="" width={60} height={60} style={{ width: "60px", height: "60px", objectFit: "contain" }} />
       </div>
-      <h3 className="font-heading" style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "64px" }}>
+      <h3 className="font-heading text-h4" style={{ color: "#1C1C1F", margin: 0, marginTop: "64px" }}>
         {card.title}
       </h3>
       <p className="font-body text-body-sm flex-1" style={{ color: "#67686B", margin: 0, marginTop: "12px" }}>

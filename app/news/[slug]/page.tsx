@@ -43,16 +43,16 @@ const portableComponents: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
       <p
-        className="font-body"
-        style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "40px" }}
+        className="font-body text-body-sm"
+        style={{ color: "#373738", margin: 0, marginTop: "40px" }}
       >
         {children}
       </p>
     ),
     h3: ({ children }) => (
       <h2
-        className="font-heading"
-        style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "40px" }}
+        className="font-heading text-h5"
+        style={{ color: "#1C1C1F", margin: 0, marginTop: "40px" }}
       >
         {children}
       </h2>
@@ -182,8 +182,8 @@ export default async function ArticlePage({
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between py-[9px] font-body hover:opacity-70 transition-opacity"
-                      style={{ fontSize: "15px", lineHeight: "22px", color: "#141010" }}
+                      className="font-body text-body-sm flex items-center justify-between py-[9px] hover:opacity-70 transition-opacity"
+                      style={{ color: "#141010" }}
                     >
                       {link.label}
                       <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true">
@@ -207,7 +207,7 @@ export default async function ArticlePage({
                 <PortableText value={article.body} components={portableComponents} />
               </div>
             ) : (
-              <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B" }}>
+              <p className="font-body text-body-sm" style={{ color: "#67686B" }}>
                 {article.excerpt}
               </p>
             )}
@@ -224,15 +224,15 @@ export default async function ArticlePage({
 
           <div className="flex items-center justify-between pt-16 mb-16">
             <h2
-              className="font-heading"
-              style={{ fontSize: "clamp(1.5rem, 2.5vw, 2.25rem)", lineHeight: "1.167", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+              className="font-heading text-h3"
+              style={{ color: "#1C1C1F", margin: 0 }}
             >
               More News
             </h2>
             <Link
               href="/news"
-              className="inline-flex items-center justify-center font-body text-white"
-              style={{ height: "40px", backgroundColor: "#1C1C1F", fontSize: "16px", lineHeight: "24px", letterSpacing: "-0.32px", paddingLeft: "20px", paddingRight: "20px", whiteSpace: "nowrap" }}
+              className="inline-flex items-center justify-center font-body text-btn text-white"
+              style={{ height: "40px", backgroundColor: "#1C1C1F", paddingLeft: "20px", paddingRight: "20px", whiteSpace: "nowrap" }}
             >
               View All
             </Link>
@@ -271,15 +271,15 @@ export default async function ArticlePage({
                   )}
                 </div>
                 <h3
-                  className="font-heading"
-                  style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
+                  className="font-heading text-h5"
+                  style={{ color: "#1C1C1F", margin: 0, marginTop: "24px" }}
                 >
                   {rel.title}
                 </h3>
-                <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
+                <p className="font-body text-body-sm" style={{ color: "#67686B", margin: 0, marginTop: "12px" }}>
                   {formatDate(rel.date)}
                 </p>
-                <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "12px" }}>
+                <p className="font-body text-body-sm" style={{ color: "#373738", margin: 0, marginTop: "12px" }}>
                   {rel.excerpt}
                 </p>
               </Link>

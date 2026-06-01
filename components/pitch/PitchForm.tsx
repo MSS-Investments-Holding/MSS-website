@@ -33,7 +33,7 @@ function FieldError({ message }: { message?: string }) {
   if (!message) return null;
 
   return (
-    <p className="font-body mt-2" style={{ color: "#9A3412", fontSize: "13px", lineHeight: "18px" }}>
+    <p className="font-body text-body-sm mt-2" style={{ color: "#9A3412" }}>
       {message}
     </p>
   );

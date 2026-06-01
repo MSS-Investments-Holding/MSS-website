@@ -2543,6 +2543,8 @@ body {
 .careers-why-h2        { font-size: 2.875rem;  line-height: 1.087; }
 .careers-roles-h2      { font-size: 2.875rem;  line-height: 1.087; }
 .careers-benefit-h3    { font-size: 26px;      line-height: 1.23;  }
+.investments-section-h2 { font-size: 2.875rem;  line-height: 1.087; }
+.pitch-form-title       { font-size: 2.875rem;  line-height: 1.087; }
 
 @media (max-width: 767px) {
   .home-hero-h1          { font-size: 2.25rem; }
@@ -2560,6 +2562,8 @@ body {
   .careers-benefit-h3    { font-size: 22px; line-height: 28px; }
   .careers-stand-title   { font-size: 1.5rem; }
   .careers-application-title { font-size: 1.75rem; }
+  .investments-section-h2 { font-size: 1.75rem; }
+  .pitch-form-title       { font-size: 1.75rem; }
 }
 
 /* ─── Tablet type scale (768px – 1023px) ─────────────────────── */
@@ -2593,6 +2597,8 @@ body {
   .portfolio-process-h2   { font-size: 2.5rem; line-height: 44px; }
   .careers-why-h2         { font-size: 2.5rem; line-height: 44px; }
   .careers-roles-h2       { font-size: 2.5rem; line-height: 44px; }
+  .investments-section-h2 { font-size: 2.5rem; line-height: 44px; }
+  .pitch-form-title       { font-size: 2.5rem; line-height: 44px; }
 
   /* H3 — sub-section headings */
   .about-who-h2          { font-size: 2rem; line-height: 38px; }

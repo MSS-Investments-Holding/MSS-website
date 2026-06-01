@@ -159,8 +159,8 @@ export default function AboutPage() {
           {/* RIGHT — body, bottom-third area */}
           <div className="w-full md:w-[50%] md:ml-auto lg:ml-0 lg:w-[42%] xl:w-[540px] flex flex-col pt-0 lg:pt-[434px] pb-10">
             <p
-              className="font-body text-white max-w-[460px] md:max-w-none"
-              style={{ fontSize: "clamp(17px, 1.25vw, 18px)", lineHeight: "1.555", letterSpacing: "-0.18px" }}
+              className="font-body text-body-lg text-white max-w-[460px] md:max-w-none"
+              style={{}}
             >
               We operate with a long-term view, backing ventures and platforms
               where market relevance, execution, and strategic direction come
@@ -285,15 +285,15 @@ export default function AboutPage() {
               </div>
               {/* Title — Merriweather 20px/26px, mt-6 (24px) */}
               <h3
-                className="font-heading"
-                style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}
+                className="font-heading text-h5"
+                style={{ color: "#1C1C1F", margin: 0, marginTop: "24px" }}
               >
                 {item.title}
               </h3>
               {/* Body — Inter 15px/22px, mt-3 (12px) */}
               <p
-                className="font-body"
-                style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
+                className="font-body text-body-sm"
+                style={{ color: "#67686B", margin: 0, marginTop: "12px" }}
               >
                 {item.body}
               </p>
@@ -346,8 +346,8 @@ export default function AboutPage() {
               Our Portfolio
             </h2>
             <p
-              className="font-body"
-              style={{ fontSize: "15px", lineHeight: "22px", color: "#F0F2F5", margin: 0, marginTop: "12px", maxWidth: "480px" }}
+              className="font-body text-body-sm"
+              style={{ color: "#F0F2F5", margin: 0, marginTop: "12px", maxWidth: "480px" }}
             >
               Discover the companies, ventures, and platforms within the MSS
               ecosystem, each contributing to the group&apos;s broader vision for
@@ -356,14 +356,11 @@ export default function AboutPage() {
             <div style={{ marginTop: "56px" }}>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-[6px] font-body"
+                className="inline-flex items-center gap-[6px] font-body text-btn"
                 style={{
                   height: "40px",
                   backgroundColor: "#FFFFFF",
                   color: "#1C1C1F",
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                  letterSpacing: "-0.32px",
                   paddingLeft: "20px",
                   paddingRight: "16px",
                   whiteSpace: "nowrap",
@@ -413,8 +410,8 @@ export default function AboutPage() {
               Join Us
             </h2>
             <p
-              className="font-body"
-              style={{ fontSize: "15px", lineHeight: "22px", color: "#F0F2F5", margin: 0, marginTop: "12px", maxWidth: "480px" }}
+              className="font-body text-body-sm"
+              style={{ color: "#F0F2F5", margin: 0, marginTop: "12px", maxWidth: "480px" }}
             >
               Join the teams working across strategy, finance, technology,
               operations, and venture building to help shape the next stage of
@@ -423,14 +420,11 @@ export default function AboutPage() {
             <div style={{ marginTop: "56px" }}>
               <Link
                 href="/careers"
-                className="inline-flex items-center gap-[6px] font-body"
+                className="inline-flex items-center gap-[6px] font-body text-btn"
                 style={{
                   height: "40px",
                   backgroundColor: "#FFFFFF",
                   color: "#1C1C1F",
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                  letterSpacing: "-0.32px",
                   paddingLeft: "20px",
                   paddingRight: "16px",
                   whiteSpace: "nowrap",
@@ -502,14 +496,14 @@ export default function AboutPage() {
           {locations.map((entry) => (
             <div key={entry.name} className="border-t border-[#D2D5D9] pt-10 pb-10">
               <h3
-                className="font-heading"
-                style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+                className="font-heading text-h4"
+                style={{ color: "#1C1C1F", margin: 0 }}
               >
                 {entry.name}
               </h3>
               <p
-                className="font-body"
-                style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
+                className="font-body text-body-sm"
+                style={{ color: "#67686B", margin: 0, marginTop: "12px" }}
               >
                 {entry.sub}
               </p>

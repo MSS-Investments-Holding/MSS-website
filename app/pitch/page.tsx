@@ -152,8 +152,8 @@ export default function PitchPage() {
                 {/* Number column — left side from tablet up, full width stacked at mobile */}
                 <div className="md:w-1/2 md:flex-shrink-0 lg:w-[52%]">
                   <span
-                    className="font-heading"
-                    style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#C5D3E5" }}
+                    className="font-heading text-h4"
+                    style={{ color: "#C5D3E5" }}
                   >
                     {item.number}
                   </span>
@@ -167,8 +167,8 @@ export default function PitchPage() {
                     {item.title}
                   </h3>
                   <p
-                    className="font-body break-words"
-                    style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
+                    className="font-body text-body-sm break-words"
+                    style={{ color: "#67686B", margin: 0, marginTop: "12px" }}
                   >
                     {item.body}
                   </p>
@@ -283,11 +283,8 @@ export default function PitchPage() {
                 </div>
                 {/* Merriweather 20px/26px — 24px gap from icon bottom */}
                 <h3
-                  className="font-heading"
+                  className="font-heading text-h5"
                   style={{
-                    fontSize: "20px",
-                    lineHeight: "26px",
-                    fontWeight: 300,
                     color: "#1C1C1F",
                     margin: 0,
                     marginTop: "24px",
@@ -297,10 +294,8 @@ export default function PitchPage() {
                 </h3>
                 {/* Inter 15px/22px — 4px gap from title bottom */}
                 <p
-                  className="font-body max-w-full break-words"
+                  className="font-body text-body-sm max-w-full break-words"
                   style={{
-                    fontSize: "15px",
-                    lineHeight: "22px",
                     color: "#67686B",
                     margin: 0,
                     marginTop: "4px",
@@ -337,11 +332,8 @@ export default function PitchPage() {
          * maxWidth 56%: H2 w=724px / 1280px = 56.6% ≈ 56% ✓
          */}
         <h2
-          className="font-heading max-w-full lg:max-w-[56%]"
+          className="pitch-form-title font-heading max-w-full lg:max-w-[56%]"
           style={{
-            fontSize: "clamp(1.75rem, 3.2vw, 2.875rem)",
-            lineHeight: "1.087",
-            fontWeight: 300,
             color: "#1C1C1F",
             margin: 0,
             marginTop: "24px",

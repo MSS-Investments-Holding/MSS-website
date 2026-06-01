@@ -121,8 +121,8 @@ export default function CareersPage() {
                 {/* LEFT — number only, 51.6% of content width */}
                 <div className="md:w-1/2 md:flex-shrink-0 lg:w-[51.6%]">
                   <span
-                    className="font-heading"
-                    style={{ fontSize: "clamp(22px, 1.8vw, 26px)", lineHeight: "1.23", fontWeight: 300, color: "#C5D3E5" }}
+                    className="font-heading text-h4"
+                    style={{ color: "#C5D3E5" }}
                   >
                     {item.num}
                   </span>
@@ -137,8 +137,8 @@ export default function CareersPage() {
                     {item.title}
                   </h3>
                   <p
-                    className="font-body"
-                    style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
+                    className="font-body text-body-sm"
+                    style={{ color: "#67686B", margin: 0, marginTop: "12px" }}
                   >
                     {item.desc}
                   </p>
@@ -222,14 +222,14 @@ export default function CareersPage() {
                 {/* COL 1 — title + location */}
                 <div className="lg:w-[30%] lg:flex-shrink-0 flex flex-col gap-2">
                   <h3
-                    className="font-heading"
-                    style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+                    className="font-heading text-h5"
+                    style={{ color: "#1C1C1F", margin: 0 }}
                   >
                     {role.title}
                   </h3>
                   <p
-                    className="font-body"
-                    style={{ fontSize: "15px", lineHeight: "22px", color: "#AEB0B3", margin: 0 }}
+                    className="font-body text-body-sm"
+                    style={{ color: "#AEB0B3", margin: 0 }}
                   >
                     {role.location} · {role.type}
                   </p>
@@ -238,8 +238,8 @@ export default function CareersPage() {
                 {/* COL 2 — description */}
                 <div className="flex-1 min-w-0">
                   <p
-                    className="font-body"
-                    style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0 }}
+                    className="font-body text-body-sm"
+                    style={{ color: "#67686B", margin: 0 }}
                   >
                     {role.description}
                   </p>
@@ -249,8 +249,8 @@ export default function CareersPage() {
                 <div className="lg:flex-shrink-0 lg:ml-[120px]">
                   <Link
                     href={`/careers/${role.slug}`}
-                    className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b whitespace-nowrap"
-                    style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#1C1C1F", borderColor: "#1C1C1F", textDecoration: "none" }}
+                    className="self-start inline-flex items-center gap-[4px] font-body text-body-sm py-[2px] border-b whitespace-nowrap"
+                    style={{ color: "#1C1C1F", borderColor: "#1C1C1F", textDecoration: "none" }}
                   >
                     Apply Now
                     <ArrowRight size="sm" fill="#1C1C1F" />
@@ -304,8 +304,8 @@ export default function CareersPage() {
           </h2>
 
           <p
-            className="font-body mt-4"
-            style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "16px", maxWidth: "480px" }}
+            className="font-body text-body-sm mt-4"
+            style={{ color: "#67686B", margin: 0, marginTop: "16px", maxWidth: "480px" }}
           >
             We are always open to hearing from thoughtful, capable people who are a strong fit for the ecosystem. Send us your CV and a short introduction at <a href="mailto:careers@mssholdings.com" className="text-body-sm-emphasized font-body" style={{ color: "#1C1C1F" }}>careers@mssholdings.com</a>, and we&apos;ll keep your profile in mind for future opportunities.
           </p>
@@ -313,13 +313,10 @@ export default function CareersPage() {
           <div className="careers-application-button">
             <a
               href="mailto:careers@mssholdings.com"
-              className="inline-flex items-center justify-center gap-[8px] font-body text-white"
+              className="inline-flex items-center justify-center gap-[8px] font-body text-btn text-white"
               style={{
                 height: "40px",
                 backgroundColor: "#1C1C1F",
-                fontSize: "16px",
-                lineHeight: "24px",
-                letterSpacing: "-0.32px",
                 paddingLeft: "20px",
                 paddingRight: "16px",
                 paddingTop: "8px",

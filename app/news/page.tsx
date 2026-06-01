@@ -75,8 +75,8 @@ export default async function NewsPage({
           {/* RIGHT — body text, bottom-aligned */}
           <div className="w-full lg:w-[44%] xl:w-[560px] flex flex-col justify-end pb-10 lg:pb-[40px]">
             <p
-              className="font-body text-white"
-              style={{ fontSize: "18px", lineHeight: "28px", letterSpacing: "-0.18px" }}
+              className="font-body text-body-lg text-white"
+              style={{}}
             >
               Perspectives on the ideas, partnerships, sectors, and market
               shifts shaping long-term growth.
@@ -101,11 +101,8 @@ export default async function NewsPage({
               <Link
                 key={cat}
                 href={cat === "All" ? "/news" : `/news?category=${value}`}
-                className="font-heading"
+                className="font-heading text-h5"
                 style={{
-                  fontSize: "20px",
-                  lineHeight: "26px",
-                  fontWeight: 300,
                   color: isActive ? "#1C1C1F" : "#67686B",
                   paddingTop: "8px",
                   paddingBottom: "8px",
@@ -157,11 +154,8 @@ export default async function NewsPage({
 
                   {/* Title — Merriweather 20px/26px, #1C1C1F, 24px below image */}
                   <h2
-                    className="font-heading"
+                    className="font-heading text-h5"
                     style={{
-                      fontSize: "20px",
-                      lineHeight: "26px",
-                      fontWeight: 300,
                       color: "#1C1C1F",
                       margin: 0,
                       marginTop: "24px",
@@ -172,16 +166,16 @@ export default async function NewsPage({
 
                   {/* Date — Inter 15px/22px, #67686B, 12px below title */}
                   <p
-                    className="font-body"
-                    style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
+                    className="font-body text-body-sm"
+                    style={{ color: "#67686B", margin: 0, marginTop: "12px" }}
                   >
                     {formatDate(article.date)}
                   </p>
 
-                  {/* Excerpt — Inter 15px/22px, #373738, 12px below date */}
+                  {/* Excerpt */}
                   <p
-                    className="font-body"
-                    style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "12px" }}
+                    className="font-body text-body-sm"
+                    style={{ color: "#373738", margin: 0, marginTop: "12px" }}
                   >
                     {article.excerpt}
                   </p>
@@ -191,8 +185,8 @@ export default async function NewsPage({
           </div>
         ) : (
           <p
-            className="font-body mt-16 pb-16"
-            style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B" }}
+            className="font-body text-body-sm mt-16 pb-16"
+            style={{ color: "#67686B" }}
           >
             No articles in this category yet.
           </p>
@@ -202,14 +196,11 @@ export default async function NewsPage({
         {filtered.length >= 9 && (
           <div className="flex justify-center mt-20 pb-16">
             <button
-              className="font-body text-white inline-flex items-center justify-center"
+              className="font-body text-btn text-white inline-flex items-center justify-center"
               style={{
                 width: "119px",
                 height: "40px",
                 backgroundColor: "#1C1C1F",
-                fontSize: "16px",
-                lineHeight: "24px",
-                letterSpacing: "-0.32px",
                 border: "none",
                 cursor: "pointer",
               }}
@@ -266,14 +257,11 @@ export default async function NewsPage({
           <div style={{ marginTop: "158px" }}>
             <a
               href="#"
-              className="inline-flex items-center gap-2 font-body"
+              className="inline-flex items-center gap-2 font-body text-btn"
               style={{
                 height: "40px",
                 backgroundColor: "#FFFFFF",
                 color: "#1C1C1F",
-                fontSize: "16px",
-                lineHeight: "24px",
-                letterSpacing: "-0.32px",
                 paddingLeft: "20px",
                 paddingRight: "16px",
                 whiteSpace: "nowrap",
@@ -305,14 +293,14 @@ export default async function NewsPage({
           <div className="hidden lg:block lg:w-[52%] lg:flex-shrink-0" />
           <div className="flex-1 pt-16">
             <h3
-              className="font-heading"
-              style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0 }}
+              className="font-heading text-h4"
+              style={{ color: "#1C1C1F", margin: 0 }}
             >
               Press Inquiries
             </h3>
             <p
-              className="font-body"
-              style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}
+              className="font-body text-body-sm"
+              style={{ color: "#67686B", margin: 0, marginTop: "12px" }}
             >
               For all press related information, get in touch at:
             </p>
