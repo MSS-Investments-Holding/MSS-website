@@ -17,7 +17,7 @@ const leaders = [
     cardBg: "#C5D3E5",
     imageClassName: "absolute max-w-none object-fill left-[-2px] top-[-110px] h-[659px] w-[495px] lg:top-[-115px] lg:h-[726px] lg:w-[545px]",
     placedImage: true,
-    bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With leadership roles tied to major digital finance and transformation initiatives in Pakistan, he contributes deep expertise in strategy and investments.",
+    bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With executive leadership roles tied to major digital finance and transformation initiatives in Pakistan, UAE, UK and Europe, he contributes deep expertise in strategy and investments.",
   },
 ];
 
