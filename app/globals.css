@@ -410,21 +410,19 @@ body {
 }
 
 .careers-application-wrap {
-  min-height: 778px;
 }
 
 .careers-application-image-frame {
-  height: 280px;
+  aspect-ratio: 402 / 280;
 }
 
 
 .careers-application-card {
-  min-height: 434px;
-  padding: 40px 20px 0;
+  padding: 40px 20px;
 }
 
 .careers-application-title {
-  margin-top: 96px;
+  margin-top: 24px;
   font-size: 2.25rem;
   line-height: 1.167;
 }
@@ -597,6 +595,68 @@ body {
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
+}
+
+/* ── Job Details page ─────────────────────────────────────────── */
+
+/* Section row — stacked on mobile/tablet */
+.job-details-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Heading col */
+.job-details-heading-col {
+  /* width/shrink set at lg */
+}
+
+/* Body col */
+.job-details-body-col {
+  /* margin-left set at lg */
+}
+
+/* Divider — full-width at mobile/tablet */
+.job-details-divider {
+  height: 1px;
+  background-color: #E8E9EB;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* Buttons row — right-aligned */
+.job-details-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 0;
+}
+
+/* Secondary button — outlined */
+.job-details-btn-secondary {
+  height: 36px;
+  border: 1px solid #1C1C1F;
+  background-color: transparent;
+  color: #1C1C1F;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  white-space: nowrap;
+}
+
+/* Primary button — filled */
+.job-details-btn-primary {
+  height: 36px;
+  background-color: #1C1C1F;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 20px;
+  padding-right: 16px;
+  white-space: nowrap;
 }
 
 .chairman-hero-section {
@@ -1176,6 +1236,47 @@ body {
 
   .careers-application-card {
     padding-bottom: 64px;
+  }
+
+  /* Job Details — two-column layout:
+   * heading 26.5625% (340/1280) | gap 15.625% (200/1280) | body 57.8125% (740/1280) */
+  .job-details-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .job-details-heading-col {
+    width: 26.5625%;
+    flex-shrink: 0;
+    padding-top: 5px;
+  }
+
+  .job-details-body-col {
+    margin-left: 15.625%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Divider spans only the body (right) column */
+  .job-details-divider {
+    margin-left: 42.1875%;
+  }
+
+  .job-details-buttons {
+    margin-left: 42.1875%;
+  }
+
+  .job-details-btn-secondary {
+    height: 38px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .job-details-btn-primary {
+    height: 38px;
+    font-size: 15px;
+    line-height: 22px;
   }
 }
 

@@ -1,9 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ArrowUpRight from "@/components/icons/ArrowUpRight";
+import ArrowRight from "@/components/icons/ArrowRight";
 import CareersScrollButton from "@/components/careers/CareersScrollButton";
+import { jobs } from "@/lib/jobs";
 
 export const metadata: Metadata = {
   title: "Careers | MSS Investments Holding",
@@ -34,32 +37,6 @@ const benefits = [
   },
 ];
 
-const roles = [
-  {
-    title: "Investment Analyst",
-    location: "Pakistan",
-    type: "On-Site",
-    desc: "Support the MSS investment team in evaluating new opportunities, preparing market research, building investment notes, and tracking portfolio performance.",
-  },
-  {
-    title: "Portfolio Operations Associate",
-    location: "Dubai",
-    type: "Hybrid",
-    desc: "Work with portfolio companies to improve reporting, operations, execution rhythm, and cross-company coordination across the MSS ecosystem.",
-  },
-  {
-    title: "Strategy & Growth Manager",
-    location: "Pakistan",
-    type: "Hybrid",
-    desc: "Help shape growth initiatives across ventures, identify market opportunities, support business planning, and work closely with leadership teams.",
-  },
-  {
-    title: "Head of Compliance.",
-    location: "Dubai",
-    type: "On-Site",
-    desc: "Lead brand messaging, corporate communications, content, and digital presence across MSS and selected portfolio companies.",
-  },
-];
 
 export default function CareersPage() {
   return (
@@ -238,11 +215,11 @@ export default function CareersPage() {
         <div className="careers-roles-list">
           <div style={{ height: "1px", backgroundColor: "#E8E9EB" }} />
 
-          {roles.map((role) => (
-            <div key={role.title}>
+          {jobs.map((role) => (
+            <div key={role.slug}>
               <div className="careers-role-row flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-x-0">
 
-                {/* COL 1 — title + location (fixed 40.6% = 520/1280) */}
+                {/* COL 1 — title + location */}
                 <div className="lg:w-[30%] lg:flex-shrink-0 flex flex-col gap-2">
                   <h3
                     className="font-heading"
@@ -258,26 +235,26 @@ export default function CareersPage() {
                   </p>
                 </div>
 
-                {/* COL 2 — description, compresses to give Apply Now room */}
+                {/* COL 2 — description */}
                 <div className="flex-1 min-w-0">
                   <p
                     className="font-body"
                     style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0 }}
                   >
-                    {role.desc}
+                    {role.description}
                   </p>
                 </div>
 
-                {/* COL 3 — Apply Now, never wraps */}
+                {/* COL 3 — Apply Now → job detail page */}
                 <div className="lg:flex-shrink-0 lg:ml-[120px]">
-                  <a
-                    href="mailto:careers@mssinvestmentsholding.com"
+                  <Link
+                    href={`/careers/${role.slug}`}
                     className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b whitespace-nowrap"
                     style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#1C1C1F", borderColor: "#1C1C1F", textDecoration: "none" }}
                   >
                     Apply Now
-                    <ArrowUpRight fill="#1C1C1F" />
-                  </a>
+                    <ArrowRight size="sm" fill="#1C1C1F" />
+                  </Link>
                 </div>
               </div>
               <div style={{ height: "1px", backgroundColor: "#E8E9EB" }} />
