@@ -2560,8 +2560,8 @@ body {
   .careers-benefit-h3    { font-size: 22px; line-height: 28px; }
   .careers-stand-title   { font-size: 1.5rem; }
   .careers-application-title { font-size: 1.75rem; }
-  .investments-section-h2 { font-size: 1.75rem; }
-  .pitch-form-title       { font-size: 1.75rem; }
+  .investments-section-h2 { font-size: 2.125rem; line-height: 38px; } /* 34px */
+  .pitch-form-title       { font-size: 2.125rem; line-height: 38px; } /* 34px */
 }
 
 /* ─── Tablet type scale (768px – 1023px) ─────────────────────── */
