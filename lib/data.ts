@@ -183,7 +183,7 @@ export const leadership = [
   {
     name: "Husnain Nasir",
     role: "Director",
-    bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, and emerging market development. He has led transformative initiatives across payments, digital infrastructure, and regulated technology.",
+    bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With executive leadership roles tied to major digital finance and transformation initiatives in Pakistan, UAE, UK and Europe, he contributes deep expertise in strategy and investments.",
     image: "/images/leadership-2.jpg",
   },
 ];
