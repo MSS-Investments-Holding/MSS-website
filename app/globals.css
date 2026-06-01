@@ -2007,7 +2007,8 @@ body {
   }
 
   .how-invest-hero-title {
-    max-width: 800px;
+    width: 70%;
+    max-width: 70%;
     font-size: clamp(56px, 5vw, 72px);
     line-height: 1.06;
   }
