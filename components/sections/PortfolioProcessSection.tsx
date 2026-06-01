@@ -113,7 +113,7 @@ export default function PortfolioProcessSection() {
                   href={company.site}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
+                  className="inline-flex items-center gap-[2px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
                   style={{ textDecoration: "none", alignSelf: "flex-start" }}
                 >
                   Visit Website
