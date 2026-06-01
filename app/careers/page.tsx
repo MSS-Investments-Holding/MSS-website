@@ -295,15 +295,13 @@ export default function CareersPage() {
 
         {/* LEFT — image */}
         <div className="careers-application-image-frame relative w-full overflow-hidden">
-          <div className="careers-application-image" aria-hidden="true">
-            <Image
-              src="/images/careers/careers-open-application.jpg"
-              alt=""
-              fill
-              className="object-fill"
-              sizes="(max-width: 767px) 497px, 870px"
-            />
-          </div>
+          <Image
+            src="/images/careers/careers-open-application.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="(max-width: 767px) 497px, 870px"
+          />
         </div>
 
         {/* RIGHT — warm beige content */}

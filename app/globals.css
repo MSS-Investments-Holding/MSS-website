@@ -417,13 +417,6 @@ body {
   height: 280px;
 }
 
-.careers-application-image {
-  position: absolute;
-  left: -85px;
-  top: -63px;
-  width: 497px;
-  height: 373px;
-}
 
 .careers-application-card {
   min-height: 434px;
@@ -895,13 +888,6 @@ body {
 
   .careers-application-image-frame {
     height: 504px;
-  }
-
-  .careers-application-image {
-    left: -121px;
-    top: -127px;
-    width: 870px;
-    height: 653px;
   }
 
   .careers-application-card {
