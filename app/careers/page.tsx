@@ -215,10 +215,10 @@ export default function CareersPage() {
         {/* Decorative vertical line */}
         <div
           className="absolute hidden lg:block"
-          style={{ left: "40px", top: "120px", width: "1px", height: "346px", backgroundColor: "rgba(255,255,255,0.40)" }}
+          style={{ left: "80px", top: "120px", width: "1px", height: "346px", backgroundColor: "rgba(255,255,255,0.40)" }}
         />
 
-        <div className="careers-stand-content relative z-10 w-full px-5 md:px-12 lg:px-20">
+        <div className="careers-stand-content relative z-10 w-full px-5 md:px-12 lg:px-[120px]">
           <span className="text-label font-body block" style={{ color: "rgba(255,255,255,0.80)" }}>
             What We Stand For
           </span>
@@ -258,7 +258,7 @@ export default function CareersPage() {
 
           {roles.map((role) => (
             <div key={role.title}>
-              <div className="careers-role-row flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-x-8">
+              <div className="careers-role-row flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-x-0">
 
                 {/* COL 1 — title + location (fixed 40.6% = 520/1280) */}
                 <div className="lg:w-[40.6%] lg:flex-shrink-0 flex flex-col gap-2">
@@ -287,7 +287,7 @@ export default function CareersPage() {
                 </div>
 
                 {/* COL 3 — Apply Now, never wraps */}
-                <div className="lg:flex-shrink-0">
+                <div className="lg:flex-shrink-0 lg:ml-20">
                   <a
                     href="mailto:careers@mssinvestmentsholding.com"
                     className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b whitespace-nowrap"
@@ -332,7 +332,7 @@ export default function CareersPage() {
           {/* Decorative vertical line */}
           <div
             className="absolute hidden lg:block"
-            style={{ left: 0, top: "80px", width: "1px", height: "378px", backgroundColor: "rgba(28,28,31,0.15)" }}
+            style={{ left: "40px", top: "64px", width: "1px", height: "376px", backgroundColor: "rgba(28,28,31,0.15)" }}
           />
 
           <span className="text-label font-body block" style={{ color: "#1C1C1F" }}>
@@ -341,7 +341,7 @@ export default function CareersPage() {
 
           <h2
             className="careers-application-title font-heading font-light"
-            style={{ color: "#1C1C1F", margin: 0 }}
+            style={{ color: "#1C1C1F" }}
           >
             Open Application
           </h2>
