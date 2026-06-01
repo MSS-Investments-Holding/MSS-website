@@ -75,14 +75,14 @@ export default function PortfolioProcessSection() {
           {companies.map((company, index) => (
             <article
               key={company.name}
-              className="flex flex-col w-[69vw] shrink-0 max-w-[420px] lg:w-auto lg:min-w-0 lg:shrink lg:max-w-none"
+              className={["flex flex-col w-[69vw] shrink-0 max-w-[420px] lg:w-auto lg:min-w-0 lg:shrink lg:max-w-none", index > 0 ? "relative" : ""].join(" ")}
             >
               {/* Top rule — inset to align with content left for cards 1/2 (all breakpoints have pl-6) */}
               <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "ml-6" : ""].join(" ")} />
               <div
                 className={[
                   "flex-1 min-h-[360px] lg:min-h-[444px] lg:px-6 flex flex-col py-10",
-                  index === 0 ? "lg:pl-0" : "border-l border-[#D2D5D9] pl-6",
+                  index === 0 ? "lg:pl-0" : "pl-6",
                 ].join(" ")}
               >
                 <img
@@ -122,6 +122,14 @@ export default function PortfolioProcessSection() {
               </div>
               {/* Bottom rule — same inset as top */}
               <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "ml-6" : ""].join(" ")} />
+
+              {/* Left column separator — inset 16px inside each rule (1px rule + 16px gap) */}
+              {index > 0 && (
+                <div
+                  className="absolute left-0 top-[17px] bottom-[17px] w-px bg-[#D2D5D9]"
+                  aria-hidden="true"
+                />
+              )}
             </article>
           ))}
           {/* Trailing spacer — ensures last card has 20px right gap when scrolled.
