@@ -1183,6 +1183,14 @@ body {
   .about-split-cta-content-bottom {
     padding-top: 424px;
   }
+
+  .careers-application-image-frame {
+    height: auto;
+  }
+
+  .careers-application-card {
+    padding-bottom: 64px;
+  }
 }
 
 @media (min-width: 1440px) {

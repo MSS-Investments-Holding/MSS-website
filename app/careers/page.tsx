@@ -291,10 +291,10 @@ export default function CareersPage() {
           Vertical line · label · H2 · body · CTA
          ══════════════════════════════════════════════════════════ */}
       <section aria-label="Open Application" className="w-full bg-white px-5 md:px-12 lg:px-20">
-        <div className="careers-application-wrap flex flex-col lg:flex-row lg:gap-6">
+        <div className="careers-application-wrap grid grid-cols-1 lg:grid-cols-2 lg:gap-6">
 
         {/* LEFT — image */}
-        <div className="careers-application-image-frame relative w-full lg:w-1/2 flex-shrink-0 overflow-hidden">
+        <div className="careers-application-image-frame relative w-full overflow-hidden">
           <div className="careers-application-image" aria-hidden="true">
             <Image
               src="/images/careers/careers-open-application.jpg"
@@ -308,13 +308,13 @@ export default function CareersPage() {
 
         {/* RIGHT — warm beige content */}
         <div
-          className="careers-application-card flex-1 relative flex flex-col"
+          className="careers-application-card relative flex flex-col"
           style={{ backgroundColor: "#F5E9DC" }}
         >
           {/* Decorative vertical line */}
           <div
             className="absolute hidden lg:block"
-            style={{ left: "40px", top: "64px", width: "1px", height: "376px", backgroundColor: "#1C1C1F" }}
+            style={{ left: "40px", top: "64px", bottom: "64px", width: "1px", backgroundColor: "#1C1C1F" }}
           />
 
           <span className="text-label font-body block" style={{ color: "#1C1C1F" }}>
