@@ -189,7 +189,7 @@ function PlusIcon() {
  * pattern as homepage PortfolioProcessSection). Top rules are hidden for
  * cards in row 2+ at each breakpoint so only row 1 shows a top divider.
  */
-function getCardLayout(index: number): { bodyClass: string; ruleClass: string; topRuleClass: string } {
+function getCardLayout(index: number): { bodyClass: string; ruleClass: string; topRuleClass: string; showRightSeparator: boolean } {
   const hasMdBorder = index % 2 !== 0;
   const hasLgBorder = index % 3 !== 0;
 
@@ -202,9 +202,10 @@ function getCardLayout(index: number): { bodyClass: string; ruleClass: string; t
   let borderClass = "";
   if (hasMdBorder && hasLgBorder)       borderClass = "md:border-l md:pl-6";
   else if (!hasMdBorder && hasLgBorder) borderClass = "lg:border-l lg:pl-6";
-  // At md this card is C2 (left border); at lg it shifts to C1 (no left border, but gets a
-  // right border so the column separator still appears, matching the DT&T/Swiss Payments gap).
-  else if (hasMdBorder && !hasLgBorder) borderClass = "md:border-l md:pl-6 lg:border-l-0 lg:pl-0 lg:border-r";
+  // At md this card is C2 (left border); at lg it wraps to C1.
+  // No border on the body — the column separator is an absolutely-positioned sibling
+  // placed at C2's left edge so it aligns pixel-perfectly with Swiss Payments' border-l.
+  else if (hasMdBorder && !hasLgBorder) borderClass = "md:border-l md:pl-6 lg:border-l-0 lg:pl-0";
 
   const isMdCol1 = index % 2 === 0;
   const isLgCol1 = index % 3 === 0;
@@ -244,7 +245,13 @@ function getCardLayout(index: number): { bodyClass: string; ruleClass: string; t
     index === 2 ? "hidden lg:block" :
     "hidden";
 
-  return { bodyClass, ruleClass, topRuleClass };
+  // When a card moves from md-C2 to lg-C1, no adjacent card supplies a border-l for the
+  // column separator. We render a separate 1px div positioned at C2's left edge via
+  // `right-0 translate-x-full` — this places it at [C2_left, C2_left+1], pixel-identical
+  // to Swiss Payments' border-l, avoiding the 1px offset that border-r on C1 would produce.
+  const showRightSeparator = hasMdBorder && !hasLgBorder;
+
+  return { bodyClass, ruleClass, topRuleClass, showRightSeparator };
 }
 
 const CLOSE_DURATION = 240;
@@ -301,9 +308,9 @@ export default function PortfolioGrid(): React.ReactElement {
       {/* ── COMPANY GRID ─────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {companies.map((company, index) => {
-          const { bodyClass, ruleClass, topRuleClass } = getCardLayout(index);
+          const { bodyClass, ruleClass, topRuleClass, showRightSeparator } = getCardLayout(index);
           return (
-            <article key={company.name} className="flex flex-col">
+            <article key={company.name} className={`flex flex-col${showRightSeparator ? " relative" : ""}`}>
               {/* Top rule — row 1 only, inset to match content width */}
               <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass} ${topRuleClass}`} />
 
@@ -361,6 +368,16 @@ export default function PortfolioGrid(): React.ReactElement {
 
               {/* Bottom rule — inset to match content width */}
               <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass}`} />
+
+              {/* Column separator for lg-C1 cards with no adjacent C2 card.
+                  right-0 + translate-x-full places the 1px line at [C2_left, C2_left+1],
+                  pixel-identical to Swiss Payments' border-l. Hidden below lg. */}
+              {showRightSeparator && (
+                <div
+                  className="hidden lg:block absolute top-px bottom-px right-0 w-px translate-x-full bg-[#D2D5D9]"
+                  aria-hidden="true"
+                />
+              )}
             </article>
           );
         })}
