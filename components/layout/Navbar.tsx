@@ -2,52 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { navLinks } from "@/lib/data";
 
-const languages = [
-  { code: "EN", label: "English" },
-  { code: "AR", label: "Arabic" },
-];
-
-const dropdownItemStyle: React.CSSProperties = {
-  fontSize: "13px",
-  lineHeight: "18px",
-  letterSpacing: "-0.13px",
-  background: "none",
-  border: "none",
-  padding: 0,
-  cursor: "pointer",
-  textAlign: "left",
-  whiteSpace: "nowrap",
-  color: "white",
-};
-
-const dropdownPanelBase: React.CSSProperties = {
-  position: "absolute",
-  width: "76px",
-  backgroundColor: "rgba(255,255,255,0.10)",
-  backdropFilter: "blur(24px)",
-  WebkitBackdropFilter: "blur(24px)",
-  paddingLeft: "16px",
-  paddingRight: "16px",
-  paddingTop: "8px",
-  paddingBottom: "8px",
-  display: "flex",
-  flexDirection: "column",
-  gap: "8px",
-  zIndex: 50,
-  transition: "opacity 150ms ease-out, transform 150ms ease-out",
-};
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
-  const [activeLang, setActiveLang] = useState("EN");
-  const desktopLangRef = useRef<HTMLDivElement>(null);
-  const mobileLangRef = useRef<HTMLDivElement>(null);
 
-  // Lock body scroll when mobile menu is open (position:fixed needed for iOS Safari)
   useEffect(() => {
     if (mobileOpen) {
       const scrollY = window.scrollY;
@@ -71,49 +32,7 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Close lang dropdown on outside click or Escape
-  useEffect(() => {
-    function handleOutside(e: MouseEvent) {
-      const target = e.target as Node;
-      const inDesktop = desktopLangRef.current?.contains(target) ?? false;
-      const inMobile = mobileLangRef.current?.contains(target) ?? false;
-      if (!inDesktop && !inMobile) setLangOpen(false);
-    }
-    function handleEscape(e: KeyboardEvent) {
-      if (e.key === "Escape") setLangOpen(false);
-    }
-    document.addEventListener("mousedown", handleOutside);
-    document.addEventListener("keydown", handleEscape);
-    return () => {
-      document.removeEventListener("mousedown", handleOutside);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, []);
-
-  // Close lang dropdown when mobile menu closes
-  useEffect(() => {
-    if (!mobileOpen) setLangOpen(false);
-  }, [mobileOpen]);
-
   const closeMobile = () => setMobileOpen(false);
-
-  function selectLang(code: string) {
-    setActiveLang(code);
-    setLangOpen(false);
-  }
-
-  const chevron = (open: boolean) => (
-    <svg
-      width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"
-      style={{
-        flexShrink: 0,
-        transition: "transform 150ms ease-out",
-        transform: open ? "rotate(180deg)" : "rotate(0deg)",
-      }}
-    >
-      <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
 
   return (
     <header role="banner" className="relative z-20 w-full h-[72px] md:h-[94px] flex items-center">
@@ -157,61 +76,20 @@ export default function Navbar() {
         </nav>
 
         {/* ── Desktop language selector ── */}
-        <div className="hidden md:block relative" ref={desktopLangRef}>
-          <button
-            aria-label="Select language"
-            aria-expanded={langOpen}
-            aria-haspopup="listbox"
-            onClick={() => setLangOpen((o) => !o)}
-            className="flex items-center justify-center gap-[2px] font-body text-white"
-            style={{
-              width: "52px",
-              height: "34px",
-              paddingLeft: "10px",
-              paddingRight: "6px",
-              paddingTop: "8px",
-              paddingBottom: "8px",
-              fontSize: "13px",
-              lineHeight: "18px",
-              letterSpacing: "-0.13px",
-              backgroundColor: "rgba(255,255,255,0.10)",
-              backdropFilter: "blur(24px)",
-              WebkitBackdropFilter: "blur(24px)",
-            }}
-          >
-            {activeLang}
-            {chevron(langOpen)}
-          </button>
-
-          {/* Dropdown — opens below, right-aligned with trigger */}
-          <div
-            role="listbox"
-            aria-label="Select language"
-            style={{
-              ...dropdownPanelBase,
-              top: "calc(100% + 8px)",
-              right: 0,
-              opacity: langOpen ? 1 : 0,
-              transform: langOpen ? "translateY(0)" : "translateY(-4px)",
-              pointerEvents: langOpen ? "auto" : "none",
-            }}
-          >
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                role="option"
-                aria-selected={activeLang === lang.code}
-                onClick={() => selectLang(lang.code)}
-                className="font-body"
-                style={{
-                  ...dropdownItemStyle,
-                  opacity: activeLang === lang.code ? 1 : 0.6,
-                }}
-              >
-                {lang.label}
-              </button>
-            ))}
-          </div>
+        <div
+          className="hidden md:flex items-center justify-center font-body text-white"
+          style={{
+            width: "52px",
+            height: "34px",
+            fontSize: "13px",
+            lineHeight: "18px",
+            letterSpacing: "-0.13px",
+            backgroundColor: "rgba(255,255,255,0.10)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+          }}
+        >
+          EN
         </div>
 
         {/* ── Mobile MENU button ── */}
@@ -226,6 +104,7 @@ export default function Navbar() {
             paddingTop: "6px", paddingBottom: "6px",
             backgroundColor: "rgba(255,255,255,0.10)",
             fontSize: "12px", letterSpacing: "0.72px",
+            cursor: "pointer",
           }}
         >
           MENU
@@ -262,6 +141,7 @@ export default function Navbar() {
                 backdropFilter: "blur(12px)",
                 WebkitBackdropFilter: "blur(12px)",
                 fontSize: "12px", letterSpacing: "0.72px", textTransform: "uppercase",
+                cursor: "pointer",
               }}
             >
               Close
@@ -290,63 +170,23 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Bottom: language selector — dropdown opens upward */}
+          {/* Bottom: language indicator */}
           <div
-            ref={mobileLangRef}
-            className="absolute left-5 bottom-10"
+            className="absolute left-5 bottom-10 flex items-center justify-center font-body text-white"
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              paddingTop: "8px",
+              paddingBottom: "8px",
+              fontSize: "13px",
+              lineHeight: "18px",
+              letterSpacing: "-0.13px",
+              backgroundColor: "rgba(255,255,255,0.10)",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+            }}
           >
-            {/* Dropdown — opens above trigger */}
-            <div
-              role="listbox"
-              aria-label="Select language"
-              style={{
-                ...dropdownPanelBase,
-                bottom: "calc(100% + 8px)",
-                left: 0,
-                opacity: langOpen ? 1 : 0,
-                transform: langOpen ? "translateY(0)" : "translateY(4px)",
-                pointerEvents: langOpen ? "auto" : "none",
-              }}
-            >
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  role="option"
-                  aria-selected={activeLang === lang.code}
-                  onClick={() => selectLang(lang.code)}
-                  className="font-body"
-                  style={{
-                    ...dropdownItemStyle,
-                    opacity: activeLang === lang.code ? 1 : 0.6,
-                  }}
-                >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
-
-            <button
-              aria-label="Select language"
-              aria-expanded={langOpen}
-              aria-haspopup="listbox"
-              onClick={() => setLangOpen((o) => !o)}
-              className="flex items-center gap-[2px] font-body text-white"
-              style={{
-                paddingLeft: "10px",
-                paddingRight: "6px",
-                paddingTop: "8px",
-                paddingBottom: "8px",
-                fontSize: "13px",
-                lineHeight: "18px",
-                letterSpacing: "-0.13px",
-                backgroundColor: "rgba(255,255,255,0.10)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-              }}
-            >
-              {activeLang}
-              {chevron(langOpen)}
-            </button>
+            EN
           </div>
         </div>
       )}

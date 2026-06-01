@@ -1,6 +1,6 @@
 "use client";
 
-import { type CSSProperties, useEffect, useId, useState } from "react";
+import { type CSSProperties, useEffect, useId, useRef, useState } from "react";
 import CloseIcon from "@/components/icons/CloseIcon";
 
 interface DetailSection {
@@ -149,9 +149,28 @@ function PlusIcon() {
   );
 }
 
+const CLOSE_DURATION = 240;
+
 export default function PortfolioGrid(): React.ReactElement {
   const [activeCompany, setActiveCompany] = useState<Company | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dialogDescriptionId = useId();
+
+  function closePanel() {
+    if (isClosing) return;
+    setIsClosing(true);
+    closeTimerRef.current = setTimeout(() => {
+      setActiveCompany(null);
+      setIsClosing(false);
+    }, CLOSE_DURATION);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (!activeCompany) return;
@@ -163,7 +182,7 @@ export default function PortfolioGrid(): React.ReactElement {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setActiveCompany(null);
+        closePanel();
       }
     };
 
@@ -176,6 +195,7 @@ export default function PortfolioGrid(): React.ReactElement {
       window.scrollTo(0, scrollY);
       window.removeEventListener("keydown", handleKeyDown);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeCompany]);
 
   return (
@@ -225,12 +245,12 @@ export default function PortfolioGrid(): React.ReactElement {
       <p className="portfolio-list-note font-body">More ventures will be added soon!</p>
 
       {activeCompany ? (
-        <div className="portfolio-detail-layer" role="presentation">
+        <div className={`portfolio-detail-layer${isClosing ? " is-closing" : ""}`} role="presentation">
           <button
             type="button"
             className="portfolio-detail-backdrop"
             aria-label="Close portfolio details"
-            onClick={() => setActiveCompany(null)}
+            onClick={closePanel}
           />
 
           <aside
@@ -263,7 +283,7 @@ export default function PortfolioGrid(): React.ReactElement {
                   type="button"
                   className="portfolio-detail-close"
                   aria-label="Close portfolio details"
-                  onClick={() => setActiveCompany(null)}
+                  onClick={closePanel}
                 >
                   <CloseIcon fill="#1C1C1F" />
                 </button>
