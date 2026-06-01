@@ -29,13 +29,50 @@ interface Company {
 
 const companies: Company[] = [
   {
+    name: "DT&T",
+    logo: "/images/icons/logo-dtt.svg",
+    logoW: 116,
+    logoH: 40,
+    detailLogoW: 162,
+    detailLogoH: 56,
+    tags: ["Fintech", "B2C", "UK EMI"],
+    desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized electronic money institution, DT&T supports accessible cross-border financial activity through a modern digital platform.",
+    details: {
+      partnershipStart: "Aug, 2025",
+      status: "Ongoing",
+      websiteLabel: "https://dttcl.com/",
+      sections: [
+        {
+          heading: "Core Services",
+          items: [
+            "Realtime Currency Converter",
+            "Virtual and Physical Cards",
+            "Secure Global Payments",
+            "Fiat and Crypto Payments",
+          ],
+        },
+        {
+          heading: "Key Offerings",
+          items: [
+            "Personal and Business Accounts",
+            "Multi-currency Management",
+            "Instant Global Transfers",
+            "Digital Onboarding and KYC",
+            "Realtime Notifications",
+          ],
+        },
+      ],
+    },
+    site: "https://dttcl.com/",
+  },
+  {
     name: "Swiss Payments",
     logo: "/images/icons/logo-swiss-payments.svg",
     logoW: 148,
     logoH: 40,
     detailLogoW: 208,
     detailLogoH: 56,
-    tags: ["Fintech", "B2C", "Agentic AI"],
+    tags: ["Fintech", "B2C", "SRO License"],
     desc: "Swiss Payments is a digital payments and account experience built on a Swiss fintech platform. We created Swiss Payments to make it easier for individuals and businesses to access a Swiss Payments account, cards, payments, and certain digital assets all in one place, with transparent pricing and rigorous compliance.",
     details: {
       partnershipStart: "June, 2021",
@@ -70,7 +107,7 @@ const companies: Company[] = [
     logoH: 40,
     detailLogoW: 125,
     detailLogoH: 56,
-    tags: ["Fintech", "B2C"],
+    tags: ["Fintech", "B2C", "MSB License"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     details: {
       partnershipStart: "Feb, 2022",
@@ -98,43 +135,6 @@ const companies: Company[] = [
       ],
     },
     site: "https://www.metaxpayments.com/",
-  },
-  {
-    name: "DT&T",
-    logo: "/images/icons/logo-dtt.svg",
-    logoW: 116,
-    logoH: 40,
-    detailLogoW: 162,
-    detailLogoH: 56,
-    tags: ["Fintech", "B2C", "Agentic AI"],
-    desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized electronic money institution, DT&T supports accessible cross-border financial activity through a modern digital platform.",
-    details: {
-      partnershipStart: "Aug, 2025",
-      status: "Ongoing",
-      websiteLabel: "https://dttcl.com/",
-      sections: [
-        {
-          heading: "Core Services",
-          items: [
-            "Realtime Currency Converter",
-            "Virtual and Physical Cards",
-            "Secure Global Payments",
-            "Fiat and Crypto Payments",
-          ],
-        },
-        {
-          heading: "Key Offerings",
-          items: [
-            "Personal and Business Accounts",
-            "Multi-currency Management",
-            "Instant Global Transfers",
-            "Digital Onboarding and KYC",
-            "Realtime Notifications",
-          ],
-        },
-      ],
-    },
-    site: "https://dttcl.com/",
   },
 ];
 
