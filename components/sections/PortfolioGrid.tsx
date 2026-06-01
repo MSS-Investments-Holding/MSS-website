@@ -202,7 +202,9 @@ function getCardLayout(index: number): { bodyClass: string; ruleClass: string; t
   let borderClass = "";
   if (hasMdBorder && hasLgBorder)       borderClass = "md:border-l md:pl-6";
   else if (!hasMdBorder && hasLgBorder) borderClass = "lg:border-l lg:pl-6";
-  else if (hasMdBorder && !hasLgBorder) borderClass = "md:border-l md:pl-6 lg:border-l-0 lg:pl-0";
+  // At md this card is C2 (left border); at lg it shifts to C1 (no left border, but gets a
+  // right border so the column separator still appears, matching the DT&T/Swiss Payments gap).
+  else if (hasMdBorder && !hasLgBorder) borderClass = "md:border-l md:pl-6 lg:border-l-0 lg:pl-0 lg:border-r";
 
   const isMdCol1 = index % 2 === 0;
   const isLgCol1 = index % 3 === 0;
@@ -210,15 +212,19 @@ function getCardLayout(index: number): { bodyClass: string; ruleClass: string; t
 
   // Right padding on the body (breathing room before the next card's border).
   let prClass = "";
-  if (isMdCol1 && isLgCol1)       prClass = "md:pr-6";
-  else if (isMdCol1 && !isLgCol1) prClass = "md:pr-6 lg:pr-0";
-  else if (!isMdCol1 && isLgCol2) prClass = "lg:pr-6";
+  if (isMdCol1 && isLgCol1)          prClass = "md:pr-6";
+  else if (isMdCol1 && !isLgCol1)    prClass = "md:pr-6 lg:pr-0";
+  else if (!isMdCol1 && isLgCol2)    prClass = "lg:pr-6";
+  // Card is md-C2 but lg-C1 — needs right padding at lg to align with C1 above it.
+  else if (!isMdCol1 && isLgCol1)    prClass = "lg:pr-6";
 
   // Right inset on the rule mirrors prClass so the rule ends where content ends.
   let mrClass = "";
-  if (isMdCol1 && isLgCol1)       mrClass = "md:mr-6";
-  else if (isMdCol1 && !isLgCol1) mrClass = "md:mr-6 lg:mr-0";
-  else if (!isMdCol1 && isLgCol2) mrClass = "lg:mr-6";
+  if (isMdCol1 && isLgCol1)          mrClass = "md:mr-6";
+  else if (isMdCol1 && !isLgCol1)    mrClass = "md:mr-6 lg:mr-0";
+  else if (!isMdCol1 && isLgCol2)    mrClass = "lg:mr-6";
+  // Mirrors the prClass case above — rule must end at the same right edge as content.
+  else if (!isMdCol1 && isLgCol1)    mrClass = "lg:mr-6";
 
   const ruleClass = [mlClass, mrClass].filter(Boolean).join(" ");
 
