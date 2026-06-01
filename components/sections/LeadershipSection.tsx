@@ -81,10 +81,10 @@ function LeaderRow({ leader, reverse = false }: { leader: typeof leaders[number]
         <h3 className="leadership-person-h3 font-heading font-light" style={{ color: "#1C1C1F", margin: 0 }}>
           {leader.name}
         </h3>
-        <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
+        <p className="font-body text-body-sm" style={{ color: "#67686B", margin: 0, marginTop: "12px" }}>
           {leader.role}
         </p>
-        <p className="font-body mt-[120px] lg:mt-auto" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", marginBottom: 0 }}>
+        <p className="font-body text-body-sm mt-[120px] lg:mt-auto" style={{ color: "#373738", marginBottom: 0 }}>
           {leader.bio}
         </p>
       </div>

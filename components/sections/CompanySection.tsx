@@ -47,8 +47,8 @@ export default function CompanySection() {
           <div className="flex-1 pt-10 md:w-[70%] md:ml-auto lg:w-auto lg:ml-0 lg:pl-8 xl:pl-[154px]">
             {/* Body text — Inter 400 18px, color #67686B */}
             <p
-              className="font-body"
-              style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", letterSpacing: "-0.18px", color: "#67686B" }}
+              className="font-body text-body-lg"
+              style={{ color: "#67686B" }}
             >
               We are focused on the technologies transforming the foundations of
               modern economies. We deploy capital with conviction. We build for
@@ -73,7 +73,7 @@ export default function CompanySection() {
                   <span className="font-heading" style={{ fontSize: "clamp(1.5rem, 3.32vw, 2.25rem)", lineHeight: "42px", fontWeight: 300, color: stat.valueColor, margin: 0, display: "block" }}>
                     {stat.value}
                   </span>
-                  <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: stat.labelColor, margin: 0 }}>
+                  <p className="font-body text-body-sm" style={{ color: stat.labelColor, margin: 0 }}>
                     {stat.label}
                   </p>
                 </div>

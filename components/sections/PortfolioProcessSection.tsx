@@ -62,7 +62,7 @@ export default function PortfolioProcessSection() {
               <h3 className="font-heading" style={{ fontSize: "20px", lineHeight: "26px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "24px" }}>
                 {step.title}
               </h3>
-              <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "4px", maxWidth: "260px" }}>
+              <p className="font-body text-body-sm" style={{ color: "#67686B", margin: 0, marginTop: "4px", maxWidth: "260px" }}>
                 {step.desc}
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function PortfolioProcessSection() {
                   ))}
                 </div>
 
-                <p className="font-body" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", margin: 0, marginTop: "58px", maxWidth: "394px" }}>
+                <p className="font-body text-body-sm" style={{ color: "#373738", margin: 0, marginTop: "58px", maxWidth: "394px" }}>
                   {company.desc}
                 </p>
 
@@ -133,8 +133,8 @@ export default function PortfolioProcessSection() {
       <div className="flex justify-end px-5 md:px-12 lg:px-20" style={{ paddingTop: "64px", paddingBottom: "88px" }}>
         <Link
           href="/portfolio"
-          className="inline-flex items-center justify-center gap-[6px] font-body text-white"
-          style={{ height: "40px", backgroundColor: "#1C1C1F", fontSize: "15px", lineHeight: "22px", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", whiteSpace: "nowrap", textDecoration: "none" }}
+          className="inline-flex items-center justify-center gap-[6px] font-body text-body-sm text-white"
+          style={{ height: "40px", backgroundColor: "#1C1C1F", paddingLeft: "20px", paddingRight: "16px", paddingTop: "8px", paddingBottom: "8px", whiteSpace: "nowrap", textDecoration: "none" }}
         >
           Visit Portfolio
           <ArrowRight size="lg" fill="white" />

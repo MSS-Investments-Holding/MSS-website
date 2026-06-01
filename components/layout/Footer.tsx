@@ -38,8 +38,8 @@ function FooterLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="font-body block hover:text-white transition-colors duration-200"
-      style={{ fontSize: "15px", lineHeight: "22px", color: "#141010" }}
+      className="font-body text-body-sm block hover:text-white transition-colors duration-200"
+      style={{ color: "#141010" }}
     >
       {label}
     </Link>
@@ -132,8 +132,8 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
                     href={l.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-body block hover:text-white transition-colors duration-200"
-                    style={{ fontSize: "15px", lineHeight: "22px", color: "#141010" }}
+                    className="font-body text-body-sm block hover:text-white transition-colors duration-200"
+                    style={{ color: "#141010" }}
                   >
                     {l.label}
                   </a>

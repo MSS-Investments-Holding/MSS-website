@@ -51,7 +51,7 @@ export default function HeroSection({ articles }: Props) {
 
           {/* H1 */}
           <h1
-            className="home-hero-h1 font-heading font-light text-white max-w-[calc(100vw-40px)] md:max-w-[780px]"
+            className="home-hero-h1 font-heading font-light text-white max-w-[520px] md:max-w-[780px]"
           >
             <span className="block md:inline">Building the</span>
             <span className="block md:inline"> Platforms</span>
@@ -60,8 +60,8 @@ export default function HeroSection({ articles }: Props) {
 
           {/* Body */}
           <p
-            className="font-body mt-3 max-w-[calc(100vw-40px)] md:max-w-[524px]"
-            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", color: "var(--color-neutral-100)" }}
+            className="font-body text-body-lg mt-3 max-w-[520px] md:max-w-[524px]"
+            style={{ color: "var(--color-neutral-100)" }}
           >
             We bring capital, structure, and strategic direction to businesses shaping how value moves, technology scales, and markets grow.
           </p>
@@ -69,13 +69,11 @@ export default function HeroSection({ articles }: Props) {
           {/* CTA button — content-width only */}
           <Link
             href="/pitch"
-            className="self-start inline-flex items-center gap-[6px] font-body mt-8"
+            className="self-start inline-flex items-center gap-[6px] font-body text-body-sm mt-8"
             style={{
               height: "40px",
               backgroundColor: "#FFFFFF",
               color: "#1C1C1F",
-              fontSize: "15px",
-              lineHeight: "22px",
               paddingLeft: "20px",
               paddingRight: "16px",
               paddingTop: "8px",
@@ -106,7 +104,7 @@ export default function HeroSection({ articles }: Props) {
                         <Image src={article.image} alt="" fill className="object-cover" sizes="200px" />
                       )}
                     </div>
-                    <p className="font-body text-white text-[15px] leading-[22px] line-clamp-3">{article.title}</p>
+                    <p className="font-body text-body-sm text-white line-clamp-3">{article.title}</p>
                     <span className="self-start inline-flex items-center gap-[4px] text-links font-body text-white py-[2px] border-b border-white hover:opacity-70 transition-opacity">
                       Read More
                       <ArrowRight size="sm" fill="white" />

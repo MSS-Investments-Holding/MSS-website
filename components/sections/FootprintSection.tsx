@@ -64,10 +64,8 @@ export default function FootprintSection() {
           </h2>
 
           <p
-            className="font-body"
+            className="font-body text-body-sm"
             style={{
-              fontSize: "clamp(0.875rem, 1.5vw, 0.9375rem)",
-              lineHeight: "22px",
               color: "#67686B",
               margin: 0,
               marginTop: "12px",

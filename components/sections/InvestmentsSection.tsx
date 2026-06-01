@@ -66,8 +66,8 @@ export default function InvestmentsSection() {
             Investing Across High-Impact Digital Sectors and Eco-systems
           </h2>
           <p
-            className="font-body mt-6 md:mt-0 md:w-1/2 lg:flex-1"
-            style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", lineHeight: "28px", letterSpacing: "-0.18px", color: "#F0F2F5" }}
+            className="font-body text-body-lg mt-6 md:mt-0 md:w-1/2 lg:flex-1"
+            style={{ color: "#F0F2F5" }}
           >
             Every investment opportunity is different. Our investment approach
             brings together the right capital, expertise, and strategies to
@@ -125,7 +125,7 @@ function SectorCard({ card, desktopStyle }: { card: typeof cards[number]; deskto
       <h3 className="font-heading" style={{ fontSize: "26px", lineHeight: "32px", fontWeight: 300, color: "#1C1C1F", margin: 0, marginTop: "64px" }}>
         {card.title}
       </h3>
-      <p className="font-body flex-1" style={{ fontSize: "15px", lineHeight: "22px", color: "#67686B", margin: 0, marginTop: "12px" }}>
+      <p className="font-body text-body-sm flex-1" style={{ color: "#67686B", margin: 0, marginTop: "12px" }}>
         {card.body}
       </p>
       <Link

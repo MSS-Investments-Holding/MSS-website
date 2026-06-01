@@ -290,7 +290,7 @@ export default function PitchForm() {
             required
             style={{ width: "16px", height: "16px", flexShrink: 0, marginTop: "3px", accentColor: "#1C1C1F", cursor: "pointer" }}
           />
-          <label htmlFor="consent" className="font-body min-w-0" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", overflowWrap: "anywhere", cursor: "pointer" }}>
+          <label htmlFor="consent" className="font-body text-body-sm min-w-0" style={{ color: "#373738", overflowWrap: "anywhere", cursor: "pointer" }}>
             I consent to MSS Investments Holding Company processing my information for the purposes of responding to this inquiry.
           </label>
         </div>
@@ -307,7 +307,7 @@ export default function PitchForm() {
             onChange={(event) => setTermsAccepted(event.target.checked)}
             style={{ width: "16px", height: "16px", flexShrink: 0, marginTop: "3px", accentColor: "#1C1C1F", cursor: "pointer" }}
           />
-          <label htmlFor="terms" className="font-body min-w-0" style={{ fontSize: "15px", lineHeight: "22px", color: "#373738", overflowWrap: "anywhere", cursor: "pointer" }}>
+          <label htmlFor="terms" className="font-body text-body-sm min-w-0" style={{ color: "#373738", overflowWrap: "anywhere", cursor: "pointer" }}>
             By submitting this form, I agree to the MSS{" "}
             <Link href="/legal/terms" className="text-body-sm-emphasized font-body">Terms &amp; Conditions</Link>{" "}
             and{" "}
@@ -319,12 +319,10 @@ export default function PitchForm() {
 
       {state.message ? (
         <p
-          className="font-body"
+          className="font-body text-body-sm"
           role="status"
           style={{
             color: state.ok ? "#166534" : "#9A3412",
-            fontSize: "15px",
-            lineHeight: "22px",
             marginTop: "32px",
           }}
         >
