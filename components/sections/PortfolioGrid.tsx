@@ -22,6 +22,7 @@ interface Company {
     partnershipStart: string;
     status: string;
     websiteLabel: string;
+    panelDesc?: string;
     sections: DetailSection[];
   };
   site: string;
@@ -43,22 +44,14 @@ const companies: Company[] = [
       websiteLabel: "https://dttcl.com/",
       sections: [
         {
-          heading: "Core Services",
-          items: [
-            "Realtime Currency Converter",
-            "Virtual and Physical Cards",
-            "Secure Global Payments",
-            "Fiat and Crypto Payments",
-          ],
-        },
-        {
           heading: "Key Offerings",
           items: [
+            "UK Business Account",
             "Personal and Business Accounts",
             "Multi-currency Management",
-            "Instant Global Transfers",
-            "Digital Onboarding and KYC",
-            "Realtime Notifications",
+            "Instant Local and International Transfers",
+            "Foreign Exchange",
+            "Mobile Banking",
           ],
         },
       ],
@@ -146,15 +139,11 @@ const companies: Company[] = [
     tags: ["Fintech Investments", "Real World Assets"],
     desc: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals.",
     details: {
-      partnershipStart: "—",
+      partnershipStart: "Jan, 2026",
       status: "Ongoing",
-      websiteLabel: "tokenbazaar.com",
-      sections: [
-        {
-          heading: "Platform Overview",
-          body: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals.",
-        },
-      ],
+      websiteLabel: "https://tokenbazaar.com/",
+      panelDesc: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals. By combining modern financial infrastructure with transparent asset-backed offerings, TokenBazaar empowers people to build wealth with confidence, regardless of their income level or location.",
+      sections: [],
     },
     site: "https://tokenbazaar.com/",
   },
@@ -455,7 +444,7 @@ export default function PortfolioGrid(): React.ReactElement {
                 ))}
               </div>
 
-              <p id={dialogDescriptionId} className="portfolio-detail-intro font-body">{activeCompany.desc}</p>
+              <p id={dialogDescriptionId} className="portfolio-detail-intro font-body">{activeCompany.details.panelDesc ?? activeCompany.desc}</p>
 
               <div className="portfolio-detail-meta">
                 <div className="portfolio-detail-meta-item">
