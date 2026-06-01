@@ -193,12 +193,11 @@ function getCardLayout(index: number): { bodyClass: string; ruleClass: string; t
   const hasMdBorder = index % 2 !== 0;
   const hasLgBorder = index % 3 !== 0;
 
-  // Rule inset: ml-6 where the card has a left border, so the rule aligns
-  // with the content start (matching the homepage card pattern).
-  let ruleClass = "";
-  if (hasMdBorder && hasLgBorder)       ruleClass = "md:ml-6";
-  else if (!hasMdBorder && hasLgBorder) ruleClass = "lg:ml-6";
-  else if (hasMdBorder && !hasLgBorder) ruleClass = "md:ml-6 lg:ml-0";
+  // Left inset: ml-6 where card has a left border (rule aligns with content start).
+  let mlClass = "";
+  if (hasMdBorder && hasLgBorder)       mlClass = "md:ml-6";
+  else if (!hasMdBorder && hasLgBorder) mlClass = "lg:ml-6";
+  else if (hasMdBorder && !hasLgBorder) mlClass = "md:ml-6 lg:ml-0";
 
   let borderClass = "";
   if (hasMdBorder && hasLgBorder)       borderClass = "md:border-l md:pl-6";
@@ -208,10 +207,20 @@ function getCardLayout(index: number): { bodyClass: string; ruleClass: string; t
   const isMdCol1 = index % 2 === 0;
   const isLgCol1 = index % 3 === 0;
   const isLgCol2 = index % 3 === 1;
+
+  // Right padding on the body (breathing room before the next card's border).
   let prClass = "";
   if (isMdCol1 && isLgCol1)       prClass = "md:pr-6";
   else if (isMdCol1 && !isLgCol1) prClass = "md:pr-6 lg:pr-0";
   else if (!isMdCol1 && isLgCol2) prClass = "lg:pr-6";
+
+  // Right inset on the rule mirrors prClass so the rule ends where content ends.
+  let mrClass = "";
+  if (isMdCol1 && isLgCol1)       mrClass = "md:mr-6";
+  else if (isMdCol1 && !isLgCol1) mrClass = "md:mr-6 lg:mr-0";
+  else if (!isMdCol1 && isLgCol2) mrClass = "lg:mr-6";
+
+  const ruleClass = [mlClass, mrClass].filter(Boolean).join(" ");
 
   const bodyClass = [
     "flex-1 min-h-[436px] flex flex-col py-10 border-[#D2D5D9]",
