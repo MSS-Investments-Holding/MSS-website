@@ -92,7 +92,7 @@ export default async function JobDetailsPage({ params }: Props) {
                           style={{
                             fontSize: "15px",
                             lineHeight: "22px",
-                            color: "#1C1C1F",
+                            color: "#373738",
                             marginTop: j > 0 ? "10px" : 0,
                           }}
                         >
@@ -119,7 +119,7 @@ export default async function JobDetailsPage({ params }: Props) {
                         style={{
                           fontSize: "15px",
                           lineHeight: "22px",
-                          color: "#1C1C1F",
+                          color: "#373738",
                           margin: 0,
                           marginTop: j > 0 ? "16px" : 0,
                         }}

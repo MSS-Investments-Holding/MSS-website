@@ -85,7 +85,7 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
                       key={j}
                       className="legal-section-body font-body"
                       style={{
-                        color: "#1C1C1F",
+                        color: "#373738",
                         margin: 0,
                         marginTop: j > 0 ? "16px" : 0,
                       }}
