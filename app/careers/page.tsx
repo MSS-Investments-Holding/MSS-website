@@ -269,7 +269,7 @@ export default function CareersPage() {
                 </div>
 
                 {/* COL 3 — Apply Now, never wraps */}
-                <div className="lg:flex-shrink-0 lg:ml-20">
+                <div className="lg:flex-shrink-0 lg:ml-[120px]">
                   <a
                     href="mailto:careers@mssinvestmentsholding.com"
                     className="self-start inline-flex items-center gap-[4px] font-body py-[2px] border-b whitespace-nowrap"
