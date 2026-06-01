@@ -162,9 +162,9 @@ const companies: Company[] = [
 
 function PlusIcon() {
   return (
-    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
       <path
-        d="M4.28571 4.28571V0H5.71429V4.28571H10V5.71429H5.71429V10H4.28571V5.71429H0V4.28571H4.28571Z"
+        d="M7.36421 7.36507V3.55554H8.63405V7.36507H12.4436V8.63491H8.63405V12.4444H7.36421V8.63491H3.55469V7.36507H7.36421Z"
         fill="currentColor"
       />
     </svg>
