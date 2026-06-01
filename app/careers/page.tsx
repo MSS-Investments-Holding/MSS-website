@@ -291,7 +291,7 @@ export default function CareersPage() {
           Vertical line · label · H2 · body · CTA
          ══════════════════════════════════════════════════════════ */}
       <section aria-label="Open Application" className="w-full bg-white px-5 md:px-12 lg:px-20">
-        <div className="careers-application-wrap grid grid-cols-1 lg:grid-cols-2 lg:gap-6">
+        <div className="careers-application-wrap grid grid-cols-1 md:grid-cols-2 md:gap-6">
 
         {/* LEFT — image */}
         <div className="careers-application-image-frame relative w-full overflow-hidden">

@@ -887,7 +887,7 @@ body {
   }
 
   .careers-application-image-frame {
-    height: 504px;
+    height: auto;
   }
 
   .careers-application-card {
@@ -2441,6 +2441,7 @@ body {
   .pitch-look-title       { font-size: 2rem; line-height: 38px; }
   .careers-stand-title    { font-size: 2rem; line-height: 38px; }
   .careers-application-title { font-size: 2rem; line-height: 38px; }
+  .careers-application-card  { padding: 40px 24px; }
   .footprint-section-h2   { font-size: 2rem; line-height: 38px; }
   .news-article-hero-title { font-size: 2rem; line-height: 38px; }
   .news-press-kit-h2      { font-size: 2rem; line-height: 38px; }
