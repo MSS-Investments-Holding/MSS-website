@@ -2,7 +2,8 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ArrowRight from "@/components/icons/ArrowRight";
+import ArrowUpRight from "@/components/icons/ArrowUpRight";
+import CareersScrollButton from "@/components/careers/CareersScrollButton";
 
 export const metadata: Metadata = {
   title: "Careers | MSS Investments Holding",
@@ -112,26 +113,7 @@ export default function CareersPage() {
           </p>
 
           <div className="careers-hero-button">
-            <a
-              href="#open-roles"
-              className="inline-flex items-center justify-center font-body"
-              style={{
-                height: "40px",
-                backgroundColor: "#FFFFFF",
-                color: "#1C1C1F",
-                fontSize: "16px",
-                lineHeight: "24px",
-                letterSpacing: "-0.32px",
-                paddingLeft: "20px",
-                paddingRight: "20px",
-                paddingTop: "8px",
-                paddingBottom: "8px",
-                whiteSpace: "nowrap",
-                textDecoration: "none",
-              }}
-            >
-              Browse Open Roles
-            </a>
+            <CareersScrollButton />
           </div>
         </div>
       </section>
@@ -294,7 +276,7 @@ export default function CareersPage() {
                     style={{ fontSize: "14px", lineHeight: "20px", letterSpacing: "-0.14px", color: "#1C1C1F", borderColor: "#1C1C1F", textDecoration: "none" }}
                   >
                     Apply Now
-                    <ArrowRight size="sm" fill="#1C1C1F" />
+                    <ArrowUpRight fill="#1C1C1F" />
                   </a>
                 </div>
               </div>
@@ -372,7 +354,7 @@ export default function CareersPage() {
               }}
             >
               Send Us An Email
-              <ArrowRight size="lg" fill="white" />
+              <ArrowUpRight fill="white" />
             </a>
           </div>
         </div>
