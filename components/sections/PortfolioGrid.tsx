@@ -175,38 +175,36 @@ function PlusIcon() {
  * Per-card responsive border/padding classes.
  *
  * Grid columns by breakpoint:
- *   mobile  (< 768px) : 1-col  — no left borders, no rule inset
- *   tablet  (768–1023px): 2-col  — odd indices get left border at md+
- *   desktop (≥ 1024px) : 3-col  — index%3!==0 gets left border at lg+
+ *   mobile  (< 768px)  : 1-col — no left borders
+ *   tablet  (768–1023px): 2-col — odd indices get left border at md+
+ *   desktop (≥ 1024px) : 3-col — index%3!==0 gets left border at lg+
  *
  * For 4 companies the resolved positions are:
  *   i=0 → md R1C1 / lg R1C1  — no border
  *   i=1 → md R1C2 / lg R1C2  — border md+
  *   i=2 → md R2C1 / lg R1C3  — border lg only
  *   i=3 → md R2C2 / lg R2C1  — border md, not lg
+ *
+ * Horizontal rules are ALWAYS full-width (no ml offset) so the line is
+ * continuous across the row. The border-l on the body creates the column
+ * separator. Top rules are hidden for cards in row 2+ at each breakpoint.
  */
-function getCardLayout(index: number): { ruleClass: string; bodyClass: string } {
+function getCardLayout(index: number): { bodyClass: string; topRuleClass: string } {
   const hasMdBorder = index % 2 !== 0;
   const hasLgBorder = index % 3 !== 0;
-
-  let ruleClass = "";
-  if (hasMdBorder && hasLgBorder)    ruleClass = "md:ml-6";
-  else if (!hasMdBorder && hasLgBorder) ruleClass = "lg:ml-6";
-  else if (hasMdBorder && !hasLgBorder) ruleClass = "md:ml-6 lg:ml-0";
 
   let borderClass = "";
   if (hasMdBorder && hasLgBorder)       borderClass = "md:border-l md:pl-6";
   else if (!hasMdBorder && hasLgBorder) borderClass = "lg:border-l lg:pl-6";
   else if (hasMdBorder && !hasLgBorder) borderClass = "md:border-l md:pl-6 lg:border-l-0 lg:pl-0";
 
-  // Right padding to create visual gap before the adjacent card's divider
   const isMdCol1 = index % 2 === 0;
   const isLgCol1 = index % 3 === 0;
   const isLgCol2 = index % 3 === 1;
   let prClass = "";
-  if (isMdCol1 && isLgCol1)        prClass = "md:pr-6";
-  else if (isMdCol1 && !isLgCol1)  prClass = "md:pr-6 lg:pr-0";
-  else if (!isMdCol1 && isLgCol2)  prClass = "lg:pr-6";
+  if (isMdCol1 && isLgCol1)       prClass = "md:pr-6";
+  else if (isMdCol1 && !isLgCol1) prClass = "md:pr-6 lg:pr-0";
+  else if (!isMdCol1 && isLgCol2) prClass = "lg:pr-6";
 
   const bodyClass = [
     "flex-1 min-h-[436px] flex flex-col py-10 border-[#D2D5D9]",
@@ -214,7 +212,17 @@ function getCardLayout(index: number): { ruleClass: string; bodyClass: string } 
     prClass,
   ].filter(Boolean).join(" ");
 
-  return { ruleClass, bodyClass };
+  // Top rule: only visible when this card is in row 1 at the active breakpoint.
+  // mobile (1-col): row 1 = i=0 only
+  // md    (2-col): row 1 = i=0,1
+  // lg    (3-col): row 1 = i=0,1,2
+  const topRuleClass =
+    index === 0 ? "block" :
+    index === 1 ? "hidden md:block" :
+    index === 2 ? "hidden lg:block" :
+    "hidden";
+
+  return { bodyClass, topRuleClass };
 }
 
 const CLOSE_DURATION = 240;
@@ -271,11 +279,11 @@ export default function PortfolioGrid(): React.ReactElement {
       {/* ── COMPANY GRID ─────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {companies.map((company, index) => {
-          const { ruleClass, bodyClass } = getCardLayout(index);
+          const { bodyClass, topRuleClass } = getCardLayout(index);
           return (
             <article key={company.name} className="flex flex-col">
-              {/* Top rule — inset for non-first-column cards */}
-              <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass}`} />
+              {/* Top rule — row 1 only, full-width (no ml offset) */}
+              <div className={`h-px shrink-0 bg-[#D2D5D9] ${topRuleClass}`} />
 
               <div className={bodyClass}>
                 <img
@@ -315,7 +323,7 @@ export default function PortfolioGrid(): React.ReactElement {
                 </p>
 
                 {/* Spacer — pushes button to bottom */}
-                <div className="flex-1 min-h-[24px]" />
+                <div className="flex-1 min-h-[64px]" />
 
                 {/* Read More — opens detail panel */}
                 <button
@@ -329,8 +337,8 @@ export default function PortfolioGrid(): React.ReactElement {
                 </button>
               </div>
 
-              {/* Bottom rule — same inset as top */}
-              <div className={`h-px shrink-0 bg-[#D2D5D9] ${ruleClass}`} />
+              {/* Bottom rule — always full-width */}
+              <div className="h-px shrink-0 bg-[#D2D5D9]" />
             </article>
           );
         })}
