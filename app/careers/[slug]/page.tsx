@@ -140,7 +140,7 @@ export default async function JobDetailsPage({ params }: Props) {
         {/* Buttons — right-aligned */}
         <div className="job-details-buttons">
           <Link
-            href="/careers"
+            href="/careers#open-roles"
             className="job-details-btn-secondary inline-flex items-center justify-center font-body"
             style={{ textDecoration: "none" }}
           >
