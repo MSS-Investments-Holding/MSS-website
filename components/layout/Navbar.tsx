@@ -80,8 +80,8 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* ── Desktop right controls: EN + Search ── */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* ── Desktop right controls: EN ── */}
+        <div className="hidden md:flex items-center">
           <button
             aria-label="Select language"
             className="flex items-center justify-center gap-[2px] text-links font-body text-white hover:bg-white/20 transition-colors duration-200"
@@ -94,20 +94,6 @@ export default function Navbar() {
             EN
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <button
-            aria-label="Search"
-            className="flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
-            style={{
-              width: "36px", height: "36px",
-              backgroundColor: "rgba(255,255,255,0.10)",
-              backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <circle cx="9" cy="9" r="5.5" stroke="white" strokeWidth="1.5" />
-              <path d="M13.5 13.5L17 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </button>
         </div>
@@ -191,8 +177,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Bottom: EN language selector + search */}
-          <div className="absolute left-5 bottom-10 flex items-center gap-2">
+          {/* Bottom: EN language selector */}
+          <div className="absolute left-5 bottom-10">
             <button
               aria-label="Select language"
               className="flex items-center gap-1 font-body text-white"
@@ -208,22 +194,6 @@ export default function Navbar() {
               EN
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M4 6l4 4 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <button
-              aria-label="Search"
-              className="flex items-center justify-center text-white"
-              style={{
-                width: "34px",
-                height: "34px",
-                backgroundColor: "rgba(255,255,255,0.10)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <circle cx="9" cy="9" r="5.5" stroke="white" strokeWidth="1.5" />
-                <path d="M13.5 13.5L17 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </button>
           </div>
