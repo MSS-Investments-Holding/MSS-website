@@ -96,7 +96,7 @@ export default function FootprintSection() {
               textDecoration: "none",
             }}
           >
-            Pitch to Us
+            Send Us Your Pitch
             <ArrowRight size="lg" fill="white" />
           </Link>
 
