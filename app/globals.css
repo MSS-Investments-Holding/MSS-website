@@ -1939,6 +1939,13 @@ body {
   margin-top: 0;
 }
 
+.portfolio-detail-body {
+  margin: 12px 0 0;
+  color: #67686B;
+  font-size: 14px;
+  line-height: 20px;
+}
+
 @keyframes portfolio-detail-fade {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -2367,6 +2374,12 @@ body {
   }
 
   .portfolio-detail-list {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .portfolio-detail-body {
     margin-top: 16px;
     font-size: 15px;
     line-height: 22px;

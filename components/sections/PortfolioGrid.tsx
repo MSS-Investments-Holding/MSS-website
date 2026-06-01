@@ -3,6 +3,12 @@
 import { type CSSProperties, useEffect, useId, useState } from "react";
 import CloseIcon from "@/components/icons/CloseIcon";
 
+interface DetailSection {
+  heading: string;
+  items?: string[];
+  body?: string;
+}
+
 interface Company {
   name: string;
   logo: string;
@@ -16,8 +22,7 @@ interface Company {
     partnershipStart: string;
     status: string;
     websiteLabel: string;
-    coreServices: string[];
-    subscriptionTiers: string[];
+    sections: DetailSection[];
   };
   site: string;
 }
@@ -33,19 +38,27 @@ const companies: Company[] = [
     tags: ["Fintech", "B2C", "Agentic AI"],
     desc: "Swiss Payments is a digital payments and account experience built on a Swiss fintech platform. We created Swiss Payments to make it easier for individuals and businesses to access a Swiss Payments account, cards, payments, and certain digital assets all in one place, with transparent pricing and rigorous compliance.",
     details: {
-      partnershipStart: "23/04/2021",
+      partnershipStart: "June, 2021",
       status: "Ongoing",
       websiteLabel: "www.swisspayments.ch/",
-      coreServices: [
-        "Realtime Currency Converter",
-        "Virtual and Physical Cards",
-        "Secure Global Payments",
-        "Fiat and Crypto Payments",
-      ],
-      subscriptionTiers: [
-        "Silver - Essential transaction management tools.",
-        "Gold - Enhanced limits for consumers.",
-        "Platinum - Exclusive priority processing.",
+      sections: [
+        {
+          heading: "Core Services",
+          items: [
+            "Realtime Currency Converter",
+            "Virtual and Physical Cards",
+            "Secure Global Payments",
+            "Fiat and Crypto Payments",
+          ],
+        },
+        {
+          heading: "Subscription Tiers",
+          items: [
+            "Silver - Essential transaction management tools.",
+            "Gold - Enhanced limits for consumers.",
+            "Platinum - Exclusive priority processing.",
+          ],
+        },
       ],
     },
     site: "https://www.swisspayments.ch/",
@@ -60,16 +73,29 @@ const companies: Company[] = [
     tags: ["Fintech", "B2C"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     details: {
-      partnershipStart: "Details coming soon",
+      partnershipStart: "Feb, 2022",
       status: "Ongoing",
       websiteLabel: "www.metaxpayments.com/",
-      coreServices: [
-        "Cross-border Transactions",
-        "Global Payment Solutions",
-        "Unified Digital Interface",
-        "Business Payment Infrastructure",
+      sections: [
+        {
+          heading: "Mission and Vision",
+          body: "MetaX empowers global commerce by providing smarter, faster, and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
+        },
+        {
+          heading: "Infrastructure",
+          body: "Powered by leading payment providers in the UK, EU, and UAE, MetaX has built a robust financial infrastructure. Our partnerships with top-tier regulated institutions ensure the highest levels of reliability, speed, and security for every transaction.",
+        },
+        {
+          heading: "Key Offerings",
+          items: [
+            "Personal and Business Accounts",
+            "Multi-currency Management",
+            "Instant Global Transfers",
+            "Digital Onboarding and KYC",
+            "Realtime Notifications",
+          ],
+        },
       ],
-      subscriptionTiers: ["More company details will be added soon."],
     },
     site: "https://www.metaxpayments.com/",
   },
@@ -81,20 +107,34 @@ const companies: Company[] = [
     detailLogoW: 162,
     detailLogoH: 56,
     tags: ["Fintech", "B2C", "Agentic AI"],
-    desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized EMI, DT&T supports accessible cross-border financial activity through a modern digital platform.",
+    desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized electronic money institution, DT&T supports accessible cross-border financial activity through a modern digital platform.",
     details: {
-      partnershipStart: "Details coming soon",
+      partnershipStart: "Aug, 2025",
       status: "Ongoing",
-      websiteLabel: "www.dtandt.com/",
-      coreServices: [
-        "International Money Transfers",
-        "Multi-currency Accounts",
-        "Foreign Exchange",
-        "Digital Payment Services",
+      websiteLabel: "https://dttcl.com/",
+      sections: [
+        {
+          heading: "Core Services",
+          items: [
+            "Realtime Currency Converter",
+            "Virtual and Physical Cards",
+            "Secure Global Payments",
+            "Fiat and Crypto Payments",
+          ],
+        },
+        {
+          heading: "Key Offerings",
+          items: [
+            "Personal and Business Accounts",
+            "Multi-currency Management",
+            "Instant Global Transfers",
+            "Digital Onboarding and KYC",
+            "Realtime Notifications",
+          ],
+        },
       ],
-      subscriptionTiers: ["More company details will be added soon."],
     },
-    site: "https://www.dtandt.com/",
+    site: "https://dttcl.com/",
   },
 ];
 
@@ -176,7 +216,6 @@ export default function PortfolioGrid(): React.ReactElement {
                 Read More
                 <PlusIcon />
               </button>
-
             </div>
           </article>
         ))}
@@ -263,19 +302,18 @@ export default function PortfolioGrid(): React.ReactElement {
                 </div>
               </div>
 
-              <div className="portfolio-detail-content-group">
-                <h2 className="portfolio-detail-heading font-heading">Core Services</h2>
-                <ul className="portfolio-detail-list font-body">
-                  {activeCompany.details.coreServices.map((s) => <li key={s}>{s}</li>)}
-                </ul>
-              </div>
-
-              <div className="portfolio-detail-content-group portfolio-detail-content-group-last">
-                <h2 className="portfolio-detail-heading font-heading">Subscription Tiers</h2>
-                <ul className="portfolio-detail-list font-body">
-                  {activeCompany.details.subscriptionTiers.map((s) => <li key={s}>{s}</li>)}
-                </ul>
-              </div>
+              {activeCompany.details.sections.map((section) => (
+                <div key={section.heading} className="portfolio-detail-content-group">
+                  <h2 className="portfolio-detail-heading font-heading">{section.heading}</h2>
+                  {section.items ? (
+                    <ul className="portfolio-detail-list font-body">
+                      {section.items.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  ) : (
+                    <p className="portfolio-detail-body font-body">{section.body}</p>
+                  )}
+                </div>
+              ))}
             </div>
           </aside>
         </div>
