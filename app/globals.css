@@ -534,13 +534,16 @@ body {
 
 .legal-hero-section {
   min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 24px;
 }
 
 .legal-hero-title {
-  position: absolute;
-  left: 20px;
-  top: 290px;
-  width: calc(100vw - 40px);
+  margin-top: auto;
+  width: 100%;
   max-width: 362px;
   font-size: 48px;
   line-height: 52px;
@@ -548,12 +551,10 @@ body {
 }
 
 .legal-hero-meta {
-  position: absolute;
-  left: 20px;
-  top: 410px;
-  width: calc(100vw - 40px);
-  max-width: 362px;
   margin: 0;
+  margin-top: 16px;
+  width: 100%;
+  max-width: 362px;
   font-size: 17px;
   line-height: 26px;
   letter-spacing: -0.17px;
@@ -947,7 +948,8 @@ body {
   }
 
   .careers-application-image-frame {
-    height: auto;
+    height: 100%;
+    aspect-ratio: auto;
   }
 
   .careers-application-card {
@@ -1062,11 +1064,18 @@ body {
 
   .legal-hero-section {
     min-height: 520px;
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
   }
 
   .legal-hero-title {
+    position: absolute;
+    margin-top: 0;
     left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 404px;
+    top: auto;
+    bottom: 40px;
     width: 720px;
     max-width: 720px;
     font-size: clamp(2.25rem, 5vw, 4.5rem);
@@ -1074,9 +1083,12 @@ body {
   }
 
   .legal-hero-meta {
+    position: absolute;
+    margin-top: 0;
     left: auto;
     right: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 452px;
+    top: auto;
+    bottom: 40px;
     width: 360px;
     max-width: 360px;
     text-align: right;
@@ -1231,7 +1243,8 @@ body {
   }
 
   .careers-application-image-frame {
-    height: auto;
+    height: 100%;
+    aspect-ratio: auto;
   }
 
   .careers-application-card {

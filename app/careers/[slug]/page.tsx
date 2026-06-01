@@ -64,7 +64,9 @@ export default async function JobDetailsPage({ params }: Props) {
         className="w-full bg-white px-5 md:px-12 lg:px-20 pt-16 md:pt-20 pb-16 md:pb-20"
       >
         {job.sections.map((section, i) => {
-          const paragraphs = section.body.split("\n\n").filter(Boolean);
+          const isBullets = section.body.includes("\n") && !section.body.includes("\n\n");
+          const bullets = isBullets ? section.body.split("\n").filter(Boolean) : [];
+          const paragraphs = isBullets ? [] : section.body.split("\n\n").filter(Boolean);
           return (
             <div key={i}>
 
@@ -79,23 +81,53 @@ export default async function JobDetailsPage({ params }: Props) {
                   {section.heading}
                 </h2>
 
-                {/* RIGHT — body paragraphs */}
+                {/* RIGHT — bullets or paragraphs */}
                 <div className="job-details-body-col">
-                  {paragraphs.map((para, j) => (
-                    <p
-                      key={j}
-                      className="font-body"
-                      style={{
-                        fontSize: "15px",
-                        lineHeight: "22px",
-                        color: "#1C1C1F",
-                        margin: 0,
-                        marginTop: j > 0 ? "16px" : 0,
-                      }}
-                    >
-                      {para}
-                    </p>
-                  ))}
+                  {isBullets ? (
+                    <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                      {bullets.map((item, j) => (
+                        <li
+                          key={j}
+                          className="font-body flex gap-3"
+                          style={{
+                            fontSize: "15px",
+                            lineHeight: "22px",
+                            color: "#1C1C1F",
+                            marginTop: j > 0 ? "10px" : 0,
+                          }}
+                        >
+                          <span
+                            aria-hidden="true"
+                            style={{
+                              width: "4px",
+                              height: "4px",
+                              borderRadius: "50%",
+                              backgroundColor: "#67686B",
+                              flexShrink: 0,
+                              marginTop: "9px",
+                            }}
+                          />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    paragraphs.map((para, j) => (
+                      <p
+                        key={j}
+                        className="font-body"
+                        style={{
+                          fontSize: "15px",
+                          lineHeight: "22px",
+                          color: "#1C1C1F",
+                          margin: 0,
+                          marginTop: j > 0 ? "16px" : 0,
+                        }}
+                      >
+                        {para}
+                      </p>
+                    ))
+                  )}
                 </div>
               </div>
 
