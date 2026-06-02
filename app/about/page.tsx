@@ -319,7 +319,7 @@ export default function AboutPage() {
         >
           <div className="about-portfolio-cta-image" aria-hidden="true">
             <Image
-              src="/images/about/portfolio-cta-bg.jpg"
+              src="/cta/portfolio-cta-bg.jpg"
               alt=""
               fill
               className="object-fill"
@@ -381,7 +381,7 @@ export default function AboutPage() {
         >
           <div className="about-careers-cta-image" aria-hidden="true">
             <Image
-              src="/images/about/careers-cta-bg.jpg"
+              src="/cta/careers-cta-bg.jpg"
               alt=""
               fill
               className="object-fill"
