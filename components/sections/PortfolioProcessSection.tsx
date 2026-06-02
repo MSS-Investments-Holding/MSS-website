@@ -91,7 +91,7 @@ export default function PortfolioProcessSection() {
             <article
               key={company.name}
               className={[
-                "flex flex-col flex-none w-[380px] min-[1432px]:flex-1 min-[1432px]:min-w-[300px] min-[1432px]:max-w-[380px]",
+                "flex flex-col flex-none w-[min(380px,calc((100vw_-_44px)_/_1.2))] min-[1432px]:flex-1 min-[1432px]:w-auto min-[1432px]:min-w-[300px] min-[1432px]:max-w-[380px]",
                 index > 0 ? "relative" : "",
               ].join(" ")}
             >
