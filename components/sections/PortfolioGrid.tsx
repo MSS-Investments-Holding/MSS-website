@@ -407,7 +407,7 @@ export default function PortfolioGrid(): React.ReactElement {
             aria-label={`${activeCompany.name} details`}
             aria-describedby={dialogDescriptionId}
           >
-            <div className="portfolio-detail-scroll">
+            <div className="portfolio-detail-scroll" data-lenis-prevent>
               <div className="portfolio-detail-top">
                 <img
                   src={activeCompany.logo}
