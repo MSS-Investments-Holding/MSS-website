@@ -161,7 +161,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
               ©2026 MSS Holding Company. All rights reserved
             </p>
             <p className="text-label font-body mt-4" style={{ color: "#67686B" }}>
-              info@mssinvestmentsholdings.com
+              info@mssinvestmentsholding.com
             </p>
             <div className="text-label font-body flex items-center gap-2 mt-2" style={{ color: "#67686B" }}>
               <span>+971 50 384 0381</span>
@@ -183,7 +183,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           ©2026 MSS Holding Company. All rights reserved
         </p>
         <p className="text-label font-body" style={{ color: "#67686B" }}>
-          info@mssinvestmentsholdings.com
+          info@mssinvestmentsholding.com
         </p>
         <div className="text-label font-body flex items-center gap-2" style={{ color: "#67686B" }}>
           <span>+971 50 384 0381</span>

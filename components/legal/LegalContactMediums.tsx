@@ -2,14 +2,14 @@ const contactItems = [
   {
     title: "General Inquiries",
     body: "All general enquiries should be directed to:",
-    href: "mailto:info@mssinvestments.com",
-    value: "info@mssinvestments.com",
+    href: "mailto:info@mssinvestmentsholding.com",
+    value: "info@mssinvestmentsholding.com",
   },
   {
     title: "Media Inquiries",
     body: "All group media enquiries should be directed to:",
-    href: "mailto:media@mssinvestments.com",
-    value: "media@mssinvestments.com",
+    href: "mailto:media@mssinvestmentsholding.com",
+    value: "media@mssinvestmentsholding.com",
   },
   {
     title: "Contact Us",
