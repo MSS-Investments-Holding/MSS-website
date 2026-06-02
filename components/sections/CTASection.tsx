@@ -8,7 +8,7 @@ export default function CTASection({ ariaLabel = "Start the Conversation" }: { a
       <div className="mss-shared-cta-frame relative w-full overflow-hidden flex items-center justify-center">
         <div className="mss-shared-cta-image" aria-hidden="true">
           <Image
-            src="/cta/cta-bg.png"
+            src="/global/cta-bg.png"
             alt=""
             fill
             className="object-fill"
