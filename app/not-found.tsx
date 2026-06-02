@@ -20,7 +20,7 @@ export default function NotFound(): ReactElement {
         className="not-found-hero-section relative w-full shrink-0 overflow-hidden bg-[#0B1738]"
       >
         <Image
-          src="/images/404-hero-bg.jpg"
+          src="/images/404/404-hero-bg.jpg"
           alt=""
           width={1483}
           height={2222}
