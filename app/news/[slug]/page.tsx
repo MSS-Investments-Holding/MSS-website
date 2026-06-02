@@ -141,7 +141,7 @@ export default async function ArticlePage({
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-16 lg:pt-[188px] pb-10">
+        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-16 md:pt-[74px] lg:pt-[198px] pb-10">
           <div
             className="inline-flex items-center self-start mb-6"
             style={{ height: "24px", paddingLeft: "8px", paddingRight: "8px", backgroundColor: "rgba(255,255,255,0.10)" }}

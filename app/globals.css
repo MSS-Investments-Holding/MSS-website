@@ -1152,12 +1152,12 @@ body {
 
   .chairman-hero-label {
     left: 48px;
-    top: 234px;
+    top: 244px;
   }
 
   .chairman-hero-title {
     left: 48px;
-    top: 282px;
+    top: 292px;
     width: calc(100vw - 96px);
     max-width: 720px;
     font-size: clamp(2.25rem, 5vw, 4.5rem);
@@ -1212,7 +1212,7 @@ body {
 
   .pitch-hero-title {
     left: 80px;
-    top: 264px;
+    top: 274px;
   }
 
   .pitch-hero-copy {
@@ -1226,12 +1226,12 @@ body {
 
   .chairman-hero-label {
     left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 264px;
+    top: 274px;
   }
 
   .chairman-hero-title {
     left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
-    top: 312px;
+    top: 322px;
     width: 720px;
     max-width: 720px;
   }
@@ -2271,7 +2271,7 @@ body {
 
   .portfolio-hero-content {
     left: 48px;
-    top: 260px;
+    top: 270px;
     max-width: min(680px, calc(100vw - 96px));
     width: auto;
   }
@@ -2596,7 +2596,7 @@ body {
   /* H1 — hero headings */
   .about-hero-title      { font-size: 3.875rem; line-height: 66px; }
   .careers-hero-title    { font-size: 3.875rem; line-height: 66px; }
-  .pitch-hero-title      { font-size: 3.875rem; line-height: 66px; top: 234px; }
+  .pitch-hero-title      { font-size: 3.875rem; line-height: 66px; top: 244px; }
   .legal-hero-title      { font-size: 3.875rem; line-height: 66px; }
   .chairman-hero-title   { font-size: 3.875rem; line-height: 66px; }
   .how-invest-hero-title { font-size: 3.875rem; line-height: 66px; }

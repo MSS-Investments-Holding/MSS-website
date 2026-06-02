@@ -140,7 +140,7 @@ export default function AboutPage() {
 
         <div className="relative z-10 flex-1 flex flex-col lg:flex-row gap-5 md:gap-10 px-5 md:px-12 lg:px-20">
           {/* LEFT — H1 */}
-          <div className="md:w-[70%] lg:flex-1 pt-[120px] md:pt-[140px] lg:pt-[170px] lg:pb-10">
+          <div className="md:w-[70%] lg:flex-1 pt-[120px] md:pt-[150px] lg:pt-[180px] lg:pb-10">
             <h1
               className="about-hero-title font-heading text-white"
               style={{ fontWeight: 300, maxWidth: "646px" }}

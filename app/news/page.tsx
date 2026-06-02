@@ -63,7 +63,7 @@ export default async function NewsPage({
 
         <div className="relative z-10 flex-1 flex flex-col lg:flex-row px-5 md:px-12 lg:px-20">
           {/* LEFT — H1 */}
-          <div className="flex-1 pt-16 lg:pt-[310px] pb-10">
+          <div className="flex-1 pt-16 md:pt-[74px] lg:pt-[320px] pb-10">
             <h1
               className="news-hero-h1 font-heading font-light text-white"
               style={{ maxWidth: "720px" }}
