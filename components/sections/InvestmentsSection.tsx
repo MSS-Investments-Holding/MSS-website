@@ -3,11 +3,11 @@ import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import ArrowRight from "@/components/icons/ArrowRight";
 
 const cards = [
-  { row: 1, icon: "/images/icons/icon-fintech.svg",       title: "Fintech",                    filter: "fintech",                    body: "We back ventures building the next layer of global financial infrastructure across payments, multi-currency platforms, and institutional-grade B2B financial services." },
-  { row: 1, icon: "/images/icons/icon-ai.svg",            title: "Agentic AI",                 filter: "agentic-ai",                 body: "We invest in AI-led ventures developing intelligent systems that improve decision-making, efficiency, and digital experiences at scale." },
-  { row: 1, icon: "/images/icons/icon-digital-asset.svg", title: "Digital Asset Tokenization", filter: "digital-asset-tokenization", body: "We support platforms exploring the digitization of value, enabling new models, and asset participation within modern financial ecosystems." },
-  { row: 2, icon: "/images/icons/icon-venture.svg",       title: "Venture Capitalization",     filter: "venture-capitalization",     body: "We partner with emerging businesses at high-potential stages, providing capital and strategic support to help them scale with clarity and direction." },
-  { row: 2, icon: "/images/icons/icon-media.svg",         title: "Performance Digital Marketing", filter: "performance-digital-marketing", body: "We back digital platforms and media-led businesses shaping how audiences engage, consume, and interact across evolving online ecosystems." },
+  { row: 1, icon: "/icons/icon-fintech.svg",       title: "Fintech",                    filter: "fintech",                    body: "We back ventures building the next layer of global financial infrastructure across payments, multi-currency platforms, and institutional-grade B2B financial services." },
+  { row: 1, icon: "/icons/icon-ai.svg",            title: "Agentic AI",                 filter: "agentic-ai",                 body: "We invest in AI-led ventures developing intelligent systems that improve decision-making, efficiency, and digital experiences at scale." },
+  { row: 1, icon: "/icons/icon-digital-asset.svg", title: "Digital Asset Tokenization", filter: "digital-asset-tokenization", body: "We support platforms exploring the digitization of value, enabling new models, and asset participation within modern financial ecosystems." },
+  { row: 2, icon: "/icons/icon-venture.svg",       title: "Venture Capitalization",     filter: "venture-capitalization",     body: "We partner with emerging businesses at high-potential stages, providing capital and strategic support to help them scale with clarity and direction." },
+  { row: 2, icon: "/icons/icon-media.svg",         title: "Performance Digital Marketing", filter: "performance-digital-marketing", body: "We back digital platforms and media-led businesses shaping how audiences engage, consume, and interact across evolving online ecosystems." },
 ];
 
 /*

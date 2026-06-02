@@ -38,22 +38,22 @@ const conversations = [
 
 const steps = [
   {
-    icon: "/images/icons/pitch-step-submit.svg",
+    icon: "/icons/pitch-step-submit.svg",
     title: "Submit",
     body: "Share your business, opportunity, or inquiry with us",
   },
   {
-    icon: "/images/icons/pitch-step-review.svg",
+    icon: "/icons/pitch-step-review.svg",
     title: "Review",
     body: "We assess the details for relevance, fit, and next-step potential.",
   },
   {
-    icon: "/images/icons/pitch-step-connect.svg",
+    icon: "/icons/pitch-step-connect.svg",
     title: "Connect",
     body: "If aligned, we arrange a meeting to better understand the opportunity.",
   },
   {
-    icon: "/images/icons/pitch-step-explore.svg",
+    icon: "/icons/pitch-step-explore.svg",
     title: "Explore",
     body: "Identify steps to support via capital, partnership, or strategic direction.",
   },

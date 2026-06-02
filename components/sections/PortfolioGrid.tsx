@@ -31,7 +31,7 @@ interface Company {
 const companies: Company[] = [
   {
     name: "DT&T",
-    logo: "/images/icons/logo-dtt.svg",
+    logo: "/icons/logo-dtt.svg",
     logoW: 116,
     logoH: 40,
     detailLogoW: 162,
@@ -60,7 +60,7 @@ const companies: Company[] = [
   },
   {
     name: "Swiss Payments",
-    logo: "/images/icons/logo-swiss-payments.svg",
+    logo: "/icons/logo-swiss-payments.svg",
     logoW: 148,
     logoH: 40,
     detailLogoW: 208,
@@ -95,7 +95,7 @@ const companies: Company[] = [
   },
   {
     name: "MetaX",
-    logo: "/images/icons/logo-metax.svg",
+    logo: "/icons/logo-metax.svg",
     logoW: 89,
     logoH: 40,
     detailLogoW: 125,
@@ -131,7 +131,7 @@ const companies: Company[] = [
   },
   {
     name: "TokenBazaar",
-    logo: "/images/icons/logo-tokenbazaar.svg",
+    logo: "/icons/logo-tokenbazaar.svg",
     logoW: 224,
     logoH: 40,
     detailLogoW: 224,

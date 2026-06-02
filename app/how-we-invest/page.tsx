@@ -35,22 +35,22 @@ const processSteps = [
   {
     title: "Origination",
     body: "Identify opportunities via our network, market activity, founder talks, and sector research.",
-    icon: "/images/icons/step-discovery.svg",
+    icon: "/icons/step-discovery.svg",
   },
   {
     title: "Evaluation",
     body: "Assess business model, market timing, team, growth potential, risk, and ecosystem fit.",
-    icon: "/images/icons/step-strategy.svg",
+    icon: "/icons/step-strategy.svg",
   },
   {
     title: "Execution",
     body: "Structure the right involvement, via capital, partnership, strategic support within the portfolio.",
-    icon: "/images/icons/step-validation.svg",
+    icon: "/icons/step-validation.svg",
   },
   {
     title: "Management",
     body: "Stay involved post-investment, supporting governance, priorities, and value creation.",
-    icon: "/images/icons/step-launch.svg",
+    icon: "/icons/step-launch.svg",
   },
 ];
 

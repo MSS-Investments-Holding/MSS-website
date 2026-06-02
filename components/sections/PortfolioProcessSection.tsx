@@ -3,16 +3,16 @@ import ArrowRight from "@/components/icons/ArrowRight";
 import ArrowUpRight from "@/components/icons/ArrowUpRight";
 
 const steps = [
-  { icon: "/images/icons/step-discovery.svg",  title: "Origination", desc: "Identify opportunities via our network, market activity, founder talks, and sector research." },
-  { icon: "/images/icons/step-strategy.svg",   title: "Evaluation",  desc: "Assess business model, market timing, team, growth potential, risk, and ecosystem fit." },
-  { icon: "/images/icons/step-validation.svg", title: "Execution",   desc: "Structure the right involvement, via capital, partnership, strategic support within the portfolio." },
-  { icon: "/images/icons/step-launch.svg",     title: "Management",  desc: "Stay involved post-investment, supporting governance, priorities, and value creation." },
+  { icon: "/icons/step-discovery.svg",  title: "Origination", desc: "Identify opportunities via our network, market activity, founder talks, and sector research." },
+  { icon: "/icons/step-strategy.svg",   title: "Evaluation",  desc: "Assess business model, market timing, team, growth potential, risk, and ecosystem fit." },
+  { icon: "/icons/step-validation.svg", title: "Execution",   desc: "Structure the right involvement, via capital, partnership, strategic support within the portfolio." },
+  { icon: "/icons/step-launch.svg",     title: "Management",  desc: "Stay involved post-investment, supporting governance, priorities, and value creation." },
 ];
 
 const companies = [
   {
     name: "DT&T",
-    logo: "/images/icons/logo-dtt.svg",
+    logo: "/icons/logo-dtt.svg",
     logoW: 116,
     logoH: 40,
     tags: ["Fintech", "B2C", "UK EMI"],
@@ -21,7 +21,7 @@ const companies = [
   },
   {
     name: "Swiss Payments",
-    logo: "/images/icons/logo-swiss-payments.svg",
+    logo: "/icons/logo-swiss-payments.svg",
     logoW: 148,
     logoH: 40,
     tags: ["Fintech", "B2C", "SRO License"],
@@ -30,7 +30,7 @@ const companies = [
   },
   {
     name: "MetaX",
-    logo: "/images/icons/logo-metax.svg",
+    logo: "/icons/logo-metax.svg",
     logoW: 89,
     logoH: 40,
     tags: ["Fintech", "B2C", "MSB License"],
