@@ -68,7 +68,7 @@ export default function PitchPage() {
       {/* ══════════════════════════════════════════════════════════
           1 · HERO  (h=880px mobile, 930px md+)
           Figma: H1 at absolute y=-61 → 280px from section top
-                 Nav h=94px → H1 pt = 280-94 = 186px below nav
+                 Nav h=104px → H1 pt = 280-104 = 176px below nav
                  Body at y=742px, button at y=850px from section top
                  Right col body x=800/1280=62.5% → xl:w-[560px]
          ══════════════════════════════════════════════════════════ */}
@@ -321,7 +321,7 @@ export default function PitchPage() {
         id="pitch-form"
         aria-label="Submit Your Pitch"
         className="w-full bg-white px-5 md:px-12 lg:px-20 pt-20 md:pt-24"
-        style={{ scrollMarginTop: "94px" }}
+        style={{ scrollMarginTop: "104px" }}
       >
         <span className="text-label font-body block" style={{ color: "#373738" }}>
           Submit your pitch

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
  *
  * Hero (h=930):
  *   bg=#1C1C1F + image overlay (node 350:1438)
- *   Badge: y=250 from section top → 250-94=156px below nav
+ *   Badge: y=250 from section top → 250-104=146px below nav
  *   H1:    y=298 from section top (24px below badge bottom)
  *   Right col bio: x=800 from page left (62.5% of content), y=750 from top
  *

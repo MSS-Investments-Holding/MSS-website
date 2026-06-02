@@ -114,7 +114,7 @@ export default function Navbar() {
   );
 
   return (
-    <header role="banner" className="relative z-20 w-full h-[72px] md:h-[94px] flex items-center">
+    <header role="banner" className="relative z-20 w-full h-[72px] md:h-[104px] flex items-center">
       <div className="w-full flex items-center justify-between px-5 md:px-12 lg:px-20">
 
         {/* Logo */}
@@ -123,7 +123,7 @@ export default function Navbar() {
             src="/logomarks/logo-white.png"
             alt="MSS Investments Holding"
             width={60}
-            height={70}
+            height={80}
             priority
             className="w-[42px] md:w-[60px] h-auto"
           />
