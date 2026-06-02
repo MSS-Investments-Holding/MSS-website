@@ -41,7 +41,7 @@ export default function LegalContactMediums() {
             </p>
             <a
               href={item.href}
-              className="legal-contact-link font-body mx-auto block text-[#373738] underline"
+              className="legal-contact-link font-body mx-auto block text-[#373738]"
             >
               {item.value}
             </a>
