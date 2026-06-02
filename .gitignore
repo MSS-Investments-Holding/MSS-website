@@ -34,8 +34,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files — .env.example is intentionally committed as a template
 .env*
+!.env.example
+
+# Internal agency working files — kept locally, not shipped to client
+CLAUDE.md
+docs/
 
 # vercel
 .vercel
