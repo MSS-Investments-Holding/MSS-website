@@ -37,6 +37,15 @@ const companies = [
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     site: "https://www.metaxpayments.com/",
   },
+  {
+    name: "TokenBazaar",
+    logo: "/icons/logo-tokenbazaar.svg",
+    logoW: 224,
+    logoH: 40,
+    tags: ["Fintech Investments", "Real World Assets"],
+    desc: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals.",
+    site: "https://tokenbazaar.com/",
+  },
 ];
 
 export default function PortfolioProcessSection() {
@@ -70,19 +79,28 @@ export default function PortfolioProcessSection() {
         </div>
       </div>
 
-      <div className="px-5 md:px-12 lg:px-20 overflow-x-auto lg:overflow-x-visible scrollbar-hide lg:scrollbar-auto">
-        <div className="flex gap-6 lg:grid lg:grid-cols-3">
+      {/*
+       * Cards always use horizontal scroll.
+       * Below 1432px: 4 cards at 380px each overflow the container → scroll is active.
+       * At 1432px+: 4 cards at min 300px (1272px content + 160px margins = 1432px) fit exactly
+       *   → cards flex to fill, no overflow, no scroll bar.
+       */}
+      <div className="px-5 md:px-12 lg:px-20 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-6">
           {companies.map((company, index) => (
             <article
               key={company.name}
-              className={["flex flex-col w-[69vw] shrink-0 max-w-[420px] lg:w-auto lg:min-w-0 lg:shrink lg:max-w-none", index > 0 ? "relative" : ""].join(" ")}
+              className={[
+                "flex flex-col flex-none w-[380px] min-[1432px]:flex-1 min-[1432px]:min-w-[300px] min-[1432px]:max-w-[380px]",
+                index > 0 ? "relative" : "",
+              ].join(" ")}
             >
-              {/* Top rule — inset to align with content left for cards 1/2 (all breakpoints have pl-6) */}
+              {/* Top rule — inset to align with content for cards after the first */}
               <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "ml-6" : ""].join(" ")} />
               <div
                 className={[
-                  "flex-1 min-h-[360px] lg:min-h-[444px] lg:px-6 flex flex-col py-10",
-                  index === 0 ? "lg:pl-0" : "pl-6",
+                  "flex-1 min-h-[360px] lg:min-h-[444px] flex flex-col py-10",
+                  index > 0 ? "pl-6" : "",
                 ].join(" ")}
               >
                 <img
@@ -123,7 +141,7 @@ export default function PortfolioProcessSection() {
               {/* Bottom rule — same inset as top */}
               <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "ml-6" : ""].join(" ")} />
 
-              {/* Left column separator — inset 16px inside each rule (1px rule + 16px gap) */}
+              {/* Left column separator */}
               {index > 0 && (
                 <div
                   className="absolute left-0 top-[17px] bottom-[17px] w-px bg-[#D2D5D9]"
@@ -132,9 +150,9 @@ export default function PortfolioProcessSection() {
               )}
             </article>
           ))}
-          {/* Trailing spacer — ensures last card has 20px right gap when scrolled.
-              padding-right on the scroll container is swallowed by WebKit; a flex child is not. */}
-          <div className="w-5 shrink-0 lg:hidden" aria-hidden="true" />
+          {/* Trailing spacer — gives the last card a right gap when scrolling.
+              Hidden above 1432px where cards fill the container without overflow. */}
+          <div className="w-5 shrink-0 min-[1432px]:hidden" aria-hidden="true" />
         </div>
       </div>
 
