@@ -120,7 +120,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" aria-label="MSS Investments Holding — Home" className="flex-shrink-0">
           <Image
-            src="/images/logo-white.png"
+            src="/logomarks/logo-white.png"
             alt="MSS Investments Holding"
             width={60}
             height={70}
@@ -240,7 +240,7 @@ export default function Navbar() {
           <div className="w-full h-[72px] flex items-center justify-between px-5">
             <Link href="/" onClick={closeMobile} className="flex-shrink-0">
               <Image
-                src="/images/logo-white.png"
+                src="/logomarks/logo-white.png"
                 alt="MSS Investments Holding"
                 width={60}
                 height={70}

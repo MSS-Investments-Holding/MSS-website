@@ -74,7 +74,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
         >
           <div className="mss-footer-media-image" aria-hidden="true">
             <Image
-              src="/images/footer-image.png"
+              src="/logomarks/footer-image.png"
               alt=""
               fill
               className="object-fill"
@@ -89,7 +89,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           {/* Logo — 70×100px, links to homepage */}
           <Link href="/" aria-label="MSS Investments Holding — Home" className="inline-block mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative", display: "block" }}>
             <Image
-              src="/images/footer-logo.png"
+              src="/logomarks/footer-logo.png"
               alt="MSS Investments Holding"
               fill
               className="object-contain object-left"
@@ -146,7 +146,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           <div className="md:hidden w-full overflow-hidden bg-[#0B1738]" style={{ marginTop: "40px", aspectRatio: "627/488", position: "relative" }}>
             <div className="mss-footer-media-image" aria-hidden="true">
               <Image
-                src="/images/footer-image.png"
+                src="/logomarks/footer-image.png"
                 alt=""
                 fill
                 className="object-fill"
