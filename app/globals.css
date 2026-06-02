@@ -1852,8 +1852,8 @@ body {
 
 .portfolio-detail-close {
   display: inline-flex;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
@@ -1861,6 +1861,11 @@ body {
   background: #F5E9DC;
   color: #1C1C1F;
   cursor: pointer;
+}
+
+.portfolio-detail-close svg {
+  width: 18px;
+  height: 18px;
 }
 
 .portfolio-detail-tags {
@@ -2365,6 +2370,11 @@ body {
     width: 40px;
     height: 40px;
     margin-top: 8px;
+  }
+
+  .portfolio-detail-close svg {
+    width: 20px;
+    height: 20px;
   }
 
 
