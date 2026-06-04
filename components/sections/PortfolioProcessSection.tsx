@@ -144,12 +144,10 @@ export default function PortfolioProcessSection() {
                   </a>
                   {company.comingSoon && (
                     <span
-                      className="font-body flex-shrink-0"
+                      className="text-label font-body flex-shrink-0"
                       style={{
                         backgroundColor: "#F5E9DC",
                         color: "#0B1738",
-                        fontSize: "12px",
-                        lineHeight: "16px",
                         paddingTop: "3px",
                         paddingBottom: "3px",
                         paddingLeft: "6px",
