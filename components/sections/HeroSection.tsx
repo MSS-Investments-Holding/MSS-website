@@ -23,9 +23,10 @@ export default function HeroSection({ articles }: Props) {
         alt=""
         className="object-cover object-center"
       />
-      {/* Figma overlays: 10% OVERLAY + 10% NORMAL black */}
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)", mixBlendMode: "overlay" }} />
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.10)" }} />
+      {/* Figma overlays: 20% overlay black + 20% normal black + 40% screen #0B1738 (LINEAR_DODGE) */}
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)", mixBlendMode: "overlay" }} />
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(11,23,56,0.40)", mixBlendMode: "screen" }} />
 
       {/* Navbar */}
       <div className="relative z-20">
