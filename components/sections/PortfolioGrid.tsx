@@ -147,6 +147,34 @@ const companies: Company[] = [
     },
     site: "https://tokenbazaar.com/",
   },
+  {
+    name: "DT&T Nigeria",
+    logo: "/icons/logo-dtt-nigeria.svg",
+    logoW: 116,
+    logoH: 40,
+    detailLogoW: 163,
+    detailLogoH: 56,
+    tags: ["Fintech", "B2C", "Nigeria EMI"],
+    desc: "DT&T Nigeria extends the DT&T ecosystem into one of Africa’s most dynamic financial markets, supporting digital payments, remittances, and cross-border money movement for individuals and businesses. As an FCA-authorized electronic money institution, DT&T supports accessible cross-border financial activity through a modern digital platform.",
+    details: {
+      partnershipStart: "Aug, 2025",
+      status: "Ongoing",
+      websiteLabel: "https://dttcl.com/",
+      sections: [
+        {
+          heading: "Key Offerings",
+          items: [
+            "Personal and Business Accounts",
+            "Multi-currency Management",
+            "Instant Local and International Transfers",
+            "Foreign Exchange",
+            "Mobile Banking",
+          ],
+        },
+      ],
+    },
+    site: "https://dttcl.com/",
+  },
 ];
 
 function PlusIcon() {
