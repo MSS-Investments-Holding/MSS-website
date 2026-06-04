@@ -433,6 +433,17 @@ export default function PortfolioGrid(): React.ReactElement {
             </article>
           );
         })}
+
+        {/* Filler cell for the empty last-row slot at md (C2) and lg (C3).
+            5 companies → 3+2 at lg, 2+2+1 at md. The filler provides the bottom
+            rule and left separator for the empty slot at each breakpoint. */}
+        {companies.length % 3 !== 0 && companies.length % 2 !== 0 && (
+          <div className="hidden md:flex flex-col relative" aria-hidden="true">
+            <div className="flex-1" />
+            <div className="h-px shrink-0 bg-[#D2D5D9] md:ml-6" />
+            <div className="hidden md:block absolute left-0 top-[17px] bottom-[17px] w-px bg-[#D2D5D9]" />
+          </div>
+        )}
       </div>
 
       <p className="portfolio-list-note font-body">More venture&apos;s details will be added soon!</p>
