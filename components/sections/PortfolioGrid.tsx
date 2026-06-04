@@ -208,7 +208,7 @@ function PlusIcon() {
  * pattern as homepage PortfolioProcessSection). Top rules are hidden for
  * cards in row 2+ at each breakpoint so only row 1 shows a top divider.
  */
-function getCardLayout(index: number): {
+function getCardLayout(index: number, totalCount: number): {
   bodyClass: string;
   ruleClass: string;
   topRuleClass: string;
@@ -240,18 +240,22 @@ function getCardLayout(index: number): {
   const isMdCol1 = index % 2 === 0;
   const isLgCol1 = index % 3 === 0;
   const isLgCol2 = index % 3 === 1;
+  // Card is alone in its tablet row when it's the last card and the total is odd.
+  const isMdLastAlone = isMdCol1 && index === totalCount - 1 && totalCount % 2 !== 0;
 
   // Right padding on the body (breathing room before the next card's separator).
   let prClass = "";
-  if (isMdCol1 && isLgCol1)          prClass = "md:pr-6";
-  else if (isMdCol1 && !isLgCol1)    prClass = "md:pr-6 lg:pr-0";
-  else if (!isMdCol1 && isLgCol2)    prClass = "lg:pr-6";
-  else if (!isMdCol1 && isLgCol1)    prClass = "lg:pr-6";
+  if (isMdLastAlone)                  prClass = isLgCol1 ? "" : "lg:pr-0";
+  else if (isMdCol1 && isLgCol1)      prClass = "md:pr-6";
+  else if (isMdCol1 && !isLgCol1)     prClass = "md:pr-6 lg:pr-0";
+  else if (!isMdCol1 && isLgCol2)     prClass = "lg:pr-6";
+  else if (!isMdCol1 && isLgCol1)     prClass = "lg:pr-6";
 
   // Right inset on the rule mirrors prClass so the rule ends where content ends.
   let mrClass = "";
-  if (isMdCol1 && isLgCol1)          mrClass = "md:mr-6";
-  else if (isMdCol1 && !isLgCol1)    mrClass = "md:mr-6 lg:mr-0";
+  if (isMdLastAlone)                  mrClass = isLgCol1 ? "" : "lg:mr-0";
+  else if (isMdCol1 && isLgCol1)      mrClass = "md:mr-6";
+  else if (isMdCol1 && !isLgCol1)     mrClass = "md:mr-6 lg:mr-0";
   else if (!isMdCol1 && isLgCol2)    mrClass = "lg:mr-6";
   else if (!isMdCol1 && isLgCol1)    mrClass = "lg:mr-6";
 
@@ -335,7 +339,7 @@ export default function PortfolioGrid(): React.ReactElement {
       {/* ── COMPANY GRID ─────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {companies.map((company, index) => {
-          const { bodyClass, ruleClass, topRuleClass, leftSeparatorClass, showRightSeparator } = getCardLayout(index);
+          const { bodyClass, ruleClass, topRuleClass, leftSeparatorClass, showRightSeparator } = getCardLayout(index, companies.length);
           return (
             <article key={company.name} className={`flex flex-col${(leftSeparatorClass || showRightSeparator) ? " relative" : ""}`}>
               {/* Top rule — row 1 only, inset to match content width */}
@@ -434,16 +438,6 @@ export default function PortfolioGrid(): React.ReactElement {
           );
         })}
 
-        {/* Filler cell for the empty last-row slot at md (C2) and lg (C3).
-            5 companies → 3+2 at lg, 2+2+1 at md. The filler provides the bottom
-            rule and left separator for the empty slot at each breakpoint. */}
-        {companies.length % 3 !== 0 && companies.length % 2 !== 0 && (
-          <div className="hidden md:flex flex-col relative" aria-hidden="true">
-            <div className="flex-1" />
-            <div className="h-px shrink-0 bg-[#D2D5D9] md:ml-6" />
-            <div className="hidden md:block absolute left-0 top-[17px] bottom-[17px] w-px bg-[#D2D5D9]" />
-          </div>
-        )}
       </div>
 
       <p className="portfolio-list-note font-body">More venture&apos;s details will be added soon!</p>
