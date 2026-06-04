@@ -18,6 +18,7 @@ interface Company {
   detailLogoH: number;
   tags: string[];
   desc: string;
+  comingSoon?: boolean;
   details: {
     partnershipStart: string;
     status: string;
@@ -146,6 +147,7 @@ const companies: Company[] = [
       sections: [],
     },
     site: "https://tokenbazaar.com/",
+    comingSoon: true,
   },
   {
     name: "DT&T Nigeria",
@@ -380,15 +382,32 @@ export default function PortfolioGrid(): React.ReactElement {
                 <div className="flex-1 min-h-[64px]" />
 
                 {/* Read More — opens detail panel */}
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-[2px] text-links font-body py-[2px] border-b border-[#67686B] text-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200 self-start cursor-pointer bg-transparent"
-                  aria-label={`Read more about ${company.name}`}
-                  onClick={() => setActiveCompany(company)}
-                >
-                  Read More
-                  <PlusIcon />
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-[2px] text-links font-body py-[2px] border-b border-[#67686B] text-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200 self-start cursor-pointer bg-transparent"
+                    aria-label={`Read more about ${company.name}`}
+                    onClick={() => setActiveCompany(company)}
+                  >
+                    Read More
+                    <PlusIcon />
+                  </button>
+                  {company.comingSoon && (
+                    <span
+                      className="text-label font-body flex-shrink-0"
+                      style={{
+                        backgroundColor: "#F5E9DC",
+                        color: "#0B1738",
+                        paddingTop: "3px",
+                        paddingBottom: "3px",
+                        paddingLeft: "6px",
+                        paddingRight: "6px",
+                      }}
+                    >
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
               </div>
 
               {/* Bottom rule — inset to match content width */}
