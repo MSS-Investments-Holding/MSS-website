@@ -245,7 +245,7 @@ function getCardLayout(index: number, totalCount: number): {
 
   // Right padding on the body (breathing room before the next card's separator).
   let prClass = "";
-  if (isMdLastAlone)                  prClass = isLgCol1 ? "" : "lg:pr-0";
+  if (isMdLastAlone)                  prClass = isLgCol2 ? "lg:pr-6" : "";
   else if (isMdCol1 && isLgCol1)      prClass = "md:pr-6";
   else if (isMdCol1 && !isLgCol1)     prClass = "md:pr-6 lg:pr-0";
   else if (!isMdCol1 && isLgCol2)     prClass = "lg:pr-6";
@@ -253,11 +253,11 @@ function getCardLayout(index: number, totalCount: number): {
 
   // Right inset on the rule mirrors prClass so the rule ends where content ends.
   let mrClass = "";
-  if (isMdLastAlone)                  mrClass = isLgCol1 ? "" : "lg:mr-0";
+  if (isMdLastAlone)                  mrClass = isLgCol2 ? "lg:mr-6" : "";
   else if (isMdCol1 && isLgCol1)      mrClass = "md:mr-6";
   else if (isMdCol1 && !isLgCol1)     mrClass = "md:mr-6 lg:mr-0";
-  else if (!isMdCol1 && isLgCol2)    mrClass = "lg:mr-6";
-  else if (!isMdCol1 && isLgCol1)    mrClass = "lg:mr-6";
+  else if (!isMdCol1 && isLgCol2)     mrClass = "lg:mr-6";
+  else if (!isMdCol1 && isLgCol1)     mrClass = "lg:mr-6";
 
   const ruleClass = [mlClass, mrClass].filter(Boolean).join(" ");
 
