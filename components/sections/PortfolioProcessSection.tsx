@@ -18,6 +18,7 @@ const companies = [
     tags: ["Fintech", "B2C", "UK EMI"],
     desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized EMI, DT&T supports accessible cross-border financial activity through a modern digital platform.",
     site: "https://www.dtandt.com/",
+    comingSoon: false,
   },
   {
     name: "Swiss Payments",
@@ -27,6 +28,7 @@ const companies = [
     tags: ["Fintech", "B2C", "SRO License"],
     desc: "Swiss Payments is a digital payments and account experience built on a Swiss fintech platform. We created Swiss Payments to make it easier for individuals and businesses to access a Swiss Payments account, cards, payments, and certain digital assets all in one place, with transparent pricing and rigorous compliance.",
     site: "https://www.swisspayments.ch/",
+    comingSoon: false,
   },
   {
     name: "MetaX",
@@ -36,6 +38,7 @@ const companies = [
     tags: ["Fintech", "B2C", "MSB License"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     site: "https://www.metaxpayments.com/",
+    comingSoon: false,
   },
   {
     name: "TokenBazaar",
@@ -45,6 +48,7 @@ const companies = [
     tags: ["Fintech Investments", "Real World Assets"],
     desc: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals.",
     site: "https://tokenbazaar.com/",
+    comingSoon: true,
   },
 ];
 
@@ -127,16 +131,35 @@ export default function PortfolioProcessSection() {
                 </p>
 
                 <div className="flex-1 min-h-[64px]" />
-                <a
-                  href={company.site}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-[2px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
-                  style={{ textDecoration: "none", alignSelf: "flex-start" }}
-                >
-                  Visit Website
-                  <ArrowUpRight fill="currentColor" />
-                </a>
+                <div className="flex items-center justify-between">
+                  <a
+                    href={company.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-[2px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Visit Website
+                    <ArrowUpRight fill="currentColor" />
+                  </a>
+                  {company.comingSoon && (
+                    <span
+                      className="font-body flex-shrink-0"
+                      style={{
+                        backgroundColor: "#F5E9DC",
+                        color: "#0B1738",
+                        fontSize: "12px",
+                        lineHeight: "16px",
+                        paddingTop: "3px",
+                        paddingBottom: "3px",
+                        paddingLeft: "6px",
+                        paddingRight: "6px",
+                      }}
+                    >
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
               </div>
               {/* Bottom rule — same inset as top */}
               <div className={["h-px shrink-0 bg-[#D2D5D9]", index > 0 ? "ml-6" : ""].join(" ")} />
