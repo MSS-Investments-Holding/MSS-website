@@ -71,26 +71,32 @@ const locations = [
   {
     name: "Canada",
     sub: "North-American economy known for innovation and trade.",
+    comingSoon: false,
   },
   {
     name: "Switzerland",
     sub: "Global center for finance, governance, and cross-border business.",
+    comingSoon: false,
   },
   {
     name: "United Kingdom",
     sub: "Market with deep financial and institutional influence.",
+    comingSoon: false,
   },
   {
     name: "United Arab Emirates",
     sub: "Fast-growing hub connecting the Middle East and Global Markets.",
+    comingSoon: false,
   },
   {
     name: "Nigeria",
     sub: "One of Africa’s largest economies, with growing digital momentum.",
+    comingSoon: true,
   },
   {
     name: "Uganda",
     sub: "Growing African market with huge regional and economic potential.",
+    comingSoon: false,
   },
 ];
 
@@ -495,12 +501,29 @@ export default function AboutPage() {
         <div className="about-locations-grid grid grid-cols-1 md:grid-cols-3 mt-5" style={{ gap: "0 32px" }}>
           {locations.map((entry) => (
             <div key={entry.name} className="border-t border-[#D2D5D9] pt-10 pb-10">
-              <h3
-                className="font-heading text-h4"
-                style={{ color: "#1C1C1F", margin: 0 }}
-              >
-                {entry.name}
-              </h3>
+              <div className="flex items-center gap-4">
+                <h3
+                  className="font-heading text-h4"
+                  style={{ color: "#1C1C1F", margin: 0 }}
+                >
+                  {entry.name}
+                </h3>
+                {entry.comingSoon && (
+                  <span
+                    className="text-label font-body flex-shrink-0"
+                    style={{
+                      backgroundColor: "#F5E9DC",
+                      color: "#0B1738",
+                      paddingTop: "3px",
+                      paddingBottom: "3px",
+                      paddingLeft: "6px",
+                      paddingRight: "6px",
+                    }}
+                  >
+                    Coming Soon
+                  </span>
+                )}
+              </div>
               <p
                 className="font-body text-body-sm"
                 style={{ color: "#67686B", margin: 0, marginTop: "12px" }}
