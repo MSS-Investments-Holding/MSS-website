@@ -438,6 +438,12 @@ export default function PortfolioGrid(): React.ReactElement {
           );
         })}
 
+        {/* Filler for the empty last-row slot — vertical separator only, no bottom rule. */}
+        {companies.length % 3 !== 0 && companies.length % 2 !== 0 && (
+          <div className="hidden md:block relative" aria-hidden="true">
+            <div className="absolute left-0 top-[17px] bottom-[17px] w-px bg-[#D2D5D9]" />
+          </div>
+        )}
       </div>
 
       <p className="portfolio-list-note font-body">More venture&apos;s details will be added soon!</p>
