@@ -52,15 +52,29 @@ const leaders: Leader[] = [
 function LeaderCard({ leader }: { leader: Leader }) {
   return (
     <>
-      {/* Mobile + Tablet (< 1024px): fluid container, fill + object-cover */}
+      {/* Mobile + Tablet (< 1024px) — same wrapper-div placement as desktop; container clips */}
       <div className="relative bg-[#0B1738] overflow-hidden h-[340px] lg:hidden">
-        <Image
-          fill
-          src={leader.image}
-          alt={leader.name}
-          className={`object-cover ${leader.cropClass}`}
-          sizes="(max-width: 768px) calc(100vw - 40px), calc(50vw - 60px)"
-        />
+        {leader.desktop ? (
+          <div
+            style={{
+              position: "absolute",
+              left: `${leader.desktop.x}px`,
+              top: `${leader.desktop.y}px`,
+              width: `${leader.desktop.w}px`,
+              height: `${leader.desktop.h}px`,
+            }}
+          >
+            <Image fill src={leader.image} alt={leader.name} sizes={`${leader.desktop.w}px`} />
+          </div>
+        ) : (
+          <Image
+            fill
+            src={leader.image}
+            alt={leader.name}
+            className={`object-cover ${leader.cropClass}`}
+            sizes="(max-width: 768px) calc(100vw - 40px), calc(50vw - 60px)"
+          />
+        )}
       </div>
 
       {/* Desktop (≥ 1024px): exact Figma pixel placement
