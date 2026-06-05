@@ -40,7 +40,7 @@ const companies: Company[] = [
     tags: ["Fintech", "B2C", "UK EMI"],
     desc: "DT&T Corporation is a UK-based payment institution providing international money transfers, multi-currency accounts, foreign exchange, and digital payment services for individuals and businesses. As an FCA-authorized electronic money institution, DT&T supports accessible cross-border financial activity through a modern digital platform.",
     details: {
-      partnershipStart: "Aug, 2025",
+      partnershipStart: "2025",
       status: "Ongoing",
       websiteLabel: "https://dttcl.com/",
       sections: [
@@ -104,7 +104,7 @@ const companies: Company[] = [
     tags: ["Fintech", "B2C", "MSB License"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     details: {
-      partnershipStart: "Feb, 2022",
+      partnershipStart: "2022",
       status: "Ongoing",
       websiteLabel: "www.metaxpayments.com/",
       sections: [
@@ -159,7 +159,7 @@ const companies: Company[] = [
     tags: ["Fintech", "B2C", "Nigeria EMI"],
     desc: "DT&T Nigeria extends the DT&T ecosystem into one of Africa’s most dynamic financial markets, supporting digital payments, remittances, and cross-border money movement for individuals and businesses. As an FCA-authorized electronic money institution, DT&T supports accessible cross-border financial activity through a modern digital platform.",
     details: {
-      partnershipStart: "Aug, 2025",
+      partnershipStart: "2025",
       status: "Ongoing",
       websiteLabel: "https://dttcl.com/",
       sections: [
