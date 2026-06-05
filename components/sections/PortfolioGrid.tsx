@@ -140,7 +140,7 @@ const companies: Company[] = [
     tags: ["Fintech Investments", "Real World Assets"],
     desc: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals.",
     details: {
-      partnershipStart: "Jan, 2026",
+      partnershipStart: "2026",
       status: "Ongoing",
       websiteLabel: "https://tokenbazaar.com/",
       panelDesc: "TokenBazaar is building the future of accessible investing by opening the door to real-world assets for everyday investors. Through a secure digital platform, users can discover, evaluate, and participate in professionally structured investment opportunities that were historically out of reach for most individuals. By combining modern financial infrastructure with transparent asset-backed offerings, TokenBazaar empowers people to build wealth with confidence, regardless of their income level or location.",
