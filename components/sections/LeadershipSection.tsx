@@ -63,14 +63,12 @@ function LeaderCard({ leader }: { leader: Leader }) {
         />
       </div>
 
-      {/* Desktop (≥ 1024px): exact Figma pixel placement */}
+      {/* Desktop (≥ 1024px): exact Figma pixel placement
+          Wrapper div is positioned at the Figma x/y with Figma w/h.
+          fill Image fills that wrapper 100×100%. Container clips to frame. */}
       <div className="relative bg-[#0B1738] overflow-hidden h-[390px] hidden lg:block">
         {leader.desktop ? (
-          <Image
-            src={leader.image}
-            alt={leader.name}
-            width={leader.desktop.w}
-            height={leader.desktop.h}
+          <div
             style={{
               position: "absolute",
               left: `${leader.desktop.x}px`,
@@ -78,7 +76,14 @@ function LeaderCard({ leader }: { leader: Leader }) {
               width: `${leader.desktop.w}px`,
               height: `${leader.desktop.h}px`,
             }}
-          />
+          >
+            <Image
+              fill
+              src={leader.image}
+              alt={leader.name}
+              sizes={`${leader.desktop.w}px`}
+            />
+          </div>
         ) : (
           <Image
             fill
