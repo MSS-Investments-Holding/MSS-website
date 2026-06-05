@@ -32,8 +32,10 @@ const leaders = [
     role: "Head of Compliance",
     image: "/images/home/leader-sandra.jpg",
     bio: undefined,
-    placedImage: false,
-    imageClassName: "object-cover object-top",
+    placedImage: true,
+    // Mobile: x=-6 y=-4 w=372 h=451 (desktop values × 362/410 scale)
+    // Desktop (lg): x=-7 y=-4 w=421 h=511 (Figma desktop frame 410×390)
+    imageClassName: "absolute max-w-none left-[-6px] top-[-4px] w-[372px] h-[451px] lg:left-[-7px] lg:top-[-4px] lg:w-[421px] lg:h-[511px]",
   },
 ];
 
