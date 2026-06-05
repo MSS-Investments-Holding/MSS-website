@@ -69,7 +69,7 @@ const companies: Company[] = [
     tags: ["Fintech", "B2C", "SRO License"],
     desc: "Swiss Payments is a digital payments and account experience built on a Swiss fintech platform. We created Swiss Payments to make it easier for individuals and businesses to access a Swiss Payments account, cards, payments, and certain digital assets all in one place, with transparent pricing and rigorous compliance.",
     details: {
-      partnershipStart: "June, 2021",
+      partnershipStart: "2026",
       status: "Ongoing",
       websiteLabel: "www.swisspayments.ch/",
       sections: [
