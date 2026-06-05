@@ -30,7 +30,7 @@ export default function HeroSection({ articles }: Props) {
         }}
       >
         <Image
-          src="/images/home/hero-bg.png"
+          src="/images/home/hero-bg.webp"
           alt=""
           fill
           priority
