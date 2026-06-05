@@ -41,12 +41,10 @@ const leaders: Leader[] = [
     name: "Sandra Schaad",
     role: "Head of Compliance",
     image: "/images/home/leader-sandra.jpg",
-    placedImage: true,
-    // Mobile: desktop values × 362/410 scale factor
-    // Desktop (lg): Figma x=-7 y=-4 w=421 h=511 (frame 410×390)
-    imageClassName: "absolute max-w-none left-[-6px] top-[-4px] w-[372px] h-[451px] lg:left-[-7px] lg:top-[-4px] lg:w-[421px] lg:h-[511px]",
-    placedW: 842,
-    placedH: 1022,
+    // fill + object-cover guarantees full container coverage.
+    // object-top anchors to the top edge, matching the Figma crop (top overflow is only 4px).
+    placedImage: false,
+    imageClassName: "object-cover object-top",
   },
 ];
 
