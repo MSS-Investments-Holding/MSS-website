@@ -1,19 +1,11 @@
 import Image from "next/image";
 
-interface DesktopPlacement {
-  x: number; // px from Figma (negative = extends beyond container left/top)
-  y: number;
-  w: number; // image width at 1x
-  h: number; // image height at 1x
-}
-
 interface Leader {
   name: string;
   role: string;
   image: string;
   bio?: string;
   cropClass: string;       // object-position class for mobile/tablet fill approach
-  desktop: DesktopPlacement | null; // exact Figma placement at desktop; null = fill
 }
 
 const leaders: Leader[] = [
@@ -23,7 +15,6 @@ const leaders: Leader[] = [
     image: "/images/home/leader-vincent.jpg",
     bio: "Vincent brings over 40 years of experience across executive leadership, governance, private banking, acquisitions, and restructuring. Having served as CEO and board member for major financial and real estate institutions across Europe and the Middle East, he provides MSS with seasoned strategic direction and institutional oversight.",
     cropClass: "[object-position:50%_20%]",
-    desktop: { x: -1, y: -14, w: 417, h: 468 },
   },
   {
     name: "Husnain Nasir",
@@ -31,82 +22,55 @@ const leaders: Leader[] = [
     image: "/images/home/leader-husnain.jpg",
     bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With executive leadership roles tied to major digital finance and transformation initiatives in Pakistan, UAE, UK and Europe, he contributes deep expertise in strategy and investments.",
     cropClass: "leader-husnain-crop",
-    desktop: { x: -2, y: -134, w: 555, h: 740 },
   },
   {
     name: "Marc Lanz",
     role: "Head of Operations",
     image: "/images/home/leader-marc.jpg",
     cropClass: "[object-position:50%_45%]",
-    desktop: { x: -8, y: -22, w: 425, h: 455 },
   },
   {
     name: "Sandra Schaad",
     role: "Head of Compliance",
     image: "/images/home/leader-sandra.jpg",
     cropClass: "object-center",
-    desktop: null, // frame export already cropped to container dimensions
   },
 ];
 
 function LeaderCard({ leader }: { leader: Leader }) {
   return (
     <>
-      {/* Mobile + Tablet (< 1024px) — same wrapper-div placement as desktop; container clips */}
-      <div className="relative bg-[#0B1738] overflow-hidden h-[340px] lg:hidden">
-        {leader.desktop ? (
-          <div
-            style={{
-              position: "absolute",
-              left: `${leader.desktop.x}px`,
-              top: `${leader.desktop.y}px`,
-              width: `${leader.desktop.w}px`,
-              height: `${leader.desktop.h}px`,
-            }}
-          >
-            <Image fill src={leader.image} alt={leader.name} sizes={`${leader.desktop.w}px`} />
-          </div>
-        ) : (
-          <Image
-            fill
-            src={leader.image}
-            alt={leader.name}
-            className={`object-cover ${leader.cropClass}`}
-            sizes="(max-width: 768px) calc(100vw - 40px), calc(50vw - 60px)"
-          />
-        )}
+      {/* Mobile (< 768px): fluid card width, locked 410:390 image ratio, no stretching */}
+      <div className="relative bg-[#0B1738] overflow-hidden aspect-[41/39] md:hidden">
+        <Image
+          fill
+          src={leader.image}
+          alt={leader.name}
+          className={`object-cover ${leader.cropClass}`}
+          sizes="(max-width: 767px) min(calc(100vw - 40px), 420px)"
+        />
       </div>
 
-      {/* Desktop (≥ 1024px): exact Figma pixel placement
-          Wrapper div is positioned at the Figma x/y with Figma w/h.
-          fill Image fills that wrapper 100×100%. Container clips to frame. */}
+      {/* Tablet (768px–1023px): fixed card width, image fills a fixed frame */}
+      <div className="relative bg-[#0B1738] overflow-hidden h-[340px] hidden md:block lg:hidden">
+        <Image
+          fill
+          src={leader.image}
+          alt={leader.name}
+          className={`object-cover ${leader.cropClass}`}
+          sizes="320px"
+        />
+      </div>
+
+      {/* Desktop (≥ 1024px): fixed card width, image fills a fixed frame */}
       <div className="relative bg-[#0B1738] overflow-hidden h-[390px] hidden lg:block">
-        {leader.desktop ? (
-          <div
-            style={{
-              position: "absolute",
-              left: `${leader.desktop.x}px`,
-              top: `${leader.desktop.y}px`,
-              width: `${leader.desktop.w}px`,
-              height: `${leader.desktop.h}px`,
-            }}
-          >
-            <Image
-              fill
-              src={leader.image}
-              alt={leader.name}
-              sizes={`${leader.desktop.w}px`}
-            />
-          </div>
-        ) : (
-          <Image
-            fill
-            src={leader.image}
-            alt={leader.name}
-            className={`object-cover ${leader.cropClass}`}
-            sizes="410px"
-          />
-        )}
+        <Image
+          fill
+          src={leader.image}
+          alt={leader.name}
+          className={`object-cover ${leader.cropClass}`}
+          sizes="410px"
+        />
       </div>
 
       <h3
@@ -145,7 +109,7 @@ export default function LeadershipSection() {
             w-[320px]: fits 2 per row at 768px (672px available, 2×320+24=664px). ── */}
         <div className="mt-20 flex flex-wrap gap-x-6 gap-y-10 md:gap-y-12 lg:hidden">
           {leaders.map((leader) => (
-            <article key={leader.name} className="w-[320px] flex-none">
+            <article key={leader.name} className="w-full max-w-[420px] flex-none md:w-[320px] md:max-w-none">
               <LeaderCard leader={leader} />
             </article>
           ))}
