@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import HeroBackgroundImage from "@/components/ui/HeroBackgroundImage";
 import { useRef, useEffect, useState } from "react";
 import ArrowRight from "@/components/icons/ArrowRight";
 
@@ -35,13 +35,21 @@ export default function FootprintSection() {
       // Mobile: tall enough for content + globe; tablet+: fixed scroll-driven height
       className="relative w-full overflow-hidden h-[960px] md:h-[766px]"
     >
-      {/* Background image */}
-      <HeroBackgroundImage
-        src="/images/home/footprint-bg.png"
-        alt=""
-        className="object-cover object-center"
-        priority={false}
-      />
+      {/* Background image — mobile: x=-459 y=-89 w=1321 h=1762 at 375px */}
+      <div
+        className="md:hidden absolute"
+        style={{ width: "352.27vw", height: "469.87vw", left: "-122.40vw", top: "-23.73vw" }}
+      >
+        <Image src="/images/home/footprint-bg.png" alt="" fill priority={false} sizes="352vw" className="object-cover" />
+      </div>
+
+      {/* Background image — desktop: x=-93 y=-476 w=1627 h=2169 at 1440px */}
+      <div
+        className="hidden md:block absolute"
+        style={{ width: "112.99vw", height: "150.63vw", left: "-6.46vw", top: "-33.06vw" }}
+      >
+        <Image src="/images/home/footprint-bg.png" alt="" fill priority={false} sizes="113vw" className="object-cover" />
+      </div>
 
       {/* Scroll-driven card wrapper — translateY disabled on mobile */}
       <div
