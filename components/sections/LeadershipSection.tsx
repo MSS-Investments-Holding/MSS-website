@@ -126,10 +126,12 @@ export default function LeadershipSection() {
           Experienced Leadership, with Depth and Perspective
         </h2>
 
-        {/* ── Mobile + Tablet (< 1024px): 1→2 col auto-flow grid ── */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10 md:gap-y-12 lg:hidden">
+        {/* ── Mobile + Tablet (< 1024px): flex-wrap with fixed card width ──
+            Cards sit side-by-side when space allows, stack when it doesn't.
+            w-[320px]: fits 2 per row at 768px (672px available, 2×320+24=664px). ── */}
+        <div className="mt-20 flex flex-wrap gap-x-6 gap-y-10 md:gap-y-12 lg:hidden">
           {leaders.map((leader) => (
-            <article key={leader.name}>
+            <article key={leader.name} className="w-[320px] flex-none">
               <LeaderCard leader={leader} />
             </article>
           ))}
