@@ -307,12 +307,12 @@ export default function CareersPage() {
             className="font-body text-body-sm mt-4"
             style={{ color: "#67686B", margin: 0, marginTop: "16px", maxWidth: "480px" }}
           >
-            We are always open to hearing from thoughtful, capable people who are a strong fit for the ecosystem. Send us your CV and a short introduction at <a href="mailto:careers@mssholdings.com" className="text-body-sm-emphasized font-body" style={{ color: "#1C1C1F" }}>careers@mssholdings.com</a>, and we&apos;ll keep your profile in mind for future opportunities.
+            We are always open to hearing from thoughtful, capable people who are a strong fit for the ecosystem. Send us your CV and a short introduction at <a href="mailto:careers@mssinvestmentsholding.com" className="text-body-sm-emphasized font-body" style={{ color: "#1C1C1F" }}>careers@mssinvestmentsholding.com</a>, and we&apos;ll keep your profile in mind for future opportunities.
           </p>
 
           <div className="careers-application-button">
             <a
-              href="mailto:careers@mssholdings.com"
+              href="mailto:careers@mssinvestmentsholding.com"
               className="inline-flex items-center justify-center gap-[8px] font-body text-body-sm text-white"
               style={{
                 height: "40px",
