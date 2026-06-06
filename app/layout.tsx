@@ -35,6 +35,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: "/global/Favicon-light.png", media: "(prefers-color-scheme: light)" },
+      { url: "/global/Favicon-dark.png",  media: "(prefers-color-scheme: dark)" },
+    ],
+    apple: "/global/Favicon-light.png",
+  },
 };
 
 export default function RootLayout({
