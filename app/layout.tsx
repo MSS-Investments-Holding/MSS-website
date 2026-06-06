@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     "A global holding company investing in payments, regulated finance, AI, digital asset infrastructure, and venture-backed businesses shaping modern economies.",
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://mss-website-sigma.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://mssinvestmentsholding.com"
   ),
   openGraph: {
     title: "MSS Investments Holding",

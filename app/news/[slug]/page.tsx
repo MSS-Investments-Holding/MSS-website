@@ -107,7 +107,7 @@ export default async function ArticlePage({
     .filter((a) => a.slug.current !== slug)
     .slice(0, 3);
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mss-website-sigma.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mssinvestmentsholding.com";
   const articleUrl = `${siteUrl}/news/${slug}`;
   const shareLinks = buildShareLinks(articleUrl, article.title);
 

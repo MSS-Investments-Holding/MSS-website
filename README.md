@@ -128,10 +128,12 @@ The site is configured for deployment on Vercel.
 | `NEXT_PUBLIC_SANITY_DATASET` | Yes | Sanity dataset (e.g. `production`) |
 | `SANITY_API_TOKEN` | Yes | Sanity read API token |
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Supabase project URL |
-| `SUPABASE_SERVICE_ROLE_KEY` | Yes | Supabase service role key (server-side only) |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes | Supabase anon/public key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes | Supabase service role key (server-side only, never expose to client) |
 | `RESEND_API_KEY` | Yes | Resend API key for email delivery |
 | `PITCH_FORM_FROM_EMAIL` | Yes | Verified sender address for pitch notifications |
 | `PITCH_FORM_TO_EMAIL` | Yes | Internal recipient for pitch form submissions |
+| `NEXT_PUBLIC_SITE_URL` | No | Production URL (e.g. `https://mssinvestmentsholding.com`) — used for Open Graph and share links |
 
 ---
 
