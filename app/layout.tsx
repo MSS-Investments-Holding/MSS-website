@@ -36,11 +36,8 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: [
-      { url: "/global/Favicon-light.png", media: "(prefers-color-scheme: light)" },
-      { url: "/global/Favicon-dark.png",  media: "(prefers-color-scheme: dark)" },
-    ],
-    apple: "/global/Favicon-light.png",
+    icon: "/global/Favicon.png",
+    apple: "/global/Favicon.png",
   },
 };
 
