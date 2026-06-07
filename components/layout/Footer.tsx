@@ -23,9 +23,9 @@ const exploreCol2 = [
 ];
 
 const socialLinks = [
-  { label: "LinkedIn",             href: "#" },
-  { label: "Instagram",            href: "#" },
-  { label: "Facebook",             href: "#" },
+  { label: "LinkedIn",             href: "https://www.linkedin.com" },
+  { label: "Instagram",            href: "https://www.instagram.com" },
+  { label: "Facebook",             href: "https://www.facebook.com" },
 ];
 
 const legalLinks = [
