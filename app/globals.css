@@ -2956,11 +2956,17 @@ body {
     min-height: 1200px;
   }
 
+  /* From 1920px the section height stops growing (locked at 1200px), so a
+   * fixed-px backdrop can no longer cover ultra-wide viewports — it would
+   * stop spanning past ~2465px. Switching to vw-based values anchored to
+   * the exact 1920px figures (w_ratio=W/V, h_ratio=H/V, cy locked via the
+   * crop-lock calc) keeps the crop/focal point identical at 1920px and
+   * scales continuously — and therefore covers — at any width beyond. */
   .home-hero-media {
-    width: 2464.52px;
-    height: 1644.09px;
-    left: calc(50vw - 1232.26px);
-    top: -52.90px;
+    width: 128.3602vw;
+    height: 85.6295vw;
+    left: -14.1801vw;
+    top: calc(600px - 34.0055vw);
   }
 
   /* Section grew +270px over the 930px baseline — add 35% of that to the
@@ -3031,10 +3037,15 @@ body {
     min-height: 1200px;
   }
 
+  /* Same fixed-px coverage problem as the home hero backdrop above (section
+   * height locks at 1200px past 1920px). vw-based width/height anchored to
+   * the exact 1920px figures keep cx (centered via the inherited `left: 50%`
+   * + translate(-50%)) and cy (via the `top: calc(50% + Y·vw)` crop-lock)
+   * locked, while guaranteeing coverage continuously at any width beyond. */
   .pitch-hero-media {
-    top: calc(50% + 18.71px);
-    width: 2562.58px;
-    height: 1575.48px;
+    top: calc(50% + 0.9745vw);
+    width: 133.4677vw;
+    height: 82.0565vw;
   }
 
   .pitch-hero-title {
