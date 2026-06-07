@@ -1408,22 +1408,50 @@ body {
     top: calc(216px - 22.425vw);
   }
 
-  /* Home hero — scale section height proportionally above 1440px so the
-   * backdrop (sized in vw) keeps the same visible crop/placement ratio
-   * instead of being clipped tighter as the viewport widens.
-   * 930px ÷ 1440px = 64.5833vw — matches exactly at 1440px. */
+}
+
+/* Home hero — tiered height increase above 1600px (homepage-only experiment).
+ * Section height stays at the Figma-matched 930px through 1599px, then steps
+ * up at fixed wide-monitor widths instead of scaling continuously. Each tier
+ * recomputes .home-hero-media with the same crop-lock formula derived from
+ * the 1440px export (H = 1274/930 × S, W = 1910/930 × S, top = -41/930 × S,
+ * centered via calc(50vw - W/2)) so the 0.73 visible-fraction / 0.397 vertical
+ * center stays locked at each new height. */
+@media (min-width: 1600px) {
   .home-hero-section {
-    min-height: 64.5833vw;
+    min-height: 1080px;
   }
 
-  /* Continue scaling the backdrop proportionally with the viewport above
-   * 1440px — matches the desktop fixed values (1910×1274, top -41px,
-   * centered) exactly at 1440px and grows with it beyond. */
   .home-hero-media {
-    width: 132.639vw;
-    height: 88.472vw;
-    left: -16.319vw;
-    top: -2.847vw;
+    width: 2218.06px;
+    height: 1479.48px;
+    left: calc(50vw - 1109.03px);
+    top: -47.61px;
+  }
+
+  /* Section grew +150px over the 930px baseline — add half that to the
+   * nav-to-content gap so the extra height is split evenly above/below the
+   * content block, preserving the same visual balance as at 1440px. */
+  .home-hero-content {
+    padding-top: 255px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .home-hero-section {
+    min-height: 1200px;
+  }
+
+  .home-hero-media {
+    width: 2464.52px;
+    height: 1644.09px;
+    left: calc(50vw - 1232.26px);
+    top: -52.90px;
+  }
+
+  /* Section grew +270px over the 930px baseline — add half that to the gap. */
+  .home-hero-content {
+    padding-top: 315px;
   }
 }
 
