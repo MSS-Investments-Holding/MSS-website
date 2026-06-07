@@ -1445,11 +1445,11 @@ body {
     top: -47.61px;
   }
 
-  /* Section grew +150px over the 930px baseline — add half that to the
-   * nav-to-content gap so the extra height is split evenly above/below the
-   * content block, preserving the same visual balance as at 1440px. */
+  /* Section grew +150px over the 930px baseline — add 35% of that to the
+   * nav-to-content gap (180 + 0.35×150 = 232.5px). Tuned down from the
+   * mathematical "half" centering value, which felt like too much top gap. */
   .home-hero-content {
-    padding-top: 255px;
+    padding-top: 232.5px;
   }
 }
 
@@ -1465,9 +1465,10 @@ body {
     top: -52.90px;
   }
 
-  /* Section grew +270px over the 930px baseline — add half that to the gap. */
+  /* Section grew +270px over the 930px baseline — add 35% of that to the
+   * gap (180 + 0.35×270 = 274.5px). */
   .home-hero-content {
-    padding-top: 315px;
+    padding-top: 274.5px;
   }
 }
 
