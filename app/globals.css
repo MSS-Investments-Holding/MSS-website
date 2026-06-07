@@ -1426,52 +1426,6 @@ body {
   }
 }
 
-/* Home hero — tiered height increase above 1600px (homepage-only experiment).
- * Section height stays at the Figma-matched 930px through 1599px, then steps
- * up at fixed wide-monitor widths instead of scaling continuously. Each tier
- * recomputes .home-hero-media with the same crop-lock formula derived from
- * the 1440px export (H = 1274/930 × S, W = 1910/930 × S, top = -41/930 × S,
- * centered via calc(50vw - W/2)) so the 0.73 visible-fraction / 0.397 vertical
- * center stays locked at each new height. */
-@media (min-width: 1600px) {
-  .home-hero-section {
-    min-height: 1080px;
-  }
-
-  .home-hero-media {
-    width: 2218.06px;
-    height: 1479.48px;
-    left: calc(50vw - 1109.03px);
-    top: -47.61px;
-  }
-
-  /* Section grew +150px over the 930px baseline — add 35% of that to the
-   * nav-to-content gap (180 + 0.35×150 = 232.5px). Tuned down from the
-   * mathematical "half" centering value, which felt like too much top gap. */
-  .home-hero-content {
-    padding-top: 232.5px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .home-hero-section {
-    min-height: 1200px;
-  }
-
-  .home-hero-media {
-    width: 2464.52px;
-    height: 1644.09px;
-    left: calc(50vw - 1232.26px);
-    top: -52.90px;
-  }
-
-  /* Section grew +270px over the 930px baseline — add 35% of that to the
-   * gap (180 + 0.35×270 = 274.5px). */
-  .home-hero-content {
-    padding-top: 274.5px;
-  }
-}
-
 /* ─── How We Invest page ─────────────────────────────────────── */
 .how-invest-hero-section {
   min-height: 880px;
@@ -2834,3 +2788,212 @@ body {
     padding-right: max(8rem, calc(100vw / 3 - 22rem), calc((100vw - 100rem) / 2 + 3rem));
   }
 }
+
+/* Hero — tiered height increase above 1600px, applied to every hero section
+ * (Home, About, Careers, How We Invest, Portfolio, Pitch). Each section holds
+ * its Figma-matched 930px height through 1599px, then steps up at fixed
+ * wide-monitor widths instead of scaling continuously. Every tier recomputes
+ * its backdrop with the same crop-lock formula: derive fixed ratios from the
+ * 1440px reference (w_ratio = W₁₄₄₀/930, h_ratio = H₁₄₄₀/930, offset ratios the
+ * same way), then multiply by the new section height S — so each backdrop's
+ * crop ratio and focal point stay exactly as locked at 1440px. The deltas
+ * (+150px at 1600px, +270px at 1920px) are identical for every page, so the
+ * nav-to-content gap grows by the same 35%-of-delta increment everywhere
+ * (+52.5px / +94.5px), just added on top of each page's own baseline gap. */
+@media (min-width: 1600px) {
+  .home-hero-section {
+    min-height: 1080px;
+  }
+
+  .home-hero-media {
+    width: 2218.06px;
+    height: 1479.48px;
+    left: calc(50vw - 1109.03px);
+    top: -47.61px;
+  }
+
+  /* Section grew +150px over the 930px baseline — add 35% of that to the
+   * nav-to-content gap (180 + 0.35×150 = 232.5px). Tuned down from the
+   * mathematical "half" centering value, which felt like too much top gap. */
+  .home-hero-content {
+    padding-top: 232.5px;
+  }
+
+  .about-hero-section {
+    min-height: 1080px;
+  }
+
+  /* height/top ratios from the 1440px reference (1440×1394px, top -9px ÷ 930)
+   * lock the vertical crop/focal point at the new 1080px section height.
+   * width/left stay on the existing continuous vw rule (full-bleed coverage,
+   * cx already locked at 0.5 by the centering transform — no need to touch). */
+  .about-hero-media {
+    height: 1618.84px;
+    top: calc(50% - 10.45px);
+  }
+
+  .about-hero-h1-col {
+    padding-top: 232.5px;
+  }
+
+  /* Body column tracks the same +52.5px increment so its position relative
+   * to the H1 stays consistent with the 1440px "bottom-third" framing. */
+  .about-hero-body-col {
+    padding-top: 486.5px;
+  }
+
+  .careers-hero-section {
+    min-height: 1080px;
+  }
+
+  /* height/top ratios locked from the 1440px reference (1509×1886px, top
+   * offset -164 ÷ 930) — width/left stay continuous (vw-based), already
+   * full-bleed and locked at cx ≈ 0.477, so left untouched here. */
+  .careers-hero-media {
+    top: calc(50% - 190.45px);
+    height: 2190.19px;
+  }
+
+  .careers-hero-content {
+    padding-top: 232.5px;
+  }
+
+  .how-invest-hero-section {
+    min-height: 1080px;
+  }
+
+  /* Ratios from the 1440px reference (3316×2212px, offsets -1702/-304 ÷ 930). */
+  .how-invest-hero-media {
+    left: calc(50% - 1976.52px);
+    top: -353.03px;
+    width: 3850.84px;
+    height: 2568.77px;
+  }
+
+  .how-invest-hero-content {
+    padding-top: 232.5px;
+  }
+
+  .portfolio-hero-section {
+    min-height: 1080px;
+  }
+
+  /* height/top ratios locked from the 1440px reference (1482×989px, top
+   * -59px ÷ 930) — width stays on the existing continuous vw rule (always
+   * > 100vw, full-bleed guaranteed; cx already locked at 0.5 by translateX). */
+  .portfolio-hero-media {
+    top: -68.52px;
+    height: 1148.52px;
+  }
+
+  .portfolio-hero-content {
+    top: 322.5px;
+  }
+
+  .pitch-hero-section {
+    min-height: 1080px;
+  }
+
+  /* Ratios from the 1440px reference (1986×1221px, top +14.5px ÷ 930). */
+  .pitch-hero-media {
+    top: calc(50% + 16.84px);
+    width: 2306.32px;
+    height: 1417.94px;
+  }
+
+  .pitch-hero-title {
+    top: 326.5px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .home-hero-section {
+    min-height: 1200px;
+  }
+
+  .home-hero-media {
+    width: 2464.52px;
+    height: 1644.09px;
+    left: calc(50vw - 1232.26px);
+    top: -52.90px;
+  }
+
+  /* Section grew +270px over the 930px baseline — add 35% of that to the
+   * gap (180 + 0.35×270 = 274.5px). */
+  .home-hero-content {
+    padding-top: 274.5px;
+  }
+
+  .about-hero-section {
+    min-height: 1200px;
+  }
+
+  .about-hero-media {
+    height: 1798.71px;
+    top: calc(50% - 11.61px);
+  }
+
+  .about-hero-h1-col {
+    padding-top: 274.5px;
+  }
+
+  .about-hero-body-col {
+    padding-top: 528.5px;
+  }
+
+  .careers-hero-section {
+    min-height: 1200px;
+  }
+
+  .careers-hero-media {
+    top: calc(50% - 211.61px);
+    height: 2433.55px;
+  }
+
+  .careers-hero-content {
+    padding-top: 274.5px;
+  }
+
+  .how-invest-hero-section {
+    min-height: 1200px;
+  }
+
+  .how-invest-hero-media {
+    left: calc(50% - 2196.13px);
+    top: -392.26px;
+    width: 4278.71px;
+    height: 2854.19px;
+  }
+
+  .how-invest-hero-content {
+    padding-top: 274.5px;
+  }
+
+  .portfolio-hero-section {
+    min-height: 1200px;
+  }
+
+  .portfolio-hero-media {
+    top: -76.13px;
+    height: 1276.13px;
+  }
+
+  .portfolio-hero-content {
+    top: 364.5px;
+  }
+
+  .pitch-hero-section {
+    min-height: 1200px;
+  }
+
+  .pitch-hero-media {
+    top: calc(50% + 18.71px);
+    width: 2562.58px;
+    height: 1575.48px;
+  }
+
+  .pitch-hero-title {
+    top: 368.5px;
+  }
+}
+

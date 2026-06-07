@@ -165,7 +165,7 @@ export default function HowWeInvestPage() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-[120px] md:pt-[150px] lg:pt-[180px] pb-16">
+        <div className="how-invest-hero-content relative z-10 flex-1 flex flex-col px-5 md:px-12 lg:px-20 pt-[120px] md:pt-[150px] lg:pt-[180px] pb-16">
           <h1 className="how-invest-hero-title font-heading font-light text-white">
             A Coherent Standard for Strategic, Meaningful Investments
           </h1>
