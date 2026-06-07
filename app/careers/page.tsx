@@ -164,8 +164,8 @@ export default function CareersPage() {
             src="/images/careers/careers-mission-bg.jpg"
             alt=""
             fill
-            className="object-fill"
-            sizes="(max-width: 767px) 1325px, 2092px"
+            className="object-cover"
+            sizes="(max-width: 767px) 1325px, 145.3vw"
           />
         </div>
         <div className="absolute inset-0 mix-blend-overlay" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />

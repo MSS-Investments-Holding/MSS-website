@@ -959,9 +959,18 @@ body {
   }
 
   .careers-stand-media {
+    /* Width scales with viewport (145.278vw = 2092px ÷ 1440, the Figma
+     * reference) so the backdrop always exceeds the viewport — no gap on
+     * wide screens — while `left: 0` keeps the horizontal focal point
+     * locked (cx = 0.5 ÷ w-ratio is constant regardless of viewport width).
+     * Height/top stay fixed: at 1395px the image already covers the
+     * 586px section with margin to spare at every width ≥768px, so no
+     * vertical scaling is needed. object-cover (set on the <Image>)
+     * prevents stretching now that the container's aspect ratio can
+     * differ from the source image's. */
     left: 0;
     top: -578px;
-    width: 2092px;
+    width: 145.278vw;
     height: 1395px;
   }
 
