@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MSS Investments Holding | Building the Platforms of Future Economies",
+  title: "MSS | Building the Platforms of Future Economies",
   description:
     "A global holding company investing in payments, regulated finance, AI, digital asset infrastructure, and venture-backed businesses shaping modern economies.",
   metadataBase: new URL(
