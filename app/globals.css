@@ -158,6 +158,44 @@ body {
   height: 138.333%;
 }
 
+/* ─── Homepage ───────────────────────────────────────────────── */
+
+/* Home hero backdrop — locks the same crop/framing (visible-fraction
+ * ≈0.73, vertical center ≈0.397, derived from the 1440px Figma export
+ * x=-235 y=-41 w=1910 h=1274 against a 930px-tall section) at every
+ * breakpoint. Each range derives its image size from that range's fixed
+ * section height S: H = 1274/930 × S, W = 1910/930 × S, top = -41/930 × S,
+ * horizontally centered via calc(50vw - W/2). 1440px+ continues scaling
+ * proportionally with the viewport (see wide-screen block below). */
+.home-hero-media {
+  position: absolute;
+  /* Mobile: S = 880px */
+  width: 1807.31px;
+  height: 1205.51px;
+  left: calc(50vw - 903.66px);
+  top: -38.80px;
+}
+
+@media (min-width: 768px) {
+  .home-hero-media {
+    /* Tablet: S = 800px */
+    width: 1643.01px;
+    height: 1095.91px;
+    left: calc(50vw - 821.51px);
+    top: -35.27px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-hero-media {
+    /* Desktop: S = 930px — exact Figma values */
+    width: 1910px;
+    height: 1274px;
+    left: calc(50vw - 955px);
+    top: -41px;
+  }
+}
+
 .about-hero-section {
   min-height: 880px;
 }
@@ -1368,6 +1406,24 @@ body {
     height: 44.85vw;
     left: -2.638vw;
     top: calc(216px - 22.425vw);
+  }
+
+  /* Home hero — scale section height proportionally above 1440px so the
+   * backdrop (sized in vw) keeps the same visible crop/placement ratio
+   * instead of being clipped tighter as the viewport widens.
+   * 930px ÷ 1440px = 64.5833vw — matches exactly at 1440px. */
+  .home-hero-section {
+    min-height: 64.5833vw;
+  }
+
+  /* Continue scaling the backdrop proportionally with the viewport above
+   * 1440px — matches the desktop fixed values (1910×1274, top -41px,
+   * centered) exactly at 1440px and grows with it beyond. */
+  .home-hero-media {
+    width: 132.639vw;
+    height: 88.472vw;
+    left: -16.319vw;
+    top: -2.847vw;
   }
 }
 

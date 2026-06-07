@@ -14,21 +14,12 @@ export default function HeroSection({ articles }: Props) {
 
   return (
     <section
-      className="relative w-full overflow-hidden flex flex-col min-h-[880px] md:min-h-[800px] lg:min-h-[930px]"
+      className="home-hero-section relative w-full overflow-hidden flex flex-col min-h-[880px] md:min-h-[800px] lg:min-h-[930px]"
       aria-label="Hero"
     >
-      {/* Background image — container replicates the Figma rect: x=-235, y=-41, w=1910, h=1274 at 1440px.
-          vw values scale proportionally. height uses max() so the container always covers the
-          full section even when the vw-derived value falls short at narrow viewports. */}
-      <div
-        className="absolute"
-        style={{
-          width: "132.639vw",
-          height: "max(88.472vw, calc(100% + 2.847vw))",
-          left: "-16.319vw",
-          top: "-2.847vw",
-        }}
-      >
+      {/* Background image — home-hero-media locks the same crop/framing as the
+          1440px Figma export (x=-235, y=-41, w=1910, h=1274) at every breakpoint. */}
+      <div className="home-hero-media">
         <Image
           src="/images/home/hero-bg.webp"
           alt=""
