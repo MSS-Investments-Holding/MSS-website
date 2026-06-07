@@ -1410,6 +1410,22 @@ body {
 
 }
 
+/* Footer image container — capped at 740px (see .absolute wrapper in
+ * Footer.tsx) so it stops growing past ~1719px viewport width (the point
+ * where 43.05vw reaches 740px). The image inside it scales with vw up to
+ * that point; beyond it the container is fixed at 740×488, so the image
+ * switches to fixed values matching its size at the 1719px crossover —
+ * continuing to grow it with vw past this point would overflow the now-
+ * static container. */
+@media (min-width: 1719px) {
+  .mss-footer-media-image {
+    width: 1156.54px;
+    height: 770.97px;
+    left: -45.34px;
+    top: -169.46px;
+  }
+}
+
 /* Home hero — tiered height increase above 1600px (homepage-only experiment).
  * Section height stays at the Figma-matched 930px through 1599px, then steps
  * up at fixed wide-monitor widths instead of scaling continuously. Each tier

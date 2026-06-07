@@ -70,7 +70,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
         {/* Right image — desktop follows the updated Figma crop and placement. */}
         <div
           className="absolute top-20 right-12 lg:right-20 hidden md:block overflow-hidden bg-[#0B1738]"
-          style={{ width: "43.05%", height: "488px" }}
+          style={{ width: "43.05%", maxWidth: "740px", height: "488px" }}
         >
           <div className="mss-footer-media-image" aria-hidden="true">
             <Image
