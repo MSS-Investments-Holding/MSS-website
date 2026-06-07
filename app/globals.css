@@ -2798,6 +2798,33 @@ body {
   }
 }
 
+/* ─── Careers "What We Stand For" — divider tracks the global side
+ * margin, content sits a fixed 40px to the right of it ──────────
+ * The divider's `left` is given no inline value so it can follow the
+ * same margin used by `.careers-stand-content` at each tier (80px at
+ * lg, the wide-screen formula at 1440px+). Content padding-left is
+ * that same margin + 40px — placed after the `.lg\:px-20` override
+ * above so it wins the cascade for this element specifically. */
+@media (min-width: 1024px) {
+  .careers-stand-divider {
+    left: 80px;
+  }
+
+  .careers-stand-content {
+    padding-left: 120px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .careers-stand-divider {
+    left: max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2));
+  }
+
+  .careers-stand-content {
+    padding-left: calc(max(5rem, calc(100vw / 3 - 25rem), calc((100vw - 100rem) / 2)) + 40px);
+  }
+}
+
 /* Hero — tiered height increase above 1600px, applied to every hero section
  * (Home, About, Careers, How We Invest, Portfolio, Pitch). Each section holds
  * its Figma-matched 930px height through 1599px, then steps up at fixed
