@@ -43,10 +43,16 @@ export default function FootprintSection() {
         <Image src="/images/home/footprint-bg.png" alt="" fill priority={false} sizes="352vw" className="object-cover" />
       </div>
 
-      {/* Background image — desktop: x=-93 y=-476 w=1627 h=2169 at 1440px */}
+      {/* Background image — desktop: x=-93 y=-476 w=1627 h=2169 at 1440px.
+       * Section height is fixed at 766px across the whole md+ range, but width
+       * scales with the viewport — a pure `top: -33.06vw` would let the visible
+       * vertical focal point drift through the image as the screen resizes
+       * (e.g. ~55% down at 768px vs ~40% at 1440px vs ~33% at 2400px). Locking
+       * top to `383px - 59.653vw` keeps the focal point fixed at ~39.6% of the
+       * image height — matching the 1440px framing — at every width. */}
       <div
         className="hidden md:block absolute"
-        style={{ width: "112.99vw", height: "150.63vw", left: "-6.46vw", top: "-33.06vw" }}
+        style={{ width: "112.99vw", height: "150.63vw", left: "-6.46vw", top: "calc(383px - 59.653vw)" }}
       >
         <Image src="/images/home/footprint-bg.png" alt="" fill priority={false} sizes="113vw" className="object-cover" />
       </div>
