@@ -2511,11 +2511,20 @@ body {
     height: 520px;
   }
 
+  /* Crop-locked scaling above 768px — fixed-px values previously here
+   * (1483×2222, left -27px, top -233px) only covered viewports up to
+   * ~1456px wide; beyond that the navy section background showed through
+   * on the right. Ratios below are derived from those values against the
+   * 1440px Figma reference (w = 1483/1440, h = 2222/1440, etc.) so width/
+   * height now scale with the viewport — guaranteeing full-bleed coverage
+   * at every width — while locking the same horizontal/vertical focal
+   * point (cx ≈ 0.504, cy ≈ 0.222) that the original values produced at
+   * 1440px. See FootprintSection.tsx for the same crop-lock technique. */
   .not-found-hero-media {
-    left: -27px;
-    top: -233px;
-    width: 1483px;
-    height: 2222px;
+    left: -1.875vw;
+    top: calc(260px - 34.236vw);
+    width: 102.986vw;
+    height: 154.306vw;
   }
 
   .not-found-hero-title {

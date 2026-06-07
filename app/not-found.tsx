@@ -26,10 +26,14 @@ export default function NotFound(): ReactElement {
           height={2222}
           priority
           className="not-found-hero-media absolute z-0 max-w-none"
-          sizes="100vw"
+          sizes="(max-width: 767px) 200vw, 103vw"
         />
         <div className="not-found-hero-blend absolute inset-0 z-0 bg-black/20" />
         <div className="absolute inset-0 z-0 bg-black/20" />
+        <div
+          className="absolute inset-0 z-0"
+          style={{ backgroundColor: "rgba(11,23,56,0.40)", mixBlendMode: "color" }}
+        />
 
         <div className="relative z-20 shrink-0">
           <Navbar />
