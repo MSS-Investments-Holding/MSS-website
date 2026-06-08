@@ -172,7 +172,7 @@ body {
 
 .home-hero-media {
   position: absolute;
-  /* Mobile: S = 900px — Figma 402px frame (W=1900, H=1426, left=-614).
+  /* Mobile: S = 880px (hard-coded min-height) — Figma 402px frame (W=1900, H=1426, left=-614).
    * cx = -614+950 = 336; cx_percent = 336/402 = 83.5821%. */
   width: 1900px;
   height: 1426px;
