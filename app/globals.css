@@ -160,13 +160,13 @@ body {
 
 /* ─── Homepage ───────────────────────────────────────────────── */
 
-/* Home hero backdrop — locks the same crop/framing (cy ≈ 0.350, derived
- * from the 1440px Figma export x=-737 y=-446 w=3470 h=2602 against a
- * 930px-tall section) at every breakpoint. Desktop/tablet derive their
- * image size from the section height S: H = 2602/930 × S, W = 3470/930 × S,
- * top = -446/930 × S, horizontally centered via calc(50vw - W/2).
- * Mobile uses its own Figma reference (402×900 mobile frame, x=-729 y=-33
- * w=2168 h=1626) scaled to S=880. Wide-screen scaling in the block below. */
+/* Home hero backdrop — image position/size derived from Figma at each
+ * breakpoint tier. Desktop (≥1024px) uses the 1440px reference node (x=-737,
+ * y=-446, W=3470, H=2602, S=930); wide-screen tiers scale those ratios.
+ * Tablet (768–1023px) uses dedicated Figma frames (W=3088, H=2316, S=930),
+ * with a two-point left formula from V=768 and V=1023.
+ * Mobile (<768px) uses the 402px/580px Figma frames (W=2119.82, H=1589.87,
+ * S=880). cx/cy locked at every tier via the crop-lock formula. */
 /* Figma relativeTransform [[-1,0,2733],[0,1,-446]] — scaleX=-1 = horizontal flip */
 .home-hero-media img { transform: scaleX(-1); }
 
@@ -183,11 +183,14 @@ body {
 
 @media (min-width: 768px) {
   .home-hero-media {
-    /* Tablet: S = 800px */
-    width: 2984.95px;
-    height: 2238.28px;
-    left: calc(69.3056vw - 1492.47px);
-    top: -383.66px;
+    /* Tablet: S=930 — Figma 768px (x=-944) and 1023px (x=-837) frames give
+     * cx values; width 2985px (4:3 → H=2238.75px). Two-point cx lock:
+     * at V=768 left=600-1492.5=-892.5, at V=1023 left=707-1492.5=-785.5
+     * → left=calc(41.9608vw-1214.76px). */
+    width: 2985px;
+    height: 2238.75px;
+    left: calc(41.9608vw - 1214.76px);
+    top: -280px;
   }
 }
 
@@ -3055,6 +3058,49 @@ body {
 
   .pitch-hero-title {
     top: 368.5px;
+  }
+}
+
+@media (min-width: 2400px) {
+  .home-hero-section {
+    min-height: 1320px;
+  }
+
+  /* S=1320 — crop-lock ratios × 1320; fixed px values hold for the bounded
+   * 2400–2799px range (image is wide enough to cover the viewport at 2799px). */
+  .home-hero-media {
+    width: 4925.27px;
+    height: 3693.16px;
+    left: calc(69.3056vw - 2462.63px);
+    top: -632.49px;
+  }
+
+  /* Section grew +390px over the 930px baseline — add 35% to the gap
+   * (180 + 0.35×390 = 316.5px). */
+  .home-hero-content {
+    padding-top: 316.5px;
+  }
+}
+
+@media (min-width: 2800px) {
+  .home-hero-section {
+    min-height: 1440px;
+  }
+
+  /* S=1440 locked — section height stays fixed; backdrop switches to vw-based
+   * values anchored at V=2800 so cx=0.693056 and cy=0.350115 hold at any width
+   * beyond 2800px (same open-ended approach as the 1920px tier above). */
+  .home-hero-media {
+    width: 191.9201vw;
+    height: 143.9278vw;
+    left: -26.6545vw;
+    top: calc(720px - 50.3768vw);
+  }
+
+  /* Section grew +510px over the 930px baseline — add 35% to the gap
+   * (180 + 0.35×510 = 358.5px). */
+  .home-hero-content {
+    padding-top: 358.5px;
   }
 }
 
