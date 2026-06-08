@@ -14,7 +14,8 @@ export default function HeroSection({ articles }: Props) {
 
   return (
     <section
-      className="home-hero-section relative w-full overflow-hidden flex flex-col min-h-[880px] md:min-h-[930px] lg:min-h-[930px]"
+      className="home-hero-section relative w-full overflow-hidden flex flex-col min-h-[900px] md:min-h-[930px] lg:min-h-[930px]"
+      style={{ backgroundColor: "var(--color-brand-navy)" }}
       aria-label="Hero"
     >
       {/* Background image — home-hero-media locks the same crop/framing as the

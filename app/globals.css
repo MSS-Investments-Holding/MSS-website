@@ -161,46 +161,44 @@ body {
 /* ─── Homepage ───────────────────────────────────────────────── */
 
 /* Home hero backdrop — image position/size derived from Figma at each
- * breakpoint tier. Desktop (≥1024px) uses the 1440px reference node (x=-737,
- * y=-446, W=3470, H=2602, S=930); wide-screen tiers scale those ratios.
- * Tablet (768–1023px) uses dedicated Figma frames (W=3088, H=2316, S=930),
- * with a two-point left formula from V=768 and V=1023.
- * Mobile (<768px) uses the 402px/580px Figma frames (W=2119.82, H=1589.87,
- * S=880). cx/cy locked at every tier via the crop-lock formula. */
-/* Figma relativeTransform [[-1,0,2733],[0,1,-446]] — scaleX=-1 = horizontal flip */
+ * breakpoint tier. Desktop (≥1024px) uses the 1440px reference node (left=-4,
+ * top=-114, W=2170.67, H=1628, S=930); wide-screen tiers scale those ratios.
+ * Tablet (768–1023px) uses the dedicated 768px Figma frame (W=2002, H=1502,
+ * S=930, cx=600 → left=calc(78.125vw-1001px)).
+ * Mobile (<768px) uses the 402px Figma frame (W=1900, H=1426, S=900).
+ * cx/cy locked at every tier via the crop-lock formula. */
+/* Figma relativeTransform [[-1,0,...]] — scaleX=-1 = horizontal flip */
 .home-hero-media img { transform: scaleX(-1); }
 
 .home-hero-media {
   position: absolute;
-  /* Mobile: S = 880px — derived from Figma mobile frames (402px x=-729,
-   * 580px x=-640, same W=2168 H=1626 S_ref=900). Two-point solve gives
-   * left = calc(50vw - 930px) at S_ref=900; scaled to S=880: -930×880/900. */
-  width: 2119.82px;
-  height: 1589.87px;
-  left: calc(50vw - 909.33px);
-  top: -32.27px;
+  /* Mobile: S = 900px — Figma 402px frame (W=1900, H=1426, left=-614).
+   * cx = -614+950 = 336; cx_percent = 336/402 = 83.5821%. */
+  width: 1900px;
+  height: 1426px;
+  left: calc(83.5821vw - 950px);
+  top: -17px;
 }
 
 @media (min-width: 768px) {
   .home-hero-media {
-    /* Tablet: S=930 — Figma 768px (x=-944) and 1023px (x=-837) frames give
-     * cx values; width 2985px (4:3 → H=2238.75px). Two-point cx lock:
-     * at V=768 left=600-1492.5=-892.5, at V=1023 left=707-1492.5=-785.5
-     * → left=calc(41.9608vw-1214.76px). */
-    width: 2985px;
-    height: 2238.75px;
-    left: calc(41.9608vw - 1214.76px);
-    top: -280px;
+    /* Tablet: S=930 — Figma 768px frame (W=2002, H=1502, left=-401, top=-25).
+     * cx = -401+1001 = 600; cx_percent = 600/768 = 78.125%. */
+    width: 2002px;
+    height: 1502px;
+    left: calc(78.125vw - 1001px);
+    top: -25px;
   }
 }
 
 @media (min-width: 1024px) {
   .home-hero-media {
-    /* Desktop: S = 930px — exact Figma values at 1440px */
-    width: 3470px;
-    height: 2602px;
-    left: calc(69.3056vw - 1735px);
-    top: -446px;
+    /* Desktop: S=930px — Figma 1440px frame (W=2170.67, H=1628, left=-4, top=-114).
+     * cx_percent=75.0927%; cy_fraction=579/1628=0.355652. */
+    width: 2170.67px;
+    height: 1628px;
+    left: calc(75.0927vw - 1085.34px);
+    top: -114px;
   }
 }
 
@@ -2859,11 +2857,11 @@ body {
   }
 
   .home-hero-media {
-    /* Wide tier 1: S = 1080px — desktop-reference ratios */
-    width: 4029.68px;
-    height: 3021.68px;
-    left: calc(69.3056vw - 2014.84px);
-    top: -517.94px;
+    /* Wide tier 1: S=1080px — scale 1080/930 from desktop reference */
+    width: 2520.24px;
+    height: 1890.58px;
+    left: calc(75.0927vw - 1260.12px);
+    top: -132.39px;
   }
 
   /* Section grew +150px over the 930px baseline — add 35% of that to the
@@ -2967,14 +2965,13 @@ body {
 
   /* From 1920px the section height stops growing (locked at 1200px), so a
    * fixed-px backdrop can no longer cover ultra-wide viewports. Switching to
-   * vw-based values anchored to the exact 1920px figures keeps cx=0.5 and
-   * cy=0.350115 (locked via the crop-lock calc: top = S/2 - cy×height) locked
-   * and guarantees full coverage at any width beyond 1920px. */
+   * vw-based values anchored at V=1920 keeps cx_percent=75.0927% and
+   * cy_fraction=0.355652 locked at any width beyond 1920px. */
   .home-hero-media {
-    width: 233.1984vw;
-    height: 174.8656vw;
-    left: -47.2936vw;
-    top: calc(600px - 61.2231vw);
+    width: 145.879vw;
+    height: 109.409vw;
+    left: 2.1531vw;
+    top: calc(600px - 38.911vw);
   }
 
   /* Section grew +270px over the 930px baseline — add 35% of that to the
@@ -3068,12 +3065,12 @@ body {
     min-height: 1320px;
   }
 
-  /* home: same cx/cy formula as all prior tiers (x=-737, y=-446 reference). */
+  /* home: S=1320 — scale 1320/930 from desktop reference (cx/cy locked). */
   .home-hero-media {
-    width: 4925.27px;
-    height: 3693.16px;
-    left: calc(69.3056vw - 2462.63px);
-    top: -632.49px;
+    width: 3080.04px;
+    height: 2310.72px;
+    left: calc(75.0927vw - 1540.02px);
+    top: -161.84px;
   }
 
   .home-hero-content {
@@ -3167,12 +3164,12 @@ body {
     min-height: 1440px;
   }
 
-  /* home: vw-based anchored at V=2800 keeps cx/cy locked at any width. */
+  /* home: S=1440 vw-based anchored at V=2800 — cx_percent=75.0927%, cy=0.355652. */
   .home-hero-media {
-    width: 191.9201vw;
-    height: 143.9278vw;
-    left: -26.6545vw;
-    top: calc(720px - 50.3768vw);
+    width: 119.984vw;
+    height: 90.028vw;
+    left: 15.1007vw;
+    top: calc(720px - 32.026vw);
   }
 
   .home-hero-content {
