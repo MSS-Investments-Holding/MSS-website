@@ -175,7 +175,7 @@ body {
   /* Mobile: S = 880px — cx=0.802083 locked from confirmed 1440px placement */
   width: 2119.82px;
   height: 1589.87px;
-  left: calc(80.2083vw - 1059.91px);
+  left: calc(69.3056vw - 1059.91px);
   top: -32.27px;
 }
 
@@ -184,7 +184,7 @@ body {
     /* Tablet: S = 800px */
     width: 2984.95px;
     height: 2238.28px;
-    left: calc(80.2083vw - 1492.47px);
+    left: calc(69.3056vw - 1492.47px);
     top: -383.66px;
   }
 }
@@ -194,7 +194,7 @@ body {
     /* Desktop: S = 930px — exact Figma values at 1440px */
     width: 3470px;
     height: 2602px;
-    left: calc(80.2083vw - 1735px);
+    left: calc(69.3056vw - 1735px);
     top: -446px;
   }
 }
@@ -2857,7 +2857,7 @@ body {
     /* Wide tier 1: S = 1080px — desktop-reference ratios */
     width: 4029.68px;
     height: 3021.68px;
-    left: calc(80.2083vw - 2014.84px);
+    left: calc(69.3056vw - 2014.84px);
     top: -517.94px;
   }
 
@@ -2968,7 +2968,7 @@ body {
   .home-hero-media {
     width: 233.1984vw;
     height: 174.8656vw;
-    left: -36.3909vw;
+    left: -47.2936vw;
     top: calc(600px - 61.2231vw);
   }
 
