@@ -194,11 +194,13 @@ body {
 @media (min-width: 1024px) {
   .home-hero-media {
     /* Desktop: S=930px — Figma 1440px frame (W=2170.67, H=1628, left=-4, top=-114).
-     * cx_percent=75.0927%; cy_fraction=579/1628=0.355652. */
-    width: 2170.67px;
-    height: 1628px;
-    left: calc(75.0927vw - 1085.34px);
-    top: -114px;
+     * cx_percent=75.0927%; cy_fraction=579/1628=0.355652.
+     * max/min ensures full-bleed at any viewport: 150.741vw = W/V_ref,
+     * -0.2778vw = cx - W_vw/2, 40.2083vw = cy × H_vw = 579/1440 × 100. */
+    width: max(2170.67px, 150.741vw);
+    height: max(1628px, 113.056vw);
+    left: min(calc(75.0927vw - 1085.34px), -0.2778vw);
+    top: min(-114px, calc(465px - 40.2083vw));
   }
 }
 
@@ -2857,11 +2859,11 @@ body {
   }
 
   .home-hero-media {
-    /* Wide tier 1: S=1080px — scale 1080/930 from desktop reference */
-    width: 2520.24px;
-    height: 1890.58px;
-    left: calc(75.0927vw - 1260.12px);
-    top: -132.39px;
+    /* Wide tier 1: S=1080px — scale 1080/930. max/min keeps full-bleed. */
+    width: max(2520.24px, 150.741vw);
+    height: max(1890.58px, 113.056vw);
+    left: min(calc(75.0927vw - 1260.12px), -0.2778vw);
+    top: min(-132.39px, calc(540px - 40.2083vw));
   }
 
   /* Section grew +150px over the 930px baseline — add 35% of that to the
@@ -2963,15 +2965,12 @@ body {
     min-height: 1200px;
   }
 
-  /* From 1920px the section height stops growing (locked at 1200px), so a
-   * fixed-px backdrop can no longer cover ultra-wide viewports. Switching to
-   * vw-based values anchored at V=1920 keeps cx_percent=75.0927% and
-   * cy_fraction=0.355652 locked at any width beyond 1920px. */
+  /* From 1920px S is locked at 1200px. max/min keeps full-bleed at any width. */
   .home-hero-media {
-    width: 145.879vw;
-    height: 109.409vw;
-    left: 2.1531vw;
-    top: calc(600px - 38.911vw);
+    width: max(2800.87px, 150.741vw);
+    height: max(2100.65px, 113.056vw);
+    left: min(calc(75.0927vw - 1400.44px), -0.2778vw);
+    top: min(-147.10px, calc(600px - 40.2083vw));
   }
 
   /* Section grew +270px over the 930px baseline — add 35% of that to the
@@ -3065,12 +3064,12 @@ body {
     min-height: 1320px;
   }
 
-  /* home: S=1320 — scale 1320/930 from desktop reference (cx/cy locked). */
+  /* home: S=1320 — scale 1320/930. max/min keeps full-bleed. */
   .home-hero-media {
-    width: 3080.04px;
-    height: 2310.72px;
-    left: calc(75.0927vw - 1540.02px);
-    top: -161.84px;
+    width: max(3080.04px, 150.741vw);
+    height: max(2310.72px, 113.056vw);
+    left: min(calc(75.0927vw - 1540.02px), -0.2778vw);
+    top: min(-161.84px, calc(660px - 40.2083vw));
   }
 
   .home-hero-content {
@@ -3164,12 +3163,12 @@ body {
     min-height: 1440px;
   }
 
-  /* home: S=1440 vw-based anchored at V=2800 — cx_percent=75.0927%, cy=0.355652. */
+  /* home: S=1440 — scale 1440/930. max/min keeps full-bleed. */
   .home-hero-media {
-    width: 119.984vw;
-    height: 90.028vw;
-    left: 15.1007vw;
-    top: calc(720px - 32.026vw);
+    width: max(3361.04px, 150.741vw);
+    height: max(2520.77px, 113.056vw);
+    left: min(calc(75.0927vw - 1680.52px), -0.2778vw);
+    top: min(-176.52px, calc(720px - 40.2083vw));
   }
 
   .home-hero-content {
