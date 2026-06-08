@@ -18,21 +18,21 @@ export default function HeroSection({ articles }: Props) {
       aria-label="Hero"
     >
       {/* Background image — home-hero-media locks the same crop/framing as the
-          1440px Figma export (x=-235, y=-41, w=1910, h=1274) at every breakpoint. */}
+          1440px Figma export (x=-737, y=-446, w=3470, h=2602) at every breakpoint. */}
       <div className="home-hero-media">
         <Image
           src="/images/home/hero-bg.webp"
           alt=""
           fill
           priority
-          sizes="133vw"
+          sizes="(min-width: 1024px) 241vw, 566vw"
           className="object-cover object-center"
         />
       </div>
-      {/* Figma overlays: 20% overlay black + 20% normal black + 40% screen #0B1738 (LINEAR_DODGE) */}
+      {/* Figma overlays: 20% black OVERLAY + 20% black NORMAL + 60% #0B1738 LINEAR_DODGE */}
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)", mixBlendMode: "overlay" }} />
       <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.20)" }} />
-      <div className="absolute inset-0" style={{ backgroundColor: "rgba(11,23,56,0.40)", mixBlendMode: "screen" }} />
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(11,23,56,0.60)", mixBlendMode: "plus-lighter" }} />
 
       {/* Navbar */}
       <div className="relative z-20">

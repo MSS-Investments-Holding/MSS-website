@@ -160,39 +160,39 @@ body {
 
 /* ─── Homepage ───────────────────────────────────────────────── */
 
-/* Home hero backdrop — locks the same crop/framing (visible-fraction
- * ≈0.73, vertical center ≈0.397, derived from the 1440px Figma export
- * x=-235 y=-41 w=1910 h=1274 against a 930px-tall section) at every
- * breakpoint. Each range derives its image size from that range's fixed
- * section height S: H = 1274/930 × S, W = 1910/930 × S, top = -41/930 × S,
- * horizontally centered via calc(50vw - W/2). 1440px+ continues scaling
- * proportionally with the viewport (see wide-screen block below). */
+/* Home hero backdrop — locks the same crop/framing (cy ≈ 0.350, derived
+ * from the 1440px Figma export x=-737 y=-446 w=3470 h=2602 against a
+ * 930px-tall section) at every breakpoint. Desktop/tablet derive their
+ * image size from the section height S: H = 2602/930 × S, W = 3470/930 × S,
+ * top = -446/930 × S, horizontally centered via calc(50vw - W/2).
+ * Mobile uses its own Figma reference (402×900 mobile frame, x=-729 y=-33
+ * w=2168 h=1626) scaled to S=880. Wide-screen scaling in the block below. */
 .home-hero-media {
   position: absolute;
-  /* Mobile: S = 880px */
-  width: 1807.31px;
-  height: 1205.51px;
-  left: calc(50vw - 903.66px);
-  top: -38.80px;
+  /* Mobile: derived from dedicated mobile Figma frame (S_ref=900), S=880 */
+  width: 2119.82px;
+  height: 1589.87px;
+  left: calc(50vw - 1059.91px);
+  top: -32.27px;
 }
 
 @media (min-width: 768px) {
   .home-hero-media {
-    /* Tablet: S = 800px */
-    width: 1643.01px;
-    height: 1095.91px;
-    left: calc(50vw - 821.51px);
-    top: -35.27px;
+    /* Tablet: S = 800px — desktop-reference ratios (H=2602/930×S etc.) */
+    width: 2984.95px;
+    height: 2238.28px;
+    left: calc(50vw - 1492.47px);
+    top: -383.66px;
   }
 }
 
 @media (min-width: 1024px) {
   .home-hero-media {
     /* Desktop: S = 930px — exact Figma values */
-    width: 1910px;
-    height: 1274px;
-    left: calc(50vw - 955px);
-    top: -41px;
+    width: 3470px;
+    height: 2602px;
+    left: calc(50vw - 1735px);
+    top: -446px;
   }
 }
 
@@ -2851,10 +2851,11 @@ body {
   }
 
   .home-hero-media {
-    width: 2218.06px;
-    height: 1479.48px;
-    left: calc(50vw - 1109.03px);
-    top: -47.61px;
+    /* Wide tier 1: S = 1080px — desktop-reference ratios */
+    width: 4029.68px;
+    height: 3021.68px;
+    left: calc(50vw - 2014.84px);
+    top: -517.94px;
   }
 
   /* Section grew +150px over the 930px baseline — add 35% of that to the
@@ -2957,16 +2958,15 @@ body {
   }
 
   /* From 1920px the section height stops growing (locked at 1200px), so a
-   * fixed-px backdrop can no longer cover ultra-wide viewports — it would
-   * stop spanning past ~2465px. Switching to vw-based values anchored to
-   * the exact 1920px figures (w_ratio=W/V, h_ratio=H/V, cy locked via the
-   * crop-lock calc) keeps the crop/focal point identical at 1920px and
-   * scales continuously — and therefore covers — at any width beyond. */
+   * fixed-px backdrop can no longer cover ultra-wide viewports. Switching to
+   * vw-based values anchored to the exact 1920px figures keeps cx=0.5 and
+   * cy=0.350115 (locked via the crop-lock calc: top = S/2 - cy×height) locked
+   * and guarantees full coverage at any width beyond 1920px. */
   .home-hero-media {
-    width: 128.3602vw;
-    height: 85.6295vw;
-    left: -14.1801vw;
-    top: calc(600px - 34.0055vw);
+    width: 233.1984vw;
+    height: 174.8656vw;
+    left: -66.5992vw;
+    top: calc(600px - 61.2231vw);
   }
 
   /* Section grew +270px over the 930px baseline — add 35% of that to the
