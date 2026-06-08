@@ -167,31 +167,34 @@ body {
  * top = -446/930 × S, horizontally centered via calc(50vw - W/2).
  * Mobile uses its own Figma reference (402×900 mobile frame, x=-729 y=-33
  * w=2168 h=1626) scaled to S=880. Wide-screen scaling in the block below. */
+/* Figma relativeTransform [[-1,0,2733],[0,1,-446]] — scaleX=-1 = horizontal flip */
+.home-hero-media img { transform: scaleX(-1); }
+
 .home-hero-media {
   position: absolute;
-  /* Mobile: derived from dedicated mobile Figma frame (S_ref=900), S=880 */
+  /* Mobile: S = 880px — cx=0.802083 locked from confirmed 1440px placement */
   width: 2119.82px;
   height: 1589.87px;
-  left: -548.82px;
+  left: calc(80.2083vw - 1059.91px);
   top: -32.27px;
 }
 
 @media (min-width: 768px) {
   .home-hero-media {
-    /* Tablet: S = 800px — desktop-reference ratios (H=2602/930×S etc.) */
+    /* Tablet: S = 800px */
     width: 2984.95px;
     height: 2238.28px;
-    left: -498.92px;
+    left: calc(80.2083vw - 1492.47px);
     top: -383.66px;
   }
 }
 
 @media (min-width: 1024px) {
   .home-hero-media {
-    /* Desktop: S = 930px — exact Figma values */
+    /* Desktop: S = 930px — exact Figma values at 1440px */
     width: 3470px;
     height: 2602px;
-    left: -580px;
+    left: calc(80.2083vw - 1735px);
     top: -446px;
   }
 }
@@ -2854,7 +2857,7 @@ body {
     /* Wide tier 1: S = 1080px — desktop-reference ratios */
     width: 4029.68px;
     height: 3021.68px;
-    left: -673.55px;
+    left: calc(80.2083vw - 2014.84px);
     top: -517.94px;
   }
 
@@ -2965,7 +2968,7 @@ body {
   .home-hero-media {
     width: 233.1984vw;
     height: 174.8656vw;
-    left: -748.39px;
+    left: -36.3909vw;
     top: calc(600px - 61.2231vw);
   }
 
