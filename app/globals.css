@@ -172,10 +172,12 @@ body {
 
 .home-hero-media {
   position: absolute;
-  /* Mobile: S = 880px — cx=0.802083 locked from confirmed 1440px placement */
+  /* Mobile: S = 880px — derived from Figma mobile frames (402px x=-729,
+   * 580px x=-640, same W=2168 H=1626 S_ref=900). Two-point solve gives
+   * left = calc(50vw - 930px) at S_ref=900; scaled to S=880: -930×880/900. */
   width: 2119.82px;
   height: 1589.87px;
-  left: calc(69.3056vw - 1059.91px);
+  left: calc(50vw - 909.33px);
   top: -32.27px;
 }
 
