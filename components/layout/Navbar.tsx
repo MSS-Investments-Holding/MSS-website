@@ -309,12 +309,9 @@ export default function Navbar() {
                   role="option"
                   aria-selected={activeLang === lang.code}
                   onClick={() => selectLang(lang.code)}
-                  className="font-body"
+                  className="text-links font-body"
                   style={{
                     ...dropdownItemStyle,
-                    fontSize: "13px",
-                    lineHeight: "18px",
-                    letterSpacing: "-0.13px",
                     opacity: activeLang === lang.code ? 1 : 0.6,
                   }}
                 >
