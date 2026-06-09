@@ -2965,12 +2965,15 @@ body {
     min-height: 1200px;
   }
 
-  /* From 1920px S is locked at 1200px. max/min keeps full-bleed at any width. */
+  /* From 1920px S is locked at 1200px. max/min keeps full-bleed at any width.
+   * top switches from cy-center to cy-bottom lock: the image content visible at
+   * the section's bottom edge is fixed at the V=1600 reference (cy_bottom=0.64128).
+   * top = S − cy_bottom × H_vw = calc(S_px − 72.501vw). */
   .home-hero-media {
     width: max(2800.87px, 150.741vw);
     height: max(2100.65px, 113.056vw);
     left: min(calc(75.0927vw - 1400.44px), -0.2778vw);
-    top: min(-227.10px, calc(520px - 40.2083vw));
+    top: min(-147.10px, calc(1200px - 72.501vw));
   }
 
   /* Section grew +270px over the 930px baseline — add 35% of that to the
@@ -3069,7 +3072,7 @@ body {
     width: max(3080.04px, 150.741vw);
     height: max(2310.72px, 113.056vw);
     left: min(calc(75.0927vw - 1540.02px), -0.2778vw);
-    top: min(-225.84px, calc(596px - 40.2083vw));
+    top: min(-161.84px, calc(1320px - 72.501vw));
   }
 
   .home-hero-content {
@@ -3168,7 +3171,7 @@ body {
     width: max(3361.04px, 150.741vw);
     height: max(2520.77px, 113.056vw);
     left: min(calc(75.0927vw - 1680.52px), -0.2778vw);
-    top: min(-216.52px, calc(680px - 40.2083vw));
+    top: min(-176.52px, calc(1440px - 72.501vw));
   }
 
   .home-hero-content {
