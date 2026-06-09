@@ -10,9 +10,6 @@ const languages = [
 ];
 
 const dropdownItemStyle: React.CSSProperties = {
-  fontSize: "13px",
-  lineHeight: "18px",
-  letterSpacing: "-0.13px",
   background: "none",
   border: "none",
   padding: 0,
@@ -161,7 +158,7 @@ export default function Navbar() {
             aria-expanded={langOpen}
             aria-haspopup="listbox"
             onClick={() => setLangOpen((o) => !o)}
-            className="flex items-center justify-center gap-[2px] font-body text-white"
+            className="flex items-center justify-center gap-[2px] text-links font-body text-white"
             style={{
               width: "52px",
               height: "34px",
@@ -169,9 +166,6 @@ export default function Navbar() {
               paddingRight: "6px",
               paddingTop: "8px",
               paddingBottom: "8px",
-              fontSize: "13px",
-              lineHeight: "18px",
-              letterSpacing: "-0.13px",
               backgroundColor: "rgba(255,255,255,0.10)",
               backdropFilter: "blur(24px)",
               WebkitBackdropFilter: "blur(24px)",
@@ -201,7 +195,7 @@ export default function Navbar() {
                 role="option"
                 aria-selected={activeLang === lang.code}
                 onClick={() => selectLang(lang.code)}
-                className="font-body"
+                className="text-links font-body"
                 style={{
                   ...dropdownItemStyle,
                   opacity: activeLang === lang.code ? 1 : 0.6,
