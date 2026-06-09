@@ -312,6 +312,9 @@ export default function Navbar() {
                   className="font-body"
                   style={{
                     ...dropdownItemStyle,
+                    fontSize: "13px",
+                    lineHeight: "18px",
+                    letterSpacing: "-0.13px",
                     opacity: activeLang === lang.code ? 1 : 0.6,
                   }}
                 >
