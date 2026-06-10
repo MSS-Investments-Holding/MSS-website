@@ -1449,11 +1449,11 @@ body {
 }
 
 .how-invest-hero-media {
-  left: calc(50% - 1226px);
-  top: -250px;
-  width: 2760px;
-  height: 1841px;
+  object-position: 70% 23%;
 }
+
+.how-invest-overlay-1 { mix-blend-mode: overlay; }
+.how-invest-overlay-3 { mix-blend-mode: plus-lighter; }
 
 .how-invest-hero-title {
   margin: 0;
@@ -2135,10 +2135,7 @@ body {
   }
 
   .how-invest-hero-media {
-    left: calc(50% - 1702px);
-    top: -304px;
-    width: 3316px;
-    height: 2212px;
+    object-position: 63% 27%;
   }
 
   .how-invest-hero-title {
@@ -2573,6 +2570,10 @@ body {
     min-height: 930px;
   }
 
+  .how-invest-hero-media {
+    object-position: 57% 30%;
+  }
+
   .how-numbers-section {
     grid-template-columns: minmax(0, 472px) minmax(0, 624px);
     column-gap: 80px;
@@ -2627,12 +2628,6 @@ body {
   .how-number-card:nth-child(3) { grid-column: 2; grid-row: 2; }
 
   /* How We Invest — hero backdrop. Values from 768px block ÷ 1440. */
-  .how-invest-hero-media {
-    left: calc(50% - 118.19vw); /* 1702/1440 × 100 */
-    top: -21.11vw;              /* 304/1440 × 100  */
-    width: 230.28vw;            /* 3316/1440 × 100 */
-    height: 153.61vw;           /* 2212/1440 × 100 */
-  }
 
   /* How We Invest — process band backdrop. Values from 768px block ÷ 1440. */
   .how-process-media {
@@ -2941,13 +2936,6 @@ body {
     min-height: 1080px;
   }
 
-  /* Ratios from the 1440px reference (3316×2212px, offsets -1702/-304 ÷ 930). */
-  .how-invest-hero-media {
-    left: calc(50% - 1976.52px);
-    top: -353.03px;
-    width: 3850.84px;
-    height: 2568.77px;
-  }
 
   .how-invest-hero-content {
     padding-top: 232.5px;
@@ -3041,12 +3029,6 @@ body {
     min-height: 1200px;
   }
 
-  .how-invest-hero-media {
-    left: calc(50% - 2196.13px);
-    top: -392.26px;
-    width: 4278.71px;
-    height: 2854.19px;
-  }
 
   .how-invest-hero-content {
     padding-top: 274.5px;
@@ -3140,13 +3122,6 @@ body {
     min-height: 1320px;
   }
 
-  /* how-invest: all four axes scale with S; fixed px holds within 2400–2799px. */
-  .how-invest-hero-media {
-    left: calc(50% - 2415.74px); /* 1702/930 × 1320 */
-    top: -431.48px;              /* 304/930  × 1320 */
-    width: 4706.58px;            /* 3316/930 × 1320 */
-    height: 3139.61px;           /* 2212/930 × 1320 */
-  }
 
   .how-invest-hero-content {
     padding-top: 316.5px;
@@ -3239,15 +3214,6 @@ body {
     min-height: 1440px;
   }
 
-  /* how-invest: fixed px can't cover ultra-wide viewports — switch to vw-based
-   * values anchored at V=2800, S=1440 (same approach as the home/pitch 1920px
-   * open-ended rule). cx ≈ 0.47 and cy locked at any width beyond 2800px. */
-  .how-invest-hero-media {
-    left: calc(50% - 94.120vw); /* 1702/930×1440/2800×100 */
-    top: -16.811vw;             /* 304/930×1440/2800×100  */
-    width: 183.373vw;           /* 3316/930×1440/2800×100 */
-    height: 122.322vw;          /* 2212/930×1440/2800×100 */
-  }
 
   .how-invest-hero-content {
     padding-top: 358.5px;

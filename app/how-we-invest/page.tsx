@@ -142,19 +142,19 @@ export default function HowWeInvestPage() {
     <main id="main-content">
       <section
         aria-label="Hero"
-        className="how-invest-hero-section relative w-full overflow-hidden bg-[#1C1C1F] flex flex-col"
+        className="how-invest-hero-section relative w-full overflow-hidden bg-[#0B1738] flex flex-col"
       >
         <Image
-          src="/images/investments/how-we-invest-hero-bg.jpg"
+          src="/images/investments/how-we-invest-hero-bg.webp"
           alt=""
-          width={3316}
-          height={2212}
+          fill
           priority
-          className="how-invest-hero-media absolute max-w-none"
-          sizes="(max-width: 767px) 200vw, 100vw"
+          className="how-invest-hero-media object-cover"
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="how-invest-overlay-1 absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="how-invest-overlay-3 absolute inset-0 bg-[#0B1738]/20" />
 
         <div className="relative z-20">
           <Navbar />
