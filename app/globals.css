@@ -2632,6 +2632,9 @@ body {
   .how-number-card:nth-child(2) { grid-column: 1; grid-row: 2; }
   .how-number-card:nth-child(3) { grid-column: 2; grid-row: 2; }
 
+  /* How We Invest — philosophy items capped so they stop growing beyond 1440px. */
+  .how-philosophy-item { max-width: 650px; }
+
   /* How We Invest — hero backdrop. Ratios: left 1216/1440, top 488/1440, w 2134/1440, h 3200/1440. */
   .how-invest-hero-media {
     left: calc(50% - 84.444vw);
