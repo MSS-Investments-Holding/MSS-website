@@ -197,7 +197,7 @@ export default function PitchPage() {
 
           <div className="pitch-look-media" aria-hidden="true">
             <Image
-              src="/images/pitch/pitch-what-we-look-for-bg.jpg"
+              src="/images/pitch/pitch-what-we-look-for-bg.webp"
               alt=""
               fill
               className="object-fill"
