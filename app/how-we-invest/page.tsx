@@ -238,7 +238,7 @@ export default function HowWeInvestPage() {
 
         <div className="how-process-band relative overflow-hidden bg-[#0B1738]">
           <Image
-            src="/images/investments/investment-process.jpg"
+            src="/images/investments/investment-process.webp"
             alt=""
             width={1477}
             height={2212}
