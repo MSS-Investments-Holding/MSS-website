@@ -49,7 +49,7 @@ export default function ChairmanPage() {
       >
         <div className="chairman-hero-media" aria-hidden="true">
           <Image
-            src="/images/chairman/chairman-hero-bg.jpg"
+            src="/images/chairman/chairman-hero-bg.webp"
             alt=""
             fill
             priority

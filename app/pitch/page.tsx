@@ -78,7 +78,7 @@ export default function PitchPage() {
       >
         <div className="pitch-hero-media" aria-hidden="true">
           <Image
-            src="/images/pitch/pitch-hero-bg.jpg"
+            src="/images/pitch/pitch-hero-bg.webp"
             alt=""
             fill
             priority
