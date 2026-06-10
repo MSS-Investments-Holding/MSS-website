@@ -3046,11 +3046,12 @@ body {
   }
 
   /* S=1200: all axes scaled by 1200/930 from 1440px reference. */
+  /* max() kicks in above ~2369px where fixed 2753.55px no longer covers viewport. */
   .how-invest-hero-media {
     left: calc(50% - 1569.03px);
     top: -629.68px;
-    width: 2753.55px;
-    height: 4129.03px;
+    width: max(2753.55px, calc(50vw + 1570px));
+    height: max(4129.03px, calc(74.977vw + 2354.16px)); /* 3200/2134 ratio */
   }
 
   .how-invest-hero-content {
@@ -3146,11 +3147,12 @@ body {
   }
 
   /* S=1320: all axes scaled by 1320/930 from 1440px reference. */
+  /* max() kicks in above ~2605px where fixed 3028.90px no longer covers viewport. */
   .how-invest-hero-media {
     left: calc(50% - 1725.94px);
     top: -692.65px;
-    width: 3028.90px;
-    height: 4541.94px;
+    width: max(3028.90px, calc(50vw + 1727px));
+    height: max(4541.94px, calc(74.977vw + 2588.53px)); /* 3200/2134 ratio */
   }
 
   .how-invest-hero-content {
