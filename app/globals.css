@@ -1449,7 +1449,11 @@ body {
 }
 
 .how-invest-hero-media {
-  object-position: 70% 23%;
+  left: -758px;
+  top: -40px;
+  width: 1376px;
+  height: 2063px;
+  transform: scaleX(-1);
 }
 
 .how-invest-overlay-1 { mix-blend-mode: overlay; }
@@ -2135,7 +2139,10 @@ body {
   }
 
   .how-invest-hero-media {
-    object-position: 63% 27%;
+    left: calc(50% - 1216px);
+    top: -488px;
+    width: 2134px;
+    height: 3200px;
   }
 
   .how-invest-hero-title {
@@ -2570,10 +2577,6 @@ body {
     min-height: 930px;
   }
 
-  .how-invest-hero-media {
-    object-position: 57% 30%;
-  }
-
   .how-numbers-section {
     grid-template-columns: minmax(0, 472px) minmax(0, 624px);
     column-gap: 80px;
@@ -2627,7 +2630,13 @@ body {
   .how-number-card:nth-child(2) { grid-column: 1; grid-row: 2; }
   .how-number-card:nth-child(3) { grid-column: 2; grid-row: 2; }
 
-  /* How We Invest — hero backdrop. Values from 768px block ÷ 1440. */
+  /* How We Invest — hero backdrop. Ratios: left 1216/1440, top 488/1440, w 2134/1440, h 3200/1440. */
+  .how-invest-hero-media {
+    left: calc(50% - 84.444vw);
+    top: -33.889vw;
+    width: 148.194vw;
+    height: 222.222vw;
+  }
 
   /* How We Invest — process band backdrop. Values from 768px block ÷ 1440. */
   .how-process-media {
@@ -2936,6 +2945,13 @@ body {
     min-height: 1080px;
   }
 
+  /* S=1080: all axes scaled by 1080/930 from 1440px reference. */
+  .how-invest-hero-media {
+    left: calc(50% - 1412.13px);
+    top: -566.71px;
+    width: 2478.19px;
+    height: 3716.13px;
+  }
 
   .how-invest-hero-content {
     padding-top: 232.5px;
@@ -3029,6 +3045,13 @@ body {
     min-height: 1200px;
   }
 
+  /* S=1200: all axes scaled by 1200/930 from 1440px reference. */
+  .how-invest-hero-media {
+    left: calc(50% - 1569.03px);
+    top: -629.68px;
+    width: 2753.55px;
+    height: 4129.03px;
+  }
 
   .how-invest-hero-content {
     padding-top: 274.5px;
@@ -3122,6 +3145,13 @@ body {
     min-height: 1320px;
   }
 
+  /* S=1320: all axes scaled by 1320/930 from 1440px reference. */
+  .how-invest-hero-media {
+    left: calc(50% - 1725.94px);
+    top: -692.65px;
+    width: 3028.90px;
+    height: 4541.94px;
+  }
 
   .how-invest-hero-content {
     padding-top: 316.5px;
@@ -3214,6 +3244,13 @@ body {
     min-height: 1440px;
   }
 
+  /* S=1440: switch to vw anchored at V=2800 for open-ended scaling. */
+  .how-invest-hero-media {
+    left: calc(50% - 67.24vw); /* 1216/930×1440/2800×100 */
+    top: -26.99vw;              /* 488/930×1440/2800×100  */
+    width: 118.01vw;            /* 2134/930×1440/2800×100 */
+    height: 177.00vw;           /* 3200/930×1440/2800×100 */
+  }
 
   .how-invest-hero-content {
     padding-top: 358.5px;

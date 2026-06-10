@@ -147,10 +147,11 @@ export default function HowWeInvestPage() {
         <Image
           src="/images/investments/how-we-invest-hero-bg.webp"
           alt=""
-          fill
+          width={2731}
+          height={4096}
           priority
-          className="how-invest-hero-media object-cover"
-          sizes="100vw"
+          className="how-invest-hero-media absolute max-w-none"
+          sizes="(max-width: 767px) 200vw, 150vw"
         />
         <div className="how-invest-overlay-1 absolute inset-0 bg-black/10" />
         <div className="absolute inset-0 bg-black/10" />
