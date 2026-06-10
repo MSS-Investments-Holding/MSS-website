@@ -121,18 +121,13 @@ const sectors = [
 
 const numbers = [
   {
-    value: "$1.5B+",
-    body: "Strategic capital across the broader financial ecosystem.",
-    className: "how-number-card-cream",
-  },
-  {
     value: "7+",
     body: "Ventures operating across emerging, priority sectors.",
     className: "how-number-card-navy",
   },
   {
     value: "6+",
-    body: "Markets represented across the world, inside the MSS eco-system.",
+    body: "No. of Markets represented across the globe, inside the MSS eco-system.",
     className: "how-number-card-gray",
   },
   {
