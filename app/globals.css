@@ -1449,7 +1449,7 @@ body {
 }
 
 .how-invest-hero-media {
-  left: -758px;
+  left: calc(50% - 959px); /* center-lock: focal px 959/1376 centred at any mobile width */
   top: -40px;
   width: 1376px;
   height: 2063px;
