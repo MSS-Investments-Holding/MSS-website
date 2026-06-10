@@ -51,7 +51,7 @@ export default async function NewsPage({
         style={{ minHeight: "520px", backgroundColor: "#0B1738" }}
       >
         <HeroBackgroundImage
-          src="/images/news/news-hero-bg.jpg"
+          src="/images/news/news-hero-bg.webp"
           alt=""
           className="object-cover object-center"
         />
