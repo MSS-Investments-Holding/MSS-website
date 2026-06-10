@@ -325,7 +325,7 @@ export default function AboutPage() {
         >
           <div className="about-portfolio-cta-image" aria-hidden="true">
             <Image
-              src="/images/about/portfolio-cta-bg.jpg"
+              src="/images/about/portfolio-cta-bg.webp"
               alt=""
               fill
               className="object-fill"

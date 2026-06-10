@@ -161,7 +161,7 @@ export default function CareersPage() {
       >
         <div className="careers-stand-media" aria-hidden="true">
           <Image
-            src="/images/careers/careers-mission-bg.jpg"
+            src="/images/careers/careers-mission-bg.webp"
             alt=""
             fill
             className="object-cover"
