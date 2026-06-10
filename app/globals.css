@@ -1518,6 +1518,9 @@ body {
   aspect-ratio: 362 / 360;
 }
 
+.how-philosophy-image-mobile { object-position: 50% 61%; }
+.how-philosophy-image-main   { object-position: 50% 88%; }
+
 .how-process-section {
   padding-top: 120px;
 }
@@ -3091,6 +3094,14 @@ body {
   }
 }
 
+@media (min-width: 2200px) {
+  /* Shift how-we-invest hero backdrop 40px lower from 2200px upwards.
+   * Image height is large enough that the top of the hero remains covered. */
+  .how-invest-hero-media {
+    top: -589.68px; /* 1920px block value + 40px */
+  }
+}
+
 @media (min-width: 2400px) {
   /* ── S = 1320px — all crop-lock ratios × 1320, bounded 2400–2799px range ── */
 
@@ -3150,7 +3161,7 @@ body {
   /* max() kicks in above ~2605px where fixed 3028.90px no longer covers viewport. */
   .how-invest-hero-media {
     left: calc(50% - 1725.94px);
-    top: -692.65px;
+    top: -652.65px; /* base -692.65 + 40px downward shift */
     width: max(3028.90px, calc(50vw + 1727px));
     height: max(4541.94px, calc(74.977vw + 2588.53px)); /* 3200/2134 ratio */
   }
@@ -3249,7 +3260,7 @@ body {
   /* S=1440: switch to vw anchored at V=2800 for open-ended scaling. */
   .how-invest-hero-media {
     left: calc(50% - 67.24vw); /* 1216/930×1440/2800×100 */
-    top: -26.99vw;              /* 488/930×1440/2800×100  */
+    top: calc(-26.99vw + 40px); /* 488/930×1440/2800×100, +40px downward shift */
     width: 118.01vw;            /* 2134/930×1440/2800×100 */
     height: 177.00vw;           /* 3200/930×1440/2800×100 */
   }

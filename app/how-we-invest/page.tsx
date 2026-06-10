@@ -195,17 +195,17 @@ export default function HowWeInvestPage() {
 
           <div className="how-philosophy-image-frame relative overflow-hidden bg-[#0B1738]">
             <Image
-              src="/images/investments/investment-philosophy.png"
+              src="/images/investments/investment-philosophy.webp"
               alt=""
               fill
-              className="hidden object-cover md:block"
+              className="how-philosophy-image-main hidden object-cover md:block"
               sizes="620px"
             />
             <Image
-              src="/images/investments/investment-philosophy-mobile.png"
+              src="/images/investments/investment-philosophy.webp"
               alt=""
               fill
-              className="object-cover md:hidden"
+              className="how-philosophy-image-mobile object-cover md:hidden"
               sizes="362px"
             />
           </div>
