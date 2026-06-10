@@ -74,7 +74,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
         >
           <div className="mss-footer-media-image" aria-hidden="true">
             <Image
-              src="/global/footer-image.png"
+              src="/global/footer-image.webp"
               alt=""
               fill
               className="object-fill"
@@ -146,7 +146,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           <div className="md:hidden w-full overflow-hidden bg-[#0B1738]" style={{ marginTop: "40px", aspectRatio: "627/488", position: "relative" }}>
             <div className="mss-footer-media-image" aria-hidden="true">
               <Image
-                src="/global/footer-image.png"
+                src="/global/footer-image.webp"
                 alt=""
                 fill
                 className="object-fill"
