@@ -11,13 +11,14 @@
 -- the deployment environment; the code falls back to it only when the
 -- anon insert is rejected.
 
+-- Note: the live table predates migration 001 and has no `source`
+-- column, so the check is limited to columns that exist in production.
 create policy "Allow pitch form submissions"
   on public.pitch_submissions
   for insert
   to anon
   with check (
-    source = 'pitch_page'
-    and consent = true
+    consent = true
     and accepted_terms = true
   );
 
