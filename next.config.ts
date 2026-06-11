@@ -21,7 +21,13 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https://cdn.sanity.io",
-      "connect-src 'self'",
+      // Sanity Studio (/studio) calls the Sanity API from the browser,
+      // including websocket listeners for live document updates.
+      "connect-src 'self' https://api.sanity.io https://*.api.sanity.io wss://*.api.sanity.io",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "frame-ancestors 'self'",
     ].join("; "),
   },
 ];
@@ -36,7 +42,14 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31_536_000,
   },
   async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
+    return [
+      { source: "/(.*)", headers: securityHeaders },
+      {
+        // The CMS admin surface should never appear in search results.
+        source: "/studio/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
   },
   compress: true,
   poweredByHeader: false,

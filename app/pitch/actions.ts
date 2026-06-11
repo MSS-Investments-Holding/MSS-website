@@ -25,23 +25,42 @@ const requiredFields = [
   "message",
 ] as const;
 
+/* Mirrors the maxLength attributes on the form inputs; enforced again
+ * here because the client attributes are trivially bypassed. */
+const fieldLimits: Record<string, number> = {
+  first_name: 100,
+  last_name: 100,
+  email: 254,
+  location: 32,
+  business_name: 200,
+  business_url: 2048,
+  inquiry_type: 32,
+  message: 5000,
+};
+
 function readValue(formData: FormData, key: string) {
   const value = formData.get(key);
   return typeof value === "string" ? value.trim() : "";
 }
 
+/* Only http(s) URLs are stored — anything else (javascript:, data:,
+ * unparseable input) becomes null so no dangerous scheme can reach a
+ * future admin view as a clickable link. */
 function normalizeOptionalUrl(value: string) {
   if (!value) return null;
 
-  try {
-    return new URL(value).toString();
-  } catch {
+  for (const candidate of [value, `https://${value}`]) {
     try {
-      return new URL(`https://${value}`).toString();
+      const url = new URL(candidate);
+      if (url.protocol === "http:" || url.protocol === "https:") {
+        return url.toString();
+      }
     } catch {
-      return value;
+      // try the next candidate
     }
   }
+
+  return null;
 }
 
 function hashIp(ip: string) {
@@ -154,6 +173,13 @@ export async function submitPitch(
     }
   }
 
+  for (const [field, limit] of Object.entries(fieldLimits)) {
+    const value = payload[field as keyof typeof payload];
+    if (typeof value === "string" && value.length > limit) {
+      fieldErrors[field] = `Must be ${limit} characters or fewer`;
+    }
+  }
+
   if (payload.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
     fieldErrors.email = "Enter a valid email";
   }
@@ -192,32 +218,54 @@ export async function submitPitch(
   }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const resendApiKey = process.env.RESEND_API_KEY;
   const fromEmail = process.env.PITCH_FORM_FROM_EMAIL ?? "MSS Website <onboarding@resend.dev>";
   const toEmail = process.env.PITCH_FORM_TO_EMAIL;
 
-  if (!supabaseUrl || !serviceRoleKey) {
+  if (!supabaseUrl || (!anonKey && !serviceRoleKey)) {
     return {
       ok: false,
       message: "The pitch form is not configured yet. Please try again later.",
     };
   }
 
-  const insertResponse = await fetch(`${supabaseUrl}/rest/v1/pitch_submissions`, {
-    method: "POST",
-    headers: {
-      apikey: serviceRoleKey,
-      Authorization: `Bearer ${serviceRoleKey}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
-    },
-    body: JSON.stringify({
-      ...payload,
-      user_agent: userAgent,
-      ip_hash: ipHash,
-    }),
+  const insertBody = JSON.stringify({
+    ...payload,
+    user_agent: userAgent,
+    ip_hash: ipHash,
   });
+
+  const insertWith = (key: string) =>
+    fetch(`${supabaseUrl}/rest/v1/pitch_submissions`, {
+      method: "POST",
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+      },
+      body: insertBody,
+    });
+
+  /* Least privilege: insert with the anon key, which RLS restricts to
+   * insert-only (migration 002). The service-role fallback exists only
+   * for the window before that migration is applied — once it is, the
+   * service key can be removed from the deployment environment. */
+  let insertResponse = await insertWith(anonKey ?? serviceRoleKey!);
+
+  if (
+    !insertResponse.ok &&
+    anonKey &&
+    serviceRoleKey &&
+    (insertResponse.status === 401 || insertResponse.status === 403)
+  ) {
+    console.warn(
+      "Pitch insert with anon key was rejected — apply supabase/migrations/002_pitch_submissions_insert_policy.sql. Falling back to service role key."
+    );
+    insertResponse = await insertWith(serviceRoleKey);
+  }
 
   if (!insertResponse.ok) {
     return {

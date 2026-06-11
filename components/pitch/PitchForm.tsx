@@ -107,6 +107,7 @@ export default function PitchForm() {
             name="first_name"
             placeholder="First Name"
             required
+            maxLength={100}
             style={fieldBase}
             className="placeholder-[#AEB0B3] focus:border-[#1C1C1F] transition-colors"
           />
@@ -118,6 +119,7 @@ export default function PitchForm() {
             name="last_name"
             placeholder="Last Name"
             required
+            maxLength={100}
             style={fieldBase}
             className="placeholder-[#AEB0B3] focus:border-[#1C1C1F] transition-colors"
           />
@@ -133,6 +135,7 @@ export default function PitchForm() {
             name="email"
             placeholder="Email"
             required
+            maxLength={254}
             style={fieldBase}
             className="placeholder-[#AEB0B3] focus:border-[#1C1C1F] transition-colors"
           />
@@ -210,6 +213,7 @@ export default function PitchForm() {
           type="text"
           name="business_name"
           placeholder="Business Name"
+          maxLength={200}
           style={fieldBase}
           className="placeholder-[#AEB0B3] focus:border-[#1C1C1F] transition-colors"
         />
@@ -217,6 +221,7 @@ export default function PitchForm() {
           type="url"
           name="business_url"
           placeholder="Business URL"
+          maxLength={2048}
           style={fieldBase}
           className="placeholder-[#AEB0B3] focus:border-[#1C1C1F] transition-colors"
         />
@@ -254,6 +259,7 @@ export default function PitchForm() {
         name="message"
         placeholder="Write your message"
         required
+        maxLength={5000}
         style={{
           display: "block",
           width: "100%",

@@ -129,7 +129,7 @@ The site is configured for deployment on Vercel.
 | `SANITY_API_TOKEN` | Yes | Sanity read API token |
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes | Supabase anon/public key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Yes | Supabase service role key (server-side only, never expose to client) |
+| `SUPABASE_SERVICE_ROLE_KEY` | No | Fallback only — used until migration `002_pitch_submissions_insert_policy.sql` is applied, then remove it from the environment |
 | `RESEND_API_KEY` | Yes | Resend API key for email delivery |
 | `PITCH_FORM_FROM_EMAIL` | Yes | Verified sender address for pitch notifications |
 | `PITCH_FORM_TO_EMAIL` | Yes | Internal recipient for pitch form submissions |
