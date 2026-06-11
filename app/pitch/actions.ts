@@ -50,6 +50,49 @@ function hashIp(ip: string) {
     .digest("hex");
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+/* Per-IP sliding window: counts only submissions that reach the
+ * insert/email path, so validation retries are never penalised.
+ * In-memory state is per serverless instance — a determined
+ * distributed attacker needs an edge/WAF layer on top, but this
+ * stops the single-source floods that burn email quota. */
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX_SUBMISSIONS = 3;
+const submissionTimes = new Map<string, number[]>();
+
+function isRateLimited(ipHash: string) {
+  const now = Date.now();
+  const recent = (submissionTimes.get(ipHash) ?? []).filter(
+    (time) => now - time < RATE_LIMIT_WINDOW_MS
+  );
+
+  if (recent.length >= RATE_LIMIT_MAX_SUBMISSIONS) {
+    submissionTimes.set(ipHash, recent);
+    return true;
+  }
+
+  recent.push(now);
+  submissionTimes.set(ipHash, recent);
+
+  if (submissionTimes.size > 5000) {
+    for (const [key, times] of submissionTimes) {
+      if (times.every((time) => now - time >= RATE_LIMIT_WINDOW_MS)) {
+        submissionTimes.delete(key);
+      }
+    }
+  }
+
+  return false;
+}
+
 function buildEmailHtml(payload: Record<string, string | boolean | null>) {
   const rows = [
     ["Name", `${payload.first_name} ${payload.last_name}`],
@@ -69,8 +112,8 @@ function buildEmailHtml(payload: Record<string, string | boolean | null>) {
           .map(
             ([label, value]) => `
               <tr>
-                <td style="width: 160px; padding: 10px 0; color: #67686B; vertical-align: top;">${label}</td>
-                <td style="padding: 10px 0; color: #1C1C1F; white-space: pre-wrap;">${String(value)}</td>
+                <td style="width: 160px; padding: 10px 0; color: #67686B; vertical-align: top;">${escapeHtml(String(label))}</td>
+                <td style="padding: 10px 0; color: #1C1C1F; white-space: pre-wrap;">${escapeHtml(String(value))}</td>
               </tr>
             `
           )
@@ -139,6 +182,14 @@ export async function submitPitch(
   const forwardedFor = headerList.get("x-forwarded-for") ?? "";
   const ip = forwardedFor.split(",")[0]?.trim() || headerList.get("x-real-ip") || "unknown";
   const userAgent = headerList.get("user-agent") ?? null;
+  const ipHash = hashIp(ip);
+
+  if (isRateLimited(ipHash)) {
+    return {
+      ok: false,
+      message: "Too many submissions from your network. Please wait a few minutes and try again.",
+    };
+  }
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -164,7 +215,7 @@ export async function submitPitch(
     body: JSON.stringify({
       ...payload,
       user_agent: userAgent,
-      ip_hash: hashIp(ip),
+      ip_hash: ipHash,
     }),
   });
 
