@@ -8,8 +8,10 @@ const partners = [
   { src: "/images/partner-logos/partner-03.svg", width: 160, maxHeight: 40, alt: "Twilio SendGrid" },
   { src: "/images/partner-logos/partner-04.svg", width: 110, maxHeight: 40, alt: "Fireblocks" },
   { src: "/images/partner-logos/partner-05.svg", width: 110, maxHeight: 40, alt: "" },
+  { src: "/images/partner-logos/partner-09.svg", width: 127, maxHeight: 40, alt: "ClearBank" },
   { src: "/images/partner-logos/partner-06.svg", width: 111, maxHeight: 40, alt: "" },
   { src: "/images/partner-logos/partner-07.png", width: 123, maxHeight: 40, alt: "" },
+  { src: "/images/partner-logos/partner-10.svg", width: 80, maxHeight: 40, alt: "CurrencyCloud" },
   { src: "/images/partner-logos/partner-08.svg", width: 152, maxHeight: 40, alt: "" },
 ];
 
