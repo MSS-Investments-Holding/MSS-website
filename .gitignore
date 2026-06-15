@@ -41,6 +41,8 @@ yarn-error.log*
 # Internal agency working files — kept locally, not shipped to client
 CLAUDE.md
 docs/
+client-revisions-log.csv
+client-revisions-log.xlsx
 
 # vercel
 .vercel
