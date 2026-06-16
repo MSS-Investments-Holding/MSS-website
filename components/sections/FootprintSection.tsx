@@ -35,26 +35,25 @@ export default function FootprintSection() {
       // Mobile: tall enough for content + globe; tablet+: fixed scroll-driven height
       className="relative w-full overflow-hidden h-[960px] md:h-[766px]"
     >
-      {/* Background image — mobile: x=-459 y=-89 w=1321 h=1762 at 375px */}
+      {/* Background image — mobile: x=-332 y=-35 w=1588 h=1939 at 402px Figma frame */}
       <div
         className="md:hidden absolute"
-        style={{ width: "352.27vw", height: "469.87vw", left: "-122.40vw", top: "-23.73vw" }}
+        style={{ width: "395.02vw", height: "482.34vw", left: "-82.59vw", top: "-8.71vw" }}
       >
-        <Image src="/images/home/footprint-bg.png" alt="" fill priority={false} sizes="352vw" className="object-cover" />
+        <Image src="/images/home/footprint-bg.webp" alt="" fill priority={false} sizes="395vw" className="object-cover" />
       </div>
 
-      {/* Background image — desktop: x=-93 y=-476 w=1627 h=2169 at 1440px.
+      {/* Background image — desktop: x=-335 y=-786 w=2449 h=2989 at 1440px.
        * Section height is fixed at 766px across the whole md+ range, but width
-       * scales with the viewport — a pure `top: -33.06vw` would let the visible
-       * vertical focal point drift through the image as the screen resizes
-       * (e.g. ~55% down at 768px vs ~40% at 1440px vs ~33% at 2400px). Locking
-       * top to `383px - 59.653vw` keeps the focal point fixed at ~39.6% of the
-       * image height — matching the 1440px framing — at every width. */}
+       * scales with the viewport — a pure `top: -54.58vw` would let the visible
+       * vertical focal point drift through the image as the screen resizes.
+       * Locking top to `383px - 81.181vw` keeps the focal point fixed at ~39.1%
+       * of the image height — matching the 1440px framing — at every width. */}
       <div
         className="hidden md:block absolute"
-        style={{ width: "112.99vw", height: "150.63vw", left: "-6.46vw", top: "calc(383px - 59.653vw)" }}
+        style={{ width: "170.07vw", height: "207.57vw", left: "-23.26vw", top: "calc(383px - 81.181vw)" }}
       >
-        <Image src="/images/home/footprint-bg.png" alt="" fill priority={false} sizes="113vw" className="object-cover" />
+        <Image src="/images/home/footprint-bg.webp" alt="" fill priority={false} sizes="170vw" className="object-cover" />
       </div>
 
       {/* Scroll-driven card wrapper — translateY disabled on mobile */}
