@@ -2682,6 +2682,41 @@ body {
 .leader-husnain-crop { object-position: 50% 76%; }
 @media (min-width: 768px) { .leader-husnain-crop { object-position: 50% 85%; } }
 @media (min-width: 1024px) { .leader-husnain-crop { object-position: 50% 63%; } }
+/* Global Footprint section — backdrop image.
+ * Three Figma reference frames: 768px, 1023px, 1440px.
+ * All tiers use bottom-lock so the section's bottom edge is fixed at 50% of
+ * the image height at every viewport (50.58% at 1440px+ — negligible diff).
+ * The 1440px+ tier adds max()/min() so the image never shrinks below the
+ * 1440px reference values at narrower viewport widths. */
+@media (min-width: 768px) {
+  .footprint-bg-media {
+    /* 768px Figma: x=-231 y=-74 w=1376 h=1680 */
+    width: 179.167vw;
+    height: 218.750vw;
+    left: -30.078vw;
+    top: calc(766px - 109.375vw);
+  }
+}
+@media (min-width: 1024px) {
+  .footprint-bg-media {
+    /* 1023px Figma: x=-215 y=-219 w=1614 h=1970 */
+    width: 157.771vw;
+    height: 192.571vw;
+    left: -21.017vw;
+    top: calc(766px - 96.285vw);
+  }
+}
+@media (min-width: 1440px) {
+  .footprint-bg-media {
+    /* 1440px Figma: x=-335 y=-746 w=2449 h=2989.
+     * max/min prevents shrinkage below reference on sub-1440px desktops. */
+    width: max(2449px, 170.07vw);
+    height: max(2989px, 207.57vw);
+    left: min(-335px, -23.26vw);
+    top: min(-746px, calc(766px - 105vw));
+  }
+}
+
 .footprint-section-h2  { font-size: 2.25rem;   line-height: 1.2;   }
 .news-article-hero-title { font-size: 2.875rem; line-height: 1.087; }
 .news-press-kit-h2     { font-size: 2.25rem;   line-height: 1.167; }

@@ -43,18 +43,10 @@ export default function FootprintSection() {
         <Image src="/images/home/footprint-bg.webp" alt="" fill priority={false} sizes="395vw" className="object-cover" />
       </div>
 
-      {/* Background image — desktop: x=-335 y=-786 w=2449 h=2989 at 1440px.
-       * max() on width/height prevents shrinkage below the 1440px reference on
-       * narrower desktops (768–1440px); above 1440px vw wins and image grows for
-       * coverage. top uses a bottom-lock: min(-746px, calc(766px - 105vw)) pins
-       * the section's bottom edge to the same image fraction (50.6%) at every
-       * wide viewport, preventing the image from appearing progressively cropped
-       * at the bottom as screen width increases. */}
-      <div
-        className="hidden md:block absolute"
-        style={{ width: "max(2449px, 170.07vw)", height: "max(2989px, 207.57vw)", left: "min(-335px, -23.26vw)", top: "min(-746px, calc(766px - 105vw))" }}
-      >
-        <Image src="/images/home/footprint-bg.webp" alt="" fill priority={false} sizes="170vw" className="object-cover" />
+      {/* Background image — 3 Figma tiers: 768px / 1023px / 1440px.
+       * Sizing and bottom-lock positioning handled by .footprint-bg-media in globals.css. */}
+      <div className="hidden md:block absolute footprint-bg-media">
+        <Image src="/images/home/footprint-bg.webp" alt="" fill priority={false} sizes="(min-width: 1440px) 170vw, (min-width: 1024px) 158vw, 179vw" className="object-cover" />
       </div>
 
       {/* Scroll-driven card wrapper — translateY disabled on mobile */}
