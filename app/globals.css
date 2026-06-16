@@ -2683,17 +2683,17 @@ body {
 @media (min-width: 768px) { .leader-husnain-crop { object-position: 50% 85%; } }
 @media (min-width: 1024px) { .leader-husnain-crop { object-position: 50% 63%; } }
 /* Global Footprint section — backdrop image.
- * Mobile (.footprint-bg-mobile): fluid interpolation 402px→768px refs (320–767px range).
+ * Mobile (.footprint-bg-mobile): fixed-size image, left pans across 320–767px.
  * Desktop (.footprint-bg-media): fluid interpolation across three Figma refs: 768px→1023px,
  *   1023px→1440px, then max/min() above 1440px. */
 
-/* Mobile backdrop — linear interpolation: 402px (w=1588,h=1939,l=-332,t=-35) →
- * 768px (w=1376,h=1680,l=-231,t=-74). Exact at both endpoints. */
+/* Mobile backdrop — image is 1588×1939px at both Figma refs (402px and 767px).
+ * Width/height/top are fixed; only left interpolates to pan the focal column. */
 .footprint-bg-mobile {
-  width:  calc(1820.853px - 57.924vw);
-  height: calc(2223.475px - 70.765vw);
-  left:   calc(-442.934px + 27.596vw);
-  top:    calc(7.836px - 10.656vw);
+  width:  1588px;
+  height: 1939px;
+  left:   calc(-533.551px + 50.137vw);
+  top:    -35px;
 }
 @media (min-width: 768px) {
   .footprint-bg-media {
