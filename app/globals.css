@@ -2683,11 +2683,18 @@ body {
 @media (min-width: 768px) { .leader-husnain-crop { object-position: 50% 85%; } }
 @media (min-width: 1024px) { .leader-husnain-crop { object-position: 50% 63%; } }
 /* Global Footprint section — backdrop image.
- * Three Figma reference frames: 768px, 1023px, 1440px.
- * 768–1023px: fluid linear interpolation between the two tablet refs so sizing
- * and position scale continuously (no jump). Both refs share 50% bottom fraction
- * so the section's bottom edge stays pinned at mid-image throughout.
- * 1440px+: max/min() prevents shrinkage below the 1440px reference pixel values. */
+ * Mobile (.footprint-bg-mobile): fluid interpolation 402px→768px refs (320–767px range).
+ * Desktop (.footprint-bg-media): fluid interpolation across three Figma refs: 768px→1023px,
+ *   1023px→1440px, then max/min() above 1440px. */
+
+/* Mobile backdrop — linear interpolation: 402px (w=1588,h=1939,l=-332,t=-35) →
+ * 768px (w=1376,h=1680,l=-231,t=-74). Exact at both endpoints. */
+.footprint-bg-mobile {
+  width:  calc(1820.853px - 57.924vw);
+  height: calc(2223.475px - 70.765vw);
+  left:   calc(-442.934px + 27.596vw);
+  top:    calc(7.836px - 10.656vw);
+}
 @media (min-width: 768px) {
   .footprint-bg-media {
     /* Linear interpolation: 768px (w=1376,h=1680,l=-231,t=-74) →

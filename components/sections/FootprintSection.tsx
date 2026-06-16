@@ -35,11 +35,8 @@ export default function FootprintSection() {
       // Mobile: tall enough for content + globe; tablet+: fixed scroll-driven height
       className="relative w-full overflow-hidden h-[960px] md:h-[766px]"
     >
-      {/* Background image — mobile: x=-332 y=-35 w=1588 h=1939 at 402px Figma frame */}
-      <div
-        className="md:hidden absolute"
-        style={{ width: "395.02vw", height: "482.34vw", left: "-82.59vw", top: "-8.71vw" }}
-      >
+      {/* Background image — mobile: fluid interpolation 402px→768px refs, handled by .footprint-bg-mobile in globals.css */}
+      <div className="md:hidden absolute footprint-bg-mobile">
         <Image src="/images/home/footprint-bg.webp" alt="" fill priority={false} sizes="395vw" className="object-cover" />
       </div>
 
