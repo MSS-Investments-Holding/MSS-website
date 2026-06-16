@@ -2700,11 +2700,12 @@ body {
 }
 @media (min-width: 1024px) {
   .footprint-bg-media {
-    /* 1023px Figma: x=-215 y=-219 w=1614 h=1970 */
-    width: 157.771vw;
-    height: 192.571vw;
-    left: -21.017vw;
-    top: calc(766px - 96.285vw);
+    /* Linear interpolation: 1023px (w=1614,h=1970,l=-215,t=-219) →
+     * 1440px (w=2449,h=2989,l=-335,t=-746). Exact at both endpoints. */
+    width:  calc(-434.453px + 200.240vw);
+    height: calc(-529.849px + 244.364vw);
+    left:   calc(79.389px - 28.777vw);
+    top:    calc(1073.856px - 126.379vw);
   }
 }
 @media (min-width: 1440px) {
