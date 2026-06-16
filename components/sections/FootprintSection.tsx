@@ -33,7 +33,7 @@ export default function FootprintSection() {
       ref={sectionRef}
       aria-label="Global Footprint"
       // Mobile: tall enough for content + globe; tablet+: fixed scroll-driven height
-      className="relative w-full overflow-hidden h-[960px] md:h-[766px]"
+      className="relative w-full overflow-hidden h-[960px] md:h-[766px] footprint-section-shell"
     >
       {/* Background image — mobile: fluid interpolation 402px→768px refs, handled by .footprint-bg-mobile in globals.css */}
       <div className="md:hidden absolute footprint-bg-mobile">

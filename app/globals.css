@@ -2717,13 +2717,87 @@ body {
 }
 @media (min-width: 1440px) {
   .footprint-bg-media {
-    /* 1440px Figma: x=-335 y=-746 w=2449 h=2989.
-     * max/min prevents shrinkage below reference on sub-1440px desktops. */
-    width: max(2449px, 170.07vw);
-    height: max(2989px, 207.57vw);
-    left: min(-335px, -23.26vw);
-    top: min(-746px, calc(766px - 105vw));
+    /* 1440px (w=2449,h=2989,l=-335,t=-746) → 1600px (w=2673,h=3263,l=-362,t=-883) */
+    width:  calc(433px + 140vw);
+    height: calc(523px + 171.25vw);
+    left:   calc(-92px - 16.875vw);
+    top:    calc(487px - 85.625vw);
   }
+}
+@media (min-width: 1600px) {
+  .footprint-bg-media {
+    /* 1600px (w=2673,h=3263,l=-362,t=-883) → 1919px (w=3205,h=3913,l=-429,t=-1210) */
+    width:  calc(4.661px + 166.771vw);
+    height: calc(2.812px + 203.762vw);
+    left:   calc(-25.950px - 21.003vw);
+    top:    calc(757.125px - 102.508vw);
+  }
+}
+@media (min-width: 1920px) {
+  .footprint-bg-media {
+    /* 1919px (w=3205,h=3913,l=-429,t=-1210) → 2200px (w=3651,h=4457,l=-477,t=-1431) */
+    width:  calc(159.185px + 158.719vw);
+    height: calc(197.925px + 193.594vw);
+    left:   calc(-101.199px - 17.082vw);
+    top:    calc(299.249px - 78.648vw);
+  }
+}
+@media (min-width: 2200px) {
+  .footprint-bg-media {
+    /* 2200px (w=3651,h=4457,l=-477,t=-1431) → 2600px (w=4045,h=4937,l=-620,t=-1621) */
+    width:  calc(1484px + 98.5vw);
+    height: calc(1817px + 120vw);
+    left:   calc(309.5px - 35.75vw);
+    top:    calc(-386px - 47.5vw);
+  }
+}
+@media (min-width: 2600px) {
+  .footprint-bg-media {
+    /* 2600px (w=4045,h=4937,l=-620,t=-1621) → 3000px (w=4178,h=5101,l=-589,t=-1642) */
+    width:  calc(3180.5px + 33.25vw);
+    height: calc(3871px + 41vw);
+    left:   calc(-821.5px + 7.75vw);
+    top:    calc(-1484.5px - 5.25vw);
+  }
+}
+@media (min-width: 3000px) {
+  .footprint-bg-media {
+    /* 3000px and 3400px share identical image values — fixed until 3400px */
+    width:  4178px;
+    height: 5101px;
+    left:   -589px;
+    top:    -1642px;
+  }
+}
+@media (min-width: 3400px) {
+  .footprint-bg-media {
+    /* 3400px (w=4178,h=5101,l=-589,t=-1642) → 3800px (w=5082,h=6205,l=-841,t=-2017) */
+    width:  calc(-3506px + 226vw);
+    height: calc(-4283px + 276vw);
+    left:   calc(1553px - 63vw);
+    top:    calc(1545.5px - 93.75vw);
+  }
+}
+@media (min-width: 3800px) {
+  .footprint-bg-media {
+    /* 3800px (w=5082,h=6205,l=-841,t=-2017) → 4200px+ (w=5278,h=6445,l=-939,t=-2089) */
+    width:  calc(3220px + 49vw);
+    height: calc(3925px + 60vw);
+    left:   calc(90px - 24.5vw);
+    top:    calc(-1333px - 18vw);
+  }
+}
+
+/* Section shell — height grows at wide viewports to match Figma frames.
+ * Overrides md:h-[766px] via cascade (this CSS follows @tailwind utilities). */
+@media (min-width: 1920px) {
+  .footprint-section-shell { height: calc(602.1px + 8.541vw); }
+}
+@media (min-width: 2200px) {
+  .footprint-section-shell { height: calc(658px + 6vw); }
+}
+@media (min-width: 3000px) {
+  .footprint-section-shell { height: calc(538px + 10vw); }
 }
 
 .footprint-section-h2  { font-size: 2.25rem;   line-height: 1.2;   }
