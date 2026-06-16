@@ -51,7 +51,7 @@ export default function FootprintSection() {
        * of the image height — matching the 1440px framing — at every width. */}
       <div
         className="hidden md:block absolute"
-        style={{ width: "170.07vw", height: "207.57vw", left: "-23.26vw", top: "calc(383px - 81.181vw)" }}
+        style={{ width: "170.07vw", height: "207.57vw", left: "-23.26vw", top: "calc(423px - 81.181vw)" }}
       >
         <Image src="/images/home/footprint-bg.webp" alt="" fill priority={false} sizes="170vw" className="object-cover" />
       </div>
