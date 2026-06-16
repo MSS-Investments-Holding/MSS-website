@@ -2684,17 +2684,18 @@ body {
 @media (min-width: 1024px) { .leader-husnain-crop { object-position: 50% 63%; } }
 /* Global Footprint section — backdrop image.
  * Three Figma reference frames: 768px, 1023px, 1440px.
- * All tiers use bottom-lock so the section's bottom edge is fixed at 50% of
- * the image height at every viewport (50.58% at 1440px+ — negligible diff).
- * The 1440px+ tier adds max()/min() so the image never shrinks below the
- * 1440px reference values at narrower viewport widths. */
+ * 768–1023px: fluid linear interpolation between the two tablet refs so sizing
+ * and position scale continuously (no jump). Both refs share 50% bottom fraction
+ * so the section's bottom edge stays pinned at mid-image throughout.
+ * 1440px+: max/min() prevents shrinkage below the 1440px reference pixel values. */
 @media (min-width: 768px) {
   .footprint-bg-media {
-    /* 768px Figma: x=-231 y=-74 w=1376 h=1680 */
-    width: 179.167vw;
-    height: 218.750vw;
-    left: -30.078vw;
-    top: calc(766px - 109.375vw);
+    /* Linear interpolation: 768px (w=1376,h=1680,l=-231,t=-74) →
+     * 1023px (w=1614,h=1970,l=-215,t=-219). Exact at both endpoints. */
+    width:  calc(659.2px + 93.333vw);
+    height: calc(806.588px + 113.725vw);
+    left:   calc(-279.188px + 6.275vw);
+    top:    calc(362.706px - 56.863vw);
   }
 }
 @media (min-width: 1024px) {
