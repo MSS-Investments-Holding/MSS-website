@@ -2780,8 +2780,10 @@ body {
 }
 @media (min-width: 3800px) {
   .footprint-bg-media {
-    /* 3800px (w=5082,h=6205,l=-841,t=-2017) → 4200px+ (w=5278,h=6445,l=-939,t=-2089) */
-    width:  calc(3220px + 49vw);
+    /* 3800px (w=5082,h=6205,l=-841,t=-2017) → 4200px (w=5278,h=6445,l=-939,t=-2089).
+     * max() switches from the Figma-derived formula to a coverage formula at ~4200px:
+     * right_edge = (90 - 24.5vw) + max(3220+49vw, 49+124.5vw) ≥ vw + 139px always. */
+    width:  max(calc(3220px + 49vw), calc(49px + 124.5vw));
     height: calc(3925px + 60vw);
     left:   calc(90px - 24.5vw);
     top:    calc(-1333px - 18vw);
