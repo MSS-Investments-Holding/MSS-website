@@ -44,14 +44,15 @@ export default function FootprintSection() {
       </div>
 
       {/* Background image — desktop: x=-335 y=-786 w=2449 h=2989 at 1440px.
-       * Section height is fixed at 766px across the whole md+ range, but width
-       * scales with the viewport — a pure `top: -54.58vw` would let the visible
-       * vertical focal point drift through the image as the screen resizes.
-       * Locking top to `383px - 81.181vw` keeps the focal point fixed at ~39.1%
-       * of the image height — matching the 1440px framing — at every width. */}
+       * max() on width/height prevents shrinkage below the 1440px reference on
+       * narrower desktops (768–1440px); above 1440px vw wins and image grows for
+       * coverage. top uses a bottom-lock: min(-746px, calc(766px - 105vw)) pins
+       * the section's bottom edge to the same image fraction (50.6%) at every
+       * wide viewport, preventing the image from appearing progressively cropped
+       * at the bottom as screen width increases. */}
       <div
         className="hidden md:block absolute"
-        style={{ width: "170.07vw", height: "207.57vw", left: "-23.26vw", top: "calc(423px - 81.181vw)" }}
+        style={{ width: "max(2449px, 170.07vw)", height: "max(2989px, 207.57vw)", left: "min(-335px, -23.26vw)", top: "min(-746px, calc(766px - 105vw))" }}
       >
         <Image src="/images/home/footprint-bg.webp" alt="" fill priority={false} sizes="170vw" className="object-cover" />
       </div>
