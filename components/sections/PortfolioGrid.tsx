@@ -101,7 +101,7 @@ const companies: Company[] = [
     logoH: 40,
     detailLogoW: 125,
     detailLogoH: 56,
-    tags: ["Fintech", "B2C", "MSB License"],
+    tags: ["Fintech", "B2C", "MSB License", "PSP License"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     details: {
       partnershipStart: "2022",
