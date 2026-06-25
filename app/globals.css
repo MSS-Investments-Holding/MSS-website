@@ -3055,12 +3055,8 @@ body {
     min-height: 1080px;
   }
 
-  /* height/top ratios locked from the 1440px reference (1509×1886px, top
-   * offset -164 ÷ 930) — width/left stay continuous (vw-based), already
-   * full-bleed and locked at cx ≈ 0.477, so left untouched here. */
   .careers-hero-media {
     top: calc(50% - 190.45px);
-    height: 2190.19px;
   }
 
   .careers-hero-content {
@@ -3160,7 +3156,6 @@ body {
 
   .careers-hero-media {
     top: calc(50% - 211.61px);
-    height: 2433.55px;
   }
 
   .careers-hero-content {
@@ -3266,10 +3261,8 @@ body {
     min-height: 1320px;
   }
 
-  /* careers: height/top only — width stays vw-based (full-bleed, ≥1440px rule). */
   .careers-hero-media {
-    top: calc(50% - 232.77px); /* 164 × 1320/930 = 232.77 */
-    height: 2676.90px;         /* 1886/930 × 1320 */
+    top: calc(50% - 232.77px);
   }
 
   .careers-hero-content {
@@ -3366,10 +3359,8 @@ body {
     min-height: 1440px;
   }
 
-  /* careers: height/top fixed px — width is already vw-based, always covers. */
   .careers-hero-media {
-    top: calc(50% - 253.94px); /* 164 × 1440/930 = 253.94 */
-    height: 2920.26px;         /* 1886/930 × 1440 */
+    top: calc(50% - 253.94px);
   }
 
   .careers-hero-content {
