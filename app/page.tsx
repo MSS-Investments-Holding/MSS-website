@@ -10,6 +10,7 @@ import NewsSection from "@/components/sections/NewsSection";
 import Footer from "@/components/layout/Footer";
 import { getAllArticles } from "@/lib/sanity/queries";
 import { NEWS_ENABLED } from "@/lib/features";
+import HeroImagePreloader from "@/components/HeroImagePreloader";
 
 // Revalidate every 60 s so newly published Sanity articles appear automatically
 export const revalidate = 60;
@@ -23,6 +24,7 @@ export default async function HomePage() {
 
   return (
     <main id="main-content">
+      <HeroImagePreloader />
       <HeroSection  articles={heroArticles} />
       <CompanySection />
       <InvestmentsSection />
