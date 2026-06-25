@@ -158,7 +158,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           {/* Copyright — mobile only (md+ uses the bottom row below the image) */}
           <div className="mt-6 pb-10 md:hidden">
             <p className="text-label font-body" style={{ color: "#67686B" }}>
-              ©2026 MSS Holding Company. All rights reserved
+              ©2026 MSS Investments Holding. All rights reserved.
             </p>
             <p className="text-label font-body mt-4" style={{ color: "#67686B" }}>
               info@mssinvestmentsholding.com
@@ -180,7 +180,7 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
        */}
       <div className="hidden md:flex flex-col items-end px-12 lg:px-20" style={{ paddingTop: "20px", paddingBottom: "40px", gap: "8px" }}>
         <p className="text-label font-body" style={{ color: "#67686B" }}>
-          ©2026 MSS Holding Company. All rights reserved
+          ©2026 MSS Investments Holding. All rights reserved.
         </p>
         <p className="text-label font-body" style={{ color: "#67686B" }}>
           info@mssinvestmentsholding.com
