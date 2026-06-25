@@ -52,7 +52,7 @@ export default function CareersPage() {
       >
         <div className="careers-hero-media" aria-hidden="true">
           <Image
-            src="/images/careers/careers-hero-bg.jpg"
+            src="/images/careers/careers-hero-bg.webp"
             alt=""
             fill
             className="object-fill"

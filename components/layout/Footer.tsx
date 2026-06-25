@@ -23,9 +23,9 @@ const exploreCol2 = [
 ];
 
 const socialLinks = [
-  { label: "LinkedIn",             href: "https://www.linkedin.com" },
+  { label: "LinkedIn",             href: "https://www.linkedin.com/company/mssinvestmentsholding" },
   { label: "Instagram",            href: "https://www.instagram.com" },
-  { label: "Facebook",             href: "https://www.facebook.com" },
+  { label: "Facebook",             href: "https://www.facebook.com/mssinvestmentsholding/" },
 ];
 
 const legalLinks = [
