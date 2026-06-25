@@ -75,6 +75,7 @@ export default function PitchPage() {
       <section
         aria-label="Pitch to Us Hero"
         className="pitch-hero-section relative w-full overflow-hidden"
+        style={{ backgroundColor: "#0B1738" }}
       >
         <div className="pitch-hero-media" aria-hidden="true">
           <Image

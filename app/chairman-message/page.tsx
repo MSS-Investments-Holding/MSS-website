@@ -45,7 +45,7 @@ export default function ChairmanPage() {
       <section
         aria-label="Chairman's Message Hero"
         className="chairman-hero-section relative w-full overflow-hidden"
-        style={{ backgroundColor: "#1C1C1F" }}
+        style={{ backgroundColor: "#0B1738" }}
       >
         <div className="chairman-hero-media" aria-hidden="true">
           <Image

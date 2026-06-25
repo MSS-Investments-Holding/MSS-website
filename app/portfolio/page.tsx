@@ -16,7 +16,7 @@ export default function PortfolioPage(): React.ReactElement {
     <main id="main-content">
       <section
         aria-label="Portfolio overview"
-        className="portfolio-hero-section relative w-full overflow-hidden bg-[#1C1C1F]"
+        className="portfolio-hero-section relative w-full overflow-hidden bg-[#0B1738]"
       >
         <Image
           src="/images/portfolio/hero-bg.jpg"

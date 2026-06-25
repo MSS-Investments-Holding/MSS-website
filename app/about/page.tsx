@@ -126,7 +126,7 @@ export default function AboutPage() {
       <section
         aria-label="About Us Hero"
         className="about-hero-section relative w-full overflow-hidden flex flex-col"
-        style={{ backgroundColor: "#1C1C1F" }}
+        style={{ backgroundColor: "#0B1738" }}
       >
         <div className="about-hero-media" aria-hidden="true">
           <Image

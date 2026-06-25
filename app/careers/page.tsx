@@ -48,7 +48,7 @@ export default function CareersPage() {
       <section
         aria-label="Careers Hero"
         className="careers-hero-section relative w-full overflow-hidden flex flex-col"
-        style={{ backgroundColor: "#1C1C1F" }}
+        style={{ backgroundColor: "#0B1738" }}
       >
         <div className="careers-hero-media" aria-hidden="true">
           <Image
