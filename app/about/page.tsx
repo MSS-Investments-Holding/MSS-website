@@ -130,7 +130,7 @@ export default function AboutPage() {
       >
         <div className="about-hero-media" aria-hidden="true">
           <Image
-            src="/images/about/hero-bg.jpg"
+            src="/images/about/hero-bg.webp"
             alt=""
             fill
             className="object-fill"
