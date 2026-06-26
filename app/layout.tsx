@@ -5,7 +5,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SmoothScroll from "@/components/SmoothScroll";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import CrispChat from "@/components/CrispChat";
 
 const merriweather = Merriweather({
   subsets: ["latin"],
@@ -64,7 +63,6 @@ export default function RootLayout({
           <ScrollToTop />
           {children}
         </SmoothScroll>
-        <CrispChat />
         <SpeedInsights />
         <Analytics />
       </body>
