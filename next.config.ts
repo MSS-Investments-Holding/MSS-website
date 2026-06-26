@@ -19,12 +19,14 @@ const securityHeaders = [
         ? "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://code.tidio.co https://widget-v4.tidiochat.com"
         : "script-src 'self' 'unsafe-inline' https://code.tidio.co https://widget-v4.tidiochat.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://widget-v4.tidiochat.com",
-      "font-src 'self' https://fonts.gstatic.com https://widget-v4.tidiochat.com",
-      "img-src 'self' data: blob: https://cdn.sanity.io https://widget-v4.tidiochat.com https://*.tidiochat.com",
+      "font-src 'self' data: https://fonts.gstatic.com https://widget-v4.tidiochat.com https://code.tidio.co",
+      "img-src 'self' data: blob: https://cdn.sanity.io https://widget-v4.tidiochat.com https://*.tidiochat.com https://cdnjs.cloudflare.com https://code.tidio.co https://avatars.tidiochat.com https://unpkg.com https://tidio-images-messenger.s3.us-east-1.amazonaws.com",
+      "media-src 'self' https://widget-v4.tidiochat.com https://code.tidio.co",
       // Sanity Studio (/studio) calls the Sanity API from the browser,
       // including websocket listeners for live document updates.
-      "connect-src 'self' https://api.sanity.io https://*.api.sanity.io wss://*.api.sanity.io https://*.tidio.co https://*.tidiochat.com wss://*.tidiochat.com",
+      "connect-src 'self' https://api.sanity.io https://*.api.sanity.io wss://*.api.sanity.io https://sentry-new.tidio.co https://socket.tidio.co wss://socket.tidio.co https://api-v2.tidio.co https://code.tidio.co https://widget-v4.tidiochat.com https://uploads.tidio.com",
       "frame-src 'self' https://widget-v4.tidiochat.com",
+      "worker-src 'self' blob: https://widget-v4.tidiochat.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
