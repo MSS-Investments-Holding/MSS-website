@@ -24,6 +24,20 @@ const leaders: Leader[] = [
     cropClass: "leader-husnain-crop",
   },
   {
+    name: "Kunal Patel",
+    role: "VP Business Transformation & Tax Advisory",
+    image: "/images/home/leader-kunal.jpg",
+    bio: "Kunal Patel is a UK-qualified accountant and Fellow ACCA member with nearly 20 years of experience across the UAE and GCC. He advises corporates, entrepreneurs, family businesses, and high-net-worth individuals on corporate structuring, taxation, and strategic finance. After beginning his career at KPMG across audit, transaction advisory, restructuring, and M&A, he founded a UAE-based financial advisory firm in 2011, delivering commercially focused solutions across accounting, tax, compliance, and corporate advisory.",
+    cropClass: "[object-position:50%_20%]",
+  },
+  {
+    name: "Jessica Lima",
+    role: "VP Compliance & Regulatory Affairs",
+    image: "/images/home/leader-jessica.jpg",
+    bio: "Fintech specialist with experience in regulation, payments, and growth. Skilled in partnerships, go-to-market strategies, compliance, and scaling financial products across regions. Strong in fintech ecosystems, embedded finance, payment infrastructure, and regulated digital services, with proven ability to turn regulations into commercially viable opportunities. Experienced in ecosystem development, stakeholder engagement, cross-border market expansion, and bridging the gap between compliance, operations, and revenue generation.",
+    cropClass: "leader-husnain-crop",
+  },
+  {
     name: "Marc Lanz",
     role: "Head of Operations",
     image: "/images/home/leader-marc.jpg",
@@ -116,13 +130,15 @@ export default function LeadershipSection() {
         </div>
 
         {/*
-         * ── Desktop (≥ 1024px): two fixed-width flex rows ──
+         * ── Desktop (≥ 1024px): three fixed-width flex rows ──
          *
          * Row 1 (Vincent + Husnain): left-aligned, flex-none 410px.
          *   Empty right space absorbs as viewport narrows.
          *
-         * Row 2 (Marc + Sandra): right-aligned via justify-end, flex-none 410px.
-         *   Pair scoots left as viewport narrows, right edge stays within margin.
+         * Row 2 (Kunal + Jessica): right-aligned via justify-end, flex-none 410px.
+         *
+         * Row 3 (Marc + Sandra): left-aligned, flex-none 410px — restores the
+         *   zigzag (left / right / left) down the section.
          */}
         <div className="hidden lg:flex lg:flex-col">
           <div className="mt-20 flex gap-6">
@@ -134,7 +150,15 @@ export default function LeadershipSection() {
           </div>
 
           <div className="mt-16 flex gap-6 justify-end">
-            {leaders.slice(2).map((leader) => (
+            {leaders.slice(2, 4).map((leader) => (
+              <article key={leader.name} className="w-[410px] flex-none">
+                <LeaderCard leader={leader} />
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-16 flex gap-6">
+            {leaders.slice(4).map((leader) => (
               <article key={leader.name} className="w-[410px] flex-none">
                 <LeaderCard leader={leader} />
               </article>
