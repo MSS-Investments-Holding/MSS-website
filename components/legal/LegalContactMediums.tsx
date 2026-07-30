@@ -6,12 +6,6 @@ const contactItems = [
     value: "info@mssinvestmentsholding.com",
   },
   {
-    title: "Media Inquiries",
-    body: "All group media enquiries should be directed to:",
-    href: "mailto:media@mssinvestmentsholding.com",
-    value: "media@mssinvestmentsholding.com",
-  },
-  {
     title: "Contact Us",
     body: "For all support related matters, contact us at:",
     href: "tel:+971503840381",
@@ -22,7 +16,7 @@ const contactItems = [
 export default function LegalContactMediums() {
   return (
     <section aria-label="Contact Mediums" className="w-full bg-white px-5 md:px-12 lg:px-20">
-      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8">
         {contactItems.map((item, index) => (
           <article
             key={item.title}

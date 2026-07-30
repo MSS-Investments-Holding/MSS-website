@@ -54,12 +54,15 @@ function ColLabel({ text }: { text: string }) {
   );
 }
 
-export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
+export default function Footer({ topMargin = true, topDivider = true }: { topMargin?: boolean; topDivider?: boolean }) {
   return (
     <footer role="contentinfo" className={["w-full bg-white", topMargin ? "mt-20" : ""].join(" ")}>
 
-      {/* Top divider */}
-      <div className="mx-5 md:mx-12 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
+      {/* Top divider — suppressed where the preceding section already supplies
+          its own bottom rule (e.g. legal pages' contact section). */}
+      {topDivider && (
+        <div className="mx-5 md:mx-12 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
+      )}
 
       {/*
        * Main area — lg:min-h-[570px] ensures the container is tall enough

@@ -101,7 +101,7 @@ export default function LegalPageLayout({ title, lastUpdated, sections }: Props)
       </section>
 
       <LegalContactMediums />
-      <Footer topMargin={false} />
+      <Footer topMargin={false} topDivider={false} />
     </main>
   );
 }
