@@ -15,7 +15,7 @@ const contactItems = [
 
 export default function LegalContactMediums() {
   return (
-    <section aria-label="Contact Mediums" className="w-full bg-white px-5 md:px-12 lg:px-20 pb-6">
+    <section aria-label="Contact Mediums" className="w-full bg-white px-5 md:px-12 lg:px-20">
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8">
         {contactItems.map((item, index) => {
           const hasLeftDivider = index > 0;
