@@ -15,32 +15,50 @@ const contactItems = [
 
 export default function LegalContactMediums() {
   return (
-    <section aria-label="Contact Mediums" className="w-full bg-white px-5 md:px-12 lg:px-20">
+    <section aria-label="Contact Mediums" className="w-full bg-white px-5 md:px-12 lg:px-20 pb-6">
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8">
-        {contactItems.map((item, index) => (
-          <article
-            key={item.title}
-            className={[
-              "legal-contact-card relative text-center",
-              index > 0 ? "md:border-l md:border-[#D2D5D9]" : "",
-            ].join(" ")}
-          >
-            <div className="absolute left-0 top-0 h-px w-full bg-[#D2D5D9]" aria-hidden="true" />
-            <div className="absolute left-0 bottom-0 h-px w-full bg-[#D2D5D9]" aria-hidden="true" />
-            <h2 className="legal-contact-title font-heading m-0 text-[#1C1C1F]">
-              {item.title}
-            </h2>
-            <p className="legal-contact-body font-body mx-auto mb-0 text-[#67686B]">
-              {item.body}
-            </p>
-            <a
-              href={item.href}
-              className="legal-contact-link font-body mx-auto block text-[#373738]"
+        {contactItems.map((item, index) => {
+          const hasLeftDivider = index > 0;
+          const hasRightDivider = index < contactItems.length - 1;
+          // Desktop: keep a 16px gap between each horizontal rule and the
+          // adjacent vertical divider — inset on the divider side. Mobile
+          // stacks (no divider), so rules stay full width.
+          const ruleClass = [
+            "absolute h-px bg-[#D2D5D9] left-0 w-full",
+            hasLeftDivider ? "md:left-4" : "",
+            hasLeftDivider && hasRightDivider
+              ? "md:w-full"
+              : hasLeftDivider
+              ? "md:w-[calc(100%_-_16px)]"
+              : hasRightDivider
+              ? "md:w-[calc(100%_+_16px)]"
+              : "",
+          ].join(" ");
+          return (
+            <article
+              key={item.title}
+              className={[
+                "legal-contact-card relative text-center",
+                hasLeftDivider ? "md:border-l md:border-[#D2D5D9]" : "",
+              ].join(" ")}
             >
-              {item.value}
-            </a>
-          </article>
-        ))}
+              <div className={`${ruleClass} top-0`} aria-hidden="true" />
+              <div className={`${ruleClass} bottom-0`} aria-hidden="true" />
+              <h2 className="legal-contact-title font-heading m-0 text-[#1C1C1F]">
+                {item.title}
+              </h2>
+              <p className="legal-contact-body font-body mx-auto mb-0 text-[#67686B]">
+                {item.body}
+              </p>
+              <a
+                href={item.href}
+                className="legal-contact-link font-body mx-auto block text-[#373738]"
+              >
+                {item.value}
+              </a>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
