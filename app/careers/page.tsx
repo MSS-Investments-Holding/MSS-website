@@ -7,6 +7,7 @@ import ArrowUpRight from "@/components/icons/ArrowUpRight";
 import ArrowRight from "@/components/icons/ArrowRight";
 import CareersScrollButton from "@/components/careers/CareersScrollButton";
 import { jobs } from "@/lib/jobs";
+import { HIRING_ENABLED } from "@/lib/features";
 
 export const metadata: Metadata = {
   title: "Careers | MSS Investments Holding",
@@ -89,9 +90,11 @@ export default function CareersPage() {
             We&apos;re always looking to connect with talented people who are passionate about tackling the biggest challenges facing our planet.
           </p>
 
-          <div className="careers-hero-button">
-            <CareersScrollButton />
-          </div>
+          {HIRING_ENABLED && (
+            <div className="careers-hero-button">
+              <CareersScrollButton />
+            </div>
+          )}
         </div>
       </section>
 
@@ -192,7 +195,9 @@ export default function CareersPage() {
 
       {/* ══════════════════════════════════════════════════════════
           OPEN ROLES — label + H2 + 5 job rows with dividers
+          Hidden while hiring is paused (HIRING_ENABLED === false).
          ══════════════════════════════════════════════════════════ */}
+      {HIRING_ENABLED && (
       <section
         id="open-roles"
         aria-label="Open Roles"
@@ -262,6 +267,7 @@ export default function CareersPage() {
           ))}
         </div>
       </section>
+      )}
 
       {/* ══════════════════════════════════════════════════════════
           OPEN APPLICATION — split: image left · warm beige right
@@ -307,12 +313,12 @@ export default function CareersPage() {
             className="font-body text-body-sm mt-4"
             style={{ color: "#67686B", margin: 0, marginTop: "16px", maxWidth: "480px" }}
           >
-            We are always open to hearing from thoughtful, capable people who are a strong fit for the ecosystem. Send us your CV and a short introduction at <a href="mailto:careers@mssinvestmentsholding.com" className="text-body-sm-emphasized font-body" style={{ color: "#1C1C1F" }}>careers@mssinvestmentsholding.com</a>, and we&apos;ll keep your profile in mind for future opportunities.
+            We are always open to hearing from thoughtful, capable people who are a strong fit for the ecosystem. Send us your CV and a short introduction at <a href="mailto:info@mssinvestmentsholding.com" className="text-body-sm-emphasized font-body" style={{ color: "#1C1C1F" }}>info@mssinvestmentsholding.com</a>, and we&apos;ll keep your profile in mind for future opportunities.
           </p>
 
           <div className="careers-application-button">
             <a
-              href="mailto:careers@mssinvestmentsholding.com"
+              href="mailto:info@mssinvestmentsholding.com"
               className="inline-flex items-center justify-center gap-[8px] font-body text-body-sm text-white"
               style={{
                 height: "40px",

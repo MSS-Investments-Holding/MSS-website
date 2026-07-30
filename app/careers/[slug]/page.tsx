@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ArrowUpRight from "@/components/icons/ArrowUpRight";
 import { jobs } from "@/lib/jobs";
+import { HIRING_ENABLED } from "@/lib/features";
 import { notFound } from "next/navigation";
 
 interface Props {
@@ -11,6 +12,8 @@ interface Props {
 }
 
 export function generateStaticParams(): { slug: string }[] {
+  // No detail pages while hiring is paused.
+  if (!HIRING_ENABLED) return [];
   return jobs.map((j) => ({ slug: j.slug }));
 }
 
@@ -25,11 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function JobDetailsPage({ params }: Props) {
+  if (!HIRING_ENABLED) notFound();
   const { slug } = await params;
   const job = jobs.find((j) => j.slug === slug);
   if (!job) notFound();
 
-  const applyHref = `mailto:careers@mssinvestmentsholding.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`;
+  const applyHref = `mailto:info@mssinvestmentsholding.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`;
 
   return (
     <main id="main-content">
