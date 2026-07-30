@@ -37,13 +37,18 @@ export default function LegalContactMediums() {
           return (
             <article
               key={item.title}
-              className={[
-                "legal-contact-card relative text-center",
-                hasLeftDivider ? "md:border-l md:border-[#D2D5D9]" : "",
-              ].join(" ")}
+              className="legal-contact-card relative text-center"
             >
               <div className={`${ruleClass} top-0`} aria-hidden="true" />
               <div className={`${ruleClass} bottom-0`} aria-hidden="true" />
+              {/* Vertical divider — inset 16px top/bottom so it sits 32px
+                  shorter than the column height. Desktop only. */}
+              {hasLeftDivider && (
+                <div
+                  className="hidden md:block absolute left-0 top-4 bottom-4 w-px bg-[#D2D5D9]"
+                  aria-hidden="true"
+                />
+              )}
               <h2 className="legal-contact-title font-heading m-0 text-[#1C1C1F]">
                 {item.title}
               </h2>
