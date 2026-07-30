@@ -54,29 +54,23 @@ function ColLabel({ text }: { text: string }) {
   );
 }
 
-export default function Footer({ topMargin = true, topDivider = true }: { topMargin?: boolean; topDivider?: boolean }) {
+export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
   return (
     <footer role="contentinfo" className={["w-full bg-white", topMargin ? "mt-20" : ""].join(" ")}>
 
-      {/* Top divider — suppressed where the preceding section already supplies
-          its own bottom rule (e.g. legal pages' contact section). */}
-      {topDivider && (
-        <div className="mx-5 md:mx-12 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
-      )}
+      {/* Top divider */}
+      <div className="mx-5 md:mx-12 lg:mx-20" style={{ height: "1px", backgroundColor: "#D2D5D9" }} />
 
       {/*
        * Main area — lg:min-h-[570px] ensures the container is tall enough
        * for the absolute-positioned right image without a stacking spacer div.
        */}
-      <div className="relative w-full md:min-h-[568px] lg:min-h-[568px]" style={{ position: "relative" }}>
+      <div className="relative w-full md:min-h-[568px] lg:min-h-[568px]">
 
-        {/* Right image — desktop follows the updated Figma crop and placement.
-         * Inline position/overflow guarantee the fill image stays boxed even
-         * before the external CSS (class-based containment) has loaded — prevents
-         * a full-viewport FOUC flash of this image on a cold cache. */}
+        {/* Right image — desktop follows the updated Figma crop and placement. */}
         <div
           className="absolute top-20 right-12 lg:right-20 hidden md:block overflow-hidden bg-[#0B1738]"
-          style={{ position: "absolute", overflow: "hidden", width: "43.05%", maxWidth: "740px", height: "488px" }}
+          style={{ width: "43.05%", maxWidth: "740px", height: "488px" }}
         >
           <div className="mss-footer-media-image" aria-hidden="true">
             <Image
@@ -149,7 +143,7 @@ export default function Footer({ topMargin = true, topDivider = true }: { topMar
           </div>
 
           {/* Footer image — mobile only, below links */}
-          <div className="md:hidden w-full overflow-hidden bg-[#0B1738]" style={{ marginTop: "40px", aspectRatio: "627/488", position: "relative", overflow: "hidden" }}>
+          <div className="md:hidden w-full overflow-hidden bg-[#0B1738]" style={{ marginTop: "40px", aspectRatio: "627/488", position: "relative" }}>
             <div className="mss-footer-media-image" aria-hidden="true">
               <Image
                 src="/global/footer-image.webp"
