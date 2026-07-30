@@ -83,8 +83,10 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
           </div>
         </div>
 
-        {/* Left area — logo + link grid */}
-        <div className="footer-left-content relative z-10 pt-10">
+        {/* Left area — logo + link grid.
+            md+: pt-20 (80px) so the logo top aligns with the right image
+            (top-20). Mobile keeps pt-10 (no side-by-side image). */}
+        <div className="footer-left-content relative z-10 pt-10 md:pt-20">
 
           {/* Logo — 70×100px, links to homepage */}
           <Link href="/" aria-label="MSS Investments Holding — Home" className="inline-block mb-10 lg:mb-14" style={{ width: "70px", height: "100px", position: "relative", display: "block" }}>
