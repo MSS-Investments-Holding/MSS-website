@@ -34,7 +34,7 @@ export default async function HomePage() {
       <LeadershipSection />
       <HomeCTASection />
       {NEWS_ENABLED ? <NewsSection articles={newsArticles} /> : null}
-      <Footer topMargin={false} />
+      <Footer />
     </main>
   );
 }
