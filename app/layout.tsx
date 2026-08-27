@@ -52,6 +52,23 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${merriweather.variable} ${inter.variable}`}>
+      <head>
+        {/*
+         * FOUC guard — inline critical CSS, available before the external
+         * stylesheet loads. next/image `fill` images are position:absolute;
+         * if their wrapper's positioning class hasn't applied yet they escape
+         * to the viewport and stretch full-screen. This contains any fill
+         * image's wrapper. `:where()` keeps it at zero specificity, so the
+         * real class-based positioning (relative/absolute) wins once the
+         * stylesheet loads — this only takes effect during the load window.
+         */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html:
+              ':where(*:has(> img[data-nimg="fill"])){position:relative;overflow:hidden}',
+          }}
+        />
+      </head>
       <body>
         <a
           href="#main-content"
