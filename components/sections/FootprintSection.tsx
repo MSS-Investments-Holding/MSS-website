@@ -110,6 +110,7 @@ export default function FootprintSection() {
               alt=""
               width={440}
               height={440}
+              loading="lazy"
               className="w-full h-auto"
               draggable={false}
             />
@@ -131,6 +132,7 @@ export default function FootprintSection() {
               alt=""
               width={440}
               height={440}
+              loading="lazy"
               className="w-full h-full object-contain"
               draggable={false}
             />

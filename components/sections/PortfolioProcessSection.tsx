@@ -70,7 +70,7 @@ export default function PortfolioProcessSection() {
           {steps.map((step) => (
             <div key={step.title} className="flex flex-col items-center text-center">
               <div className="w-10 h-10 bg-white flex items-center justify-center flex-shrink-0">
-                <img src={step.icon} alt="" width={40} height={40} style={{ width: "40px", height: "40px", objectFit: "contain" }} />
+                <img src={step.icon} alt="" width={40} height={40} loading="lazy" style={{ width: "40px", height: "40px", objectFit: "contain" }} />
               </div>
               <h3 className="font-heading text-h5" style={{ color: "#1C1C1F", margin: 0, marginTop: "24px" }}>
                 {step.title}
@@ -112,6 +112,7 @@ export default function PortfolioProcessSection() {
                   alt={company.name}
                   width={company.logoW}
                   height={company.logoH}
+                  loading="lazy"
                   style={{ width: `${company.logoW}px`, height: `${company.logoH}px`, objectFit: "contain", objectPosition: "left" }}
                 />
 

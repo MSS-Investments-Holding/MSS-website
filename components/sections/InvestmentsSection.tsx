@@ -120,7 +120,7 @@ function SectorCard({ card, desktopStyle }: { card: typeof cards[number]; deskto
   return (
     <article className="bg-white flex flex-col" style={{ minHeight: "400px", padding: "24px", ...desktopStyle }}>
       <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
-        <img src={card.icon} alt="" width={60} height={60} style={{ width: "60px", height: "60px", objectFit: "contain" }} />
+        <img src={card.icon} alt="" width={60} height={60} loading="lazy" style={{ width: "60px", height: "60px", objectFit: "contain" }} />
       </div>
       <h3 className="font-heading text-h4" style={{ color: "#1C1C1F", margin: 0, marginTop: "64px" }}>
         {card.title}

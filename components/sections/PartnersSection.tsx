@@ -59,6 +59,7 @@ export default function PartnersSection() {
                 alt={partner.alt}
                 width={partner.width}
                 height={partner.maxHeight}
+                loading="lazy"
                 style={{
                   width: "auto",
                   height: "auto",
