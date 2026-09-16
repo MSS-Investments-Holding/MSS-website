@@ -167,8 +167,6 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
             </p>
             <div className="text-label font-body flex items-center gap-2 mt-2" style={{ color: "#67686B" }}>
               <span>+971 50 384 0381</span>
-              <span aria-hidden="true" style={{ display: "inline-block", width: "1px", height: "10px", backgroundColor: "#67686B", flexShrink: 0 }} />
-              <span>+44 7466 731742</span>
             </div>
           </div>
 
@@ -189,8 +187,6 @@ export default function Footer({ topMargin = true }: { topMargin?: boolean }) {
         </p>
         <div className="text-label font-body flex items-center gap-2" style={{ color: "#67686B" }}>
           <span>+971 50 384 0381</span>
-          <span aria-hidden="true" style={{ display: "inline-block", width: "1px", height: "10px", backgroundColor: "#67686B", flexShrink: 0 }} />
-          <span>+44 7466 731742</span>
         </div>
       </div>
 
