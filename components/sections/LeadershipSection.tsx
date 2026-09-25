@@ -6,6 +6,7 @@ interface Leader {
   image: string;
   bio?: string;
   cropClass: string;       // object-position class for mobile/tablet fill approach
+  placeholder?: boolean;   // grey placeholder card (no real headshot yet)
 }
 
 const leaders: Leader[] = [
@@ -40,8 +41,9 @@ const leaders: Leader[] = [
   {
     name: "Marc Lanz",
     role: "Head of Operations",
-    image: "/images/home/leader-marc.jpg",
-    cropClass: "[object-position:50%_45%]",
+    image: "/images/home/leader-placeholder.png",
+    cropClass: "object-center",
+    placeholder: true,
   },
   {
     name: "Sandra Schaad",
@@ -52,36 +54,40 @@ const leaders: Leader[] = [
 ];
 
 function LeaderCard({ leader }: { leader: Leader }) {
+  // Placeholder cards use the grey brand tint (#F0F2F5); real headshots
+  // sit on navy (#0B1738). Placeholder art is decorative, so no alt text.
+  const cardBg = leader.placeholder ? "bg-[#F0F2F5]" : "bg-[#0B1738]";
+  const altText = leader.placeholder ? "" : leader.name;
   return (
     <>
       {/* Mobile (< 768px): fluid card width, locked 410:390 image ratio, no stretching */}
-      <div className="relative bg-[#0B1738] overflow-hidden aspect-[41/39] md:hidden">
+      <div className={`relative ${cardBg} overflow-hidden aspect-[41/39] md:hidden`}>
         <Image
           fill
           src={leader.image}
-          alt={leader.name}
+          alt={altText}
           className={`object-cover ${leader.cropClass}`}
           sizes="(max-width: 767px) min(calc(100vw - 40px), 420px)"
         />
       </div>
 
       {/* Tablet (768px–1023px): fixed card width, image fills a fixed frame */}
-      <div className="relative bg-[#0B1738] overflow-hidden h-[340px] hidden md:block lg:hidden">
+      <div className={`relative ${cardBg} overflow-hidden h-[340px] hidden md:block lg:hidden`}>
         <Image
           fill
           src={leader.image}
-          alt={leader.name}
+          alt={altText}
           className={`object-cover ${leader.cropClass}`}
           sizes="320px"
         />
       </div>
 
       {/* Desktop (≥ 1024px): fixed card width, image fills a fixed frame */}
-      <div className="relative bg-[#0B1738] overflow-hidden h-[390px] hidden lg:block">
+      <div className={`relative ${cardBg} overflow-hidden h-[390px] hidden lg:block`}>
         <Image
           fill
           src={leader.image}
-          alt={leader.name}
+          alt={altText}
           className={`object-cover ${leader.cropClass}`}
           sizes="410px"
         />
