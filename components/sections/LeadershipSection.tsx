@@ -7,6 +7,7 @@ interface Leader {
   bio?: string;
   cropClass: string;       // object-position class for mobile/tablet fill approach
   placeholder?: boolean;   // grey placeholder card (no real headshot yet)
+  hidden?: boolean;        // kept in code but not rendered on the site
 }
 
 const leaders: Leader[] = [
@@ -44,6 +45,7 @@ const leaders: Leader[] = [
     image: "/images/home/leader-placeholder.png",
     cropClass: "object-center",
     placeholder: true,
+    hidden: true,
   },
   {
     name: "Sandra Schaad",
@@ -112,6 +114,9 @@ function LeaderCard({ leader }: { leader: Leader }) {
 }
 
 export default function LeadershipSection() {
+  // Render only visible leaders. Hiding one lets later leaders slide up into
+  // the freed slot, so the zigzag row layout stays intact on all breakpoints.
+  const visibleLeaders = leaders.filter((leader) => !leader.hidden);
   return (
     <section aria-label="Leadership" className="w-full bg-white">
       <div className="w-full px-5 md:px-12 lg:px-20 pt-28 md:pt-32 lg:pt-32 pb-20 md:pb-28 lg:pb-[120px]">
@@ -128,7 +133,7 @@ export default function LeadershipSection() {
             Cards sit side-by-side when space allows, stack when it doesn't.
             w-[320px]: fits 2 per row at 768px (672px available, 2×320+24=664px). ── */}
         <div className="mt-20 flex flex-wrap gap-x-6 gap-y-10 md:gap-y-12 lg:hidden">
-          {leaders.map((leader) => (
+          {visibleLeaders.map((leader) => (
             <article key={leader.name} className="w-full max-w-[420px] flex-none md:w-[320px] md:max-w-none">
               <LeaderCard leader={leader} />
             </article>
@@ -148,7 +153,7 @@ export default function LeadershipSection() {
          */}
         <div className="hidden lg:flex lg:flex-col">
           <div className="mt-20 flex gap-6">
-            {leaders.slice(0, 2).map((leader) => (
+            {visibleLeaders.slice(0, 2).map((leader) => (
               <article key={leader.name} className="w-[410px] flex-none">
                 <LeaderCard leader={leader} />
               </article>
@@ -156,7 +161,7 @@ export default function LeadershipSection() {
           </div>
 
           <div className="mt-16 flex gap-6 justify-end">
-            {leaders.slice(2, 4).map((leader) => (
+            {visibleLeaders.slice(2, 4).map((leader) => (
               <article key={leader.name} className="w-[410px] flex-none">
                 <LeaderCard leader={leader} />
               </article>
@@ -164,7 +169,7 @@ export default function LeadershipSection() {
           </div>
 
           <div className="mt-16 flex gap-6">
-            {leaders.slice(4).map((leader) => (
+            {visibleLeaders.slice(4).map((leader) => (
               <article key={leader.name} className="w-[410px] flex-none">
                 <LeaderCard leader={leader} />
               </article>
