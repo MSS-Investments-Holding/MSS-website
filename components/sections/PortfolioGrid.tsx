@@ -23,6 +23,7 @@ interface Company {
     partnershipStart: string;
     status: string;
     websiteLabel: string;
+    websiteNoLink?: boolean;   // show website as plain text (site not accessible)
     panelDesc?: string;
     sections: DetailSection[];
   };
@@ -106,7 +107,8 @@ const companies: Company[] = [
     details: {
       partnershipStart: "2022",
       status: "Ongoing",
-      websiteLabel: "www.metaxpayments.com/",
+      websiteLabel: "http://mextax.com.pk/",
+      websiteNoLink: true,
       sections: [
         {
           heading: "Mission and Vision",
@@ -515,14 +517,20 @@ export default function PortfolioGrid(): React.ReactElement {
                 </div>
                 <div className="portfolio-detail-meta-item">
                   <p className="portfolio-detail-meta-label font-heading">Website</p>
-                  <a
-                    href={activeCompany.site}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="portfolio-detail-meta-value portfolio-detail-meta-link font-body text-body-sm-emphasized"
-                  >
-                    {activeCompany.details.websiteLabel}
-                  </a>
+                  {activeCompany.details.websiteNoLink ? (
+                    <p className="portfolio-detail-meta-value portfolio-detail-meta-link font-body">
+                      {activeCompany.details.websiteLabel}
+                    </p>
+                  ) : (
+                    <a
+                      href={activeCompany.site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="portfolio-detail-meta-value portfolio-detail-meta-link font-body text-body-sm-emphasized"
+                    >
+                      {activeCompany.details.websiteLabel}
+                    </a>
+                  )}
                 </div>
               </div>
 
