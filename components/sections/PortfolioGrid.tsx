@@ -97,10 +97,10 @@ const companies: Company[] = [
   },
   {
     name: "MetaX",
-    logo: "/icons/logo-metax.svg",
-    logoW: 89,
+    logo: "/icons/logo-metax.png",
+    logoW: 86,
     logoH: 40,
-    detailLogoW: 125,
+    detailLogoW: 120,
     detailLogoH: 56,
     tags: ["Fintech", "B2C", "MSB License", "PSP License"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
