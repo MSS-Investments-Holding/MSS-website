@@ -97,7 +97,7 @@ const companies: Company[] = [
   },
   {
     name: "MetaX",
-    logo: "/icons/logo-metax.png",
+    logo: "/icons/logo-metax.webp",
     logoW: 86,
     logoH: 40,
     detailLogoW: 120,
