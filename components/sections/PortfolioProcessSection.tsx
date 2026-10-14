@@ -9,19 +9,7 @@ const steps = [
   { icon: "/icons/step-launch.svg",     title: "Management",  desc: "Stay involved post-investment, supporting governance, priorities, and value creation." },
 ];
 
-interface Company {
-  name: string;
-  logo: string;
-  logoW: number;
-  logoH: number;
-  tags: string[];
-  desc: string;
-  site: string;
-  comingSoon: boolean;
-  hideWebsite?: boolean;   // hide the "Visit Website" link (site not accessible)
-}
-
-const companies: Company[] = [
+const companies = [
   {
     name: "DT&T",
     logo: "/icons/logo-dtt.svg",
@@ -44,14 +32,13 @@ const companies: Company[] = [
   },
   {
     name: "MetaX",
-    logo: "/icons/logo-metax.webp",
-    logoW: 86,
+    logo: "/icons/logo-metax.svg",
+    logoW: 89,
     logoH: 40,
     tags: ["Fintech", "B2C", "MSB License", "PSP License"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     site: "https://www.metaxpayments.com/",
     comingSoon: false,
-    hideWebsite: true,
   },
   {
     name: "TokenBazaar",
@@ -146,20 +133,16 @@ export default function PortfolioProcessSection() {
 
                 <div className="flex-1 min-h-[64px]" />
                 <div className="flex items-center justify-between">
-                  {company.hideWebsite ? (
-                    <span />
-                  ) : (
-                    <a
-                      href={company.site}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-[2px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
-                      style={{ textDecoration: "none" }}
-                    >
-                      Visit Website
-                      <ArrowUpRight fill="currentColor" />
-                    </a>
-                  )}
+                  <a
+                    href={company.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-[2px] text-links font-body py-[2px] border-b text-[#67686B] border-[#67686B] hover:text-[#373738] hover:border-[#373738] transition-colors duration-200"
+                    style={{ textDecoration: "none" }}
+                  >
+                    Visit Website
+                    <ArrowUpRight fill="currentColor" />
+                  </a>
                   {company.comingSoon && (
                     <span
                       className="text-label font-body flex-shrink-0"

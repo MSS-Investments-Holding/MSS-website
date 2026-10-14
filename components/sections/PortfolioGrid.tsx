@@ -23,7 +23,6 @@ interface Company {
     partnershipStart: string;
     status: string;
     websiteLabel: string;
-    websiteNoLink?: boolean;   // show website as plain text (site not accessible)
     panelDesc?: string;
     sections: DetailSection[];
   };
@@ -97,18 +96,17 @@ const companies: Company[] = [
   },
   {
     name: "MetaX",
-    logo: "/icons/logo-metax.webp",
-    logoW: 86,
+    logo: "/icons/logo-metax.svg",
+    logoW: 89,
     logoH: 40,
-    detailLogoW: 120,
+    detailLogoW: 125,
     detailLogoH: 56,
     tags: ["Fintech", "B2C", "MSB License", "PSP License"],
     desc: "MetaX empowers global commerce by providing smarter, faster and borderless payment solutions. Our platform simplifies cross-border transactions, allowing businesses to expand, grow, and connect with the world effortlessly through a unified digital interface.",
     details: {
       partnershipStart: "2022",
       status: "Ongoing",
-      websiteLabel: "http://mextax.com.pk/",
-      websiteNoLink: true,
+      websiteLabel: "www.metaxpayments.com/",
       sections: [
         {
           heading: "Mission and Vision",
@@ -517,20 +515,14 @@ export default function PortfolioGrid(): React.ReactElement {
                 </div>
                 <div className="portfolio-detail-meta-item">
                   <p className="portfolio-detail-meta-label font-heading">Website</p>
-                  {activeCompany.details.websiteNoLink ? (
-                    <p className="portfolio-detail-meta-value portfolio-detail-meta-link font-body">
-                      {activeCompany.details.websiteLabel}
-                    </p>
-                  ) : (
-                    <a
-                      href={activeCompany.site}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="portfolio-detail-meta-value portfolio-detail-meta-link font-body text-body-sm-emphasized"
-                    >
-                      {activeCompany.details.websiteLabel}
-                    </a>
-                  )}
+                  <a
+                    href={activeCompany.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="portfolio-detail-meta-value portfolio-detail-meta-link font-body text-body-sm-emphasized"
+                  >
+                    {activeCompany.details.websiteLabel}
+                  </a>
                 </div>
               </div>
 
