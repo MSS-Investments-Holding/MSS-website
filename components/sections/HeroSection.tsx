@@ -2,16 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Navbar from "@/components/layout/Navbar";
-import type { SanityArticle } from "@/lib/sanity/types";
 import ArrowRight from "@/components/icons/ArrowRight";
 
-interface Props {
-  articles: SanityArticle[];
-}
-
-export default function HeroSection({ articles }: Props) {
-  const hasNews = articles.length > 0;
-
+export default function HeroSection() {
   return (
     <section
       className="home-hero-section relative w-full overflow-hidden flex flex-col min-h-[880px] md:min-h-[930px] lg:min-h-[930px]"
@@ -93,35 +86,6 @@ export default function HeroSection({ articles }: Props) {
             Send Us Your Pitch
             <ArrowRight size="lg" fill="#1C1C1F" />
           </Link>
-
-          {hasNews ? (
-            /* News articles, below button */
-            <div className="mt-8 lg:mt-10">
-              <p className="text-label font-body mb-4" style={{ color: "var(--color-neutral-300)" }}>In the News:</p>
-              <div className="w-full h-px bg-white/30 mb-4" />
-              <div className="flex gap-4 flex-wrap sm:flex-nowrap">
-                {articles.map((article, idx) => (
-                  <Link
-                    key={article.slug.current}
-                    href={`/news/${article.slug.current}`}
-                    className={`flex flex-col gap-3 ${idx >= 1 ? "hidden md:flex" : ""}`}
-                    style={{ width: "200px", flexShrink: 0, textDecoration: "none" }}
-                  >
-                    <div className="relative overflow-hidden bg-[var(--color-grey-black)]" style={{ width: "200px", height: "130px" }}>
-                      {article.image && (
-                        <Image src={article.image} alt="" fill className="object-cover" sizes="200px" />
-                      )}
-                    </div>
-                    <p className="font-body text-body-sm text-white line-clamp-3">{article.title}</p>
-                    <span className="self-start inline-flex items-center gap-[4px] text-links font-body text-white py-[2px] border-b border-white hover:opacity-70 transition-opacity">
-                      Read More
-                      <ArrowRight size="sm" fill="white" />
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : null}
         </div>
 
       </div>

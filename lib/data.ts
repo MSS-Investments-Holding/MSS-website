@@ -98,81 +98,6 @@ export const processSteps = [
   },
 ];
 
-export const articles = [
-  {
-    slug: "what-makes-a-venture-opportunity-strategically-relevant-today",
-    title: "What Makes a Venture Opportunity Strategically Relevant Today",
-    date: "12 April 2026",
-    excerpt: "A view on the qualities that define strong early-stage opportunities across technology, infrastructure, and future-facing digital sectors.",
-    category: "Ventures",
-    image: "/images/news/article-1.jpg",
-  },
-  {
-    slug: "ais-expanding-role-in-operational-and-financial-systems",
-    title: "AI's Expanding Role in Operational and Financial Systems",
-    date: "12 April 2026",
-    excerpt: "Beyond experimentation, AI is beginning to influence the systems, workflows, and decision-making layers behind scalable digital businesses.",
-    category: "Fintech",
-    image: "/images/news/article-2.jpg",
-  },
-  {
-    slug: "why-multi-currency-platforms-are-becoming-strategic-infrastructure",
-    title: "Why Multi-Currency Platforms Are Becoming Strategic Infrastructure",
-    date: "12 April 2026",
-    excerpt: "As global business grows more connected, financial platforms that simplify currency movement and account access are becoming increasingly essential.",
-    category: "Fintech",
-    image: "/images/news/article-3.jpg",
-  },
-  {
-    slug: "building-for-long-term-value-in-high-growth-markets",
-    title: "Building for Long-Term Value in High-Growth Markets",
-    date: "12 April 2026",
-    excerpt: "How sector focus, market positioning, and disciplined execution come together to create durable value across emerging growth corridors.",
-    category: "Growth",
-    image: "/images/news/article-4.jpg",
-  },
-  {
-    slug: "the-next-phase-of-cross-border-payments-infrastructure",
-    title: "The Next Phase of Cross-Border Payments Infrastructure",
-    date: "12 April 2026",
-    excerpt: "A closer look at how faster settlement systems, compliance layers, and multi-market connectivity are reshaping global commerce.",
-    category: "Press Release",
-    image: "/images/news/article-5.jpg",
-  },
-  {
-    slug: "where-finance-technology-and-infrastructure-are-converging",
-    title: "Where Finance, Technology, and Infrastructure Are Converging",
-    date: "12 April 2026",
-    excerpt: "The strongest opportunities increasingly sit at the intersection of regulated finance, digital systems, and the infrastructure behind modern economies.",
-    category: "Growth",
-    image: "/images/news/article-6.jpg",
-  },
-  {
-    slug: "what-makes-a-venture-opportunity-strategically-relevant-today-2",
-    title: "What Makes a Venture Opportunity Strategically Relevant Today",
-    date: "12 April 2026",
-    excerpt: "A view on the qualities that define strong early-stage opportunities across technology, infrastructure, and future-facing digital sectors.",
-    category: "Ventures",
-    image: "/images/news/article-1.jpg",
-  },
-  {
-    slug: "building-for-long-term-value-in-high-growth-markets-2",
-    title: "Building for Long-Term Value in High-Growth Markets",
-    date: "12 April 2026",
-    excerpt: "How sector focus, market positioning, and disciplined execution come together to create durable value across emerging growth corridors.",
-    category: "Growth",
-    image: "/images/news/article-2.jpg",
-  },
-  {
-    slug: "where-finance-technology-and-infrastructure-are-converging-2",
-    title: "Where Finance, Technology, and Infrastructure Are Converging",
-    date: "12 April 2026",
-    excerpt: "The strongest opportunities increasingly sit at the intersection of regulated finance, digital systems, and the infrastructure behind modern economies.",
-    category: "Growth",
-    image: "/images/news/article-3.jpg",
-  },
-];
-
 export const leadership = [
   {
     name: "Vincent de Cannière",
@@ -185,19 +110,6 @@ export const leadership = [
     role: "Director",
     bio: "Husnain brings over 25 years of experience across fintech, enterprise solutions, branchless banking, and telecom. With executive leadership roles tied to major digital finance and transformation initiatives in Pakistan, UAE, UK and Europe, he contributes deep expertise in strategy and investments.",
     image: "/images/leadership-2.jpg",
-  },
-];
-
-export const heroNewsItems = [
-  {
-    slug: "what-makes-a-venture-opportunity-strategically-relevant-today",
-    image: "/images/news/article-1.jpg",
-    caption: 'Platforms designed with “regulatory-ready” compliance at the core.',
-  },
-  {
-    slug: "ais-expanding-role-in-operational-and-financial-systems",
-    image: "/images/news/article-2.jpg",
-    caption: "A Partner-Centric Holding Company shaping the digital economy.",
   },
 ];
 

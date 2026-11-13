@@ -12,7 +12,6 @@ const NAV_PAGE_HEROES = [
 const OTHER_PAGE_HEROES = [
   "/images/portfolio/hero-bg.jpg",
   "/images/chairman/chairman-hero-bg.webp",
-  "/images/news/news-hero-bg.webp",
   "/images/404/404-hero-bg.webp",
 ];
 
