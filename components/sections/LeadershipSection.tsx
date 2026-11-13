@@ -52,6 +52,7 @@ const leaders: Leader[] = [
     role: "Head of Compliance",
     image: "/images/home/leader-sandra.jpg",
     cropClass: "object-center",
+    hidden: true,
   },
 ];
 
@@ -149,32 +150,40 @@ export default function LeadershipSection() {
          * Row 2 (Kunal + Jessica): right-aligned via justify-end, flex-none 410px.
          *
          * Row 3 (Marc + Sandra): left-aligned, flex-none 410px — restores the
-         *   zigzag (left / right / left) down the section.
+         *   zigzag (left / right / left) down the section. Each row only
+         *   renders when it has visible leaders, so hiding a trailing leader
+         *   drops the row (and its top margin) instead of leaving a gap.
          */}
         <div className="hidden lg:flex lg:flex-col">
-          <div className="mt-20 flex gap-6">
-            {visibleLeaders.slice(0, 2).map((leader) => (
-              <article key={leader.name} className="w-[410px] flex-none">
-                <LeaderCard leader={leader} />
-              </article>
-            ))}
-          </div>
+          {visibleLeaders.slice(0, 2).length > 0 && (
+            <div className="mt-20 flex gap-6">
+              {visibleLeaders.slice(0, 2).map((leader) => (
+                <article key={leader.name} className="w-[410px] flex-none">
+                  <LeaderCard leader={leader} />
+                </article>
+              ))}
+            </div>
+          )}
 
-          <div className="mt-16 flex gap-6 justify-end">
-            {visibleLeaders.slice(2, 4).map((leader) => (
-              <article key={leader.name} className="w-[410px] flex-none">
-                <LeaderCard leader={leader} />
-              </article>
-            ))}
-          </div>
+          {visibleLeaders.slice(2, 4).length > 0 && (
+            <div className="mt-16 flex gap-6 justify-end">
+              {visibleLeaders.slice(2, 4).map((leader) => (
+                <article key={leader.name} className="w-[410px] flex-none">
+                  <LeaderCard leader={leader} />
+                </article>
+              ))}
+            </div>
+          )}
 
-          <div className="mt-16 flex gap-6">
-            {visibleLeaders.slice(4).map((leader) => (
-              <article key={leader.name} className="w-[410px] flex-none">
-                <LeaderCard leader={leader} />
-              </article>
-            ))}
-          </div>
+          {visibleLeaders.slice(4).length > 0 && (
+            <div className="mt-16 flex gap-6">
+              {visibleLeaders.slice(4).map((leader) => (
+                <article key={leader.name} className="w-[410px] flex-none">
+                  <LeaderCard leader={leader} />
+                </article>
+              ))}
+            </div>
+          )}
         </div>
 
       </div>
